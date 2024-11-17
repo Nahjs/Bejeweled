@@ -1,0 +1,5 @@
+D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Formal_Brmal_Bejeweled.dir
+D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Formal_Brmal_Bejeweled_autogen_timestamp_deps.dir
+D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Formal_Brmal_Bejeweled_autogen.dir
