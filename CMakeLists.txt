@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(Formal_Brmal_Bejeweled)
+project(Bejeweled)
 
 # Enable automatic moc, uic, and rcc
 set(CMAKE_AUTOMOC ON)
@@ -73,10 +73,10 @@ set(UIS
 )
 
 # Add executable
-add_executable(Formal_Brmal_Bejeweled ${HEADERS} ${SOURCES} ${UIS})
+add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS})
 
 # Link Qt6 libraries
-target_link_libraries(Formal_Brmal_Bejeweled PRIVATE
+target_link_libraries(Bejeweled PRIVATE
         Qt6::Core
         Qt6::Gui
         Qt6::Widgets
