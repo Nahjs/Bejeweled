@@ -33,20 +33,20 @@ CGameDlg::CGameDlg(QWidget *parent) :
     int i;
     for(i=0;i<8;i++)
     {
-        path = "D:/CLion/Bejeweled/gem"  + QString::number(i+1,10) + ".png";//宝石图片
+        path = ":/res/images/gem"  + QString::number(i+1,10) + ".png";//宝石图片
         pixmap[i].load(path);
     }
     for(i=0;i<10;i++)
     {
-        path = "D:/CLion/Bejeweled/number" + QString::number(i,10) + ".png";//宝石图片
+        path = ":/res/images/number" + QString::number(i,10) + ".png";//宝石图片
         number[i].load(path);
     }
-    circle.load("D:/CLion/Bejeweled/circle.png");
-    pixmap_di.load("D:/CLion/Bejeweled/select.png");//被选中显示
-    disappear1.load("D:/CLion/Bejeweled/tx1.png");
-    disappear2.load("D:/CLion/Bejeweled/tx2.png");
-    disappear3.load("D:/CLion/Bejeweled/tx3.png");//三消的动画过程
-    disappear3.load("D:/CLion/Bejeweled/tx3.png");
+    circle.load(":/res/images/circle.png");
+    pixmap_di.load(":/res/images/select.png");//被选中显示
+    disappear1.load(":/res/images/tx1.png");
+    disappear2.load(":/res/images/tx2.png");
+    disappear3.load(":/res/images/tx3.png");//三消的动画过程
+    disappear3.load(":/res/images/tx3.png");
 
     //道具按钮
     this->ui->pushButton_boom->setCheckable(true);
@@ -54,8 +54,8 @@ CGameDlg::CGameDlg(QWidget *parent) :
     this->ui->pushButton_color->setCheckable(true);
 
     //音乐按钮图片
-    QIcon icoOn(":/music on.png");
-    QIcon icoOff(":/music off.png");
+    QIcon icoOn(":/res/images/musicOn.png");
+    QIcon icoOff(":/res/images/musicOff.png");
     ui->pushButton->setIcon(icoOn);
     ui->pushButton_2->setIcon(icoOff);
     ui->pushButton->setIconSize(QSize(50,50));
@@ -456,7 +456,7 @@ void CGameDlg::do_theme_gem_change(QString path){
     int i;
     for(i=0;i<8;i++)
     {
-        path = ":/new/picture/" + gemtype + QString::number(i+1,10) + ".png";//宝石图片
+        path = ":/res/images/" + gemtype + QString::number(i+1,10) + ".png";//宝石图片
         pixmap[i].load(path);
     }
     this->repaint();

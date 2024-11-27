@@ -43,7 +43,7 @@ private:
     CConfig *config = new CConfig();
     //CConfigLogic *configlogic = new CConfigLogic();
     //默认的背景图片的文件路径
-    QString backgroundimags_path=":/new/picture/background.bmp";
+    QString backgroundimags_path=":/res/images/background1.bmp";
 };
 
 #endif // CTHEMEDLG_H

@@ -46,13 +46,13 @@ private slots:
     void do_theme_gem_change(QString);
    // void do_music_background_change(QString);
     void on_pushButton_stop_clicked();
-    void update_timebar(); //每隔一秒timebar就更新一次的槽函数
+    void update_timebar(); //每隔一秒更新时间条的槽函数
     void Game_start();
     void on_pushButton_continue_clicked();
     void on_pushButton_restart_clicked();
     void do_btn_hint();//点击提示
-    void paintEvent(QPaintEvent *event);
-    void closeEvent(QCloseEvent *event);
+    void paintEvent(QPaintEvent *event);//自定义绘制操作
+    void closeEvent(QCloseEvent *event);//在窗口关闭时执行清理工作
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_cross_clicked();
@@ -61,9 +61,9 @@ private slots:
 
 private:
     Ui::CGameDlg *ui;
-    QTimer *timer;
-    QImage *image_stop = new QImage(":/new/picture/stop.png"); //游戏暂停的图片
-    QImage *image_gameover = new QImage(":/new/picture/gameover.png"); //游戏结束的图片
+    QTimer *timer;//定时器
+    QImage *image_stop = new QImage(":/res/stop.png"); //游戏暂停的图片
+    QImage *image_gameover = new QImage(":/res/gameover.png"); //游戏结束的图片
     QLabel *label_image=new QLabel(this); //存放暂停图片的容器
     CMenuDlg *menu = new CMenuDlg(this);
     CThemeDlg *theme = new CThemeDlg();

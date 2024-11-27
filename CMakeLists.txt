@@ -72,9 +72,14 @@ set(UIS
         cthemedlg.ui
 )
 
-# Add executable
-add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS})
 
+# 添加资源文件
+set(QRC
+        res/res.qrc
+)
+
+# 添加可执行文件
+add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS} ${QRC})
 # Link Qt6 libraries
 target_link_libraries(Bejeweled PRIVATE
         Qt6::Core
