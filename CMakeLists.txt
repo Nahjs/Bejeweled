@@ -6,6 +6,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+# 设置源文件编码为 UTF-8
+set_source_files_properties(src/*.cpp PROPERTIES COMPILE_FLAGS "-finput-charset=UTF-8 -fexec-charset=UTF-8")
+
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Network)
 
 # Add include directories
@@ -13,63 +16,20 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 # Add header files
 set(HEADERS
-        caboutdlg.h
-        capptool.h
-        cbejeweleddlg.h
-        cconfig.h
-        cconfigdao.h
-        cconfiglogic.h
-        cgamedlg.h
         cgamelogic.h
-        chelpdlg.h
-        cmenudlg.h
-        cmusicdlg.h
-        cmusicplayer.h
-        cnamedlg.h
-        crankdao.h
-        crankdlg.h
-        cranklogic.h
-        csetdlg.h
-        cthemedlg.h
         Global.h
 )
 
 # Add source files
 set(SOURCES
-        caboutdlg.cpp
-        capptool.cpp
-        cbejeweleddlg.cpp
-        cconfig.cpp
-        cconfigdao.cpp
-        cconfiglogic.cpp
-        cgamedlg.cpp
         cgamelogic.cpp
-        chelpdlg.cpp
-        cmenudlg.cpp
-        cmusicdlg.cpp
-        cmusicplayer.cpp
-        cnamedlg.cpp
-        crankdao.cpp
-        crankdlg.cpp
-        cranklogic.cpp
-        csetdlg.cpp
-        cthemedlg.cpp
-        Global.cpp
         main.cpp
+        Global.cpp
 )
 
 # Add UI files
 set(UIS
-        caboutdlg.ui
-        cbejeweleddlg.ui
-        cgamedlg.ui
-        chelpdlg.ui
-        cmenudlg.ui
-        cmusicdlg.ui
-        cnamedlg.ui
-        crankdlg.ui
-        csetdlg.ui
-        cthemedlg.ui
+
 )
 
 # Add executable

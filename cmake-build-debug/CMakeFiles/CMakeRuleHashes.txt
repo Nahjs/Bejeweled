@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+44837e4f5b3e15ab2a3083a298b0ee63 Bejeweled_autogen/timestamp
+4d11bce96b0691977e6666639b3b5acd CMakeFiles/Bejeweled_autogen
