@@ -1,5 +1,5 @@
-D:\QT\Tools\CMake_64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S D:\CLion\Bejeweled_$ -B D:\CLion\Bejeweled_$\cmake-build-debug
+D:\QT\Tools\CMake_64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S D:\CLion\Bejew3 -B D:\CLion\Bejew3\cmake-build-debug
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (0.5s)
+-- Configuring done (0.6s)
 -- Generating done (0.1s)
--- Build files have been written to: D:/CLion/Bejeweled_$/cmake-build-debug
+-- Build files have been written to: D:/CLion/Bejew3/cmake-build-debug

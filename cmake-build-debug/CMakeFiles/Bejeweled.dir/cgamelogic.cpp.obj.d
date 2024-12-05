@@ -1,5 +1,5 @@
 CMakeFiles/Bejeweled.dir/cgamelogic.cpp.obj: \
- D:\CLion\Bejeweled_$$\cgamelogic.cpp D:\CLion\Bejeweled_$$\cgamelogic.h \
+ D:\CLion\Bejew3\cgamelogic.cpp D:\CLion\Bejew3\cgamelogic.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -543,4 +543,4 @@ CMakeFiles/Bejeweled.dir/cgamelogic.cpp.obj: \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/winsvc.h \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/mcx.h \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/imm.h \
- D:\CLion\Bejeweled_$$\Global.h
+ D:\CLion\Bejew3\Global.h

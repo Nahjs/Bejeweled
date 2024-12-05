@@ -15,8 +15,8 @@ void CGameLogic::BuildMap(int gemspecies){
     srand((int)time(0));//使用当前时间作为种子来初始化随机数生成器，确保每次运行程序时都会得到不同的随机序列
 
     //初始生成一个数字矩阵
-    for(int n=0;n<maprownum;n++){
-        for(int m =0;m<mapcolnum;m++){
+    for(int n=0;n<MAPROWNUM;n++){
+        for(int m =0;m<MAPCOLNUM;m++){
             gemnum = rand()%gemspecies+1; //生成1-gemspecies的随机数
             m_aMap[n][m]=gemnum;
         }
@@ -24,8 +24,8 @@ void CGameLogic::BuildMap(int gemspecies){
 
     while(checkmap()){
         //判断横向是否有相邻的三个宝石相同
-        for(int j=0;j<maprownum;j++){
-            for(int i=0;i<maprownum-3+1;i++){
+        for(int j=0;j<MAPROWNUM;j++){
+            for(int i=0;i<MAPROWNUM-3+1;i++){
                 int check[3]; //用于检查宝石是否相同
                 for(int n=0;n<3;n++){
                     check[n]=m_aMap[j][i+n];
@@ -40,8 +40,8 @@ void CGameLogic::BuildMap(int gemspecies){
         }
 
         //纵向
-        for(int j=0;j<mapcolnum;j++){
-            for(int i=0;i<maprownum-3+1;i++){
+        for(int j=0;j<MAPCOLNUM;j++){
+            for(int i=0;i<MAPROWNUM-3+1;i++){
                 int check[3];
                 for(int n=0;n<3;n++){
                     check[n]=m_aMap[i+n][j];
@@ -59,8 +59,8 @@ void CGameLogic::BuildMap(int gemspecies){
 
 // 显示地图
 void CGameLogic::DisplayMap(std::ostream& os /*= std::cout*/) {
-    for (int n = 0; n < maprownum; n++) {
-        for (int m = 0; m < mapcolnum; m++) {
+    for (int n = 0; n < MAPROWNUM; n++) {
+        for (int m = 0; m < MAPCOLNUM; m++) {
             os << m_aMap[n][m] << " ";
         }
         os << std::endl;
@@ -70,8 +70,8 @@ void CGameLogic::DisplayMap(std::ostream& os /*= std::cout*/) {
 //判断地图中是否有相邻的三个宝石相同
 bool CGameLogic::checkmap(){
     //判断横向是否有相邻的三个宝石相同
-    for(int j=0;j<maprownum;j++){//遍历每一行
-        for(int i=0;i<maprownum-3+1;i++){
+    for(int j=0;j<MAPROWNUM;j++){//遍历每一行
+        for(int i=0;i<MAPROWNUM-3+1;i++){
             int check[3]; //对于每个i，创建一个大小为3的数组check，用于存储当前检查的三个宝石
             for(int n=0;n<3;n++){
                 check[n]=m_aMap[j][i+n];//将当前行中从i开始的三个宝石依次存入check数组中
@@ -83,8 +83,8 @@ bool CGameLogic::checkmap(){
     }
 
     //判断纵向是否有相邻的三个宝石相同
-    for(int j=0;j<mapcolnum;j++){
-        for(int i=0;i<maprownum-3+1;i++){
+    for(int j=0;j<MAPCOLNUM;j++){
+        for(int i=0;i<MAPROWNUM-3+1;i++){
             int check[3]; //用于检查宝石是否相同
             for(int n=0;n<3;n++){
                 check[n]=m_aMap[i+n][j];
@@ -102,17 +102,17 @@ bool CGameLogic::swap(int a,int b,int m,int n){//传入坐标(a,b)和(m,n)
     if(game_running){
         if(a==m){//同行？
             if(((b-n)==1)or((b-n)==-1)){//相邻？
-                int mid=m_aMap[a][b];//用于交换操作的临时变量
+                int mid_map=m_aMap[a][b];//用于交换操作的临时变量
                 m_aMap[a][b]=m_aMap[m][n];
-                m_aMap[m][n]=mid;
+                m_aMap[m][n]=mid_map;
 
                 //检查交换后的地图是否有可消除的组合
                 if(checkmap()){
                     return true;
                 }else{//没有可消除的组合，撤销交换操作
-                    mid=m_aMap[a][b];
+                    mid_map=m_aMap[a][b];
                     m_aMap[a][b]=m_aMap[m][n];
-                    m_aMap[m][n]=mid;
+                    m_aMap[m][n]=mid_map;
                     return false;
                 }
             }else{
@@ -152,13 +152,13 @@ bool CGameLogic::eliminate(bool noChange)
         return false;
     int eliminate_number[8] = {0, 0, 0, 0, 0, 0, 0, 0};//记录每种宝石被消除的数量。
     bool isChange = false;//当前图是否可消除
-    int current = 0;//当前宝石颜色
-    int temp_aMap[8][8];//一个临时地图数组，用于存储消除后的地图状态。
+    int current = 0;//当前宝石对应的数字
+    int temp_aMap[MAPROWNUM][MAPCOLNUM];//一个临时地图数组，用于存储消除后的地图状态。
     memcpy(temp_aMap, m_aMap, sizeof(m_aMap));
 
-    //横排判断消除
-    for(int j = 0; j < 8; j++)//遍历每一列
-        for(int i = 0; i < 6; i++)//对于每一列中的前6个位置（i 从0到5）
+    //纵向消除判断
+    for(int j = 0; j < MAPROWNUM; j++)//遍历每一列
+        for(int i = 0; i < MAPCOLNUM-2; i++)//对于每一列中的前MAPCOLNUM-1个位置（i 从0到MAPCOLNUM-2）
         {
             current = m_aMap[i][j];
             if(current == m_aMap[i + 1][j] && current == m_aMap[i + 2][j])//检查当前宝石及其后两个宝石是否相同
@@ -177,8 +177,8 @@ bool CGameLogic::eliminate(bool noChange)
             }
         }
     //纵排判断消除
-    for(int j = 0; j < 8; j++)
-        for(int i = 0; i < 6; i++)
+    for(int j = 0; j < MAPCOLNUM; j++)
+        for(int i = 0; i < MAPROWNUM-2; i++)
         {
             current = m_aMap[j][i];
             if(current == m_aMap[j][i + 1] && current == m_aMap[j][i + 2])
@@ -201,8 +201,8 @@ bool CGameLogic::eliminate(bool noChange)
         return isChange;
 
     /*统计各色宝石消除量*/
-    for(int i = 0; i < 8; i++)
-        for(int j = 0; j < 8; j++)
+    for(int i = 0; i < MAPROWNUM; i++)
+        for(int j = 0; j < MAPCOLNUM; j++)
             if(temp_aMap[i][j] == 0)
                 eliminate_number[m_aMap[i][j] - 1]++;//更新 eliminate_number 数组
 
@@ -223,7 +223,8 @@ bool CGameLogic::eliminate(bool noChange)
 //将地图上的空格（值为0的元素）向下移动，并在顶部补充新的宝石
 bool CGameLogic::down()
 {
-    srand(GetTickCount());
+    srand(GetTickCount());//返回自系统启动以来经过的毫秒数
+    //srand((int)time(0));
     int isChanged = false;
     for(int i = 0; i < 8; i++)//遍历每一列
     {

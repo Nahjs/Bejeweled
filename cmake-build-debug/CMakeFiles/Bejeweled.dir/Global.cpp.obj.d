@@ -1,2 +1,2 @@
-CMakeFiles/Bejeweled.dir/Global.cpp.obj: D:\CLion\Bejeweled_$$\Global.cpp \
- D:\CLion\Bejeweled_$$\Global.h
+CMakeFiles/Bejeweled.dir/Global.cpp.obj: D:\CLion\Bejew3\Global.cpp \
+ D:\CLion\Bejew3\Global.h

@@ -1,18 +1,18 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "D:/CLion/Bejeweled_$/cmake-build-debug/Bejeweled_autogen",
-	"CMAKE_BINARY_DIR" : "D:/CLion/Bejeweled_$/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/CLion/Bejeweled_$/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CLion/Bejeweled_$",
+	"BUILD_DIR" : "D:/CLion/Bejew3/cmake-build-debug/Bejeweled_autogen",
+	"CMAKE_BINARY_DIR" : "D:/CLion/Bejew3/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/CLion/Bejew3/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CLion/Bejew3",
 	"CMAKE_EXECUTABLE" : "D:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/CLion/Bejeweled_$/CMakeLists.txt",
-		"D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/3.29.3/CMakeSystem.cmake",
+		"D:/CLion/Bejew3/CMakeLists.txt",
+		"D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/3.29.3/CMakeSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake",
-		"D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
-		"D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
+		"D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
+		"D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake",
@@ -25,7 +25,7 @@
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
-		"D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake",
+		"D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeRCInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake",
@@ -273,30 +273,32 @@
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsTargets.cmake",
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsTargets-relwithdebinfo.cmake",
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsAdditionalTargetInfo.cmake",
-		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsVersionlessTargets.cmake"
+		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsVersionlessTargets.cmake",
+		"D:/CLion/Bejew3/res/res.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "D:/CLion/Bejeweled_$",
+	"CMAKE_SOURCE_DIR" : "D:/CLion/Bejew3",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "D:/CLion/Bejeweled_$/cmake-build-debug/Bejeweled_autogen/deps",
+	"DEP_FILE" : "D:/CLion/Bejew3/cmake-build-debug/Bejeweled_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Bejeweled_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[ "D:/CLion/Bejew3/Global.h", "MU", "EWIEGA46WW/moc_Global.cpp", null ],
 		[
-			"D:/CLion/Bejeweled_$/Global.h",
+			"D:/CLion/Bejew3/cgamedlg.h",
 			"MU",
-			"EWIEGA46WW/moc_Global.cpp",
+			"EWIEGA46WW/moc_cgamedlg.cpp",
 			null
 		],
 		[
-			"D:/CLion/Bejeweled_$/cgamelogic.h",
+			"D:/CLion/Bejew3/cgamelogic.h",
 			"MU",
 			"EWIEGA46WW/moc_cgamelogic.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/CLion/Bejeweled_$/cmake-build-debug/Bejeweled_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/CLion/Bejeweled_$/cmake-build-debug/Bejeweled_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/CLion/Bejew3/cmake-build-debug/Bejeweled_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/CLion/Bejew3/cmake-build-debug/Bejeweled_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -322,7 +324,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CLion/Bejeweled_$",
+		"D:/CLion/Bejew3",
 		"D:/Qt/6.5.3/mingw_64/include/QtCore",
 		"D:/Qt/6.5.3/mingw_64/include",
 		"D:/Qt/6.5.3/mingw_64/mkspecs/win32-g++",
@@ -356,22 +358,23 @@
 		"-c",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/CLion/Bejeweled_$/cmake-build-debug/Bejeweled_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/CLion/Bejew3/cmake-build-debug/Bejeweled_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/Bejeweled_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/Bejeweled_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/Qt/6.5.3/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/Qt/6.5.3/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 5,
-	"SETTINGS_FILE" : "D:/CLion/Bejeweled_$/cmake-build-debug/CMakeFiles/Bejeweled_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/CLion/Bejew3/cmake-build-debug/CMakeFiles/Bejeweled_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CLion/Bejeweled_$/Global.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled_$/cgamelogic.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled_$/main.cpp", "MU", null ]
+		[ "D:/CLion/Bejew3/Global.cpp", "MU", null ],
+		[ "D:/CLion/Bejew3/cgamedlg.cpp", "MU", null ],
+		[ "D:/CLion/Bejew3/cgamelogic.cpp", "MU", null ],
+		[ "D:/CLion/Bejew3/main.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

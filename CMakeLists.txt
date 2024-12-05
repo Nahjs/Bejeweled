@@ -16,12 +16,14 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 # Add header files
 set(HEADERS
+        cgamedlg.h
         cgamelogic.h
         Global.h
 )
 
 # Add source files
 set(SOURCES
+        cgamedlg.cpp
         cgamelogic.cpp
         main.cpp
         Global.cpp
@@ -29,11 +31,16 @@ set(SOURCES
 
 # Add UI files
 set(UIS
+        cgamedlg.ui
+)
 
+# 添加资源文件
+set(QRC
+        res/res.qrc
 )
 
 # Add executable
-add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS})
+add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS} ${QRC})
 
 # Link Qt6 libraries
 target_link_libraries(Bejeweled PRIVATE

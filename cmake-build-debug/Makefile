@@ -56,10 +56,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejeweled_$$
+CMAKE_SOURCE_DIR = D:\CLion\Bejew3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejeweled_$$\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\Bejew3\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled_$$\cmake-build-debug\CMakeFiles D:\CLion\Bejeweled_$$\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejew3\cmake-build-debug\CMakeFiles D:\CLion\Bejew3\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled_$$\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejew3\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -154,6 +154,30 @@ Bejeweled_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled_autogen.dir\build.make CMakeFiles/Bejeweled_autogen.dir/build
 .PHONY : Bejeweled_autogen/fast
 
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj
+
+# target to build an object file
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
+
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.i: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.i
+
+# target to preprocess a source file
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
+
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.s: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.s
+
+# target to generate assembly for a file
+Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
+.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
+
 Bejeweled_autogen/mocs_compilation.obj: Bejeweled_autogen/mocs_compilation.cpp.obj
 .PHONY : Bejeweled_autogen/mocs_compilation.obj
 
@@ -201,6 +225,30 @@ Global.s: Global.cpp.s
 Global.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Global.cpp.s
 .PHONY : Global.cpp.s
+
+cgamedlg.obj: cgamedlg.cpp.obj
+.PHONY : cgamedlg.obj
+
+# target to build an object file
+cgamedlg.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.obj
+.PHONY : cgamedlg.cpp.obj
+
+cgamedlg.i: cgamedlg.cpp.i
+.PHONY : cgamedlg.i
+
+# target to preprocess a source file
+cgamedlg.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.i
+.PHONY : cgamedlg.cpp.i
+
+cgamedlg.s: cgamedlg.cpp.s
+.PHONY : cgamedlg.s
+
+# target to generate assembly for a file
+cgamedlg.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.s
+.PHONY : cgamedlg.cpp.s
 
 cgamelogic.obj: cgamelogic.cpp.obj
 .PHONY : cgamelogic.obj
@@ -261,12 +309,18 @@ help:
 	@echo ... Bejeweled_autogen
 	@echo ... Bejeweled_autogen_timestamp_deps
 	@echo ... Bejeweled
+	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj
+	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.i
+	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.s
 	@echo ... Bejeweled_autogen/mocs_compilation.obj
 	@echo ... Bejeweled_autogen/mocs_compilation.i
 	@echo ... Bejeweled_autogen/mocs_compilation.s
 	@echo ... Global.obj
 	@echo ... Global.i
 	@echo ... Global.s
+	@echo ... cgamedlg.obj
+	@echo ... cgamedlg.i
+	@echo ... cgamedlg.s
 	@echo ... cgamelogic.obj
 	@echo ... cgamelogic.i
 	@echo ... cgamelogic.s
