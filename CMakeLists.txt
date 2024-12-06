@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(Bejeweled)
+project(Jewels)
 
 # Enable automatic moc, uic, and rcc
 set(CMAKE_AUTOMOC ON)
@@ -16,22 +16,22 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 # Add header files
 set(HEADERS
-        cgamedlg.h
-        cgamelogic.h
+        mainwindow.h
+        numMatrix.h
         Global.h
 )
 
 # Add source files
 set(SOURCES
-        cgamedlg.cpp
-        cgamelogic.cpp
+        mainwindow.cpp
+        numMatrix.cpp
         main.cpp
         Global.cpp
 )
 
 # Add UI files
 set(UIS
-        cgamedlg.ui
+        mainwindow.ui
 )
 
 # 添加资源文件
@@ -40,10 +40,10 @@ set(QRC
 )
 
 # Add executable
-add_executable(Bejeweled ${HEADERS} ${SOURCES} ${UIS} ${QRC})
+add_executable(Jewels ${HEADERS} ${SOURCES} ${UIS} ${QRC})
 
 # Link Qt6 libraries
-target_link_libraries(Bejeweled PRIVATE
+target_link_libraries(Jewels PRIVATE
         Qt6::Core
         Qt6::Gui
         Qt6::Widgets

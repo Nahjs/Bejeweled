@@ -56,10 +56,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejew3
+CMAKE_SOURCE_DIR = D:\CLion\Bejeweled1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejew3\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\Bejeweled1\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejew3\cmake-build-debug\CMakeFiles D:\CLion\Bejew3\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles D:\CLion\Bejeweled1\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejew3\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,98 +116,50 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Bejeweled
+# Target rules for targets named Jewels
 
 # Build rule for target.
-Bejeweled: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Bejeweled
-.PHONY : Bejeweled
+Jewels: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Jewels
+.PHONY : Jewels
 
 # fast build rule for target.
-Bejeweled/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/build
-.PHONY : Bejeweled/fast
+Jewels/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/build
+.PHONY : Jewels/fast
 
 #=============================================================================
-# Target rules for targets named Bejeweled_autogen_timestamp_deps
+# Target rules for targets named Jewels_autogen_timestamp_deps
 
 # Build rule for target.
-Bejeweled_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Bejeweled_autogen_timestamp_deps
-.PHONY : Bejeweled_autogen_timestamp_deps
+Jewels_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Jewels_autogen_timestamp_deps
+.PHONY : Jewels_autogen_timestamp_deps
 
 # fast build rule for target.
-Bejeweled_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled_autogen_timestamp_deps.dir\build.make CMakeFiles/Bejeweled_autogen_timestamp_deps.dir/build
-.PHONY : Bejeweled_autogen_timestamp_deps/fast
+Jewels_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels_autogen_timestamp_deps.dir\build.make CMakeFiles/Jewels_autogen_timestamp_deps.dir/build
+.PHONY : Jewels_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named Bejeweled_autogen
+# Target rules for targets named Jewels_autogen
 
 # Build rule for target.
-Bejeweled_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Bejeweled_autogen
-.PHONY : Bejeweled_autogen
+Jewels_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Jewels_autogen
+.PHONY : Jewels_autogen
 
 # fast build rule for target.
-Bejeweled_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled_autogen.dir\build.make CMakeFiles/Bejeweled_autogen.dir/build
-.PHONY : Bejeweled_autogen/fast
-
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj
-
-# target to build an object file
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.obj
-
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.i: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.i
-
-# target to preprocess a source file
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.i
-
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.s: Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.s
-
-# target to generate assembly for a file
-Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
-.PHONY : Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp.s
-
-Bejeweled_autogen/mocs_compilation.obj: Bejeweled_autogen/mocs_compilation.cpp.obj
-.PHONY : Bejeweled_autogen/mocs_compilation.obj
-
-# target to build an object file
-Bejeweled_autogen/mocs_compilation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/mocs_compilation.cpp.obj
-.PHONY : Bejeweled_autogen/mocs_compilation.cpp.obj
-
-Bejeweled_autogen/mocs_compilation.i: Bejeweled_autogen/mocs_compilation.cpp.i
-.PHONY : Bejeweled_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-Bejeweled_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/mocs_compilation.cpp.i
-.PHONY : Bejeweled_autogen/mocs_compilation.cpp.i
-
-Bejeweled_autogen/mocs_compilation.s: Bejeweled_autogen/mocs_compilation.cpp.s
-.PHONY : Bejeweled_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-Bejeweled_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Bejeweled_autogen/mocs_compilation.cpp.s
-.PHONY : Bejeweled_autogen/mocs_compilation.cpp.s
+Jewels_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels_autogen.dir\build.make CMakeFiles/Jewels_autogen.dir/build
+.PHONY : Jewels_autogen/fast
 
 Global.obj: Global.cpp.obj
 .PHONY : Global.obj
 
 # target to build an object file
 Global.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Global.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Global.cpp.obj
 .PHONY : Global.cpp.obj
 
 Global.i: Global.cpp.i
@@ -215,7 +167,7 @@ Global.i: Global.cpp.i
 
 # target to preprocess a source file
 Global.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Global.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Global.cpp.i
 .PHONY : Global.cpp.i
 
 Global.s: Global.cpp.s
@@ -223,63 +175,63 @@ Global.s: Global.cpp.s
 
 # target to generate assembly for a file
 Global.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/Global.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Global.cpp.s
 .PHONY : Global.cpp.s
 
-cgamedlg.obj: cgamedlg.cpp.obj
-.PHONY : cgamedlg.obj
+Jewels_autogen/PNK5WDWK6L/qrc_res.obj: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.obj
 
 # target to build an object file
-cgamedlg.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.obj
-.PHONY : cgamedlg.cpp.obj
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj
 
-cgamedlg.i: cgamedlg.cpp.i
-.PHONY : cgamedlg.i
+Jewels_autogen/PNK5WDWK6L/qrc_res.i: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.i
 
 # target to preprocess a source file
-cgamedlg.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.i
-.PHONY : cgamedlg.cpp.i
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i
 
-cgamedlg.s: cgamedlg.cpp.s
-.PHONY : cgamedlg.s
+Jewels_autogen/PNK5WDWK6L/qrc_res.s: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.s
 
 # target to generate assembly for a file
-cgamedlg.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamedlg.cpp.s
-.PHONY : cgamedlg.cpp.s
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s
+.PHONY : Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s
 
-cgamelogic.obj: cgamelogic.cpp.obj
-.PHONY : cgamelogic.obj
+Jewels_autogen/mocs_compilation.obj: Jewels_autogen/mocs_compilation.cpp.obj
+.PHONY : Jewels_autogen/mocs_compilation.obj
 
 # target to build an object file
-cgamelogic.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamelogic.cpp.obj
-.PHONY : cgamelogic.cpp.obj
+Jewels_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj
+.PHONY : Jewels_autogen/mocs_compilation.cpp.obj
 
-cgamelogic.i: cgamelogic.cpp.i
-.PHONY : cgamelogic.i
+Jewels_autogen/mocs_compilation.i: Jewels_autogen/mocs_compilation.cpp.i
+.PHONY : Jewels_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-cgamelogic.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamelogic.cpp.i
-.PHONY : cgamelogic.cpp.i
+Jewels_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.i
+.PHONY : Jewels_autogen/mocs_compilation.cpp.i
 
-cgamelogic.s: cgamelogic.cpp.s
-.PHONY : cgamelogic.s
+Jewels_autogen/mocs_compilation.s: Jewels_autogen/mocs_compilation.cpp.s
+.PHONY : Jewels_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-cgamelogic.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/cgamelogic.cpp.s
-.PHONY : cgamelogic.cpp.s
+Jewels_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.s
+.PHONY : Jewels_autogen/mocs_compilation.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -287,7 +239,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -295,8 +247,56 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Bejeweled.dir\build.make CMakeFiles/Bejeweled.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+mainwindow.obj: mainwindow.cpp.obj
+.PHONY : mainwindow.obj
+
+# target to build an object file
+mainwindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/mainwindow.cpp.obj
+.PHONY : mainwindow.cpp.obj
+
+mainwindow.i: mainwindow.cpp.i
+.PHONY : mainwindow.i
+
+# target to preprocess a source file
+mainwindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/mainwindow.cpp.i
+.PHONY : mainwindow.cpp.i
+
+mainwindow.s: mainwindow.cpp.s
+.PHONY : mainwindow.s
+
+# target to generate assembly for a file
+mainwindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/mainwindow.cpp.s
+.PHONY : mainwindow.cpp.s
+
+numMatrix.obj: numMatrix.cpp.obj
+.PHONY : numMatrix.obj
+
+# target to build an object file
+numMatrix.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/numMatrix.cpp.obj
+.PHONY : numMatrix.cpp.obj
+
+numMatrix.i: numMatrix.cpp.i
+.PHONY : numMatrix.i
+
+# target to preprocess a source file
+numMatrix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/numMatrix.cpp.i
+.PHONY : numMatrix.cpp.i
+
+numMatrix.s: numMatrix.cpp.s
+.PHONY : numMatrix.s
+
+# target to generate assembly for a file
+numMatrix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/numMatrix.cpp.s
+.PHONY : numMatrix.cpp.s
 
 # Help Target
 help:
@@ -306,27 +306,27 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Bejeweled_autogen
-	@echo ... Bejeweled_autogen_timestamp_deps
-	@echo ... Bejeweled
-	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.obj
-	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.i
-	@echo ... Bejeweled_autogen/PNK5WDWK6L/qrc_res.s
-	@echo ... Bejeweled_autogen/mocs_compilation.obj
-	@echo ... Bejeweled_autogen/mocs_compilation.i
-	@echo ... Bejeweled_autogen/mocs_compilation.s
+	@echo ... Jewels_autogen
+	@echo ... Jewels_autogen_timestamp_deps
+	@echo ... Jewels
 	@echo ... Global.obj
 	@echo ... Global.i
 	@echo ... Global.s
-	@echo ... cgamedlg.obj
-	@echo ... cgamedlg.i
-	@echo ... cgamedlg.s
-	@echo ... cgamelogic.obj
-	@echo ... cgamelogic.i
-	@echo ... cgamelogic.s
+	@echo ... Jewels_autogen/PNK5WDWK6L/qrc_res.obj
+	@echo ... Jewels_autogen/PNK5WDWK6L/qrc_res.i
+	@echo ... Jewels_autogen/PNK5WDWK6L/qrc_res.s
+	@echo ... Jewels_autogen/mocs_compilation.obj
+	@echo ... Jewels_autogen/mocs_compilation.i
+	@echo ... Jewels_autogen/mocs_compilation.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... mainwindow.obj
+	@echo ... mainwindow.i
+	@echo ... mainwindow.s
+	@echo ... numMatrix.obj
+	@echo ... numMatrix.i
+	@echo ... numMatrix.s
 .PHONY : help
 
 

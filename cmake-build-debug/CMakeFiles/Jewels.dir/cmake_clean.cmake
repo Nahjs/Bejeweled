@@ -1,0 +1,27 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/Jewels.dir/Global.cpp.obj"
+  "CMakeFiles/Jewels.dir/Global.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
+  "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/main.cpp.obj"
+  "CMakeFiles/Jewels.dir/main.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/mainwindow.cpp.obj"
+  "CMakeFiles/Jewels.dir/mainwindow.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/numMatrix.cpp.obj"
+  "CMakeFiles/Jewels.dir/numMatrix.cpp.obj.d"
+  "CMakeFiles/Jewels_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/Jewels_autogen.dir/ParseCache.txt"
+  "Jewels_autogen"
+  "Jewels.exe"
+  "Jewels.exe.manifest"
+  "Jewels.pdb"
+  "Jewels_autogen/PNK5WDWK6L/qrc_res.cpp"
+  "libJewels.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/Jewels.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

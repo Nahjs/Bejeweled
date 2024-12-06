@@ -1,29 +1,31 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-typedef struct RANKINFORMATION
+typedef struct Rank
 {
     char strName[50];
     int nGrade;
     int nRank;
-} RANKINFOR;
+} Rank;
 
-extern RANKINFOR g_rank;
+extern Rank g_rank;
 
-extern RANKINFOR * ranks[10];
+extern Rank * ranks[10];
 
-typedef struct PICTUREELEMENT
+typedef struct Picelem
 {
     int nRow;
     int nCol;
     int nPicNum;
-} PICELEM;
+} Picelem;
 
 extern int g_spc;
 
 extern int g_props_boom;
 
-extern int g_props_cross;
+extern int g_props_row ;
+
+extern int g_props_col ;
 
 extern int g_props_color;
 

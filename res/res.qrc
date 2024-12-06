@@ -1,11 +1,20 @@
 <RCC>
     <qresource prefix="/res">
-        <file>images/b1.png</file>
-        <file>images/b2.png</file>
-        <file>images/b3.png</file>
-        <file>images/b4.png</file>
-        <file>images/b5.png</file>
-        <file>images/b6.png</file>
+        <file>images/a1.png</file>
+        <file>images/a2.png</file>
+        <file>images/a3.png</file>
+        <file>images/a4.png</file>
+        <file>images/a5.png</file>
+        <file>images/a6.png</file>
+        <file>images/a7.png</file>
+        <file>images/a8.png</file>
+        <file>images/a9.png</file>
+        <file>images/a10.png</file>
+        <file>images/a11.png</file>
+        <file>images/a12.png</file>
+        <file>images/a13.png</file>
+        <file>images/a14.png</file>
+        <file>images/a15.png</file>
         <file>images/background1.bmp</file>
         <file>images/background2.png</file>
         <file>images/background3.jpg</file>

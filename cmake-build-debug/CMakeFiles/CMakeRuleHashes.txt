@@ -1,4 +1,4 @@
 # Hashes of file build rules.
-d805cd27bf8c43b913462613abe4c8ff Bejeweled_autogen/PNK5WDWK6L/qrc_res.cpp
-65e030e4e9d62ed6758f6b8b7fc719b6 Bejeweled_autogen/timestamp
-2a341a858149d100cd2a0baa540a7a9a CMakeFiles/Bejeweled_autogen
+ab36ae96537bc23b89e3938ac9de14d4 CMakeFiles/Jewels_autogen
+cb0bbb4324d834a2f7724eb04382e753 Jewels_autogen/PNK5WDWK6L/qrc_res.cpp
+215bc76b63c3ef349cf3db7c58e4d0d9 Jewels_autogen/timestamp
