@@ -9,7 +9,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
 {
     ui->setupUi(this);
     timer = new QTimer(this);
-   // connect(parent, SIGNAL(mainToGame()), this, SLOT(doMainToGame()));
+    connect(parent, SIGNAL(startToGame()), this, SLOT(doStartToGame()));
     connect(timer, SIGNAL(timeout()), this, SLOT(update_timebar()));
    // connect(menu,SIGNAL(menuToGame()),this,SLOT(doMenuToGame()));
   //  connect(menu,SIGNAL(game_them_background_change(QString)),this,SLOT(do_theme_background_change(QString)));
@@ -21,7 +21,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     focus=0;
    // gemtype="c";
      cellSize = 450/MAPCOLNUM;
-     offsetX = 120;
+     offsetX = 60;
     offsetY = 100;
      scoreOffsetX = 75;
      scoreOffsetY = 40;
@@ -84,8 +84,9 @@ Mainwindow::Mainwindow(QWidget *parent) :
      //   mus->MusicOff();
     }
 
+    /*由开始界面发送信号给该游戏界面启动游戏，要不就加入下面这行代码，在main.cpp中直接创建game的实例进入游戏
     Game_start();
-
+*/
 }
 
 Mainwindow::~Mainwindow()
@@ -154,7 +155,7 @@ void Mainwindow::paintEvent(QPaintEvent *event) {
 void Mainwindow::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
-    emit gameToMain();
+    emit gameToStart();
     Game_over(false);
 }
 
@@ -390,17 +391,17 @@ void Mainwindow::do_btn_hint(){
     this->repaint();
 }
 
-void Mainwindow::on_btn_gameToMain_clicked()
+void Mainwindow::on_btn_gameToStart_clicked()
 {
     this->hide();
-    Game_over(false);      //当点击“返回标题”进入bejeweled的最初始界面时，游戏自动结束
-    emit gameToMain();
+    Game_over(false);      //当点击“返回”进入开始界面时，游戏结束，成绩无效？
+    emit gameToStart();
 }
 
-void Mainwindow::doMainToGame()
+void Mainwindow::doStartToGame()
 {
     this->show();
-    this->setDisabled(false);
+  //  this->setDisabled(false);
     this->Game_start();
 }
 
@@ -513,7 +514,7 @@ void Mainwindow::Game_start(){
 //时间耗尽，游戏结束
 void Mainwindow::Game_over(bool saveRank){
     timer->stop();
-    label_image->setGeometry(120,100,520,520);
+    label_image->setGeometry(offsetX,offsetY,500,500);
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     label_image->show();
     numMatrix->setgamerunning(false);
@@ -531,7 +532,7 @@ void Mainwindow::Game_over(bool saveRank){
 void Mainwindow::on_pushButton_stop_clicked()
 {
     timer->stop();
-    label_image->setGeometry(75,30,500,650);
+    label_image->setGeometry(offsetX,offsetY-60,450,570);
     label_image->setPixmap(QPixmap::fromImage(*image_stop));
     label_image->show();
     numMatrix->setgamerunning(false);

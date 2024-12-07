@@ -1,5 +1,5 @@
-#ifndef CGAMEDLG_H
-#define CGAMEDLG_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
 #include "numMatrix.h"
@@ -30,16 +30,16 @@ public:
     ~Mainwindow();
 
     void Music();
-    void Game_over(bool saveRank = true); //时间耗尽时游戏结束
+    void Game_over(bool saveRank = true); //时间耗尽时游戏结束，如果中途退出并保存记录，saverank则设置为false
 
 signals:
-    void gameToMain();
+    void gameToStart();
     void gameToMenu();
     //void clicked();//鼠标点击信号
 
 private slots:
-    void on_btn_gameToMain_clicked();
-    void doMainToGame();
+    void on_btn_gameToStart_clicked();
+    void doStartToGame();
     void doMenuToGame();
     void on_btn_gameToMenu_clicked();
     void do_theme_background_change(QString);
@@ -117,4 +117,4 @@ protected:
 
 };
 
-#endif // CGAMEDLG_H
+#endif // MAINWINDOW_H

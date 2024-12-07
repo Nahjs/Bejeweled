@@ -407,6 +407,14 @@ CMakeFiles/Jewels.dir/main.cpp.obj: D:\CLion\Bejeweled1\main.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+ D:\CLion\Bejeweled1\start.h D:\CLion\Bejeweled1\about.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QDate \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QTime D:\CLion\Bejeweled1\help.h \
+ D:\CLion\Bejeweled1\rank.h D:/CLion/Bejeweled1/crankdao.h \
+ D:\CLion\Bejeweled1\name.h D:/CLion/Bejeweled1/Global.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreapplication.h \
@@ -414,5 +422,4 @@ CMakeFiles/Jewels.dir/main.cpp.obj: D:\CLion\Bejeweled1\main.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qinputmethod.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication_platform.h

@@ -226,6 +226,78 @@ Jewels_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.s
 .PHONY : Jewels_autogen/mocs_compilation.cpp.s
 
+about.obj: about.cpp.obj
+.PHONY : about.obj
+
+# target to build an object file
+about.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/about.cpp.obj
+.PHONY : about.cpp.obj
+
+about.i: about.cpp.i
+.PHONY : about.i
+
+# target to preprocess a source file
+about.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/about.cpp.i
+.PHONY : about.cpp.i
+
+about.s: about.cpp.s
+.PHONY : about.s
+
+# target to generate assembly for a file
+about.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/about.cpp.s
+.PHONY : about.cpp.s
+
+crankdao.obj: crankdao.cpp.obj
+.PHONY : crankdao.obj
+
+# target to build an object file
+crankdao.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.obj
+.PHONY : crankdao.cpp.obj
+
+crankdao.i: crankdao.cpp.i
+.PHONY : crankdao.i
+
+# target to preprocess a source file
+crankdao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.i
+.PHONY : crankdao.cpp.i
+
+crankdao.s: crankdao.cpp.s
+.PHONY : crankdao.s
+
+# target to generate assembly for a file
+crankdao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.s
+.PHONY : crankdao.cpp.s
+
+help.obj: help.cpp.obj
+.PHONY : help.obj
+
+# target to build an object file
+help.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/help.cpp.obj
+.PHONY : help.cpp.obj
+
+help.i: help.cpp.i
+.PHONY : help.i
+
+# target to preprocess a source file
+help.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/help.cpp.i
+.PHONY : help.cpp.i
+
+help.s: help.cpp.s
+.PHONY : help.s
+
+# target to generate assembly for a file
+help.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/help.cpp.s
+.PHONY : help.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -274,6 +346,30 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+name.obj: name.cpp.obj
+.PHONY : name.obj
+
+# target to build an object file
+name.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.obj
+.PHONY : name.cpp.obj
+
+name.i: name.cpp.i
+.PHONY : name.i
+
+# target to preprocess a source file
+name.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.i
+.PHONY : name.cpp.i
+
+name.s: name.cpp.s
+.PHONY : name.s
+
+# target to generate assembly for a file
+name.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.s
+.PHONY : name.cpp.s
+
 numMatrix.obj: numMatrix.cpp.obj
 .PHONY : numMatrix.obj
 
@@ -298,6 +394,54 @@ numMatrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/numMatrix.cpp.s
 .PHONY : numMatrix.cpp.s
 
+rank.obj: rank.cpp.obj
+.PHONY : rank.obj
+
+# target to build an object file
+rank.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/rank.cpp.obj
+.PHONY : rank.cpp.obj
+
+rank.i: rank.cpp.i
+.PHONY : rank.i
+
+# target to preprocess a source file
+rank.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/rank.cpp.i
+.PHONY : rank.cpp.i
+
+rank.s: rank.cpp.s
+.PHONY : rank.s
+
+# target to generate assembly for a file
+rank.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/rank.cpp.s
+.PHONY : rank.cpp.s
+
+start.obj: start.cpp.obj
+.PHONY : start.obj
+
+# target to build an object file
+start.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/start.cpp.obj
+.PHONY : start.cpp.obj
+
+start.i: start.cpp.i
+.PHONY : start.i
+
+# target to preprocess a source file
+start.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/start.cpp.i
+.PHONY : start.cpp.i
+
+start.s: start.cpp.s
+.PHONY : start.s
+
+# target to generate assembly for a file
+start.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/start.cpp.s
+.PHONY : start.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -318,15 +462,33 @@ help:
 	@echo ... Jewels_autogen/mocs_compilation.obj
 	@echo ... Jewels_autogen/mocs_compilation.i
 	@echo ... Jewels_autogen/mocs_compilation.s
+	@echo ... about.obj
+	@echo ... about.i
+	@echo ... about.s
+	@echo ... crankdao.obj
+	@echo ... crankdao.i
+	@echo ... crankdao.s
+	@echo ... help.obj
+	@echo ... help.i
+	@echo ... help.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
 	@echo ... mainwindow.obj
 	@echo ... mainwindow.i
 	@echo ... mainwindow.s
+	@echo ... name.obj
+	@echo ... name.i
+	@echo ... name.s
 	@echo ... numMatrix.obj
 	@echo ... numMatrix.i
 	@echo ... numMatrix.s
+	@echo ... rank.obj
+	@echo ... rank.i
+	@echo ... rank.s
+	@echo ... start.obj
+	@echo ... start.i
+	@echo ... start.s
 .PHONY : help
 
 

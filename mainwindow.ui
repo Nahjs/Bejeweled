@@ -29,8 +29,7 @@
    <string>宝石迷阵</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#CGameDlg{
-border-image: url(:/new/picture/background.bmp);}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QProgressBar" name="progressBar_time">
@@ -69,7 +68,7 @@ border-image: url(:/new/picture/background.bmp);}</string>
      <string> %v秒</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_gameToMain">
+   <widget class="QPushButton" name="btn_gameToStart">
     <property name="geometry">
      <rect>
       <x>880</x>
@@ -79,7 +78,7 @@ border-image: url(:/new/picture/background.bmp);}</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
@@ -96,7 +95,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
@@ -113,7 +112,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
@@ -130,7 +129,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
@@ -156,7 +155,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
@@ -173,7 +172,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/picture/pushbotton_background.png);
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
 
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
@@ -217,7 +216,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/picture/cross.png);</string>
+     <string notr="true">image: url(:/res/images/row.png);</string>
     </property>
     <property name="text">
      <string>row</string>
@@ -236,7 +235,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/picture/boom.png);</string>
+     <string notr="true">image: url(:/res/images/boom.png);</string>
     </property>
     <property name="text">
      <string>boom</string>
@@ -255,7 +254,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/picture/color.png);</string>
+     <string notr="true">image: url(:/res/images/color.png);</string>
     </property>
     <property name="text">
      <string>color</string>
@@ -346,7 +345,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/picture/cross.png);</string>
+     <string notr="true">image: url(:/res/images/col.png);</string>
     </property>
     <property name="text">
      <string>col</string>
@@ -402,6 +401,11 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
     <bool>false</bool>
    </attribute>
   </widget>
+  <action name="action_2">
+   <property name="text">
+    <string>设置主题</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

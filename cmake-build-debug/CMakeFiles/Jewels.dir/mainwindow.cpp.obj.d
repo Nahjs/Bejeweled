@@ -410,6 +410,8 @@ CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
  D:\CLion\Bejeweled1\Global.h D:\CLion\Bejeweled1\ui_mainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/QAction \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qaction.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreapplication.h \

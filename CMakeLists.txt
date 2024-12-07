@@ -19,6 +19,12 @@ set(HEADERS
         mainwindow.h
         numMatrix.h
         Global.h
+        about.h
+        start.h
+        help.h
+        name.h
+        rank.h
+        crankdao.h
 )
 
 # Add source files
@@ -27,11 +33,22 @@ set(SOURCES
         numMatrix.cpp
         main.cpp
         Global.cpp
+        about.cpp
+        start.cpp
+        help.cpp
+        name.cpp
+        rank.cpp
+        crankdao.cpp
 )
 
 # Add UI files
 set(UIS
         mainwindow.ui
+        about.ui
+        start.ui
+        help.ui
+        name.ui
+        rank.ui
 )
 
 # 添加资源文件

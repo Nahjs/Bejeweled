@@ -2,23 +2,37 @@ Jewels_autogen/timestamp: \
 	D:/CLion/Bejeweled1/CMakeLists.txt \
 	D:/CLion/Bejeweled1/Global.cpp \
 	D:/CLion/Bejeweled1/Global.h \
+	D:/CLion/Bejeweled1/about.cpp \
+	D:/CLion/Bejeweled1/about.h \
 	D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeCCompiler.cmake \
 	D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake \
 	D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+	D:/CLion/Bejeweled1/crankdao.cpp \
+	D:/CLion/Bejeweled1/crankdao.h \
+	D:/CLion/Bejeweled1/help.cpp \
+	D:/CLion/Bejeweled1/help.h \
 	D:/CLion/Bejeweled1/main.cpp \
 	D:/CLion/Bejeweled1/mainwindow.cpp \
 	D:/CLion/Bejeweled1/mainwindow.h \
+	D:/CLion/Bejeweled1/name.cpp \
+	D:/CLion/Bejeweled1/name.h \
 	D:/CLion/Bejeweled1/numMatrix.cpp \
 	D:/CLion/Bejeweled1/numMatrix.h \
+	D:/CLion/Bejeweled1/rank.cpp \
+	D:/CLion/Bejeweled1/rank.h \
 	D:/CLion/Bejeweled1/res/res.qrc \
+	D:/CLion/Bejeweled1/start.cpp \
+	D:/CLion/Bejeweled1/start.h \
+	D:/Qt/6.5.3/mingw_64/include/QtCore/QDate \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
+	D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
@@ -37,6 +51,7 @@ Jewels_autogen/timestamp: \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qbytearraylist.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qbytearrayview.h \
+	D:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qchar.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qcompare.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -50,6 +65,7 @@ Jewels_autogen/timestamp: \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreevent.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qdarwinhelpers.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qdatastream.h \
+	D:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qflags.h \
@@ -67,6 +83,7 @@ Jewels_autogen/timestamp: \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qiterator.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qline.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qlist.h \
+	D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qlogging.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qmalloc.h \
 	D:/Qt/6.5.3/mingw_64/include/QtCore/qmap.h \
@@ -621,5 +638,10 @@ Jewels_autogen/timestamp: \
 	D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+	D:/CLion/Bejeweled1/about.ui \
+	D:/CLion/Bejeweled1/help.ui \
 	D:/CLion/Bejeweled1/mainwindow.ui \
+	D:/CLion/Bejeweled1/name.ui \
+	D:/CLion/Bejeweled1/rank.ui \
+	D:/CLion/Bejeweled1/start.ui \
 	D:/Qt/Tools/CMake_64/bin/cmake.exe

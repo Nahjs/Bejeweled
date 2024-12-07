@@ -288,18 +288,29 @@
 			"EWIEGA46WW/moc_Global.cpp",
 			null
 		],
+		[ "D:/CLion/Bejeweled1/about.h", "MU", "EWIEGA46WW/moc_about.cpp", null ],
+		[
+			"D:/CLion/Bejeweled1/crankdao.h",
+			"MU",
+			"EWIEGA46WW/moc_crankdao.cpp",
+			null
+		],
+		[ "D:/CLion/Bejeweled1/help.h", "MU", "EWIEGA46WW/moc_help.cpp", null ],
 		[
 			"D:/CLion/Bejeweled1/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
+		[ "D:/CLion/Bejeweled1/name.h", "MU", "EWIEGA46WW/moc_name.cpp", null ],
 		[
 			"D:/CLion/Bejeweled1/numMatrix.h",
 			"MU",
 			"EWIEGA46WW/moc_numMatrix.cpp",
 			null
-		]
+		],
+		[ "D:/CLion/Bejeweled1/rank.h", "MU", "EWIEGA46WW/moc_rank.cpp", null ],
+		[ "D:/CLion/Bejeweled1/start.h", "MU", "EWIEGA46WW/moc_start.cpp", null ]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/include",
@@ -377,9 +388,15 @@
 	"SOURCES" : 
 	[
 		[ "D:/CLion/Bejeweled1/Global.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/about.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/crankdao.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/help.cpp", "MU", null ],
 		[ "D:/CLion/Bejeweled1/main.cpp", "MU", null ],
 		[ "D:/CLion/Bejeweled1/mainwindow.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/numMatrix.cpp", "MU", null ]
+		[ "D:/CLion/Bejeweled1/name.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/numMatrix.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/rank.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled1/start.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

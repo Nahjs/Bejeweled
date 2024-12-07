@@ -1,8 +1,8 @@
 #include "Global.h"
 
-Rank g_rank;
+Rankstruct g_rank;
 
-Rank * ranks[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+Rankstruct * ranks[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 int g_spc = 5;
 

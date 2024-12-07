@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -25,9 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_Mainwindow
 {
 public:
+    QAction *action_2;
     QWidget *centralwidget;
     QProgressBar *progressBar_time;
-    QPushButton *btn_gameToMain;
+    QPushButton *btn_gameToStart;
     QPushButton *pushButton_stop;
     QPushButton *btn_gameToMenu;
     QPushButton *pushButton_continue;
@@ -55,8 +57,9 @@ public:
         Mainwindow->resize(1020, 753);
         Mainwindow->setMinimumSize(QSize(0, 0));
         Mainwindow->setMaximumSize(QSize(9999, 9999));
-        Mainwindow->setStyleSheet(QString::fromUtf8("#CGameDlg{\n"
-"border-image: url(:/new/picture/background.bmp);}"));
+        Mainwindow->setStyleSheet(QString::fromUtf8(""));
+        action_2 = new QAction(Mainwindow);
+        action_2->setObjectName("action_2");
         centralwidget = new QWidget(Mainwindow);
         centralwidget->setObjectName("centralwidget");
         progressBar_time = new QProgressBar(centralwidget);
@@ -73,37 +76,37 @@ public:
         progressBar_time->setValue(60);
         progressBar_time->setAlignment(Qt::AlignCenter);
         progressBar_time->setTextVisible(true);
-        btn_gameToMain = new QPushButton(centralwidget);
-        btn_gameToMain->setObjectName("btn_gameToMain");
-        btn_gameToMain->setGeometry(QRect(880, 50, 61, 31));
-        btn_gameToMain->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        btn_gameToStart = new QPushButton(centralwidget);
+        btn_gameToStart->setObjectName("btn_gameToStart");
+        btn_gameToStart->setGeometry(QRect(880, 50, 61, 31));
+        btn_gameToStart->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         pushButton_stop = new QPushButton(centralwidget);
         pushButton_stop->setObjectName("pushButton_stop");
         pushButton_stop->setGeometry(QRect(810, 20, 61, 31));
-        pushButton_stop->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        pushButton_stop->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         btn_gameToMenu = new QPushButton(centralwidget);
         btn_gameToMenu->setObjectName("btn_gameToMenu");
         btn_gameToMenu->setGeometry(QRect(740, 50, 61, 31));
-        btn_gameToMenu->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        btn_gameToMenu->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         pushButton_continue = new QPushButton(centralwidget);
         pushButton_continue->setObjectName("pushButton_continue");
         pushButton_continue->setGeometry(QRect(740, 20, 61, 31));
-        pushButton_continue->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        pushButton_continue->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         pushButton_continue->setCheckable(false);
         pushButton_continue->setAutoDefault(false);
         pushButton_restart = new QPushButton(centralwidget);
         pushButton_restart->setObjectName("pushButton_restart");
         pushButton_restart->setGeometry(QRect(880, 20, 61, 31));
-        pushButton_restart->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        pushButton_restart->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         pushButton_hint = new QPushButton(centralwidget);
         pushButton_hint->setObjectName("pushButton_hint");
         pushButton_hint->setGeometry(QRect(810, 50, 61, 31));
-        pushButton_hint->setStyleSheet(QString::fromUtf8("border-image: url(:/new/picture/pushbotton_background.png);\n"
+        pushButton_hint->setStyleSheet(QString::fromUtf8("border-image: url(:/res/images/pushbotton_background.png);\n"
 "\n"
 "font: 75 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         pushButton = new QPushButton(centralwidget);
@@ -115,17 +118,17 @@ public:
         pushButton_row = new QPushButton(centralwidget);
         pushButton_row->setObjectName("pushButton_row");
         pushButton_row->setGeometry(QRect(590, 170, 51, 31));
-        pushButton_row->setStyleSheet(QString::fromUtf8("image: url(:/new/picture/cross.png);"));
+        pushButton_row->setStyleSheet(QString::fromUtf8("image: url(:/res/images/row.png);"));
         pushButton_row->setFlat(true);
         pushButton_boom = new QPushButton(centralwidget);
         pushButton_boom->setObjectName("pushButton_boom");
         pushButton_boom->setGeometry(QRect(801, 150, 41, 21));
-        pushButton_boom->setStyleSheet(QString::fromUtf8("image: url(:/new/picture/boom.png);"));
+        pushButton_boom->setStyleSheet(QString::fromUtf8("image: url(:/res/images/boom.png);"));
         pushButton_boom->setFlat(true);
         pushButton_color = new QPushButton(centralwidget);
         pushButton_color->setObjectName("pushButton_color");
         pushButton_color->setGeometry(QRect(800, 190, 41, 21));
-        pushButton_color->setStyleSheet(QString::fromUtf8("image: url(:/new/picture/color.png);"));
+        pushButton_color->setStyleSheet(QString::fromUtf8("image: url(:/res/images/color.png);"));
         pushButton_color->setFlat(true);
         label_row = new QLabel(centralwidget);
         label_row->setObjectName("label_row");
@@ -150,7 +153,7 @@ public:
         pushButton_col = new QPushButton(centralwidget);
         pushButton_col->setObjectName("pushButton_col");
         pushButton_col->setGeometry(QRect(590, 220, 51, 31));
-        pushButton_col->setStyleSheet(QString::fromUtf8("image: url(:/new/picture/cross.png);"));
+        pushButton_col->setStyleSheet(QString::fromUtf8("image: url(:/res/images/col.png);"));
         pushButton_col->setFlat(true);
         label_col = new QLabel(centralwidget);
         label_col->setObjectName("label_col");
@@ -180,8 +183,9 @@ public:
     void retranslateUi(QMainWindow *Mainwindow)
     {
         Mainwindow->setWindowTitle(QCoreApplication::translate("Mainwindow", "\345\256\235\347\237\263\350\277\267\351\230\265", nullptr));
+        action_2->setText(QCoreApplication::translate("Mainwindow", "\350\256\276\347\275\256\344\270\273\351\242\230", nullptr));
         progressBar_time->setFormat(QCoreApplication::translate("Mainwindow", " %v\347\247\222", nullptr));
-        btn_gameToMain->setText(QCoreApplication::translate("Mainwindow", "\350\277\224\345\233\236", nullptr));
+        btn_gameToStart->setText(QCoreApplication::translate("Mainwindow", "\350\277\224\345\233\236", nullptr));
         pushButton_stop->setText(QCoreApplication::translate("Mainwindow", "\346\232\202\345\201\234\346\270\270\346\210\217", nullptr));
         btn_gameToMenu->setText(QCoreApplication::translate("Mainwindow", "\350\217\234\345\215\225", nullptr));
         pushButton_continue->setText(QCoreApplication::translate("Mainwindow", "\347\273\247\347\273\255\346\270\270\346\210\217", nullptr));
