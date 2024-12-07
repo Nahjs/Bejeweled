@@ -79,8 +79,8 @@ clean: CMakeFiles/Jewels_autogen.dir/clean
 # Target rules for target CMakeFiles/Jewels.dir
 
 # All Build rule for target.
-CMakeFiles/Jewels.dir/all: CMakeFiles/Jewels_autogen_timestamp_deps.dir/all
 CMakeFiles/Jewels.dir/all: CMakeFiles/Jewels_autogen.dir/all
+CMakeFiles/Jewels.dir/all: CMakeFiles/Jewels_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Jewels"

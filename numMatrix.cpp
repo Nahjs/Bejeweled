@@ -328,120 +328,77 @@ void NumMatrix::setgamerunning(bool game_running){
 }
 
 //提示
-int NumMatrix::hint(){
-    if(game_running){
-        int map[8][8];
-        int i,j;
-        int mid;//交换过渡
-        int tap = 0;//判断找到没有
-        int canExc = 0;//标记是否可以消除
+int NumMatrix::hint() {
+    if(!game_running) return 0;
 
-        //临时地图
-        for(i = 0; i < 8; i++){
-                for(j = 0; j < 8; j++){
-                    map[i][j]=m_aMap[i][j];
-                }
-            }
+    int map[MAPROWNUM][MAPCOLNUM];
 
-        // 垂直方向的交换
-        for(i = 0; i < 7; i++){
-            for(j = 0; j < 8; j++){
-                mid = map[i][j];
-                map[i][j] = map[i+1][j];
-                map[i+1][j] = mid;
-
-                int a,b;
-                for(b = i; b <= i+1; b++){
-                    canExc = 0;
-                    for(a = 0; a < 6; a++){
-                        if(map[b][a]==map[b][a+1]&&map[b][a+1]==map[b][a+2]){//横向检查
-                            canExc = 1;
-                            a = 10; b = 10;//跳出循环
-                        }else{
-                            canExc = 0;
-                        }
-                     }
-                 }
-
-                 if(canExc == 0){
-                    a = j;
-                    for(b = 0; b < 6; b++){
-                        if(map[b][a]==map[b+1][a]&&map[b+1][a]==map[b+2][a]){//纵向检查
-                            canExc = 1;
-                            b = 10;//跳出循环
-                         }else{
-                            canExc = 0;
-                         }
-                     }
-                  }
-                  if(canExc == 1){
-                     point[0][0] = i;
-                     point[0][1] = j;
-                     point[1][0] = i+1;
-                     point[1][1] = j;
-                     return canExc;
-                     tap = 1;
-                     i = 10;j = 10;
-                   }else{
-                      mid = map[i][j];
-                      map[i][j] = map[i+1][j];
-                      map[i+1][j] = mid;
-                      tap = 0;
-                   }
-
-            }
-
+    // 复制地图数据
+    for(int i = 0; i < MAPROWNUM; i++) {
+        for(int j = 0; j < MAPCOLNUM; j++) {
+            map[i][j] = m_aMap[i][j];
         }
-
-
-        if(tap == 0){
-            for(i = 0; i < 8; i++){
-                for(j = 0; j < 7; j++){
-                    mid = map[i][j];
-                    map[i][j] = map[i][j+1];
-                    map[i][j+1] = mid;
-
-                    int a,b;
-                    for(b = i; b <= i+1; b++){
-                        canExc = 0;
-                        for(a = 0; a < 6; a++){
-                            if(map[a][b]==map[a+1][b]&&map[a+1][b]==map[a+2][b]){
-                                canExc = 1;
-                                a = 10; b = 10;
-                             }else{
-                                canExc = 0;
-                             }
-                         }
-                     }
-                     if(canExc == 0){
-                         a = i;
-                         for(b = 0; b < 6; b++){
-                             if(map[a][b]==map[a][b+1]&&map[a][b+1]==map[a][b+2]){
-                                 canExc = 1;
-                                 a = 10; b = 10;
-                              }else{
-                                 canExc = 0;
-                              }
-                         }
-                      }
-                      if(canExc == 1){
-                          point[0][0] = i;
-                          point[0][1] = j;
-                          point[1][0] = i+1;
-                          point[1][1] = j;
-                          return canExc;
-                          tap = 1;
-                          i = 10;j=10;
-                       }else{
-                           mid = map[i][j];
-                           map[i][j] = map[i+1][j];
-                           map[i+1][j] = mid;
-                           tap = 0;
-                       }
-                }
-            }
-        }
-
-        return canExc;
     }
+
+    // 检查指定位置是否可以消除
+    auto checkPosition = [&map](int row, int col) {
+        // 检查水平方向
+        if(col <= MAPCOLNUM-3) {
+            for(int i = 0; i <= col; i++) {
+                if(i + 2 < MAPCOLNUM &&
+                   map[row][i] == map[row][i+1] &&
+                   map[row][i+1] == map[row][i+2]) {
+                    return true;
+                   }
+            }
+        }
+
+        // 检查垂直方向
+        if(row <= MAPROWNUM-3) {
+            for(int i = 0; i <= row; i++) {
+                if(i + 2 < MAPROWNUM &&
+                   map[i][col] == map[i+1][col] &&
+                   map[i+1][col] == map[i+2][col]) {
+                    return true;
+                   }
+            }
+        }
+        return false;
+    };
+
+    // 检查垂直方向的交换
+    for(int i = 0; i < MAPROWNUM-1; i++) {
+        for(int j = 0; j < MAPCOLNUM; j++) {
+            std::swap(map[i][j], map[i+1][j]);
+
+            if(checkPosition(i, j) || checkPosition(i+1, j)) {
+                point[0][0] = i;
+                point[0][1] = j;
+                point[1][0] = i+1;
+                point[1][1] = j;
+                return 1;
+            }
+
+            std::swap(map[i][j], map[i+1][j]);
+        }
+    }
+
+    // 检查水平方向的交换
+    for(int i = 0; i < MAPROWNUM; i++) {
+        for(int j = 0; j < MAPCOLNUM-1; j++) {
+            std::swap(map[i][j], map[i][j+1]);
+
+            if(checkPosition(i, j) || checkPosition(i, j+1)) {
+                point[0][0] = i;
+                point[0][1] = j;
+                point[1][0] = i;
+                point[1][1] = j+1;
+                return 1;
+            }
+
+            std::swap(map[i][j], map[i][j+1]);
+        }
+    }
+
+    return 0;
 }

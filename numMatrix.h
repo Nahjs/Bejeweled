@@ -2,9 +2,9 @@
 #define CGAMELOGIC_H
 #include <iostream>
 #include <ostream>
-#define MAPSIZE 64
-#define MAPROWNUM 8
-#define MAPCOLNUM 8
+#define MAPSIZE 49
+#define MAPROWNUM 7
+#define MAPCOLNUM 7
 
 class NumMatrix
 {
