@@ -8,5 +8,5 @@ int main(int argc, char *argv[])
     Mainwindow w;
     w.show();
     return a.exec();
-    //try
+    //故宫
 }
