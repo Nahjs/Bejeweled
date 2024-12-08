@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/numMatrix.cpp.obj: \
- D:\CLion\Bejeweled1\numMatrix.cpp D:\CLion\Bejeweled1\numMatrix.h \
+CMakeFiles/Jewels.dir/numMatrix.cpp.obj: D:\CLion\Bejeweled\numMatrix.cpp \
+ D:\CLion\Bejeweled\numMatrix.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -543,4 +543,4 @@ CMakeFiles/Jewels.dir/numMatrix.cpp.obj: \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/winsvc.h \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/mcx.h \
  D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/imm.h \
- D:\CLion\Bejeweled1\Global.h
+ D:\CLion\Bejeweled\Global.h

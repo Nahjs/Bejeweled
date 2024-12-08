@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/CLion/Bejeweled1/cmake-build-debug"
+			"value" : "d:/CLion/Bejeweled/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -571,7 +571,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -655,7 +655,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/CLion/Bejeweled1"
+			"value" : "D:/CLion/Bejeweled"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1583,7 +1583,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/CLion/Bejeweled1/cmake-build-debug"
+			"value" : "D:/CLion/Bejeweled/cmake-build-debug"
 		},
 		{
 			"name" : "Jewels_IS_TOP_LEVEL",
@@ -1607,7 +1607,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/CLion/Bejeweled1"
+			"value" : "D:/CLion/Bejeweled"
 		},
 		{
 			"name" : "QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH",

@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/rank.cpp.obj: D:\CLion\Bejeweled1\rank.cpp \
- D:\CLion\Bejeweled1\rank.h \
+CMakeFiles/Jewels.dir/rank.cpp.obj: D:\CLion\Bejeweled\rank.cpp \
+ D:\CLion\Bejeweled\rank.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -351,7 +351,7 @@ CMakeFiles/Jewels.dir/rank.cpp.obj: D:\CLion\Bejeweled1\rank.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qbitmap.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
- D:/CLion/Bejeweled1/crankdao.h D:\CLion\Bejeweled1\ui_rank.h \
+ D:/CLion/Bejeweled/crankdao.h D:\CLion\Bejeweled\ui_rank.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QAction \
@@ -390,4 +390,4 @@ CMakeFiles/Jewels.dir/rank.cpp.obj: D:\CLion\Bejeweled1\rank.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h \
- D:\CLion\Bejeweled1\crankdao.h
+ D:\CLion\Bejeweled\crankdao.h

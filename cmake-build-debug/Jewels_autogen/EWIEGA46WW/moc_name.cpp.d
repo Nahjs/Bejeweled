@@ -1,6 +1,6 @@
-D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_name.cpp: D:/CLion/Bejeweled1/name.h \
-  D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/moc_predefs.h \
-  D:/CLion/Bejeweled1/Global.h \
+D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_name.cpp: D:/CLion/Bejeweled/name.h \
+  D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+  D:/CLion/Bejeweled/Global.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \

@@ -1,7 +1,7 @@
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_about.cpp \
- D:/CLion/Bejeweled1/about.h \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_about.cpp \
+ D:/CLion/Bejeweled/about.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -361,10 +361,10 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qtmochelpers.h \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_help.cpp \
- D:/CLion/Bejeweled1/help.h \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_mainwindow.cpp \
- D:/CLion/Bejeweled1/mainwindow.h D:/CLion/Bejeweled1/numMatrix.h \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_help.cpp \
+ D:/CLion/Bejeweled/help.h \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_mainwindow.cpp \
+ D:/CLion/Bejeweled/mainwindow.h D:/CLion/Bejeweled/numMatrix.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
@@ -382,6 +382,9 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qbasictimer.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/thread \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_thread.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/this_thread_sleep.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
@@ -420,11 +423,11 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextformat.h \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_name.cpp \
- D:/CLion/Bejeweled1/name.h D:/CLion/Bejeweled1/Global.h \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_rank.cpp \
- D:/CLion/Bejeweled1/rank.h D:/CLion/Bejeweled1/crankdao.h \
- D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_start.cpp \
- D:/CLion/Bejeweled1/start.h D:/CLion/Bejeweled1/about.h \
- D:/CLion/Bejeweled1/help.h D:/CLion/Bejeweled1/rank.h \
- D:/CLion/Bejeweled1/name.h D:/CLion/Bejeweled1/mainwindow.h
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_name.cpp \
+ D:/CLion/Bejeweled/name.h D:/CLion/Bejeweled/Global.h \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_rank.cpp \
+ D:/CLion/Bejeweled/rank.h D:/CLion/Bejeweled/crankdao.h \
+ D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_start.cpp \
+ D:/CLion/Bejeweled/start.h D:/CLion/Bejeweled/about.h \
+ D:/CLion/Bejeweled/help.h D:/CLion/Bejeweled/rank.h \
+ D:/CLion/Bejeweled/name.h D:/CLion/Bejeweled/mainwindow.h

@@ -1,18 +1,18 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen",
-	"CMAKE_BINARY_DIR" : "D:/CLion/Bejeweled1/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/CLion/Bejeweled1/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CLion/Bejeweled1",
+	"BUILD_DIR" : "D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen",
+	"CMAKE_BINARY_DIR" : "D:/CLion/Bejeweled/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/CLion/Bejeweled/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CLion/Bejeweled",
 	"CMAKE_EXECUTABLE" : "D:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/CLion/Bejeweled1/CMakeLists.txt",
-		"D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeSystem.cmake",
+		"D:/CLion/Bejeweled/CMakeLists.txt",
+		"D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/3.29.3/CMakeSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake",
-		"D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
-		"D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
+		"D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
+		"D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake",
@@ -25,7 +25,7 @@
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
-		"D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake",
+		"D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeRCInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake",
@@ -274,47 +274,47 @@
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsTargets-relwithdebinfo.cmake",
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsAdditionalTargetInfo.cmake",
 		"D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6MultimediaWidgets/Qt6MultimediaWidgetsVersionlessTargets.cmake",
-		"D:/CLion/Bejeweled1/res/res.qrc"
+		"D:/CLion/Bejeweled/res/res.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "D:/CLion/Bejeweled1",
+	"CMAKE_SOURCE_DIR" : "D:/CLion/Bejeweled",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/deps",
+	"DEP_FILE" : "D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Jewels_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"D:/CLion/Bejeweled1/Global.h",
+			"D:/CLion/Bejeweled/Global.h",
 			"MU",
 			"EWIEGA46WW/moc_Global.cpp",
 			null
 		],
-		[ "D:/CLion/Bejeweled1/about.h", "MU", "EWIEGA46WW/moc_about.cpp", null ],
+		[ "D:/CLion/Bejeweled/about.h", "MU", "EWIEGA46WW/moc_about.cpp", null ],
 		[
-			"D:/CLion/Bejeweled1/crankdao.h",
+			"D:/CLion/Bejeweled/crankdao.h",
 			"MU",
 			"EWIEGA46WW/moc_crankdao.cpp",
 			null
 		],
-		[ "D:/CLion/Bejeweled1/help.h", "MU", "EWIEGA46WW/moc_help.cpp", null ],
+		[ "D:/CLion/Bejeweled/help.h", "MU", "EWIEGA46WW/moc_help.cpp", null ],
 		[
-			"D:/CLion/Bejeweled1/mainwindow.h",
+			"D:/CLion/Bejeweled/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
-		[ "D:/CLion/Bejeweled1/name.h", "MU", "EWIEGA46WW/moc_name.cpp", null ],
+		[ "D:/CLion/Bejeweled/name.h", "MU", "EWIEGA46WW/moc_name.cpp", null ],
 		[
-			"D:/CLion/Bejeweled1/numMatrix.h",
+			"D:/CLion/Bejeweled/numMatrix.h",
 			"MU",
 			"EWIEGA46WW/moc_numMatrix.cpp",
 			null
 		],
-		[ "D:/CLion/Bejeweled1/rank.h", "MU", "EWIEGA46WW/moc_rank.cpp", null ],
-		[ "D:/CLion/Bejeweled1/start.h", "MU", "EWIEGA46WW/moc_start.cpp", null ]
+		[ "D:/CLion/Bejeweled/rank.h", "MU", "EWIEGA46WW/moc_rank.cpp", null ],
+		[ "D:/CLion/Bejeweled/start.h", "MU", "EWIEGA46WW/moc_start.cpp", null ]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -340,7 +340,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CLion/Bejeweled1",
+		"D:/CLion/Bejeweled",
 		"D:/Qt/6.5.3/mingw_64/include/QtCore",
 		"D:/Qt/6.5.3/mingw_64/include",
 		"D:/Qt/6.5.3/mingw_64/mkspecs/win32-g++",
@@ -374,29 +374,29 @@
 		"-c",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/Qt/6.5.3/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/Qt/6.5.3/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 5,
-	"SETTINGS_FILE" : "D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CLion/Bejeweled1/Global.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/about.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/crankdao.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/help.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/main.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/mainwindow.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/name.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/numMatrix.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/rank.cpp", "MU", null ],
-		[ "D:/CLion/Bejeweled1/start.cpp", "MU", null ]
+		[ "D:/CLion/Bejeweled/Global.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/about.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/crankdao.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/help.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/main.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/mainwindow.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/name.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/numMatrix.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/rank.cpp", "MU", null ],
+		[ "D:/CLion/Bejeweled/start.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

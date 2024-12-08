@@ -7,12 +7,12 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "D:/CLion/Bejeweled1/CMakeLists.txt"
+  "D:/CLion/Bejeweled/CMakeLists.txt"
   "CMakeFiles/3.29.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.29.3/CMakeSystem.cmake"
-  "D:/CLion/Bejeweled1/res/res.qrc"
+  "D:/CLion/Bejeweled/res/res.qrc"
   "D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake"
   "D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake"
   "D:/Qt/6.5.3/mingw_64/lib/cmake/Qt6/Qt6Config.cmake"

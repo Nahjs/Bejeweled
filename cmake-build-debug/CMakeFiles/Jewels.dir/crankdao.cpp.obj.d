@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/crankdao.cpp.obj: D:\CLion\Bejeweled1\crankdao.cpp \
- D:\CLion\Bejeweled1\crankdao.h D:\CLion\Bejeweled1\Global.h \
+CMakeFiles/Jewels.dir/crankdao.cpp.obj: D:\CLion\Bejeweled\crankdao.cpp \
+ D:\CLion\Bejeweled\crankdao.h D:\CLion\Bejeweled\Global.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

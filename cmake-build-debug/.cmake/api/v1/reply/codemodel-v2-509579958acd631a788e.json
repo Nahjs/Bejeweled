@@ -43,7 +43,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Jewels::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Jewels-Debug-1612a9e234485c4a4e5b.json",
+					"jsonFile" : "target-Jewels-Debug-9b50b99173f9edd3f866.json",
 					"name" : "Jewels",
 					"projectIndex" : 0
 				},
@@ -67,8 +67,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/CLion/Bejeweled1/cmake-build-debug",
-		"source" : "D:/CLion/Bejeweled1"
+		"build" : "D:/CLion/Bejeweled/cmake-build-debug",
+		"source" : "D:/CLion/Bejeweled"
 	},
 	"version" : 
 	{

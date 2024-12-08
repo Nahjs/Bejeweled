@@ -1,6 +1,6 @@
-D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_rank.cpp: D:/CLion/Bejeweled1/rank.h \
-  D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/moc_predefs.h \
-  D:/CLion/Bejeweled1/crankdao.h \
+D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_rank.cpp: D:/CLion/Bejeweled/rank.h \
+  D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+  D:/CLion/Bejeweled/crankdao.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
