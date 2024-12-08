@@ -1,0 +1,81 @@
+文件结构?
+numMatrix.cpp 和 numMatrix.h: 游戏地图（数字矩阵）
+mainwindow.cpp 和 mainwindow.h: 游戏主窗口
+start.cpp 和 start.h: 游戏开始界面
+rank.cpp 和 rank.h: 排行榜界面
+name.cpp 和 name.h: 输入姓名界面
+help.cpp 和 help.h: 帮助界面
+about.cpp 和 about.h: 关于界面
+其他资源
+Global.h: 全局常量和变量的定义
+res/images/: 存放游戏所需的图片资源
+res/sounds/: 存放游戏所需的音效资源
+
+游戏功能模块描述
+
+1. 游戏主窗口 (Mainwindow)
+功能描述:
+游戏的主要界面，负责游戏逻辑的执行和界面的渲染。
+包含游戏地图的生成、宝石的交换、消除逻辑、得分计算、时间管理等功能。
+提供用户交互，如鼠标点击事件、道具使用、游戏暂停和继续等。
+主要方法:
+paintEvent: 负责绘制游戏界面，包括宝石、选中框、提示框、消除动画等。
+mousePressEvent: 处理用户的鼠标点击事件，实现宝石的选中和交换。
+Game_start: 初始化游戏，设置游戏状态为运行，生成初始地图。
+Game_over: 游戏结束时的处理，停止计时器，显示游戏结束界面。
+update_timebar: 更新游戏时间条，根据剩余时间改变时间条的颜色。
+on_pushButton_stop_clicked, on_pushButton_continue_clicked, on_pushButton_restart_clicked: 处理游戏暂停、继续和重新开始的按钮点击事件。
+do_btn_hint: 提供游戏提示，减少玩家分数。
+on_pushButton_row_clicked, on_pushButton_col_clicked, on_pushButton_color_clicked, on_pushButton_boom_clicked: 处理道具按钮的点击事件，使用相应的道具。
+
+2. 游戏地图管理 (NumMatrix)
+功能描述:
+负责游戏地图的生成、维护和更新。
+实现宝石的交换、消除逻辑，以及地图的重新生成。
+主要方法:
+BuildMap: 生成初始游戏地图，确保没有三个或更多相同宝石相邻。
+DisplayMap: 显示当前游戏地图。
+checkmap: 检查地图中是否有三个或更多相同宝石相邻。
+swap: 交换地图上两个相邻宝石的位置，并检查交换后是否形成可消除的组合。
+eliminate: 消除地图上符合条件的宝石组合，并生成相应的道具。
+down: 将地图上的空格（值为0的元素）向下移动，并在顶部补充新的宝石。
+propsEliminate: 处理不同类型的道具在地图上的消除效果。
+setgamerunning: 设置游戏状态（运行或暂停）。
+hint: 提供游戏提示，找到可以交换产生三连的宝石位置。
+
+3. 游戏开始界面 (Start)
+功能描述:
+游戏的启动界面，提供进入游戏、查看排行榜、输入玩家姓名、帮助和关于信息的功能。
+主要方法:
+on_btn_startToGame_clicked: 处理开始游戏按钮的点击事件，进入游戏主窗口。
+doGameToStart: 处理从游戏主窗口返回开始界面的事件。
+on_btn_mainToRank_clicked: 处理查看排行榜按钮的点击事件，显示排行榜界面。
+doNameConfirm: 处理确认玩家姓名的事件，更新欢迎信息。
+on_btn_name_clicked: 处理输入玩家姓名按钮的点击事件，显示输入姓名界面。
+on_btn_help_clicked: 处理帮助按钮的点击事件，显示帮助信息界面。
+on_btn_about_clicked: 处理关于按钮的点击事件，显示关于信息界面。
+
+4. 排行榜界面 (Rank)
+功能描述:
+显示游戏的排行榜，记录玩家的得分和排名。
+主要方法:
+showRank: 显示排行榜界面。
+
+5. 输入姓名界面 (Name)
+功能描述:
+提供输入玩家姓名的界面，保存玩家姓名。
+主要方法:
+show: 显示输入姓名界面。
+
+6. 帮助信息界面 (Help)
+功能描述:
+提供游戏的帮助信息，介绍游戏规则和玩法。
+主要方法:
+show: 显示帮助信息界面。
+
+7. 关于信息界面 (About)
+功能描述:
+提供游戏的关于信息，介绍开发团队和联系方式。
+主要方法:
+show: 显示关于信息界面。
+

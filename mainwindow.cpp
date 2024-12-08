@@ -61,10 +61,15 @@ Mainwindow::Mainwindow(QWidget *parent) :
     disappear3.load(":/res/images/tx3.png");
 
     //道具按钮
-    this->ui->pushButton_boom->setCheckable(true);
+   /* this->ui->pushButton_boom->setCheckable(true);
     this->ui->pushButton_col->setCheckable(true);
     this->ui->pushButton_row->setCheckable(true);
     this->ui->pushButton_color->setCheckable(true);
+*/
+      ui->pushButton_boom->setEnabled(g_props_boom > 0);
+    ui->pushButton_col->setEnabled(g_props_col > 0);
+    ui->pushButton_row->setEnabled(g_props_row > 0);
+    ui->pushButton_color->setEnabled(g_props_color > 0);
 
     image_stop = new QImage(":/res/images/stop.png"); //游戏暂停的图片
     image_gameover = new QImage(":/res/images/gameover.png"); //游戏结束的图片
