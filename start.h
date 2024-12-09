@@ -34,6 +34,7 @@ private slots:
 
     void on_btn_about_clicked();
 
+    void on_btn_themeChange_clicked();
 signals:
     void startToGame();
 

@@ -156,6 +156,19 @@ font: 75 11pt &quot;微软雅黑&quot;;</string>
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_themeChange">
+    <property name="geometry">
+     <rect>
+      <x>434</x>
+      <y>60</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>设置主题</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -31,6 +31,7 @@ public:
     QPushButton *btn_help;
     QPushButton *btn_about;
     QLabel *label;
+    QPushButton *btn_themeChange;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -82,6 +83,9 @@ public:
         label->setGeometry(QRect(10, 440, 341, 51));
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("image: url(:/res/images/title.png);"));
+        btn_themeChange = new QPushButton(centralwidget);
+        btn_themeChange->setObjectName("btn_themeChange");
+        btn_themeChange->setGeometry(QRect(434, 60, 81, 41));
         Start->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Start);
         menubar->setObjectName("menubar");
@@ -106,6 +110,7 @@ public:
         btn_help->setText(QCoreApplication::translate("Start", "\345\270\256\345\212\251", nullptr));
         btn_about->setText(QCoreApplication::translate("Start", "\345\205\263\344\272\216", nullptr));
         label->setText(QString());
+        btn_themeChange->setText(QCoreApplication::translate("Start", "\350\256\276\347\275\256\344\270\273\351\242\230", nullptr));
     } // retranslateUi
 
 };

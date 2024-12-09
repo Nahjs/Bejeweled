@@ -25,6 +25,9 @@ set(HEADERS
         name.h
         rank.h
         crankdao.h
+        themechange.cpp
+        themechange.h
+        themechange.ui
 )
 
 # Add source files
@@ -39,6 +42,9 @@ set(SOURCES
         name.cpp
         rank.cpp
         crankdao.cpp
+        themechange.cpp
+        themechange.h
+        themechange.ui
 )
 
 # Add UI files
@@ -49,11 +55,17 @@ set(UIS
         help.ui
         name.ui
         rank.ui
+        themechange.cpp
+        themechange.h
+        themechange.ui
 )
 
 # 添加资源文件
 set(QRC
         res/res.qrc
+        themechange.cpp
+        themechange.h
+        themechange.ui
 )
 
 # Add executable

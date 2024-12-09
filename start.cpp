@@ -1,5 +1,6 @@
 #include "start.h"
 #include "ui_start.h"
+#include "themechange.h"
 
 Start::Start(QWidget *parent)
     : QMainWindow(parent)
@@ -57,4 +58,11 @@ void Start::on_btn_help_clicked()
 void Start::on_btn_about_clicked()
 {
     about->show();
+}
+
+void Start::on_btn_themeChange_clicked()
+{
+    ThemeChange *themeChangeDlg = new ThemeChange; // 注意这里没有指定父窗口，所以它会创建一个新窗口
+    themeChangeDlg->setAttribute(Qt::WA_DeleteOnClose); // 当窗口关闭时，自动删除对象
+    themeChangeDlg->show();
 }
