@@ -28,7 +28,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题1</string>
         </property>
        </widget>
       </item>

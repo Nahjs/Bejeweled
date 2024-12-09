@@ -159,7 +159,7 @@ font: 75 11pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="btn_themeChange">
     <property name="geometry">
      <rect>
-      <x>434</x>
+      <x>440</x>
       <y>60</y>
       <width>81</width>
       <height>41</height>

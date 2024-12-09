@@ -60,6 +60,7 @@ void Start::on_btn_about_clicked()
     about->show();
 }
 
+//主题设置
 void Start::on_btn_themeChange_clicked()
 {
     ThemeChange *themeChangeDlg = new ThemeChange; // 注意这里没有指定父窗口，所以它会创建一个新窗口

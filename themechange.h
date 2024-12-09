@@ -7,7 +7,7 @@
 
 #include <QWidget>
 
-
+//主题设置
 QT_BEGIN_NAMESPACE
 namespace Ui { class ThemeChange; }
 QT_END_NAMESPACE

@@ -3,7 +3,7 @@
 //
 
 // You may need to build the project (run Qt uic code generator) to get "ui_ThemeChange.h" resolved
-
+//主题设置
 #include "themechange.h"
 #include "ui_ThemeChange.h"
 #include <QMessageBox>

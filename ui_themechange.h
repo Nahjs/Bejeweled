@@ -106,6 +106,7 @@ public:
 
         verticalLayout_4->addWidget(label_4);
 
+
         TfourButton = new QPushButton(layoutWidget);
         TfourButton->setObjectName("TfourButton");
 
