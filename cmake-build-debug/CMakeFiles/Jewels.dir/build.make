@@ -52,10 +52,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejeweled1
+CMAKE_SOURCE_DIR = D:\CLion\Bejeweled
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejeweled1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\Bejeweled\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Jewels.dir/depend.make
@@ -68,294 +68,294 @@ include CMakeFiles/Jewels.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Jewels.dir/flags.make
 
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/res.qrc
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/res.qrc
 Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: CMakeFiles/Jewels_autogen.dir/AutoRcc_res_PNK5WDWK6L_Info.json
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/musicOff.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/boom.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d0.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/stop.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/pushbotton_background.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a10.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a13.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a11.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/tx2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/background4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/background2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/background1.bmp
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/bomb.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a14.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number9.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number0.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/tx3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/title.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/exe_ico.ico
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fish4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/musicOn.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/cross.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/connection.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/d9.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem6.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gem-3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number8.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/hammer.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/c4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/gameover.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a15.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/tx1.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/circle.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a9.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit2.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number7.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/background3.jpg
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/select.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/color.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/mine4.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a5.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/fruit3.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/a12.png
-Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled1/res/images/number6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/musicOff.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/boom.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d0.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/stop.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/pushbotton_background.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a10.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a13.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a11.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/tx2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/background4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/background2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/background1.bmp
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/bomb.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a14.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number9.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number0.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/tx3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/title.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/exe_ico.ico
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fish4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/musicOn.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/cross.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/connection.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/d9.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem6.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gem-3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number8.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/hammer.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/c4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/gameover.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a15.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/tx1.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/circle.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a9.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit2.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number7.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/background3.jpg
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/select.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/color.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/mine4.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a5.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/fruit3.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/a12.png
+Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/CLion/Bejeweled/res/images/number6.png
 Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/Qt/6.5.3/mingw_64/./bin/rcc.exe
 Jewels_autogen/PNK5WDWK6L/qrc_res.cpp: D:/Qt/6.5.3/mingw_64/./bin/rcc.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for res/res.qrc"
-	D:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc D:/CLion/Bejeweled1/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutoRcc_res_PNK5WDWK6L_Info.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for res/res.qrc"
+	D:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutoRcc_res_PNK5WDWK6L_Info.json Debug
 
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: Jewels_autogen/mocs_compilation.cpp
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.obj -c D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.obj -c D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp
 
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp > CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp > CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp -o CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp -o CMakeFiles\Jewels.dir\Jewels_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/Jewels.dir/mainwindow.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/mainwindow.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/mainwindow.cpp.obj: D:/CLion/Bejeweled1/mainwindow.cpp
+CMakeFiles/Jewels.dir/mainwindow.cpp.obj: D:/CLion/Bejeweled/mainwindow.cpp
 CMakeFiles/Jewels.dir/mainwindow.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Jewels.dir/mainwindow.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/mainwindow.cpp.obj -MF CMakeFiles\Jewels.dir\mainwindow.cpp.obj.d -o CMakeFiles\Jewels.dir\mainwindow.cpp.obj -c D:\CLion\Bejeweled1\mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Jewels.dir/mainwindow.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/mainwindow.cpp.obj -MF CMakeFiles\Jewels.dir\mainwindow.cpp.obj.d -o CMakeFiles\Jewels.dir\mainwindow.cpp.obj -c D:\CLion\Bejeweled\mainwindow.cpp
 
 CMakeFiles/Jewels.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/mainwindow.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\mainwindow.cpp > CMakeFiles\Jewels.dir\mainwindow.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\mainwindow.cpp > CMakeFiles\Jewels.dir\mainwindow.cpp.i
 
 CMakeFiles/Jewels.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/mainwindow.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\mainwindow.cpp -o CMakeFiles\Jewels.dir\mainwindow.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\mainwindow.cpp -o CMakeFiles\Jewels.dir\mainwindow.cpp.s
 
 CMakeFiles/Jewels.dir/numMatrix.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/numMatrix.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/numMatrix.cpp.obj: D:/CLion/Bejeweled1/numMatrix.cpp
+CMakeFiles/Jewels.dir/numMatrix.cpp.obj: D:/CLion/Bejeweled/numMatrix.cpp
 CMakeFiles/Jewels.dir/numMatrix.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Jewels.dir/numMatrix.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/numMatrix.cpp.obj -MF CMakeFiles\Jewels.dir\numMatrix.cpp.obj.d -o CMakeFiles\Jewels.dir\numMatrix.cpp.obj -c D:\CLion\Bejeweled1\numMatrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Jewels.dir/numMatrix.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/numMatrix.cpp.obj -MF CMakeFiles\Jewels.dir\numMatrix.cpp.obj.d -o CMakeFiles\Jewels.dir\numMatrix.cpp.obj -c D:\CLion\Bejeweled\numMatrix.cpp
 
 CMakeFiles/Jewels.dir/numMatrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/numMatrix.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\numMatrix.cpp > CMakeFiles\Jewels.dir\numMatrix.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\numMatrix.cpp > CMakeFiles\Jewels.dir\numMatrix.cpp.i
 
 CMakeFiles/Jewels.dir/numMatrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/numMatrix.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\numMatrix.cpp -o CMakeFiles\Jewels.dir\numMatrix.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\numMatrix.cpp -o CMakeFiles\Jewels.dir\numMatrix.cpp.s
 
 CMakeFiles/Jewels.dir/main.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/main.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/main.cpp.obj: D:/CLion/Bejeweled1/main.cpp
+CMakeFiles/Jewels.dir/main.cpp.obj: D:/CLion/Bejeweled/main.cpp
 CMakeFiles/Jewels.dir/main.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Jewels.dir/main.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/main.cpp.obj -MF CMakeFiles\Jewels.dir\main.cpp.obj.d -o CMakeFiles\Jewels.dir\main.cpp.obj -c D:\CLion\Bejeweled1\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Jewels.dir/main.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/main.cpp.obj -MF CMakeFiles\Jewels.dir\main.cpp.obj.d -o CMakeFiles\Jewels.dir\main.cpp.obj -c D:\CLion\Bejeweled\main.cpp
 
 CMakeFiles/Jewels.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/main.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\main.cpp > CMakeFiles\Jewels.dir\main.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\main.cpp > CMakeFiles\Jewels.dir\main.cpp.i
 
 CMakeFiles/Jewels.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/main.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\main.cpp -o CMakeFiles\Jewels.dir\main.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\main.cpp -o CMakeFiles\Jewels.dir\main.cpp.s
 
 CMakeFiles/Jewels.dir/Global.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/Global.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/Global.cpp.obj: D:/CLion/Bejeweled1/Global.cpp
+CMakeFiles/Jewels.dir/Global.cpp.obj: D:/CLion/Bejeweled/Global.cpp
 CMakeFiles/Jewels.dir/Global.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Jewels.dir/Global.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Global.cpp.obj -MF CMakeFiles\Jewels.dir\Global.cpp.obj.d -o CMakeFiles\Jewels.dir\Global.cpp.obj -c D:\CLion\Bejeweled1\Global.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Jewels.dir/Global.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Global.cpp.obj -MF CMakeFiles\Jewels.dir\Global.cpp.obj.d -o CMakeFiles\Jewels.dir\Global.cpp.obj -c D:\CLion\Bejeweled\Global.cpp
 
 CMakeFiles/Jewels.dir/Global.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/Global.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\Global.cpp > CMakeFiles\Jewels.dir\Global.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\Global.cpp > CMakeFiles\Jewels.dir\Global.cpp.i
 
 CMakeFiles/Jewels.dir/Global.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/Global.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\Global.cpp -o CMakeFiles\Jewels.dir\Global.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\Global.cpp -o CMakeFiles\Jewels.dir\Global.cpp.s
 
 CMakeFiles/Jewels.dir/about.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/about.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/about.cpp.obj: D:/CLion/Bejeweled1/about.cpp
+CMakeFiles/Jewels.dir/about.cpp.obj: D:/CLion/Bejeweled/about.cpp
 CMakeFiles/Jewels.dir/about.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Jewels.dir/about.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/about.cpp.obj -MF CMakeFiles\Jewels.dir\about.cpp.obj.d -o CMakeFiles\Jewels.dir\about.cpp.obj -c D:\CLion\Bejeweled1\about.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Jewels.dir/about.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/about.cpp.obj -MF CMakeFiles\Jewels.dir\about.cpp.obj.d -o CMakeFiles\Jewels.dir\about.cpp.obj -c D:\CLion\Bejeweled\about.cpp
 
 CMakeFiles/Jewels.dir/about.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/about.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\about.cpp > CMakeFiles\Jewels.dir\about.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\about.cpp > CMakeFiles\Jewels.dir\about.cpp.i
 
 CMakeFiles/Jewels.dir/about.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/about.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\about.cpp -o CMakeFiles\Jewels.dir\about.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\about.cpp -o CMakeFiles\Jewels.dir\about.cpp.s
 
 CMakeFiles/Jewels.dir/start.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/start.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/start.cpp.obj: D:/CLion/Bejeweled1/start.cpp
+CMakeFiles/Jewels.dir/start.cpp.obj: D:/CLion/Bejeweled/start.cpp
 CMakeFiles/Jewels.dir/start.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Jewels.dir/start.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/start.cpp.obj -MF CMakeFiles\Jewels.dir\start.cpp.obj.d -o CMakeFiles\Jewels.dir\start.cpp.obj -c D:\CLion\Bejeweled1\start.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Jewels.dir/start.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/start.cpp.obj -MF CMakeFiles\Jewels.dir\start.cpp.obj.d -o CMakeFiles\Jewels.dir\start.cpp.obj -c D:\CLion\Bejeweled\start.cpp
 
 CMakeFiles/Jewels.dir/start.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/start.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\start.cpp > CMakeFiles\Jewels.dir\start.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\start.cpp > CMakeFiles\Jewels.dir\start.cpp.i
 
 CMakeFiles/Jewels.dir/start.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/start.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\start.cpp -o CMakeFiles\Jewels.dir\start.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\start.cpp -o CMakeFiles\Jewels.dir\start.cpp.s
 
 CMakeFiles/Jewels.dir/help.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/help.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/help.cpp.obj: D:/CLion/Bejeweled1/help.cpp
+CMakeFiles/Jewels.dir/help.cpp.obj: D:/CLion/Bejeweled/help.cpp
 CMakeFiles/Jewels.dir/help.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Jewels.dir/help.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/help.cpp.obj -MF CMakeFiles\Jewels.dir\help.cpp.obj.d -o CMakeFiles\Jewels.dir\help.cpp.obj -c D:\CLion\Bejeweled1\help.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Jewels.dir/help.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/help.cpp.obj -MF CMakeFiles\Jewels.dir\help.cpp.obj.d -o CMakeFiles\Jewels.dir\help.cpp.obj -c D:\CLion\Bejeweled\help.cpp
 
 CMakeFiles/Jewels.dir/help.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/help.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\help.cpp > CMakeFiles\Jewels.dir\help.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\help.cpp > CMakeFiles\Jewels.dir\help.cpp.i
 
 CMakeFiles/Jewels.dir/help.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/help.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\help.cpp -o CMakeFiles\Jewels.dir\help.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\help.cpp -o CMakeFiles\Jewels.dir\help.cpp.s
 
 CMakeFiles/Jewels.dir/name.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/name.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/name.cpp.obj: D:/CLion/Bejeweled1/name.cpp
+CMakeFiles/Jewels.dir/name.cpp.obj: D:/CLion/Bejeweled/name.cpp
 CMakeFiles/Jewels.dir/name.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Jewels.dir/name.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/name.cpp.obj -MF CMakeFiles\Jewels.dir\name.cpp.obj.d -o CMakeFiles\Jewels.dir\name.cpp.obj -c D:\CLion\Bejeweled1\name.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Jewels.dir/name.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/name.cpp.obj -MF CMakeFiles\Jewels.dir\name.cpp.obj.d -o CMakeFiles\Jewels.dir\name.cpp.obj -c D:\CLion\Bejeweled\name.cpp
 
 CMakeFiles/Jewels.dir/name.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/name.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\name.cpp > CMakeFiles\Jewels.dir\name.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\name.cpp > CMakeFiles\Jewels.dir\name.cpp.i
 
 CMakeFiles/Jewels.dir/name.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/name.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\name.cpp -o CMakeFiles\Jewels.dir\name.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\name.cpp -o CMakeFiles\Jewels.dir\name.cpp.s
 
 CMakeFiles/Jewels.dir/rank.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/rank.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/rank.cpp.obj: D:/CLion/Bejeweled1/rank.cpp
+CMakeFiles/Jewels.dir/rank.cpp.obj: D:/CLion/Bejeweled/rank.cpp
 CMakeFiles/Jewels.dir/rank.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Jewels.dir/rank.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/rank.cpp.obj -MF CMakeFiles\Jewels.dir\rank.cpp.obj.d -o CMakeFiles\Jewels.dir\rank.cpp.obj -c D:\CLion\Bejeweled1\rank.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Jewels.dir/rank.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/rank.cpp.obj -MF CMakeFiles\Jewels.dir\rank.cpp.obj.d -o CMakeFiles\Jewels.dir\rank.cpp.obj -c D:\CLion\Bejeweled\rank.cpp
 
 CMakeFiles/Jewels.dir/rank.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/rank.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\rank.cpp > CMakeFiles\Jewels.dir\rank.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\rank.cpp > CMakeFiles\Jewels.dir\rank.cpp.i
 
 CMakeFiles/Jewels.dir/rank.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/rank.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\rank.cpp -o CMakeFiles\Jewels.dir\rank.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\rank.cpp -o CMakeFiles\Jewels.dir\rank.cpp.s
 
 CMakeFiles/Jewels.dir/crankdao.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/crankdao.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
-CMakeFiles/Jewels.dir/crankdao.cpp.obj: D:/CLion/Bejeweled1/crankdao.cpp
+CMakeFiles/Jewels.dir/crankdao.cpp.obj: D:/CLion/Bejeweled/crankdao.cpp
 CMakeFiles/Jewels.dir/crankdao.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Jewels.dir/crankdao.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/crankdao.cpp.obj -MF CMakeFiles\Jewels.dir\crankdao.cpp.obj.d -o CMakeFiles\Jewels.dir\crankdao.cpp.obj -c D:\CLion\Bejeweled1\crankdao.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Jewels.dir/crankdao.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/crankdao.cpp.obj -MF CMakeFiles\Jewels.dir\crankdao.cpp.obj.d -o CMakeFiles\Jewels.dir\crankdao.cpp.obj -c D:\CLion\Bejeweled\crankdao.cpp
 
 CMakeFiles/Jewels.dir/crankdao.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/crankdao.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\crankdao.cpp > CMakeFiles\Jewels.dir\crankdao.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\crankdao.cpp > CMakeFiles\Jewels.dir\crankdao.cpp.i
 
 CMakeFiles/Jewels.dir/crankdao.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/crankdao.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\crankdao.cpp -o CMakeFiles\Jewels.dir\crankdao.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\crankdao.cpp -o CMakeFiles\Jewels.dir\crankdao.cpp.s
 
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj -MF CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj.d -o CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj -c D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj -MF CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj.d -o CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj -c D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp
 
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp > CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.i
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp > CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.i
 
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.s"
-	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled1\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp -o CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.s
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp -o CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.s
 
 # Object files for target Jewels
 Jewels_OBJECTS = \
@@ -397,7 +397,7 @@ Jewels.exe: D:/Qt/6.5.3/mingw_64/lib/libQt6Core.a
 Jewels.exe: CMakeFiles/Jewels.dir/linkLibs.rsp
 Jewels.exe: CMakeFiles/Jewels.dir/objects1.rsp
 Jewels.exe: CMakeFiles/Jewels.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Jewels.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Jewels.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Jewels.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -409,6 +409,6 @@ CMakeFiles/Jewels.dir/clean:
 .PHONY : CMakeFiles/Jewels.dir/clean
 
 CMakeFiles/Jewels.dir/depend: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\Bejeweled1 D:\CLion\Bejeweled1 D:\CLion\Bejeweled1\cmake-build-debug D:\CLion\Bejeweled1\cmake-build-debug D:\CLion\Bejeweled1\cmake-build-debug\CMakeFiles\Jewels.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\Bejeweled D:\CLion\Bejeweled D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles\Jewels.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Jewels.dir/depend
 

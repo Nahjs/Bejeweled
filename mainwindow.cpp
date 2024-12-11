@@ -61,10 +61,15 @@ Mainwindow::Mainwindow(QWidget *parent) :
     disappear3.load(":/res/images/tx3.png");
 
     //道具按钮
-    this->ui->pushButton_boom->setCheckable(true);
+   /* this->ui->pushButton_boom->setCheckable(true);
     this->ui->pushButton_col->setCheckable(true);
     this->ui->pushButton_row->setCheckable(true);
     this->ui->pushButton_color->setCheckable(true);
+*/
+      ui->pushButton_boom->setEnabled(g_props_boom > 0);
+    ui->pushButton_col->setEnabled(g_props_col > 0);
+    ui->pushButton_row->setEnabled(g_props_row > 0);
+    ui->pushButton_color->setEnabled(g_props_color > 0);
 
     image_stop = new QImage(":/res/images/stop.png"); //游戏暂停的图片
     image_gameover = new QImage(":/res/images/gameover.png"); //游戏结束的图片
@@ -168,8 +173,10 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
 
     int xx;
     int yy;
-    xx = event->x() - offsetX;
-    yy = event->y() - offsetY;
+  // xx = event->x() - offsetX;
+    xx = event->position().x() - offsetX;
+    yy = event->position().y() - offsetY;
+
     focus_y = xx / cellSize;
     focus_x = yy / cellSize; // 把点击的坐标翻译成了宝石矩阵的行列号，便于下面访问算法
 
@@ -232,7 +239,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                 string_grade = std::to_string(g_rank.nGrade);
 
                 this->repaint();
-                _sleep(t);
+                   std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 for (int i = 0; i < MAPROWNUM; i++) {
                     for (int j = 0; j < MAPCOLNUM; j++) {
                         if (numMatrix->m_aMap[i][j] == 0) {
@@ -241,7 +248,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                     }
                 }
                 this->repaint();
-                _sleep(t);
+                std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 for (int i = 0; i < MAPROWNUM; i++) {
                     for (int j = 0; j < MAPCOLNUM; j++) {
                         if (numMatrix->m_aMap[i][j] == 0) {
@@ -254,10 +261,10 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                 ui->label_col->setText(QString::number(g_props_col));
                 ui->label_color->setText(QString::number(g_props_color));
                 this->repaint();
-                _sleep(t);
+                   std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 while (numMatrix->down()) {
                     this->repaint();
-                    _sleep(t);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 }
             } while (numMatrix->eliminate());
         } else {
@@ -276,7 +283,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                 numMatrix->m_aMap[x][y] = numMatrix->m_aMap[focus_x][focus_y];
                 numMatrix->m_aMap[focus_x][focus_y] = temp;
                 this->repaint();
-                _sleep(t);
+                std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 if (!numMatrix->eliminate(true)) { // 点的两个不能交换
                     // 换回来
                     int temp1;
@@ -284,7 +291,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                     numMatrix->m_aMap[x][y] = numMatrix->m_aMap[focus_x][focus_y];
                     numMatrix->m_aMap[focus_x][focus_y] = temp1;
                     this->repaint();
-                    _sleep(t);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
                 }
                 while (numMatrix->eliminate()) {
                     eli_music = 1;
@@ -302,7 +309,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                     string_grade = std::to_string(g_rank.nGrade);
 
                     this->repaint();
-                    _sleep(t);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     for (int i = 0; i < MAPROWNUM; i++) {
                         for (int j = 0; j < MAPCOLNUM; j++) {
                             if (numMatrix->m_aMap[i][j] == 0) {
@@ -311,7 +318,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                         }
                     }
                     this->repaint();
-                    _sleep(t);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     for (int i = 0; i < MAPROWNUM; i++) {
                         for (int j = 0; j < MAPCOLNUM; j++) {
                             if (numMatrix->m_aMap[i][j] == 0) {
@@ -324,16 +331,16 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                     ui->label_col->setText(QString::number(g_props_col));
                     ui->label_color->setText(QString::number(g_props_color));
                     this->repaint();
-                    _sleep(t);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     for (int k = 0; k < 10; k++) {
                         addScoreSituation = k;
                         this->repaint();
-                        _sleep(t);
+                        std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     }
 
                     while (numMatrix->down()) {
                         this->repaint();
-                        _sleep(t);
+                        std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     }
                 }
             } else {

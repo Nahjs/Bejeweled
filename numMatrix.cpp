@@ -276,48 +276,37 @@ void NumMatrix::propsEliminate(int propsSpc, int x, int y)
 {
     switch (propsSpc) {
     case 1: //3*3boom
-        m_aMap[x][y] = 0;
-        /*将指定位置 (x, y) 的宝石设为0（即消除）
-        * 检查并消除周围8个位置的宝石
-        * 确保不越界
-        */
-        if(y != 0)
-            m_aMap[x][y - 1] = 0;
-        if(y != 7)
-            m_aMap[x][y + 1] = 0;
-        if(x != 0)
-            m_aMap[x - 1][y] = 0;
-        if(x != 0 && y != 0)
-            m_aMap[x - 1][y - 1] = 0;
-        if(x != 0 && y != 7)
-            m_aMap[x - 1][y + 1] = 0;
-        if(x != 7)
-            m_aMap[x + 1][y] = 0;
-        if(x != 7 && y != 0)
-            m_aMap[x + 1][y - 1] = 0;
-        if(x != 7 && y != 7)
-            m_aMap[x + 1][y + 1] = 0;
-        g_props_boom--;//使用了一个 3x3 爆炸道具
+            for (int i = std::max(0, x - 1); i <= std::min(MAPROWNUM - 1, x + 1); ++i) {
+                for (int j = std::max(0, y - 1); j <= std::min(MAPCOLNUM - 1, y + 1); ++j) {
+                    m_aMap[i][j] = 0;
+                }
+            }
+        g_props_boom--;
         break;
         case 2: //line boom row
-            for(int i = 0; i < 8; i++)
-                m_aMap[x][i] = 0; // 指定行 x 的所有宝石设为0
-        g_props_row--; // 使用了一个一行消除道具
+            for (int j = 0; j < MAPCOLNUM; ++j) {
+                m_aMap[x][j] = 0;
+            }
+        g_props_row--;
         break;
 
         case 3: //line boom column
-            for(int i = 0; i < 8; i++)
-                m_aMap[i][y] = 0; // 指定列 y 的所有宝石设为0
-        g_props_col--; // 使用了一个一列消除道具
+            for (int i = 0; i < MAPROWNUM; ++i) {
+                m_aMap[i][y] = 0;
+            }
+        g_props_col--;
         break;
 
         case 4: //same gem delete
-            int gemspc = m_aMap[x][y]; // 获取指定位置 (x, y) 的宝石颜色 gemspc
-        for(int i = 0; i < 8; i++)
-            for(int j = 0; j < 8; j++)
-                if(m_aMap[i][j] == gemspc) // 遍历整个地图，找到所有与 gemspc 相同的宝石，
-                    m_aMap[i][j] = 0; // 将它们设为0
-        g_props_color--; // 使用了一个同色消除道具
+            int color = m_aMap[x][y];//数字矩阵中当前位置的宝石颜色（数字）
+        for (int i = 0; i < MAPROWNUM; ++i) {
+            for (int j = 0; j < MAPCOLNUM; ++j) {
+                if (m_aMap[i][j] == color) {
+                    m_aMap[i][j] = 0;
+                }
+            }
+        }
+        g_props_color--;
         break;
     }
 }

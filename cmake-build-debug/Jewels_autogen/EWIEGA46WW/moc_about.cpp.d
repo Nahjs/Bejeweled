@@ -1,5 +1,5 @@
-D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_about.cpp: D:/CLion/Bejeweled1/about.h \
-  D:/CLion/Bejeweled1/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_about.cpp: D:/CLion/Bejeweled/about.h \
+  D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDate \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \

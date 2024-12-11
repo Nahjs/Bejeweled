@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/help.cpp.obj: D:\CLion\Bejeweled1\help.cpp \
- D:\CLion\Bejeweled1\help.h \
+CMakeFiles/Jewels.dir/help.cpp.obj: D:\CLion\Bejeweled\help.cpp \
+ D:\CLion\Bejeweled\help.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -351,7 +351,7 @@ CMakeFiles/Jewels.dir/help.cpp.obj: D:\CLion\Bejeweled1\help.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qbitmap.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
- D:\CLion\Bejeweled1\ui_help.h \
+ D:\CLion\Bejeweled\ui_help.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \

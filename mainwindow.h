@@ -11,6 +11,8 @@
 #include <string.h>
 #include <QDebug>
 #include <QTimer>
+#include <thread>
+#include <chrono>
 #include <QLabel>
 #include <QPixmap>
 #include <QPainter>
