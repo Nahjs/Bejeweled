@@ -40,8 +40,10 @@ signals:
     void gameToMenu();
     //void clicked();//鼠标点击信号
 
+public slots:
+    void closeFromRank(); // 添加新的槽函数
+
 private slots:
-    void onRankClosed(); //关闭排行榜的信号
     void on_btn_gameToStart_clicked();
     void doStartToGame();
     void doMenuToGame();

@@ -26,8 +26,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
   //  connect(menu,SIGNAL(game_them_background_change(QString)),this,SLOT(do_theme_background_change(QString)));
   //  connect(menu,SIGNAL(game_themee_gem_change(QString)),this,SLOT(do_theme_gem_change(QString)));
   //  connect(menu,SIGNAL(game_music_background_change(QString)),this,SLOT(do_music_background_change(QString)));
-    connect(rankInstance, &Rank::rankClosed, this, &Mainwindow::onRankClosed); //关闭排行返回开始界面
-    connect(this,SIGNAL(gameToMenu()),this,SLOT(on_pushButton_stop_clicked())); //当点击“菜单”进入menu界面时，游戏自动暂停
+     connect(this,SIGNAL(gameToMenu()),this,SLOT(on_pushButton_stop_clicked())); //当点击“菜单”进入menu界面时，游戏自动暂停
     connect(ui->pushButton_hint,SIGNAL(clicked()),this,SLOT(do_btn_hint()));
 
     focus=0;
@@ -433,11 +432,6 @@ void Mainwindow::on_btn_gameToMenu_clicked()
 void Mainwindow::doMenuToGame(){
     this->show();
 }
-void Mainwindow::onRankClosed()
-{
-    // 实现返回到开始界面的逻辑
-   ui->btn_gameToStart->click();
-}
 
 void Mainwindow::Music(){
    // QMediaPlayer *music = new QMediaPlayer();
@@ -705,4 +699,10 @@ void Mainwindow::on_pushButton_boom_clicked()
         boom=true;
         this->ui->pushButton_boom->setChecked(true);
     }
+}
+void Mainwindow::closeFromRank()
+{
+    this->hide();
+    Game_over(false);
+    emit gameToStart();
 }

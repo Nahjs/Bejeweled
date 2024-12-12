@@ -17,6 +17,9 @@ Start::Start(QWidget *parent)
     connect(game, SIGNAL(gameToStart()), this, SLOT(doGameToStart()));
     connect(name, SIGNAL(nameConfirm()), this, SLOT(doNameConfirm()));
     ui->label_welcome->setText("请告知你的大名：");
+
+    // 连接排行榜关闭信号
+    connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
 }
 
 Start::~Start()
@@ -67,4 +70,9 @@ void Start::on_btn_themeChange_clicked()
     ThemeChange *themeChangeDlg = new ThemeChange; // 注意这里没有指定父窗口，所以它会创建一个新窗口
     themeChangeDlg->setAttribute(Qt::WA_DeleteOnClose); // 当窗口关闭时，自动删除对象
     themeChangeDlg->show();
+}
+
+void Start::onRankClosed()
+{
+    this->show(); // 显示开始界面
 }

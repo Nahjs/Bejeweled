@@ -36,6 +36,9 @@ private slots:
 
     //主题设置
     void on_btn_themeChange_clicked();
+
+    void onRankClosed(); // 添加新的槽函数
+
 signals:
     void startToGame();
 

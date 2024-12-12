@@ -25,13 +25,13 @@ public:
     void showRank();
     ~Rank();
 
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
     static Rankstruct g_rank;
     static Rankstruct* ranks[10];
 
-    signals:
-        void rankClosed(); // 信号声明
+signals:
+    void rankClosed(); // 信号声明
 
 private slots:
     void on_actionClear_triggered();
