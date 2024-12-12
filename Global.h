@@ -1,17 +1,6 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-typedef struct RankStruct
-{
-    char strName[50];
-    int nGrade;
-    int nRank;
-} Rankstruct;
-
-extern Rankstruct g_rank;
-
-extern Rankstruct * ranks[10];
-
 typedef struct Picelem
 {
     int nRow;

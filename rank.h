@@ -2,28 +2,48 @@
 #define RANK_H
 
 #include <QMainWindow>
-#include <crankdao.h>
+#include <QString>
+
+typedef struct RankStruct {
+    char strName[50];
+    int nGrade;
+    int nRank;
+} Rankstruct;
 
 namespace Ui {
 class Rank;
 }
 
-class Rank : public QMainWindow
-{
+class Rank : public QMainWindow {
     Q_OBJECT
 
 public:
-    static Rank * getCRankDlg();
+    static Rank* getInstance();
+    void updateRank();
+    int getIndex();
+    void insertIndex(int rankIndex);
     void showRank();
     ~Rank();
 
+    void closeEvent(QCloseEvent *event);
+
+    static Rankstruct g_rank;
+    static Rankstruct* ranks[10];
+
+    signals:
+        void rankClosed(); // 信号声明
+
 private slots:
-   // void on_actionClear_triggered();
+    void on_actionClear_triggered();
 
 private:
     explicit Rank(QWidget *parent = nullptr);
-    static Rank * crankdlg;
+    static Rank* instance;
     Ui::Rank *ui;
-    int ranknum;
+    
+    void loadRankData();
+    void saveRankData();
+    int getRankCount();
 };
+
 #endif // RANK_H

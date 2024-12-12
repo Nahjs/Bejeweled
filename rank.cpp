@@ -1,100 +1,159 @@
 #include "rank.h"
 #include "ui_rank.h"
-#include "crankdao.h"
+#include <QFile>
+#include <QTextStream>
+#include <string>
+#include <QLabel>
 
-Rank * Rank::crankdlg = nullptr;
+Rank* Rank::instance = nullptr;
+Rankstruct Rank::g_rank;
+Rankstruct* Rank::ranks[10] = {nullptr};
 
-Rank *Rank::getCRankDlg()
+Rank* Rank::getInstance() 
 {
-    if(crankdlg == nullptr)
-        crankdlg = new Rank;
-    return crankdlg;
+    if(instance == nullptr)
+        instance = new Rank;
+    return instance;
 }
 
-Rank::Rank(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::Rank)
+Rank::Rank(QWidget *parent) : QMainWindow(parent), ui(new Ui::Rank) 
 {
     ui->setupUi(this);
+    for(int i = 0; i < 10; i++) {
+        ranks[i] = new Rankstruct();
+    }
+    loadRankData();
 }
 
-void Rank::showRank()
+void Rank::loadRankData() 
+{
+    QFile file("rank.txt");
+    if(file.open(QIODevice::ReadOnly)) {
+        QDataStream in(&file);
+        for(int i = 0; i < 10; i++) {
+            in.readRawData(ranks[i]->strName, 50);
+            in >> ranks[i]->nGrade;
+        }
+        file.close();
+    }
+}
+
+void Rank::saveRankData() 
+{
+    QFile file("rank.txt");
+    if(file.open(QIODevice::WriteOnly)) {
+        QDataStream out(&file);
+        for(int i = 0; i < 10; i++) {
+            out.writeRawData(ranks[i]->strName, 50);
+            out << ranks[i]->nGrade;
+        }
+        file.close();
+    }
+}
+
+int Rank::getRankCount() 
+{
+    int count = 0;
+    for(int i = 0; i < 10 && ranks[i]->nGrade > 0; i++) {
+        count++;
+    }
+    return count;
+}
+
+void Rank::updateRank() 
+{
+    loadRankData();
+    showRank();
+}
+
+int Rank::getIndex() 
+{
+    int length = getRankCount();
+    if(length == 0) return 0;
+    
+    for(int i = length - 1; i >= 0; i--) {
+        if(g_rank.nGrade < ranks[i]->nGrade)
+            return i + 1;
+    }
+    return 0;
+}
+
+void Rank::insertIndex(int rankIndex) 
+{
+    if(rankIndex == 10 || g_rank.strName[0] == 0)
+        return;
+
+    int length = getRankCount();
+    for(int i = 0; i < length; i++) {
+        if(!strcmp(g_rank.strName, ranks[i]->strName)) {
+            if(g_rank.nGrade <= ranks[i]->nGrade)
+                return;
+            else
+                break;
+        }
+    }
+
+    for(int i = 9; i > rankIndex; i--) {
+        if(ranks[i-1]->nGrade > 0) {
+            *ranks[i] = *ranks[i-1];
+        }
+    }
+    
+    ranks[rankIndex]->nGrade = g_rank.nGrade;
+    strcpy(ranks[rankIndex]->strName, g_rank.strName);
+    
+    saveRankData();
+    showRank();
+}
+
+void Rank::showRank() 
 {
     QString name;
     QString grade;
+    int length = getRankCount();
 
- /*   switch (CRankDao::getRank())
-    {
-    case 10:
-        name = QString::fromLatin1(ranks[9]->strName);
-        ui->label_28->setText(name);
-        grade = QString::fromStdString(to_string(ranks[9]->nGrade));
-        ui->label_30->setText(grade);
-    case 9:
-        name = QString::fromLatin1(ranks[8]->strName);
-        ui->label_25->setText(name);
-        grade = QString::fromStdString(to_string(ranks[8]->nGrade));
-        ui->label_27->setText(grade);
-    case 8:
-        name = QString::fromLatin1(ranks[7]->strName);
-        ui->label_22->setText(name);
-        grade = QString::fromStdString(to_string(ranks[7]->nGrade));
-        ui->label_24->setText(grade);
-    case 7:
-        name = QString::fromLatin1(ranks[6]->strName);
-        ui->label_19->setText(name);
-        grade = QString::fromStdString(to_string(ranks[6]->nGrade));
-        ui->label_21->setText(grade);
-    case 6:
-        name = QString::fromLatin1(ranks[5]->strName);
-        ui->label_16->setText(name);
-        grade = QString::fromStdString(to_string(ranks[5]->nGrade));
-        ui->label_18->setText(grade);
-    case 5:
-        name = QString::fromLatin1(ranks[4]->strName);
-        ui->label_13->setText(name);
-        grade = QString::fromStdString(to_string(ranks[4]->nGrade));
-        ui->label_15->setText(grade);
-    case 4:
-        name = QString::fromLatin1(ranks[3]->strName);
-        ui->label_10->setText(name);
-        grade = QString::fromStdString(to_string(ranks[3]->nGrade));
-        ui->label_12->setText(grade);
-    case 3:
-        name = QString::fromLatin1(ranks[2]->strName);
-        ui->label_7->setText(name);
-        grade = QString::fromStdString(to_string(ranks[2]->nGrade));
-        ui->label_9->setText(grade);
-    case 2:
-        name = QString::fromLatin1(ranks[1]->strName);
-        ui->label_4->setText(name);
-        grade = QString::fromStdString(to_string(ranks[1]->nGrade));
-        ui->label_6->setText(grade);
-    case 1:
-        name = QString::fromLatin1(ranks[0]->strName);
-        ui->label_1->setText(name);
-        grade = QString::fromStdString(to_string(ranks[0]->nGrade));
-        ui->label_3->setText(grade);
-    case 0:
-        this->show();
-    }*/
+    for(int i = 1; i <= 10; i++) {
+        QString nameLabel = QString("label_%1").arg(i*3 - 2);
+        QString scoreLabel = QString("label_%1").arg(i*3);
+        QLabel* nameLabelWidget = findChild<QLabel*>(nameLabel);
+        QLabel* scoreLabelWidget = findChild<QLabel*>(scoreLabel);
+        
+        if(i <= length) {
+            name = QString::fromLatin1(ranks[i-1]->strName);
+            grade = QString::number(ranks[i-1]->nGrade);
+        } else {
+            name = "";
+            grade = "";
+        }
+        
+        if(nameLabelWidget) nameLabelWidget->setText(name);
+        if(scoreLabelWidget) scoreLabelWidget->setText(grade);
+    }
+    
+    this->show();
 }
 
-Rank::~Rank()
+void Rank::on_actionClear_triggered() 
 {
-    delete ui;
-}
-/*
-void Rank::on_actionClear_triggered()
-{
-    for(int i = 0; ranks[i] != 0; i++)
-    {
+    for(int i = 0; i < 10; i++) {
         ranks[i]->nGrade = 0;
         ranks[i]->strName[0] = '-';
-        ranks[i]->strName[1] = 0;
+        ranks[i]->strName[1] = '\0';
     }
-    CRankDao::saveRank();
-    this->close();
-    this->showRank();
-}*/
+    saveRankData();
+    showRank();
+}
 
+Rank::~Rank() 
+{
+    for(int i = 0; i < 10; i++) {
+        delete ranks[i];
+    }
+    delete ui;
+}
+
+void Rank::closeEvent(QCloseEvent *event)
+{
+   emit rankClosed(); // 发出信号
+   // QMainWindow::closeEvent(event); // 调用基类的关闭事件处理
+    }

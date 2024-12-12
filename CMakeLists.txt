@@ -24,7 +24,6 @@ set(HEADERS
         help.h
         name.h
         rank.h
-        crankdao.h
         themechange.cpp
         themechange.h
         themechange.ui
@@ -41,7 +40,6 @@ set(SOURCES
         help.cpp
         name.cpp
         rank.cpp
-        crankdao.cpp
         themechange.cpp
         themechange.h
         themechange.ui

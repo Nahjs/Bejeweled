@@ -18,6 +18,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QCloseEvent>
+#include "rank.h"
 
 namespace Ui {
 class Mainwindow;
@@ -40,12 +41,13 @@ signals:
     //void clicked();//鼠标点击信号
 
 private slots:
+    void onRankClosed(); //关闭排行榜的信号
     void on_btn_gameToStart_clicked();
     void doStartToGame();
     void doMenuToGame();
     void on_btn_gameToMenu_clicked();
     void do_theme_background_change(QString);
-    void do_theme_gem_change(QString);
+ //   void do_theme_gem_change(QString);
    // void do_music_background_change(QString);
     void on_pushButton_stop_clicked();
     void update_timebar(); //每隔一秒更新时间条的槽函数
@@ -101,7 +103,7 @@ private:
     int eli_music=0;
   //  CMusicPlayer *mus = new CMusicPlayer;
     //CMusicPlayer *mus1 = new CMusicPlayer;
-  //  CRankLogic * ranklogic = new CRankLogic();
+    Rank* rankInstance;
 
     bool props=false,boom=false,color=false,row=false,col=false; //判断是否选择道具
 

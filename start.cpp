@@ -1,6 +1,7 @@
 #include "start.h"
 #include "ui_start.h"
 #include "themechange.h"
+#include "rank.h" 
 
 Start::Start(QWidget *parent)
     : QMainWindow(parent)
@@ -9,7 +10,7 @@ Start::Start(QWidget *parent)
     ui->setupUi(this);
 
     game = new Mainwindow(this);
-    rank = Rank::getCRankDlg();
+    rank =  Rank::getInstance();
     name = new Name(this);
     help = new Help(this);
     about = new About(this);
@@ -37,12 +38,12 @@ void Start::doGameToStart()
 
 void Start::on_btn_mainToRank_clicked()
 {
-    rank->showRank();
+    Rank::getInstance()->showRank();
 }
 
 void Start::doNameConfirm()
 {
-    this->ui->label_welcome->setText(" " + QString::fromStdString(g_rank.strName)+"，你终于来了 ！");
+    this->ui->label_welcome->setText(" " + QString::fromStdString(Rank::g_rank.strName)+"，你终于来了 ！");
 }
 
 void Start::on_btn_name_clicked()

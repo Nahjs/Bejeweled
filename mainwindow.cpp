@@ -1,7 +1,18 @@
+#include <QMainWindow>
+#include <QPainter>
+#include <QMouseEvent>
+#include <QTimer>
+#include <QCloseEvent>
+#include <QDebug>
+#include <chrono>
+#include <thread>
+#include <string>
+
 #include "mainwindow.h"
 
 #include "Global.h"
 #include "ui_mainwindow.h"
+#include "Rank.h" // Add this line to include the Rank header file
 
 Mainwindow::Mainwindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +26,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
   //  connect(menu,SIGNAL(game_them_background_change(QString)),this,SLOT(do_theme_background_change(QString)));
   //  connect(menu,SIGNAL(game_themee_gem_change(QString)),this,SLOT(do_theme_gem_change(QString)));
   //  connect(menu,SIGNAL(game_music_background_change(QString)),this,SLOT(do_music_background_change(QString)));
+    connect(rankInstance, &Rank::rankClosed, this, &Mainwindow::onRankClosed); //关闭排行返回开始界面
     connect(this,SIGNAL(gameToMenu()),this,SLOT(on_pushButton_stop_clicked())); //当点击“菜单”进入menu界面时，游戏自动暂停
     connect(ui->pushButton_hint,SIGNAL(clicked()),this,SLOT(do_btn_hint()));
 
@@ -92,6 +104,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     /*由开始界面发送信号给该游戏界面启动游戏，要不就加入下面这行代码，在main.cpp中直接创建game的实例进入游戏
     Game_start();
 */
+    rankInstance = Rank::getInstance();
 }
 
 Mainwindow::~Mainwindow()
@@ -235,8 +248,8 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                     }
                 }
                 eli_number += eliminateNumber;
-                g_rank.nGrade += eliminateNumber * 5; // 使用道具后，每消除一个，分数+5
-                string_grade = std::to_string(g_rank.nGrade);
+                Rank::g_rank.nGrade += eliminateNumber * 5; // 使用道具后，每消除一个，分数+5
+                string_grade = std::to_string(Rank::g_rank.nGrade);
 
                 this->repaint();
                    std::this_thread::sleep_for(std::chrono::milliseconds(t));
@@ -305,8 +318,8 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                         }
                     }
                     eli_number += eliminateNumber;
-                    g_rank.nGrade += eliminateNumber * 10; // 分数增加
-                    string_grade = std::to_string(g_rank.nGrade);
+                    Rank::g_rank.nGrade += eliminateNumber * 10; // 分数增加
+                    string_grade = std::to_string(Rank::g_rank.nGrade);
 
                     this->repaint();
                     std::this_thread::sleep_for(std::chrono::milliseconds(t));
@@ -365,7 +378,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                 time = 60;
             ui->progressBar_time->setValue(time);
         }
-        if(g_rank.nGrade / 1000 != g_spc - 5)//确定等级，每超过1000分宝石种类加1
+        if(Rank::g_rank.nGrade / 1000 != g_spc - 5)//确定等级，每超过1000分宝石种类加1
         {
             //ui->progressBar_time->setValue(60);
             if(g_spc){
@@ -394,7 +407,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
 
 void Mainwindow::do_btn_hint(){
     numMatrix->hint();//这里更新了point[2][2]数组
-    g_rank.nGrade-=30;
+    Rank::g_rank.nGrade -= 30;  // 修改这里
     this->repaint();
 }
 
@@ -420,6 +433,11 @@ void Mainwindow::on_btn_gameToMenu_clicked()
 void Mainwindow::doMenuToGame(){
     this->show();
 }
+void Mainwindow::onRankClosed()
+{
+    // 实现返回到开始界面的逻辑
+   ui->btn_gameToStart->click();
+}
 
 void Mainwindow::Music(){
    // QMediaPlayer *music = new QMediaPlayer();
@@ -432,18 +450,6 @@ void Mainwindow::Music(){
 
 void Mainwindow::do_theme_background_change(QString path){
     this->setStyleSheet("#CGameDlg{border-image:url("+path+");}");
-}
-
-void Mainwindow::do_theme_gem_change(QString path){
-    gemtype=path;
-    int i;
-    for(i=0;i<8;i++)
-    {
-        path = ":/res/images/" + gemtype + QString::number(i+1,10) + ".png";//宝石图片
-        pixmap_gem[i].load(path);
-    }
-    this->repaint();
-    qDebug()<<gemtype;
 }
 
 /*
@@ -490,7 +496,7 @@ void Mainwindow::Game_start(){
     g_props_row = 1;
     g_props_col = 1;
     numMatrix->BuildMap(g_spc);  //初始化游戏地图
-    g_rank.nGrade=0;
+    Rank::g_rank.nGrade = 0;  // 修改这里
     string_grade="";
     this->repaint();
 
@@ -525,15 +531,18 @@ void Mainwindow::Game_over(bool saveRank){
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     label_image->show();
     numMatrix->setgamerunning(false);
+    
+    // 保存分数到排行榜
+    if(saveRank && Rank::g_rank.nGrade > 0) {
+        rankInstance->insertIndex(rankInstance->getIndex());
+    }
+    
     ui->pushButton_stop->hide();
     ui->pushButton_stop->setEnabled(false);
     ui->pushButton_continue->hide();
     ui->pushButton_continue->setEnabled(false);
     ui->pushButton_restart->show();
     ui->pushButton_restart->setEnabled(true);
-
-   // if(saveRank)
-      //  ranklogic->insertIndex(ranklogic->getIndex());
 }
 
 void Mainwindow::on_pushButton_stop_clicked()
@@ -581,7 +590,7 @@ void Mainwindow::on_pushButton_restart_clicked()
     g_props_col = 1;
     numMatrix->BuildMap(g_spc);
     numMatrix->setgamerunning(true);
-    g_rank.nGrade=0;
+    Rank::g_rank.nGrade=0;
     string_grade="";
     this->repaint();
 
@@ -615,7 +624,6 @@ void Mainwindow::on_pushButton_2_clicked()
     music = 0;
     //mus->gameSound->setVolume(0);
 }
-
 
 
 

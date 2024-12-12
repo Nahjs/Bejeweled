@@ -3,9 +3,9 @@
 
 #include "about.h"
 #include "help.h"
-#include "rank.h"
-#include "name.h"
 #include "mainwindow.h"
+#include "name.h"
+#include "rank.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Start; }
