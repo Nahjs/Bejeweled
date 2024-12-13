@@ -1,13 +1,13 @@
-D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_start.cpp: D:/CLion/Bejeweled/start.h \
-  D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
-  D:/CLion/Bejeweled/Global.h \
-  D:/CLion/Bejeweled/about.h \
-  D:/CLion/Bejeweled/crankdao.h \
-  D:/CLion/Bejeweled/help.h \
-  D:/CLion/Bejeweled/mainwindow.h \
-  D:/CLion/Bejeweled/name.h \
-  D:/CLion/Bejeweled/numMatrix.h \
-  D:/CLion/Bejeweled/rank.h \
+D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_start.cpp: D:/CLion/1/Bejeweled/start.h \
+  D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+  D:/CLion/1/Bejeweled/Global.h \
+  D:/CLion/1/Bejeweled/about.h \
+  D:/CLion/1/Bejeweled/help.h \
+  D:/CLion/1/Bejeweled/login.h \
+  D:/CLion/1/Bejeweled/mainwindow.h \
+  D:/CLion/1/Bejeweled/name.h \
+  D:/CLion/1/Bejeweled/numMatrix.h \
+  D:/CLion/1/Bejeweled/rank.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDate \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
@@ -15,6 +15,7 @@ D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_start.cpp: D:
   D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
@@ -177,11 +178,23 @@ D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_start.cpp: D:
   D:/Qt/6.5.3/mingw_64/include/QtGui/qvectornd.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlDatabase \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlError \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlQuery \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlerror.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlquery.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsql-config.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \

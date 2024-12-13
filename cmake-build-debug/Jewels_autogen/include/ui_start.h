@@ -85,7 +85,7 @@ public:
         label->setStyleSheet(QString::fromUtf8("image: url(:/res/images/title.png);"));
         btn_themeChange = new QPushButton(centralwidget);
         btn_themeChange->setObjectName("btn_themeChange");
-        btn_themeChange->setGeometry(QRect(434, 60, 81, 41));
+        btn_themeChange->setGeometry(QRect(440, 60, 81, 41));
         Start->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Start);
         menubar->setObjectName("menubar");

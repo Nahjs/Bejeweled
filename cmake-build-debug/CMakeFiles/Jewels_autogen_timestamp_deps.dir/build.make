@@ -52,10 +52,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejeweled
+CMAKE_SOURCE_DIR = D:\CLion\1\Bejeweled
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejeweled\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\1\Bejeweled\cmake-build-debug
 
 # Utility rule file for Jewels_autogen_timestamp_deps.
 
@@ -77,6 +77,6 @@ CMakeFiles/Jewels_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/Jewels_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/Jewels_autogen_timestamp_deps.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\Bejeweled D:\CLion\Bejeweled D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles\Jewels_autogen_timestamp_deps.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\1\Bejeweled D:\CLion\1\Bejeweled D:\CLion\1\Bejeweled\cmake-build-debug D:\CLion\1\Bejeweled\cmake-build-debug D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles\Jewels_autogen_timestamp_deps.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Jewels_autogen_timestamp_deps.dir/depend
 

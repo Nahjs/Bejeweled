@@ -56,10 +56,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejeweled
+CMAKE_SOURCE_DIR = D:\CLion\1\Bejeweled
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejeweled\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\1\Bejeweled\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles D:\CLion\Bejeweled\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles D:\CLion\1\Bejeweled\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -250,30 +250,6 @@ about.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/about.cpp.s
 .PHONY : about.cpp.s
 
-crankdao.obj: crankdao.cpp.obj
-.PHONY : crankdao.obj
-
-# target to build an object file
-crankdao.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.obj
-.PHONY : crankdao.cpp.obj
-
-crankdao.i: crankdao.cpp.i
-.PHONY : crankdao.i
-
-# target to preprocess a source file
-crankdao.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.i
-.PHONY : crankdao.cpp.i
-
-crankdao.s: crankdao.cpp.s
-.PHONY : crankdao.s
-
-# target to generate assembly for a file
-crankdao.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/crankdao.cpp.s
-.PHONY : crankdao.cpp.s
-
 help.obj: help.cpp.obj
 .PHONY : help.obj
 
@@ -297,6 +273,30 @@ help.s: help.cpp.s
 help.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/help.cpp.s
 .PHONY : help.cpp.s
+
+login.obj: login.cpp.obj
+.PHONY : login.obj
+
+# target to build an object file
+login.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/login.cpp.obj
+.PHONY : login.cpp.obj
+
+login.i: login.cpp.i
+.PHONY : login.i
+
+# target to preprocess a source file
+login.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/login.cpp.i
+.PHONY : login.cpp.i
+
+login.s: login.cpp.s
+.PHONY : login.s
+
+# target to generate assembly for a file
+login.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/login.cpp.s
+.PHONY : login.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -418,6 +418,30 @@ rank.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/rank.cpp.s
 .PHONY : rank.cpp.s
 
+signup.obj: signup.cpp.obj
+.PHONY : signup.obj
+
+# target to build an object file
+signup.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/signup.cpp.obj
+.PHONY : signup.cpp.obj
+
+signup.i: signup.cpp.i
+.PHONY : signup.i
+
+# target to preprocess a source file
+signup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/signup.cpp.i
+.PHONY : signup.cpp.i
+
+signup.s: signup.cpp.s
+.PHONY : signup.s
+
+# target to generate assembly for a file
+signup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/signup.cpp.s
+.PHONY : signup.cpp.s
+
 start.obj: start.cpp.obj
 .PHONY : start.obj
 
@@ -442,6 +466,30 @@ start.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/start.cpp.s
 .PHONY : start.cpp.s
 
+themechange.obj: themechange.cpp.obj
+.PHONY : themechange.obj
+
+# target to build an object file
+themechange.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/themechange.cpp.obj
+.PHONY : themechange.cpp.obj
+
+themechange.i: themechange.cpp.i
+.PHONY : themechange.i
+
+# target to preprocess a source file
+themechange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/themechange.cpp.i
+.PHONY : themechange.cpp.i
+
+themechange.s: themechange.cpp.s
+.PHONY : themechange.s
+
+# target to generate assembly for a file
+themechange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/themechange.cpp.s
+.PHONY : themechange.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -465,12 +513,12 @@ help:
 	@echo ... about.obj
 	@echo ... about.i
 	@echo ... about.s
-	@echo ... crankdao.obj
-	@echo ... crankdao.i
-	@echo ... crankdao.s
 	@echo ... help.obj
 	@echo ... help.i
 	@echo ... help.s
+	@echo ... login.obj
+	@echo ... login.i
+	@echo ... login.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
@@ -486,9 +534,15 @@ help:
 	@echo ... rank.obj
 	@echo ... rank.i
 	@echo ... rank.s
+	@echo ... signup.obj
+	@echo ... signup.i
+	@echo ... signup.s
 	@echo ... start.obj
 	@echo ... start.i
 	@echo ... start.s
+	@echo ... themechange.obj
+	@echo ... themechange.i
+	@echo ... themechange.s
 .PHONY : help
 
 

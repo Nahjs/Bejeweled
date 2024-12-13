@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/name.cpp.obj: D:\CLion\Bejeweled\name.cpp \
- D:\CLion\Bejeweled\name.h \
+CMakeFiles/Jewels.dir/name.cpp.obj: D:\CLion\1\Bejeweled\name.cpp \
+ D:\CLion\1\Bejeweled\name.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -375,7 +375,10 @@ CMakeFiles/Jewels.dir/name.cpp.obj: D:\CLion\Bejeweled\name.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
- D:/CLion/Bejeweled/Global.h D:\CLion\Bejeweled\ui_name.h \
+ D:/CLion/1/Bejeweled/Global.h D:\CLion\1\Bejeweled\rank.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qstring.h \
+ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_name.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \

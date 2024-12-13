@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/about.cpp.obj: D:\CLion\Bejeweled\about.cpp \
- D:\CLion\Bejeweled\about.h \
+CMakeFiles/Jewels.dir/about.cpp.obj: D:\CLion\1\Bejeweled\about.cpp \
+ D:\CLion\1\Bejeweled\about.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -357,7 +357,8 @@ CMakeFiles/Jewels.dir/about.cpp.obj: D:\CLion\Bejeweled\about.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QTime D:\CLion\Bejeweled\ui_about.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \
+ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_about.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \

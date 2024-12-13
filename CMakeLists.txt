@@ -9,7 +9,7 @@ set(CMAKE_AUTORCC ON)
 # 设置源文件编码为 UTF-8
 set_source_files_properties(src/*.cpp PROPERTIES COMPILE_FLAGS "-finput-charset=UTF-8 -fexec-charset=UTF-8")
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Network)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Network Sql)
 
 # Add include directories
 include_directories(${CMAKE_SOURCE_DIR})
@@ -24,9 +24,9 @@ set(HEADERS
         help.h
         name.h
         rank.h
-        themechange.cpp
         themechange.h
-        themechange.ui
+        login.h
+        signup.h
 )
 
 # Add source files
@@ -41,8 +41,8 @@ set(SOURCES
         name.cpp
         rank.cpp
         themechange.cpp
-        themechange.h
-        themechange.ui
+        login.cpp
+        signup.cpp
 )
 
 # Add UI files
@@ -53,17 +53,14 @@ set(UIS
         help.ui
         name.ui
         rank.ui
-        themechange.cpp
-        themechange.h
         themechange.ui
+        login.ui
+        signup.ui
 )
 
 # 添加资源文件
 set(QRC
         res/res.qrc
-        themechange.cpp
-        themechange.h
-        themechange.ui
 )
 
 # Add executable
@@ -77,4 +74,5 @@ target_link_libraries(Jewels PRIVATE
         Qt6::Multimedia
         Qt6::MultimediaWidgets
         Qt6::Network
+        Qt6::Sql
 )

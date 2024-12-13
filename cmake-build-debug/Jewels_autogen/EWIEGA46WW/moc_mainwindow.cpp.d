@@ -1,12 +1,14 @@
-D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/CLion/Bejeweled/mainwindow.h \
-  D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
-  D:/CLion/Bejeweled/numMatrix.h \
+D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/CLion/1/Bejeweled/mainwindow.h \
+  D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
+  D:/CLion/1/Bejeweled/numMatrix.h \
+  D:/CLion/1/Bejeweled/rank.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \

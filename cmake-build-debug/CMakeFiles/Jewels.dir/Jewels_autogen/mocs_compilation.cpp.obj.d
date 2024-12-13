@@ -1,7 +1,7 @@
 CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_about.cpp \
- D:/CLion/Bejeweled/about.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\mocs_compilation.cpp \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_about.cpp \
+ D:/CLion/1/Bejeweled/about.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -361,10 +361,25 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QTime \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qtmochelpers.h \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_help.cpp \
- D:/CLion/Bejeweled/help.h \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_mainwindow.cpp \
- D:/CLion/Bejeweled/mainwindow.h D:/CLion/Bejeweled/numMatrix.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_help.cpp \
+ D:/CLion/1/Bejeweled/help.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_login.cpp \
+ D:/CLion/1/Bejeweled/login.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlDatabase \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlglobal.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsql-config.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlQuery \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlquery.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlError \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlerror.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_mainwindow.cpp \
+ D:/CLion/1/Bejeweled/mainwindow.h D:/CLion/1/Bejeweled/numMatrix.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
@@ -421,13 +436,21 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+ D:/CLion/1/Bejeweled/rank.h D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qstring.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextformat.h \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_name.cpp \
- D:/CLion/Bejeweled/name.h D:/CLion/Bejeweled/Global.h \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_rank.cpp \
- D:/CLion/Bejeweled/rank.h D:/CLion/Bejeweled/crankdao.h \
- D:\CLion\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_start.cpp \
- D:/CLion/Bejeweled/start.h D:/CLion/Bejeweled/about.h \
- D:/CLion/Bejeweled/help.h D:/CLion/Bejeweled/rank.h \
- D:/CLion/Bejeweled/name.h D:/CLion/Bejeweled/mainwindow.h
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_name.cpp \
+ D:/CLion/1/Bejeweled/name.h D:/CLion/1/Bejeweled/Global.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_rank.cpp \
+ D:/CLion/1/Bejeweled/rank.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_signup.cpp \
+ D:/CLion/1/Bejeweled/signup.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_start.cpp \
+ D:/CLion/1/Bejeweled/start.h D:/CLion/1/Bejeweled/about.h \
+ D:/CLion/1/Bejeweled/help.h D:/CLion/1/Bejeweled/mainwindow.h \
+ D:/CLion/1/Bejeweled/name.h D:/CLion/1/Bejeweled/login.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_themechange.cpp \
+ D:/CLion/1/Bejeweled/themechange.h

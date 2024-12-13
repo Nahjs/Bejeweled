@@ -48,11 +48,14 @@ static constexpr auto qt_meta_stringdata_CLASSStartENDCLASS = QtMocHelpers::stri
     "doNameConfirm",
     "on_btn_name_clicked",
     "on_btn_help_clicked",
-    "on_btn_about_clicked"
+    "on_btn_about_clicked",
+    "on_btn_themeChange_clicked",
+    "onRankClosed",
+    "onLoginSuccess"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSStartENDCLASS_t {
-    uint offsetsAndSizes[20];
+    uint offsetsAndSizes[26];
     char stringdata0[6];
     char stringdata1[12];
     char stringdata2[1];
@@ -63,6 +66,9 @@ struct qt_meta_stringdata_CLASSStartENDCLASS_t {
     char stringdata7[20];
     char stringdata8[20];
     char stringdata9[21];
+    char stringdata10[27];
+    char stringdata11[13];
+    char stringdata12[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSStartENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -77,7 +83,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSStartENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(86, 13),  // "doNameConfirm"
         QT_MOC_LITERAL(100, 19),  // "on_btn_name_clicked"
         QT_MOC_LITERAL(120, 19),  // "on_btn_help_clicked"
-        QT_MOC_LITERAL(140, 20)   // "on_btn_about_clicked"
+        QT_MOC_LITERAL(140, 20),  // "on_btn_about_clicked"
+        QT_MOC_LITERAL(161, 26),  // "on_btn_themeChange_clicked"
+        QT_MOC_LITERAL(188, 12),  // "onRankClosed"
+        QT_MOC_LITERAL(201, 14)   // "onLoginSuccess"
     },
     "Start",
     "startToGame",
@@ -88,7 +97,10 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSStartENDCLASS_t qt_meta_stringd
     "doNameConfirm",
     "on_btn_name_clicked",
     "on_btn_help_clicked",
-    "on_btn_about_clicked"
+    "on_btn_about_clicked",
+    "on_btn_themeChange_clicked",
+    "onRankClosed",
+    "onLoginSuccess"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -100,7 +112,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSStartENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -108,21 +120,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSStartENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   62,    2, 0x06,    1 /* Public */,
+       1,    0,   80,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   63,    2, 0x08,    2 /* Private */,
-       4,    0,   64,    2, 0x08,    3 /* Private */,
-       5,    0,   65,    2, 0x08,    4 /* Private */,
-       6,    0,   66,    2, 0x08,    5 /* Private */,
-       7,    0,   67,    2, 0x08,    6 /* Private */,
-       8,    0,   68,    2, 0x08,    7 /* Private */,
-       9,    0,   69,    2, 0x08,    8 /* Private */,
+       3,    0,   81,    2, 0x08,    2 /* Private */,
+       4,    0,   82,    2, 0x08,    3 /* Private */,
+       5,    0,   83,    2, 0x08,    4 /* Private */,
+       6,    0,   84,    2, 0x08,    5 /* Private */,
+       7,    0,   85,    2, 0x08,    6 /* Private */,
+       8,    0,   86,    2, 0x08,    7 /* Private */,
+       9,    0,   87,    2, 0x08,    8 /* Private */,
+      10,    0,   88,    2, 0x08,    9 /* Private */,
+      11,    0,   89,    2, 0x08,   10 /* Private */,
+      12,    0,   90,    2, 0x08,   11 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -158,6 +176,12 @@ Q_CONSTINIT const QMetaObject Start::staticMetaObject = { {
         // method 'on_btn_help_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btn_about_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_btn_themeChange_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onRankClosed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onLoginSuccess'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -177,6 +201,9 @@ void Start::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 5: _t->on_btn_name_clicked(); break;
         case 6: _t->on_btn_help_clicked(); break;
         case 7: _t->on_btn_about_clicked(); break;
+        case 8: _t->on_btn_themeChange_clicked(); break;
+        case 9: _t->onRankClosed(); break;
+        case 10: _t->onLoginSuccess(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -211,13 +238,13 @@ int Start::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 11;
     }
     return _id;
 }

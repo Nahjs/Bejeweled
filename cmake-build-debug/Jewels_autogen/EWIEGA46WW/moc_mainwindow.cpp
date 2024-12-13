@@ -43,12 +43,12 @@ static constexpr auto qt_meta_stringdata_CLASSMainwindowENDCLASS = QtMocHelpers:
     "gameToStart",
     "",
     "gameToMenu",
+    "closeFromRank",
     "on_btn_gameToStart_clicked",
     "doStartToGame",
     "doMenuToGame",
     "on_btn_gameToMenu_clicked",
     "do_theme_background_change",
-    "do_theme_gem_change",
     "on_pushButton_stop_clicked",
     "update_timebar",
     "Game_start",
@@ -74,12 +74,12 @@ struct qt_meta_stringdata_CLASSMainwindowENDCLASS_t {
     char stringdata1[12];
     char stringdata2[1];
     char stringdata3[11];
-    char stringdata4[27];
-    char stringdata5[14];
-    char stringdata6[13];
-    char stringdata7[26];
-    char stringdata8[27];
-    char stringdata9[20];
+    char stringdata4[14];
+    char stringdata5[27];
+    char stringdata6[14];
+    char stringdata7[13];
+    char stringdata8[26];
+    char stringdata9[27];
     char stringdata10[27];
     char stringdata11[15];
     char stringdata12[11];
@@ -106,40 +106,40 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainwindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(11, 11),  // "gameToStart"
         QT_MOC_LITERAL(23, 0),  // ""
         QT_MOC_LITERAL(24, 10),  // "gameToMenu"
-        QT_MOC_LITERAL(35, 26),  // "on_btn_gameToStart_clicked"
-        QT_MOC_LITERAL(62, 13),  // "doStartToGame"
-        QT_MOC_LITERAL(76, 12),  // "doMenuToGame"
-        QT_MOC_LITERAL(89, 25),  // "on_btn_gameToMenu_clicked"
-        QT_MOC_LITERAL(115, 26),  // "do_theme_background_change"
-        QT_MOC_LITERAL(142, 19),  // "do_theme_gem_change"
-        QT_MOC_LITERAL(162, 26),  // "on_pushButton_stop_clicked"
-        QT_MOC_LITERAL(189, 14),  // "update_timebar"
-        QT_MOC_LITERAL(204, 10),  // "Game_start"
-        QT_MOC_LITERAL(215, 30),  // "on_pushButton_continue_clicked"
-        QT_MOC_LITERAL(246, 29),  // "on_pushButton_restart_clicked"
-        QT_MOC_LITERAL(276, 11),  // "do_btn_hint"
-        QT_MOC_LITERAL(288, 10),  // "paintEvent"
-        QT_MOC_LITERAL(299, 12),  // "QPaintEvent*"
-        QT_MOC_LITERAL(312, 5),  // "event"
-        QT_MOC_LITERAL(318, 10),  // "closeEvent"
-        QT_MOC_LITERAL(329, 12),  // "QCloseEvent*"
-        QT_MOC_LITERAL(342, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(364, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(388, 25),  // "on_pushButton_row_clicked"
-        QT_MOC_LITERAL(414, 25),  // "on_pushButton_col_clicked"
-        QT_MOC_LITERAL(440, 27),  // "on_pushButton_color_clicked"
-        QT_MOC_LITERAL(468, 26)   // "on_pushButton_boom_clicked"
+        QT_MOC_LITERAL(35, 13),  // "closeFromRank"
+        QT_MOC_LITERAL(49, 26),  // "on_btn_gameToStart_clicked"
+        QT_MOC_LITERAL(76, 13),  // "doStartToGame"
+        QT_MOC_LITERAL(90, 12),  // "doMenuToGame"
+        QT_MOC_LITERAL(103, 25),  // "on_btn_gameToMenu_clicked"
+        QT_MOC_LITERAL(129, 26),  // "do_theme_background_change"
+        QT_MOC_LITERAL(156, 26),  // "on_pushButton_stop_clicked"
+        QT_MOC_LITERAL(183, 14),  // "update_timebar"
+        QT_MOC_LITERAL(198, 10),  // "Game_start"
+        QT_MOC_LITERAL(209, 30),  // "on_pushButton_continue_clicked"
+        QT_MOC_LITERAL(240, 29),  // "on_pushButton_restart_clicked"
+        QT_MOC_LITERAL(270, 11),  // "do_btn_hint"
+        QT_MOC_LITERAL(282, 10),  // "paintEvent"
+        QT_MOC_LITERAL(293, 12),  // "QPaintEvent*"
+        QT_MOC_LITERAL(306, 5),  // "event"
+        QT_MOC_LITERAL(312, 10),  // "closeEvent"
+        QT_MOC_LITERAL(323, 12),  // "QCloseEvent*"
+        QT_MOC_LITERAL(336, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(358, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(382, 25),  // "on_pushButton_row_clicked"
+        QT_MOC_LITERAL(408, 25),  // "on_pushButton_col_clicked"
+        QT_MOC_LITERAL(434, 27),  // "on_pushButton_color_clicked"
+        QT_MOC_LITERAL(462, 26)   // "on_pushButton_boom_clicked"
     },
     "Mainwindow",
     "gameToStart",
     "",
     "gameToMenu",
+    "closeFromRank",
     "on_btn_gameToStart_clicked",
     "doStartToGame",
     "doMenuToGame",
     "on_btn_gameToMenu_clicked",
     "do_theme_background_change",
-    "do_theme_gem_change",
     "on_pushButton_stop_clicked",
     "update_timebar",
     "Game_start",
@@ -180,26 +180,26 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainwindowENDCLASS[] = {
        3,    0,  147,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,  148,    2, 0x08,    3 /* Private */,
+       4,    0,  148,    2, 0x0a,    3 /* Public */,
        5,    0,  149,    2, 0x08,    4 /* Private */,
        6,    0,  150,    2, 0x08,    5 /* Private */,
        7,    0,  151,    2, 0x08,    6 /* Private */,
-       8,    1,  152,    2, 0x08,    7 /* Private */,
-       9,    1,  155,    2, 0x08,    9 /* Private */,
-      10,    0,  158,    2, 0x08,   11 /* Private */,
-      11,    0,  159,    2, 0x08,   12 /* Private */,
-      12,    0,  160,    2, 0x08,   13 /* Private */,
-      13,    0,  161,    2, 0x08,   14 /* Private */,
-      14,    0,  162,    2, 0x08,   15 /* Private */,
-      15,    0,  163,    2, 0x08,   16 /* Private */,
-      16,    1,  164,    2, 0x08,   17 /* Private */,
-      19,    1,  167,    2, 0x08,   19 /* Private */,
-      21,    0,  170,    2, 0x08,   21 /* Private */,
-      22,    0,  171,    2, 0x08,   22 /* Private */,
-      23,    0,  172,    2, 0x08,   23 /* Private */,
-      24,    0,  173,    2, 0x08,   24 /* Private */,
-      25,    0,  174,    2, 0x08,   25 /* Private */,
-      26,    0,  175,    2, 0x08,   26 /* Private */,
+       8,    0,  152,    2, 0x08,    7 /* Private */,
+       9,    1,  153,    2, 0x08,    8 /* Private */,
+      10,    0,  156,    2, 0x08,   10 /* Private */,
+      11,    0,  157,    2, 0x08,   11 /* Private */,
+      12,    0,  158,    2, 0x08,   12 /* Private */,
+      13,    0,  159,    2, 0x08,   13 /* Private */,
+      14,    0,  160,    2, 0x08,   14 /* Private */,
+      15,    0,  161,    2, 0x08,   15 /* Private */,
+      16,    1,  162,    2, 0x08,   16 /* Private */,
+      19,    1,  165,    2, 0x08,   18 /* Private */,
+      21,    0,  168,    2, 0x08,   20 /* Private */,
+      22,    0,  169,    2, 0x08,   21 /* Private */,
+      23,    0,  170,    2, 0x08,   22 /* Private */,
+      24,    0,  171,    2, 0x08,   23 /* Private */,
+      25,    0,  172,    2, 0x08,   24 /* Private */,
+      26,    0,  173,    2, 0x08,   25 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -210,7 +210,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainwindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
     QMetaType::Void,
@@ -243,6 +243,8 @@ Q_CONSTINIT const QMetaObject Mainwindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'gameToMenu'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'closeFromRank'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btn_gameToStart_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'doStartToGame'
@@ -252,9 +254,6 @@ Q_CONSTINIT const QMetaObject Mainwindow::staticMetaObject = { {
         // method 'on_btn_gameToMenu_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'do_theme_background_change'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
-        // method 'do_theme_gem_change'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'on_pushButton_stop_clicked'
@@ -299,12 +298,12 @@ void Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->gameToStart(); break;
         case 1: _t->gameToMenu(); break;
-        case 2: _t->on_btn_gameToStart_clicked(); break;
-        case 3: _t->doStartToGame(); break;
-        case 4: _t->doMenuToGame(); break;
-        case 5: _t->on_btn_gameToMenu_clicked(); break;
-        case 6: _t->do_theme_background_change((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 7: _t->do_theme_gem_change((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 2: _t->closeFromRank(); break;
+        case 3: _t->on_btn_gameToStart_clicked(); break;
+        case 4: _t->doStartToGame(); break;
+        case 5: _t->doMenuToGame(); break;
+        case 6: _t->on_btn_gameToMenu_clicked(); break;
+        case 7: _t->do_theme_background_change((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 8: _t->on_pushButton_stop_clicked(); break;
         case 9: _t->update_timebar(); break;
         case 10: _t->Game_start(); break;

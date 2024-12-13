@@ -1,5 +1,5 @@
-CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\Bejeweled\start.cpp \
- D:\CLion\Bejeweled\start.h D:\CLion\Bejeweled\about.h \
+CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\1\Bejeweled\start.cpp \
+ D:\CLion\1\Bejeweled\start.h D:\CLion\1\Bejeweled\about.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -357,34 +357,8 @@ CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\Bejeweled\start.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QTime D:\CLion\Bejeweled\help.h \
- D:\CLion\Bejeweled\rank.h D:/CLion/Bejeweled/crankdao.h \
- D:\CLion\Bejeweled\name.h D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qevent.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreevent.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qiodevice.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qpointer.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qeventpoint.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qvector2d.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qvectornd.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qpointingdevice.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qinputdevice.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qscreen.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qlist.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qobject.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qrect.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qsize.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
- D:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
- D:/CLion/Bejeweled/Global.h D:\CLion\Bejeweled\mainwindow.h \
- D:\CLion\Bejeweled\numMatrix.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QTime D:\CLion\1\Bejeweled\help.h \
+ D:\CLion\1\Bejeweled\mainwindow.h D:\CLion\1\Bejeweled\numMatrix.h \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
@@ -409,7 +383,9 @@ CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\Bejeweled\start.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qpicture.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qiodevice.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QPixmap \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qpixmap.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QPainter \
@@ -417,7 +393,46 @@ CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\Bejeweled\start.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextoption.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qpen.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QMouseEvent \
- D:\CLion\Bejeweled\ui_start.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qevent.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qpointer.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qeventpoint.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qvector2d.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qvectornd.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qpointingdevice.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qinputdevice.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qscreen.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QList \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qlist.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qobject.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QRect \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qrect.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qsize.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+ D:\CLion\1\Bejeweled\rank.h D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qstring.h \
+ D:\CLion\1\Bejeweled\name.h D:/CLion/1/Bejeweled/Global.h \
+ D:\CLion\1\Bejeweled\login.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlDatabase \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlglobal.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsql-config.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlQuery \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlquery.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlError \
+ D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlerror.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_start.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
@@ -439,4 +454,6 @@ CMakeFiles/Jewels.dir/start.cpp.obj: D:\CLion\Bejeweled\start.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QStatusBar \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstatusbar.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h \
+ D:\CLion\1\Bejeweled\themechange.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget

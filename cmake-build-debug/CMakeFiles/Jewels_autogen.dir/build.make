@@ -52,10 +52,10 @@ RM = D:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\CLion\Bejeweled
+CMAKE_SOURCE_DIR = D:\CLion\1\Bejeweled
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\CLion\Bejeweled\cmake-build-debug
+CMAKE_BINARY_DIR = D:\CLion\1\Bejeweled\cmake-build-debug
 
 # Utility rule file for Jewels_autogen.
 
@@ -70,9 +70,9 @@ CMakeFiles/Jewels_autogen: Jewels_autogen/timestamp
 Jewels_autogen/timestamp: D:/Qt/6.5.3/mingw_64/./bin/moc.exe
 Jewels_autogen/timestamp: D:/Qt/6.5.3/mingw_64/./bin/uic.exe
 Jewels_autogen/timestamp: CMakeFiles/Jewels_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Jewels"
-	D:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CLion/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutogenInfo.json Debug
-	D:\Qt\Tools\CMake_64\bin\cmake.exe -E touch D:/CLion/Bejeweled/cmake-build-debug/Jewels_autogen/timestamp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Jewels"
+	D:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir/AutogenInfo.json Debug
+	D:\Qt\Tools\CMake_64\bin\cmake.exe -E touch D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/timestamp
 
 Jewels_autogen: CMakeFiles/Jewels_autogen
 Jewels_autogen: Jewels_autogen/timestamp
@@ -88,6 +88,6 @@ CMakeFiles/Jewels_autogen.dir/clean:
 .PHONY : CMakeFiles/Jewels_autogen.dir/clean
 
 CMakeFiles/Jewels_autogen.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\Bejeweled D:\CLion\Bejeweled D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug D:\CLion\Bejeweled\cmake-build-debug\CMakeFiles\Jewels_autogen.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\CLion\1\Bejeweled D:\CLion\1\Bejeweled D:\CLion\1\Bejeweled\cmake-build-debug D:\CLion\1\Bejeweled\cmake-build-debug D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles\Jewels_autogen.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Jewels_autogen.dir/depend
 

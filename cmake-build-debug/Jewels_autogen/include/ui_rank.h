@@ -58,7 +58,7 @@ public:
     {
         if (Rank->objectName().isEmpty())
             Rank->setObjectName("Rank");
-        Rank->resize(881, 579);
+        Rank->resize(467, 551);
         Rank->setMinimumSize(QSize(0, 0));
         Rank->setMaximumSize(QSize(9999, 9999));
         Rank->setStyleSheet(QString::fromUtf8(""));
@@ -70,6 +70,7 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(20, 10, 20, 10);
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -278,7 +279,7 @@ public:
         Rank->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Rank);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 881, 22));
+        menubar->setGeometry(QRect(0, 0, 467, 22));
         menu = new QMenu(menubar);
         menu->setObjectName("menu");
         Rank->setMenuBar(menubar);

@@ -1,5 +1,5 @@
 CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
- D:\CLion\Bejeweled\mainwindow.cpp D:\CLion\Bejeweled\mainwindow.h \
+ D:\CLion\1\Bejeweled\mainwindow.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -351,38 +351,6 @@ CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qbitmap.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
- D:\CLion\Bejeweled\numMatrix.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype \
- D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.tcc \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qbasictimer.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/thread \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_thread.h \
- D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/this_thread_sleep.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qpicture.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qiodevice.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qtextdocument.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h \
- D:/Qt/6.5.3/mingw_64/include/QtGui/QPixmap \
- D:/Qt/6.5.3/mingw_64/include/QtGui/qpixmap.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QPainter \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qpainter.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextoption.h \
@@ -390,7 +358,9 @@ CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QMouseEvent \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qevent.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qiodevice.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qpointer.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qeventpoint.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qvector2d.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qvectornd.h \
@@ -409,8 +379,41 @@ CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qbasictimer.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
- D:\CLion\Bejeweled\Global.h D:\CLion\Bejeweled\ui_mainwindow.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QDebug \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/thread \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_thread.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/this_thread_sleep.h \
+ D:\CLion\1\Bejeweled\mainwindow.h D:\CLion\1\Bejeweled\numMatrix.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype \
+ D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.tcc \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qpicture.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/QPixmap \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qpixmap.h D:\CLion\1\Bejeweled\rank.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qstring.h \
+ D:\CLion\1\Bejeweled\Global.h \
+ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_mainwindow.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/QAction \
@@ -439,4 +442,5 @@ CMakeFiles/Jewels.dir/mainwindow.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QToolBar \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtoolbar.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h \
+ D:\CLion\1\Bejeweled\Rank.h
