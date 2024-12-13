@@ -31,7 +31,6 @@ public:
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
-    QLabel *label_7;
     QLabel *label_8;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -40,15 +39,15 @@ public:
     {
         if (About->objectName().isEmpty())
             About->setObjectName("About");
-        About->resize(432, 364);
-        About->setMinimumSize(QSize(432, 364));
+        About->resize(432, 305);
+        About->setMinimumSize(QSize(0, 0));
         About->setMaximumSize(QSize(432, 364));
         About->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(About);
         centralwidget->setObjectName("centralwidget");
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(20, 20, 391, 291));
+        groupBox->setGeometry(QRect(20, 20, 391, 231));
         groupBox->setStyleSheet(QString::fromUtf8("font: 75 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         groupBox->setFlat(false);
         groupBox->setCheckable(false);
@@ -81,10 +80,6 @@ public:
         label_6->setGeometry(QRect(130, 170, 61, 31));
         label_6->setStyleSheet(QString::fromUtf8("font: 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "color: rgb(0, 0, 255);"));
-        label_7 = new QLabel(groupBox);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(20, 220, 101, 51));
-        label_7->setStyleSheet(QString::fromUtf8("font: 9pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         label_8 = new QLabel(groupBox);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(120, 230, 171, 31));
@@ -114,7 +109,6 @@ public:
         label_4->setText(QString());
         label_5->setText(QCoreApplication::translate("About", "\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
         label_6->setText(QCoreApplication::translate("About", "1.0.0", nullptr));
-        label_7->setText(QCoreApplication::translate("About", "\346\234\200\345\220\216\346\233\264\346\226\260\346\227\245\346\234\237", nullptr));
         label_8->setText(QString());
     } // retranslateUi
 

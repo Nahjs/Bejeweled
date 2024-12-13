@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj.d"
   "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/Jewels.dir/Verification.cpp.obj"
+  "CMakeFiles/Jewels.dir/Verification.cpp.obj.d"
   "CMakeFiles/Jewels.dir/about.cpp.obj"
   "CMakeFiles/Jewels.dir/about.cpp.obj.d"
   "CMakeFiles/Jewels.dir/help.cpp.obj"

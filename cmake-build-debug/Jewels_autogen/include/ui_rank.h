@@ -15,7 +15,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -53,7 +52,6 @@ public:
     QLabel *label_16;
     QLabel *label_24;
     QMenuBar *menubar;
-    QMenu *menu;
 
     void setupUi(QMainWindow *Rank)
     {
@@ -291,12 +289,7 @@ public:
         menubar = new QMenuBar(Rank);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 441, 22));
-        menu = new QMenu(menubar);
-        menu->setObjectName("menu");
         Rank->setMenuBar(menubar);
-
-        menubar->addAction(menu->menuAction());
-        menu->addAction(actionClear);
 
         retranslateUi(Rank);
 
@@ -329,7 +322,6 @@ public:
         label_25->setText(QString());
         label_16->setText(QString());
         label_24->setText(QString());
-        menu->setTitle(QCoreApplication::translate("Rank", "\351\200\211\351\241\271...", nullptr));
     } // retranslateUi
 
 };

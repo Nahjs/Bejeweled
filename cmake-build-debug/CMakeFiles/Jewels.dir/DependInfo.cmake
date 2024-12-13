@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/CLion/1/Bejeweled/Global.cpp" "CMakeFiles/Jewels.dir/Global.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/Global.cpp.obj.d"
   "D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp" "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj.d"
   "D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/mocs_compilation.cpp" "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj.d"
+  "D:/CLion/1/Bejeweled/Verification.cpp" "CMakeFiles/Jewels.dir/Verification.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/Verification.cpp.obj.d"
   "D:/CLion/1/Bejeweled/about.cpp" "CMakeFiles/Jewels.dir/about.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/about.cpp.obj.d"
   "D:/CLion/1/Bejeweled/help.cpp" "CMakeFiles/Jewels.dir/help.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/help.cpp.obj.d"
   "D:/CLion/1/Bejeweled/login.cpp" "CMakeFiles/Jewels.dir/login.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/login.cpp.obj.d"

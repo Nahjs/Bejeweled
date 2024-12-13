@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>432</width>
-    <height>364</height>
+    <height>305</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>432</width>
-    <height>364</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -35,7 +35,7 @@
       <x>20</x>
       <y>20</y>
       <width>391</width>
-      <height>291</height>
+      <height>231</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -153,22 +153,6 @@ color: rgb(0, 0, 255);</string>
      </property>
      <property name="text">
       <string>1.0.0</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>220</y>
-       <width>101</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
-     </property>
-     <property name="text">
-      <string>最后更新日期</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">

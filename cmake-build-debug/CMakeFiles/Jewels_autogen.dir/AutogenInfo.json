@@ -314,6 +314,12 @@
 			null
 		],
 		[
+			"D:/CLion/1/Bejeweled/Verification.h",
+			"MU",
+			"EWIEGA46WW/moc_Verification.cpp",
+			null
+		],
+		[
 			"D:/CLion/1/Bejeweled/about.h",
 			"MU",
 			"EWIEGA46WW/moc_about.cpp",
@@ -436,6 +442,7 @@
 	"SOURCES" : 
 	[
 		[ "D:/CLion/1/Bejeweled/Global.cpp", "MU", null ],
+		[ "D:/CLion/1/Bejeweled/Verification.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/about.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/help.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/login.cpp", "MU", null ],

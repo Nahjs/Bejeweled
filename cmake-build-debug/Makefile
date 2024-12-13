@@ -226,6 +226,30 @@ Jewels_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.s
 .PHONY : Jewels_autogen/mocs_compilation.cpp.s
 
+Verification.obj: Verification.cpp.obj
+.PHONY : Verification.obj
+
+# target to build an object file
+Verification.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Verification.cpp.obj
+.PHONY : Verification.cpp.obj
+
+Verification.i: Verification.cpp.i
+.PHONY : Verification.i
+
+# target to preprocess a source file
+Verification.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Verification.cpp.i
+.PHONY : Verification.cpp.i
+
+Verification.s: Verification.cpp.s
+.PHONY : Verification.s
+
+# target to generate assembly for a file
+Verification.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Verification.cpp.s
+.PHONY : Verification.cpp.s
+
 about.obj: about.cpp.obj
 .PHONY : about.obj
 
@@ -486,6 +510,9 @@ help:
 	@echo ... Jewels_autogen/mocs_compilation.obj
 	@echo ... Jewels_autogen/mocs_compilation.i
 	@echo ... Jewels_autogen/mocs_compilation.s
+	@echo ... Verification.obj
+	@echo ... Verification.i
+	@echo ... Verification.s
 	@echo ... about.obj
 	@echo ... about.i
 	@echo ... about.s
