@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>551</height>
+    <width>441</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -30,6 +30,19 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="timeLabel">
+      <property name="font">
+       <font>
+        <family>隶书</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <layout class="QGridLayout" name="gridLayout" columnstretch="4,4" columnminimumwidth="0,0">
       <property name="leftMargin">
@@ -525,17 +538,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>467</width>
+     <width>441</width>
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>选项...</string>
-    </property>
-    <addaction name="actionClear"/>
-   </widget>
-   <addaction name="menu"/>
   </widget>
   <action name="actionClear">
    <property name="text">

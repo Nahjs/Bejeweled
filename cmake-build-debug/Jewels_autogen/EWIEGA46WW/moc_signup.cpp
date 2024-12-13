@@ -39,30 +39,38 @@ namespace {
 struct qt_meta_stringdata_CLASSSignupENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSSignupENDCLASS = QtMocHelpers::stringData(
     "Signup",
-    "on_pushButton_2_clicked",
+    "signupSuccess",
     "",
+    "backToLogin",
+    "on_pushButton_2_clicked",
     "on_btn_return_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSSignupENDCLASS_t {
-    uint offsetsAndSizes[8];
+    uint offsetsAndSizes[12];
     char stringdata0[7];
-    char stringdata1[24];
+    char stringdata1[14];
     char stringdata2[1];
-    char stringdata3[22];
+    char stringdata3[12];
+    char stringdata4[24];
+    char stringdata5[22];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSSignupENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSSignupENDCLASS_t qt_meta_stringdata_CLASSSignupENDCLASS = {
     {
         QT_MOC_LITERAL(0, 6),  // "Signup"
-        QT_MOC_LITERAL(7, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(31, 0),  // ""
-        QT_MOC_LITERAL(32, 21)   // "on_btn_return_clicked"
+        QT_MOC_LITERAL(7, 13),  // "signupSuccess"
+        QT_MOC_LITERAL(21, 0),  // ""
+        QT_MOC_LITERAL(22, 11),  // "backToLogin"
+        QT_MOC_LITERAL(34, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(58, 21)   // "on_btn_return_clicked"
     },
     "Signup",
-    "on_pushButton_2_clicked",
+    "signupSuccess",
     "",
+    "backToLogin",
+    "on_pushButton_2_clicked",
     "on_btn_return_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -75,16 +83,24 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSignupENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       2,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   38,    2, 0x06,    1 /* Public */,
+       3,    0,   39,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   26,    2, 0x08,    1 /* Private */,
-       3,    0,   27,    2, 0x08,    2 /* Private */,
+       4,    0,   40,    2, 0x08,    3 /* Private */,
+       5,    0,   41,    2, 0x08,    4 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
@@ -102,6 +118,10 @@ Q_CONSTINIT const QMetaObject Signup::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSignupENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Signup, std::true_type>,
+        // method 'signupSuccess'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'backToLogin'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btn_return_clicked'
@@ -116,9 +136,27 @@ void Signup::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<Signup *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_pushButton_2_clicked(); break;
-        case 1: _t->on_btn_return_clicked(); break;
+        case 0: _t->signupSuccess(); break;
+        case 1: _t->backToLogin(); break;
+        case 2: _t->on_pushButton_2_clicked(); break;
+        case 3: _t->on_btn_return_clicked(); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (Signup::*)();
+            if (_t _q_method = &Signup::signupSuccess; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (Signup::*)();
+            if (_t _q_method = &Signup::backToLogin; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
         }
     }
     (void)_a;
@@ -143,14 +181,26 @@ int Signup::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
+}
+
+// SIGNAL 0
+void Signup::signupSuccess()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void Signup::backToLogin()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP

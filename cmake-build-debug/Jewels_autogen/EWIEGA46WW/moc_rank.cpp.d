@@ -1,6 +1,7 @@
 D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_rank.cpp: D:/CLion/1/Bejeweled/rank.h \
   D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -12,6 +13,7 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_rank.cpp: D
   D:/Qt/6.5.3/mingw_64/include/QtCore/qatomic.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qatomic_cxx11.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qbasicatomic.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qbasictimer.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qbindingstorage.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qbytearray.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -94,6 +96,7 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_rank.cpp: D
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtextstream.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtmetamacros.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtnoop.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \

@@ -1,11 +1,9 @@
 D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_start.cpp: D:/CLion/1/Bejeweled/start.h \
   D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
-  D:/CLion/1/Bejeweled/Global.h \
   D:/CLion/1/Bejeweled/about.h \
   D:/CLion/1/Bejeweled/help.h \
   D:/CLion/1/Bejeweled/login.h \
   D:/CLion/1/Bejeweled/mainwindow.h \
-  D:/CLion/1/Bejeweled/name.h \
   D:/CLion/1/Bejeweled/numMatrix.h \
   D:/CLion/1/Bejeweled/rank.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QDate \

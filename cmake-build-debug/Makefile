@@ -346,30 +346,6 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
-name.obj: name.cpp.obj
-.PHONY : name.obj
-
-# target to build an object file
-name.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.obj
-.PHONY : name.cpp.obj
-
-name.i: name.cpp.i
-.PHONY : name.i
-
-# target to preprocess a source file
-name.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.i
-.PHONY : name.cpp.i
-
-name.s: name.cpp.s
-.PHONY : name.s
-
-# target to generate assembly for a file
-name.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/name.cpp.s
-.PHONY : name.cpp.s
-
 numMatrix.obj: numMatrix.cpp.obj
 .PHONY : numMatrix.obj
 
@@ -525,9 +501,6 @@ help:
 	@echo ... mainwindow.obj
 	@echo ... mainwindow.i
 	@echo ... mainwindow.s
-	@echo ... name.obj
-	@echo ... name.i
-	@echo ... name.s
 	@echo ... numMatrix.obj
 	@echo ... numMatrix.i
 	@echo ... numMatrix.s

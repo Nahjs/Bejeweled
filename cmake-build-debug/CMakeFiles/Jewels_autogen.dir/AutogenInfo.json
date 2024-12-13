@@ -332,7 +332,6 @@
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
-		[ "D:/CLion/1/Bejeweled/name.h", "MU", "EWIEGA46WW/moc_name.cpp", null ],
 		[
 			"D:/CLion/1/Bejeweled/numMatrix.h",
 			"MU",
@@ -442,7 +441,6 @@
 		[ "D:/CLion/1/Bejeweled/login.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/main.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/mainwindow.cpp", "MU", null ],
-		[ "D:/CLion/1/Bejeweled/name.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/numMatrix.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/rank.cpp", "MU", null ],
 		[ "D:/CLion/1/Bejeweled/signup.cpp", "MU", null ],

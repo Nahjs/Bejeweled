@@ -10,7 +10,10 @@
 
 #include "mainwindow.h"
 
+#include <QMessageBox>
+
 #include "Global.h"
+#include "login.h"
 #include "ui_mainwindow.h"
 #include "Rank.h" // Add this line to include the Rank header file
 
@@ -37,7 +40,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
      scoreOffsetX = 75;
      scoreOffsetY = 40;
      scoreStep = 1;
-    t=40;
+    t=40;//动画时间
 
     for (int i = 0; i < MAPROWNUM; i++) {
         for (int j = 0; j < MAPCOLNUM; j++) {
@@ -77,7 +80,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     this->ui->pushButton_row->setCheckable(true);
     this->ui->pushButton_color->setCheckable(true);
 */
-      ui->pushButton_boom->setEnabled(g_props_boom > 0);
+    ui->pushButton_boom->setEnabled(g_props_boom > 0);
     ui->pushButton_col->setEnabled(g_props_col > 0);
     ui->pushButton_row->setEnabled(g_props_row > 0);
     ui->pushButton_color->setEnabled(g_props_color > 0);
@@ -355,6 +358,7 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
                         std::this_thread::sleep_for(std::chrono::milliseconds(t));
                     }
                 }
+                hintUsedThisRound = false; // 重置提示按钮使用状态
             } else {
                 point.setX(focus_x);
                 point.setY(focus_y);
@@ -405,8 +409,15 @@ void Mainwindow::mousePressEvent(QMouseEvent *event){
 
 
 void Mainwindow::do_btn_hint(){
-    numMatrix->hint();//这里更新了point[2][2]数组
-    Rank::g_rank.nGrade -= 30;  // 修改这里
+    if (hintUsedThisRound) {
+        QMessageBox::warning(this, "提示", "本回合已经使用过提示功能！");
+        return;
+    }
+    
+    hintUsedThisRound = true;
+    numMatrix->hint();
+    Rank::g_rank.nGrade -= 30;
+    string_grade = std::to_string(Rank::g_rank.nGrade);
     this->repaint();
 }
 
@@ -516,19 +527,32 @@ void Mainwindow::Game_start(){
     ui->label_color->setText(QString::number(g_props_color));
     ui->label_row->setText(QString::number(g_props_row));
     ui->label_col->setText(QString::number(g_props_col));
+    hintUsedThisRound = false; // 游戏开始时重置提示按钮使用状态
 }
 
 //时间耗尽，游戏结束
-void Mainwindow::Game_over(bool saveRank){
+void Mainwindow::Game_over(bool saveRank) {
     timer->stop();
     label_image->setGeometry(offsetX,offsetY,500,500);
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     label_image->show();
     numMatrix->setgamerunning(false);
     
-    // 保存分数到排行榜
-    if(saveRank && Rank::g_rank.nGrade > 0) {
-        rankInstance->insertIndex(rankInstance->getIndex());
+    // 只有非游客用户才保存分数到排行榜
+    if(saveRank && !Login::isGuest && Rank::g_rank.nGrade > 0) {
+        QSqlQuery query;
+        query.prepare("INSERT INTO leaderboard (username, score) VALUES (?, ?)");
+        query.addBindValue(Login::currentUsername);
+        query.addBindValue(Rank::g_rank.nGrade);
+        
+        if(query.exec()) {
+            // 更新用户最高分
+            query.prepare("UPDATE user SET highest_score = GREATEST(highest_score, ?) "
+                        "WHERE username = ?");
+            query.addBindValue(Rank::g_rank.nGrade);
+            query.addBindValue(Login::currentUsername);
+            query.exec();
+        }
     }
     
     ui->pushButton_stop->hide();

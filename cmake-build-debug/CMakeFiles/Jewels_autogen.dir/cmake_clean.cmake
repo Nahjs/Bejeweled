@@ -5,7 +5,6 @@ file(REMOVE_RECURSE
   "Jewels_autogen/include/ui_help.h"
   "Jewels_autogen/include/ui_login.h"
   "Jewels_autogen/include/ui_mainwindow.h"
-  "Jewels_autogen/include/ui_name.h"
   "Jewels_autogen/include/ui_rank.h"
   "Jewels_autogen/include/ui_signup.h"
   "Jewels_autogen/include/ui_start.h"

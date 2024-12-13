@@ -22,7 +22,6 @@ set(HEADERS
         about.h
         start.h
         help.h
-        name.h
         rank.h
         themechange.h
         login.h
@@ -38,7 +37,6 @@ set(SOURCES
         about.cpp
         start.cpp
         help.cpp
-        name.cpp
         rank.cpp
         themechange.cpp
         login.cpp
@@ -51,7 +49,6 @@ set(UIS
         about.ui
         start.ui
         help.ui
-        name.ui
         rank.ui
         themechange.ui
         login.ui

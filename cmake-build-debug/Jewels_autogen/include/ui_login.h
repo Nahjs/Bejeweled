@@ -29,6 +29,9 @@ public:
     QLineEdit *lineEdit_password;
     QPushButton *btn_signin;
     QPushButton *btn_signup;
+    QLabel *label_guestTip;
+    QLabel *label_guestTip_2;
+    QPushButton *btn_guest;
 
     void setupUi(QMainWindow *Login)
     {
@@ -45,7 +48,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         label_image = new QLabel(centralwidget);
         label_image->setObjectName("label_image");
-        label_image->setGeometry(QRect(80, 110, 191, 251));
+        label_image->setGeometry(QRect(40, 30, 121, 111));
         label_image->setStyleSheet(QString::fromUtf8("border-radius:7px;padding:0px 0px;"));
         lineEdit_username = new QLineEdit(centralwidget);
         lineEdit_username->setObjectName("lineEdit_username");
@@ -66,14 +69,24 @@ public:
         lineEdit_password->setEchoMode(QLineEdit::Password);
         btn_signin = new QPushButton(centralwidget);
         btn_signin->setObjectName("btn_signin");
-        btn_signin->setGeometry(QRect(410, 360, 71, 40));
+        btn_signin->setGeometry(QRect(390, 270, 71, 40));
         btn_signin->setMinimumSize(QSize(50, 40));
         btn_signin->setStyleSheet(QString::fromUtf8(""));
         btn_signup = new QPushButton(centralwidget);
         btn_signup->setObjectName("btn_signup");
-        btn_signup->setGeometry(QRect(500, 360, 71, 40));
+        btn_signup->setGeometry(QRect(480, 270, 71, 40));
         btn_signup->setMinimumSize(QSize(50, 40));
         btn_signup->setStyleSheet(QString::fromUtf8(""));
+        label_guestTip = new QLabel(centralwidget);
+        label_guestTip->setObjectName("label_guestTip");
+        label_guestTip->setGeometry(QRect(50, 250, 300, 80));
+        label_guestTip->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        label_guestTip_2 = new QLabel(centralwidget);
+        label_guestTip_2->setObjectName("label_guestTip_2");
+        label_guestTip_2->setGeometry(QRect(50, 250, 300, 80));
+        btn_guest = new QPushButton(centralwidget);
+        btn_guest->setObjectName("btn_guest");
+        btn_guest->setGeometry(QRect(600, 340, 71, 41));
         Login->setCentralWidget(centralwidget);
 
         retranslateUi(Login);
@@ -89,6 +102,8 @@ public:
         lineEdit_password->setPlaceholderText(QCoreApplication::translate("Login", "Password", nullptr));
         btn_signin->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
         btn_signup->setText(QCoreApplication::translate("Login", "\346\263\250\345\206\214", nullptr));
+        label_guestTip_2->setText(QCoreApplication::translate("Login", "TextLabel", nullptr));
+        btn_guest->setText(QCoreApplication::translate("Login", "\346\270\270\345\256\242\347\231\273\345\275\225", nullptr));
     } // retranslateUi
 
 };

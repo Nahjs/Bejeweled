@@ -16,7 +16,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/CLion/1/Bejeweled/login.cpp" "CMakeFiles/Jewels.dir/login.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/login.cpp.obj.d"
   "D:/CLion/1/Bejeweled/main.cpp" "CMakeFiles/Jewels.dir/main.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/main.cpp.obj.d"
   "D:/CLion/1/Bejeweled/mainwindow.cpp" "CMakeFiles/Jewels.dir/mainwindow.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/mainwindow.cpp.obj.d"
-  "D:/CLion/1/Bejeweled/name.cpp" "CMakeFiles/Jewels.dir/name.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/name.cpp.obj.d"
   "D:/CLion/1/Bejeweled/numMatrix.cpp" "CMakeFiles/Jewels.dir/numMatrix.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/numMatrix.cpp.obj.d"
   "D:/CLion/1/Bejeweled/rank.cpp" "CMakeFiles/Jewels.dir/rank.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/rank.cpp.obj.d"
   "D:/CLion/1/Bejeweled/signup.cpp" "CMakeFiles/Jewels.dir/signup.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/signup.cpp.obj.d"

@@ -15,8 +15,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Jewels.dir/main.cpp.obj.d"
   "CMakeFiles/Jewels.dir/mainwindow.cpp.obj"
   "CMakeFiles/Jewels.dir/mainwindow.cpp.obj.d"
-  "CMakeFiles/Jewels.dir/name.cpp.obj"
-  "CMakeFiles/Jewels.dir/name.cpp.obj.d"
   "CMakeFiles/Jewels.dir/numMatrix.cpp.obj"
   "CMakeFiles/Jewels.dir/numMatrix.cpp.obj.d"
   "CMakeFiles/Jewels.dir/rank.cpp.obj"

@@ -3,7 +3,6 @@
 #include "EWIEGA46WW/moc_help.cpp"
 #include "EWIEGA46WW/moc_login.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
-#include "EWIEGA46WW/moc_name.cpp"
 #include "EWIEGA46WW/moc_rank.cpp"
 #include "EWIEGA46WW/moc_signup.cpp"
 #include "EWIEGA46WW/moc_start.cpp"

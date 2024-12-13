@@ -16,8 +16,6 @@ Jewels_autogen/timestamp: \
 	D:/CLion/1/Bejeweled/main.cpp \
 	D:/CLion/1/Bejeweled/mainwindow.cpp \
 	D:/CLion/1/Bejeweled/mainwindow.h \
-	D:/CLion/1/Bejeweled/name.cpp \
-	D:/CLion/1/Bejeweled/name.h \
 	D:/CLion/1/Bejeweled/numMatrix.cpp \
 	D:/CLion/1/Bejeweled/numMatrix.h \
 	D:/CLion/1/Bejeweled/rank.cpp \
@@ -684,7 +682,6 @@ Jewels_autogen/timestamp: \
 	D:/CLion/1/Bejeweled/help.ui \
 	D:/CLion/1/Bejeweled/login.ui \
 	D:/CLion/1/Bejeweled/mainwindow.ui \
-	D:/CLion/1/Bejeweled/name.ui \
 	D:/CLion/1/Bejeweled/rank.ui \
 	D:/CLion/1/Bejeweled/signup.ui \
 	D:/CLion/1/Bejeweled/start.ui \

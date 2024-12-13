@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Jewels",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Jewels::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Jewels-Debug-39326f8051297b261dfe.json",
+					"name" : "Jewels",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Jewels_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Jewels_autogen-Debug-217a06c6781f0d2efe9e.json",
+					"name" : "Jewels_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Jewels_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Jewels_autogen_timestamp_deps-Debug-7eb2b17aa511b8d78eeb.json",
+					"name" : "Jewels_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/CLion/1/Bejeweled/cmake-build-debug",
+		"source" : "D:/CLion/1/Bejeweled"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

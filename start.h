@@ -4,7 +4,6 @@
 #include "about.h"
 #include "help.h"
 #include "mainwindow.h"
-#include "name.h"
 #include "rank.h"
 #include "login.h"
 #include <QMainWindow>
@@ -28,10 +27,6 @@ private slots:
 
     void on_btn_mainToRank_clicked();
 
-    void doNameConfirm();
-
-    void on_btn_name_clicked();
-
     void on_btn_help_clicked();
 
     void on_btn_about_clicked();
@@ -49,7 +44,6 @@ signals:
 private:
     Ui::Start *ui;
     Mainwindow *game;
-    Name *name;
     Help *help;
     About *about;
     Login *login; // 添加 Login 实例

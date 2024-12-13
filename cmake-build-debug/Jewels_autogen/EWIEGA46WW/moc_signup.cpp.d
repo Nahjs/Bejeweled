@@ -133,7 +133,16 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlQuery \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqlquery.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsql-config.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
+  D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
