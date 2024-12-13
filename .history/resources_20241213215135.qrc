@@ -1,0 +1,7 @@
+<RCC>
+    // ...existing code...
+    <qresource prefix="/resources">
+        // ...existing code...
+        <file>images/verify_bg.jpg</file>
+    </qresource>
+</RCC>

@@ -444,10 +444,41 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qstring.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextcursor.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextformat.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_puzzlewidget.cpp \
+ D:/CLion/1/Bejeweled/puzzlewidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QRandomGenerator \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qrandom.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.tcc \
  D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_rank.cpp \
  D:/CLion/1/Bejeweled/rank.h \
  D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_signup.cpp \
  D:/CLion/1/Bejeweled/signup.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QComboBox \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qcombobox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qvalidator.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qslider.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QVBoxLayout \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
  D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_signup.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
@@ -459,13 +490,10 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qinputmethod.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QComboBox \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QFrame \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGridLayout \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayout.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayoutitem.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -475,6 +503,12 @@ CMakeFiles/Jewels.dir/Jewels_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
  D:/CLion/1/Bejeweled/Verification.h \
+ D:/CLion/1/Bejeweled/sliderpuzzlewidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QSlider \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qslider.h \
+ D:/CLion/1/Bejeweled/puzzlewidget.h \
+ D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_sliderpuzzlewidget.cpp \
+ D:/CLion/1/Bejeweled/sliderpuzzlewidget.h \
  D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\EWIEGA46WW/moc_start.cpp \
  D:/CLion/1/Bejeweled/start.h D:/CLion/1/Bejeweled/about.h \
  D:/CLion/1/Bejeweled/help.h D:/CLion/1/Bejeweled/mainwindow.h \

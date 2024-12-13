@@ -372,11 +372,41 @@ CMakeFiles/Jewels.dir/Verification.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/Verification.cpp.s"
 	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\1\Bejeweled\Verification.cpp -o CMakeFiles\Jewels.dir\Verification.cpp.s
 
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/flags.make
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj: D:/CLion/1/Bejeweled/sliderpuzzlewidget.cpp
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj -MF CMakeFiles\Jewels.dir\sliderpuzzlewidget.cpp.obj.d -o CMakeFiles\Jewels.dir\sliderpuzzlewidget.cpp.obj -c D:\CLion\1\Bejeweled\sliderpuzzlewidget.cpp
+
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.i"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\1\Bejeweled\sliderpuzzlewidget.cpp > CMakeFiles\Jewels.dir\sliderpuzzlewidget.cpp.i
+
+CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.s"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\1\Bejeweled\sliderpuzzlewidget.cpp -o CMakeFiles\Jewels.dir\sliderpuzzlewidget.cpp.s
+
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/flags.make
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj: D:/CLion/1/Bejeweled/puzzlewidget.cpp
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj -MF CMakeFiles\Jewels.dir\puzzlewidget.cpp.obj.d -o CMakeFiles\Jewels.dir\puzzlewidget.cpp.obj -c D:\CLion\1\Bejeweled\puzzlewidget.cpp
+
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Jewels.dir/puzzlewidget.cpp.i"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLion\1\Bejeweled\puzzlewidget.cpp > CMakeFiles\Jewels.dir\puzzlewidget.cpp.i
+
+CMakeFiles/Jewels.dir/puzzlewidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Jewels.dir/puzzlewidget.cpp.s"
+	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLion\1\Bejeweled\puzzlewidget.cpp -o CMakeFiles\Jewels.dir\puzzlewidget.cpp.s
+
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/flags.make
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/includes_CXX.rsp
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: Jewels_autogen/PNK5WDWK6L/qrc_res.cpp
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj: CMakeFiles/Jewels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
 	D:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj -MF CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj.d -o CMakeFiles\Jewels.dir\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp.obj -c D:\CLion\1\Bejeweled\cmake-build-debug\Jewels_autogen\PNK5WDWK6L\qrc_res.cpp
 
 CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.i: cmake_force
@@ -402,6 +432,8 @@ Jewels_OBJECTS = \
 "CMakeFiles/Jewels.dir/login.cpp.obj" \
 "CMakeFiles/Jewels.dir/signup.cpp.obj" \
 "CMakeFiles/Jewels.dir/Verification.cpp.obj" \
+"CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj" \
+"CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj" \
 "CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj"
 
 # External object files for target Jewels
@@ -420,6 +452,8 @@ Jewels.exe: CMakeFiles/Jewels.dir/themechange.cpp.obj
 Jewels.exe: CMakeFiles/Jewels.dir/login.cpp.obj
 Jewels.exe: CMakeFiles/Jewels.dir/signup.cpp.obj
 Jewels.exe: CMakeFiles/Jewels.dir/Verification.cpp.obj
+Jewels.exe: CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj
+Jewels.exe: CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj
 Jewels.exe: CMakeFiles/Jewels.dir/Jewels_autogen/PNK5WDWK6L/qrc_res.cpp.obj
 Jewels.exe: CMakeFiles/Jewels.dir/build.make
 Jewels.exe: D:/Qt/6.5.3/mingw_64/lib/libQt6MultimediaWidgets.a
@@ -432,7 +466,7 @@ Jewels.exe: D:/Qt/6.5.3/mingw_64/lib/libQt6Core.a
 Jewels.exe: CMakeFiles/Jewels.dir/linkLibs.rsp
 Jewels.exe: CMakeFiles/Jewels.dir/objects1.rsp
 Jewels.exe: CMakeFiles/Jewels.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Jewels.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\CLion\1\Bejeweled\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable Jewels.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Jewels.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

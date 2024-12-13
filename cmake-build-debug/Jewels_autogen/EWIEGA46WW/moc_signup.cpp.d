@@ -1,8 +1,12 @@
 D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp: D:/CLion/1/Bejeweled/signup.h \
   D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/moc_predefs.h \
   D:/CLion/1/Bejeweled/Verification.h \
+  D:/CLion/1/Bejeweled/puzzlewidget.h \
+  D:/CLion/1/Bejeweled/sliderpuzzlewidget.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/QRandomGenerator \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qabstractitemmodel.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qanystringview.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qarraydata.h \
@@ -45,6 +49,7 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/6.5.3/mingw_64/include/QtCore/qiterator.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qline.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qlist.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qlogging.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qmalloc.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qmap.h \
@@ -63,8 +68,10 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/6.5.3/mingw_64/include/QtCore/qpair.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qpoint.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qprocessordetection.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qrandom.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qrect.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qrefcount.h \
+  D:/Qt/6.5.3/mingw_64/include/QtCore/qregularexpression.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qscopedpointer.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qscopeguard.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/qset.h \
@@ -132,6 +139,7 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/6.5.3/mingw_64/include/QtGui/qtguiexports.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qtguiglobal.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
+  D:/Qt/6.5.3/mingw_64/include/QtGui/qvalidator.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlQuery \
@@ -140,11 +148,29 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/6.5.3/mingw_64/include/QtSql/qtsql-config.h \
   D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
   D:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QComboBox \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QSlider \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractslider.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qcombobox.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayout.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qrubberband.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qslider.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyle.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyleoption.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabbar.h \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -197,6 +223,8 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/predefined_ops.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ptr_traits.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.tcc \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/range_access.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
@@ -273,6 +301,7 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -307,11 +336,17 @@ D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/EWIEGA46WW/moc_signup.cpp:
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \

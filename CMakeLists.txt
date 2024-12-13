@@ -27,6 +27,8 @@ set(HEADERS
         login.h
         signup.h
         Verification.h
+        sliderpuzzlewidget.h
+        puzzlewidget.h
 )
 
 # Add source files
@@ -43,6 +45,8 @@ set(SOURCES
         login.cpp
         signup.cpp
         Verification.cpp
+        sliderpuzzlewidget.cpp
+        puzzlewidget.cpp
 )
 
 # Add UI files

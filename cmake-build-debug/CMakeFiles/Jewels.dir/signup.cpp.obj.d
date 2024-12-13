@@ -359,6 +359,28 @@ CMakeFiles/Jewels.dir/signup.cpp.obj: D:\CLion\1\Bejeweled\signup.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QComboBox \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qcombobox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Qt/6.5.3/mingw_64/include/QtGui/qvalidator.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qslider.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QVBoxLayout \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
  D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include/ui_signup.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/QVariant \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
@@ -371,19 +393,14 @@ CMakeFiles/Jewels.dir/signup.cpp.obj: D:\CLion\1\Bejeweled\signup.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qinputmethod.h \
- D:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QComboBox \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QFrame \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGridLayout \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayout.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlayoutitem.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgridlayout.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qpicture.h \
  D:/Qt/6.5.3/mingw_64/include/QtCore/qiodevice.h \
  D:/Qt/6.5.3/mingw_64/include/QtGui/qtextdocument.h \
@@ -398,10 +415,24 @@ CMakeFiles/Jewels.dir/signup.cpp.obj: D:\CLion\1\Bejeweled\signup.cpp \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
- D:\CLion\1\Bejeweled\Verification.h D:\CLion\1\Bejeweled\login.h \
+ D:\CLion\1\Bejeweled\Verification.h \
+ D:\CLion\1\Bejeweled\sliderpuzzlewidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/QSlider \
+ D:/Qt/6.5.3/mingw_64/include/QtWidgets/qslider.h \
+ D:\CLion\1\Bejeweled\puzzlewidget.h \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/QRandomGenerator \
+ D:/Qt/6.5.3/mingw_64/include/QtCore/qrandom.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
+ D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.tcc \
+ D:\CLion\1\Bejeweled\login.h \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
  D:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
- D:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlDatabase \
  D:/Qt/6.5.3/mingw_64/include/QtSql/qsqldatabase.h \
  D:/Qt/6.5.3/mingw_64/include/QtSql/QSqlError \

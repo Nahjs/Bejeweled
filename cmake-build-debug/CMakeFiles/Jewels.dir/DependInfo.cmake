@@ -18,8 +18,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/CLion/1/Bejeweled/main.cpp" "CMakeFiles/Jewels.dir/main.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/main.cpp.obj.d"
   "D:/CLion/1/Bejeweled/mainwindow.cpp" "CMakeFiles/Jewels.dir/mainwindow.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/mainwindow.cpp.obj.d"
   "D:/CLion/1/Bejeweled/numMatrix.cpp" "CMakeFiles/Jewels.dir/numMatrix.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/numMatrix.cpp.obj.d"
+  "D:/CLion/1/Bejeweled/puzzlewidget.cpp" "CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj.d"
   "D:/CLion/1/Bejeweled/rank.cpp" "CMakeFiles/Jewels.dir/rank.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/rank.cpp.obj.d"
   "D:/CLion/1/Bejeweled/signup.cpp" "CMakeFiles/Jewels.dir/signup.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/signup.cpp.obj.d"
+  "D:/CLion/1/Bejeweled/sliderpuzzlewidget.cpp" "CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj.d"
   "D:/CLion/1/Bejeweled/start.cpp" "CMakeFiles/Jewels.dir/start.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/start.cpp.obj.d"
   "D:/CLion/1/Bejeweled/themechange.cpp" "CMakeFiles/Jewels.dir/themechange.cpp.obj" "gcc" "CMakeFiles/Jewels.dir/themechange.cpp.obj.d"
   )

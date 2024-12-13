@@ -22,16 +22,23 @@ Login::Login(QWidget *parent)
                       "• 无法查看历史最高分\n"
                       "• 建议注册账号以保存游戏进度！";
     ui->label_guestTip->setText(guestTip);
-    ui->label_guestTip->setStyleSheet("QLabel { color: #666666; }");
+    ui->label_guestTip->setStyleSheet("QLabel { color:rgb(234, 13, 13); }");
     
     // 为游客登录按钮添加确认对话框
     connect(ui->btn_guest, &QPushButton::clicked, this, [this](){
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(this, "游客登录",
-                                    "确定以游客身份进行游戏？\n游客模式下的游戏记录将不会保存。",
+                                    "是否以游客身份进行游戏？\n"
+                                    "• 游客模式下的游戏记录将不会保存\n"
+                                    "• 建议注册账号以保存游戏进度\n\n"
+                                    "点击\"是\"继续游客登录\n"
+                                    "点击\"否\"前往注册账号",
                                     QMessageBox::Yes|QMessageBox::No);
         if(reply == QMessageBox::Yes) {
             on_btn_guest_clicked();
+        } else {
+            this->hide();  // 隐藏登录窗口
+            on_btn_signup_clicked();  // 跳转到注册界面
         }
     });
 }

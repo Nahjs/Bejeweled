@@ -394,6 +394,30 @@ numMatrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/numMatrix.cpp.s
 .PHONY : numMatrix.cpp.s
 
+puzzlewidget.obj: puzzlewidget.cpp.obj
+.PHONY : puzzlewidget.obj
+
+# target to build an object file
+puzzlewidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/puzzlewidget.cpp.obj
+.PHONY : puzzlewidget.cpp.obj
+
+puzzlewidget.i: puzzlewidget.cpp.i
+.PHONY : puzzlewidget.i
+
+# target to preprocess a source file
+puzzlewidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/puzzlewidget.cpp.i
+.PHONY : puzzlewidget.cpp.i
+
+puzzlewidget.s: puzzlewidget.cpp.s
+.PHONY : puzzlewidget.s
+
+# target to generate assembly for a file
+puzzlewidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/puzzlewidget.cpp.s
+.PHONY : puzzlewidget.cpp.s
+
 rank.obj: rank.cpp.obj
 .PHONY : rank.obj
 
@@ -441,6 +465,30 @@ signup.s: signup.cpp.s
 signup.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/signup.cpp.s
 .PHONY : signup.cpp.s
+
+sliderpuzzlewidget.obj: sliderpuzzlewidget.cpp.obj
+.PHONY : sliderpuzzlewidget.obj
+
+# target to build an object file
+sliderpuzzlewidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.obj
+.PHONY : sliderpuzzlewidget.cpp.obj
+
+sliderpuzzlewidget.i: sliderpuzzlewidget.cpp.i
+.PHONY : sliderpuzzlewidget.i
+
+# target to preprocess a source file
+sliderpuzzlewidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.i
+.PHONY : sliderpuzzlewidget.cpp.i
+
+sliderpuzzlewidget.s: sliderpuzzlewidget.cpp.s
+.PHONY : sliderpuzzlewidget.s
+
+# target to generate assembly for a file
+sliderpuzzlewidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/sliderpuzzlewidget.cpp.s
+.PHONY : sliderpuzzlewidget.cpp.s
 
 start.obj: start.cpp.obj
 .PHONY : start.obj
@@ -531,12 +579,18 @@ help:
 	@echo ... numMatrix.obj
 	@echo ... numMatrix.i
 	@echo ... numMatrix.s
+	@echo ... puzzlewidget.obj
+	@echo ... puzzlewidget.i
+	@echo ... puzzlewidget.s
 	@echo ... rank.obj
 	@echo ... rank.i
 	@echo ... rank.s
 	@echo ... signup.obj
 	@echo ... signup.i
 	@echo ... signup.s
+	@echo ... sliderpuzzlewidget.obj
+	@echo ... sliderpuzzlewidget.i
+	@echo ... sliderpuzzlewidget.s
 	@echo ... start.obj
 	@echo ... start.i
 	@echo ... start.s
