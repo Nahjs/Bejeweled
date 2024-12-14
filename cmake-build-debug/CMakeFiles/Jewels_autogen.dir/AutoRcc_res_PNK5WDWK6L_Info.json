@@ -5,7 +5,7 @@
 	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CLion/1/Bejeweled",
 	"CMAKE_SOURCE_DIR" : "D:/CLion/1/Bejeweled",
 	"CROSS_CONFIG" : false,
-	"GENERATOR" : "MinGW Makefiles",
+	"GENERATOR" : "Ninja",
 	"INCLUDE_DIR" : "D:/CLion/1/Bejeweled/cmake-build-debug/Jewels_autogen/include",
 	"INPUTS" : 
 	[

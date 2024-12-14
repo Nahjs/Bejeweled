@@ -1,0 +1,17 @@
+# ninja log v6
+20	988	7558880728457935	ChatServer_autogen/timestamp	8b7183aa798d6e5d
+20	988	7558880728457935	ChatServer_autogen/mocs_compilation.cpp	8b7183aa798d6e5d
+20	988	7558880728457935	D:/CLion/1/Bejeweled/Server/cmake-build-debug/ChatServer_autogen/timestamp	8b7183aa798d6e5d
+20	988	7558880728457935	D:/CLion/1/Bejeweled/Server/cmake-build-debug/ChatServer_autogen/mocs_compilation.cpp	8b7183aa798d6e5d
+1000	2712	7558880730126564	CMakeFiles/ChatServer.dir/main.cpp.obj	22249c9b517853ad
+990	2946	7558880730029944	CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj	2f4e8cf2d6422931
+1009	3350	7558880730223694	CMakeFiles/ChatServer.dir/chatserver.cpp.obj	2391dab920ba20df
+3350	3718	7558880753633539	ChatServer.exe	a0c541e7bc259630
+19	1043	7558936703213143	ChatServer_autogen/timestamp	8b7183aa798d6e5d
+19	1043	7558936703213143	ChatServer_autogen/mocs_compilation.cpp	8b7183aa798d6e5d
+19	1043	7558936703213143	D:/CLion/1/Bejeweled/Server/cmake-build-debug/ChatServer_autogen/timestamp	8b7183aa798d6e5d
+19	1043	7558936703213143	D:/CLion/1/Bejeweled/Server/cmake-build-debug/ChatServer_autogen/mocs_compilation.cpp	8b7183aa798d6e5d
+1056	2880	7558936704782132	CMakeFiles/ChatServer.dir/main.cpp.obj	22249c9b517853ad
+1046	3124	7558936704678494	CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj	2f4e8cf2d6422931
+1066	3432	7558936704875739	CMakeFiles/ChatServer.dir/chatserver.cpp.obj	2391dab920ba20df
+3432	3784	7558936728545441	ChatServer.exe	a0c541e7bc259630

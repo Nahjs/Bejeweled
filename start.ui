@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>539</height>
+    <width>770</width>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,21 +17,21 @@
    <widget class="QPushButton" name="btn_startToGame">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>220</y>
-      <width>91</width>
-      <height>51</height>
+      <x>180</x>
+      <y>50</y>
+      <width>141</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>开始游戏</string>
+     <string>冒险模式（计时60秒）</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_mainToRank">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>290</y>
+      <x>190</x>
+      <y>200</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -62,10 +62,10 @@
    <widget class="QPushButton" name="btn_help">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>290</y>
-      <width>91</width>
-      <height>51</height>
+      <x>560</x>
+      <y>400</y>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -75,10 +75,10 @@
    <widget class="QPushButton" name="btn_about">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>290</y>
-      <width>91</width>
-      <height>51</height>
+      <x>470</x>
+      <y>400</y>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -88,8 +88,8 @@
    <widget class="QPushButton" name="btn_themeChange">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>220</y>
+      <x>470</x>
+      <y>60</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -98,13 +98,39 @@
      <string>设置主题</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_sendMail">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>310</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发邮件？</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_chatRoom">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>210</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>聊天室</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>770</width>
      <height>22</height>
     </rect>
    </property>

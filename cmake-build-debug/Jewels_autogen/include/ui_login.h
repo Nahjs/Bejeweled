@@ -24,7 +24,6 @@ class Ui_Login
 {
 public:
     QWidget *centralwidget;
-    QLabel *label_image;
     QLineEdit *lineEdit_username;
     QLineEdit *lineEdit_password;
     QPushButton *btn_signin;
@@ -36,7 +35,7 @@ public:
     {
         if (Login->objectName().isEmpty())
             Login->setObjectName("Login");
-        Login->resize(780, 520);
+        Login->resize(424, 520);
         QIcon icon;
         icon.addFile(QString::fromUtf8("res/images/a11.png"), QSize(), QIcon::Normal, QIcon::Off);
         Login->setWindowIcon(icon);
@@ -45,13 +44,9 @@ public:
 ""));
         centralwidget = new QWidget(Login);
         centralwidget->setObjectName("centralwidget");
-        label_image = new QLabel(centralwidget);
-        label_image->setObjectName("label_image");
-        label_image->setGeometry(QRect(40, 30, 121, 111));
-        label_image->setStyleSheet(QString::fromUtf8("border-radius:7px;padding:0px 0px;"));
         lineEdit_username = new QLineEdit(centralwidget);
         lineEdit_username->setObjectName("lineEdit_username");
-        lineEdit_username->setGeometry(QRect(380, 90, 231, 45));
+        lineEdit_username->setGeometry(QRect(90, 90, 231, 45));
         lineEdit_username->setMinimumSize(QSize(0, 45));
         lineEdit_username->setStyleSheet(QString::fromUtf8("background-color: rgb(247, 247, 247);\n"
 "border:1px groove gray;border-radius:\n"
@@ -59,7 +54,7 @@ public:
 "font: 10pt \"Candara\";"));
         lineEdit_password = new QLineEdit(centralwidget);
         lineEdit_password->setObjectName("lineEdit_password");
-        lineEdit_password->setGeometry(QRect(380, 150, 231, 45));
+        lineEdit_password->setGeometry(QRect(90, 160, 231, 45));
         lineEdit_password->setMinimumSize(QSize(0, 45));
         lineEdit_password->setStyleSheet(QString::fromUtf8("background-color: rgb(247, 247, 247);\n"
 "border:1px groove gray;border-radius:\n"
@@ -68,21 +63,21 @@ public:
         lineEdit_password->setEchoMode(QLineEdit::Password);
         btn_signin = new QPushButton(centralwidget);
         btn_signin->setObjectName("btn_signin");
-        btn_signin->setGeometry(QRect(390, 270, 71, 40));
+        btn_signin->setGeometry(QRect(100, 250, 71, 40));
         btn_signin->setMinimumSize(QSize(50, 40));
         btn_signin->setStyleSheet(QString::fromUtf8(""));
         btn_signup = new QPushButton(centralwidget);
         btn_signup->setObjectName("btn_signup");
-        btn_signup->setGeometry(QRect(480, 270, 71, 40));
+        btn_signup->setGeometry(QRect(230, 250, 71, 40));
         btn_signup->setMinimumSize(QSize(50, 40));
         btn_signup->setStyleSheet(QString::fromUtf8(""));
         label_guestTip = new QLabel(centralwidget);
         label_guestTip->setObjectName("label_guestTip");
-        label_guestTip->setGeometry(QRect(50, 330, 271, 131));
+        label_guestTip->setGeometry(QRect(70, 340, 191, 111));
         label_guestTip->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         btn_guest = new QPushButton(centralwidget);
         btn_guest->setObjectName("btn_guest");
-        btn_guest->setGeometry(QRect(600, 340, 71, 41));
+        btn_guest->setGeometry(QRect(300, 340, 71, 41));
         Login->setCentralWidget(centralwidget);
 
         retranslateUi(Login);
@@ -92,8 +87,7 @@ public:
 
     void retranslateUi(QMainWindow *Login)
     {
-        Login->setWindowTitle(QCoreApplication::translate("Login", "MainWindow", nullptr));
-        label_image->setText(QCoreApplication::translate("Login", "\346\267\273\345\212\240\345\233\276\347\211\207", nullptr));
+        Login->setWindowTitle(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
         lineEdit_username->setPlaceholderText(QCoreApplication::translate("Login", "Username", nullptr));
         lineEdit_password->setPlaceholderText(QCoreApplication::translate("Login", "Password", nullptr));
         btn_signin->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));

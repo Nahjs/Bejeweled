@@ -6,6 +6,8 @@
 #include "mainwindow.h"
 #include "rank.h"
 #include "login.h"
+#include "mailform.h"
+#include "chatroom.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -24,19 +26,13 @@ public:
 private slots:
     void on_btn_startToGame_clicked();
     void doGameToStart();
-
     void on_btn_mainToRank_clicked();
-
     void on_btn_help_clicked();
-
     void on_btn_about_clicked();
-
-    //主题设置
     void on_btn_themeChange_clicked();
-
-    void onRankClosed(); // 添加新的槽函数
-
-    void onLoginSuccess(); // 添加处理登录成功的槽函数
+    void onRankClosed();
+    void onLoginSuccess();
+    void on_btn_chatRoom_clicked();
 
 signals:
     void startToGame();
@@ -46,7 +42,8 @@ private:
     Mainwindow *game;
     Help *help;
     About *about;
-    Login *login; // 添加 Login 实例
-
+    Login *login;
+  //  MailForm* mailForm;
+    ChatRoom *chatRoom;
 };
 #endif // START_H

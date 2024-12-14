@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>排行榜</string>
+   <string>实时排行榜</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

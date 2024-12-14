@@ -298,7 +298,7 @@ public:
 
     void retranslateUi(QMainWindow *Rank)
     {
-        Rank->setWindowTitle(QCoreApplication::translate("Rank", "\346\216\222\350\241\214\346\246\234", nullptr));
+        Rank->setWindowTitle(QCoreApplication::translate("Rank", "\345\256\236\346\227\266\346\216\222\350\241\214\346\246\234", nullptr));
         actionClear->setText(QCoreApplication::translate("Rank", "Clear", nullptr));
         label_6->setText(QString());
         label_9->setText(QString());

@@ -154,6 +154,30 @@ Jewels_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels_autogen.dir\build.make CMakeFiles/Jewels_autogen.dir/build
 .PHONY : Jewels_autogen/fast
 
+Client/chatclient.obj: Client/chatclient.cpp.obj
+.PHONY : Client/chatclient.obj
+
+# target to build an object file
+Client/chatclient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Client/chatclient.cpp.obj
+.PHONY : Client/chatclient.cpp.obj
+
+Client/chatclient.i: Client/chatclient.cpp.i
+.PHONY : Client/chatclient.i
+
+# target to preprocess a source file
+Client/chatclient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Client/chatclient.cpp.i
+.PHONY : Client/chatclient.cpp.i
+
+Client/chatclient.s: Client/chatclient.cpp.s
+.PHONY : Client/chatclient.s
+
+# target to generate assembly for a file
+Client/chatclient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/Client/chatclient.cpp.s
+.PHONY : Client/chatclient.cpp.s
+
 Global.obj: Global.cpp.obj
 .PHONY : Global.obj
 
@@ -273,6 +297,30 @@ about.s: about.cpp.s
 about.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/about.cpp.s
 .PHONY : about.cpp.s
+
+chatroom.obj: chatroom.cpp.obj
+.PHONY : chatroom.obj
+
+# target to build an object file
+chatroom.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/chatroom.cpp.obj
+.PHONY : chatroom.cpp.obj
+
+chatroom.i: chatroom.cpp.i
+.PHONY : chatroom.i
+
+# target to preprocess a source file
+chatroom.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/chatroom.cpp.i
+.PHONY : chatroom.cpp.i
+
+chatroom.s: chatroom.cpp.s
+.PHONY : chatroom.s
+
+# target to generate assembly for a file
+chatroom.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Jewels.dir\build.make CMakeFiles/Jewels.dir/chatroom.cpp.s
+.PHONY : chatroom.cpp.s
 
 help.obj: help.cpp.obj
 .PHONY : help.obj
@@ -549,6 +597,9 @@ help:
 	@echo ... Jewels_autogen
 	@echo ... Jewels_autogen_timestamp_deps
 	@echo ... Jewels
+	@echo ... Client/chatclient.obj
+	@echo ... Client/chatclient.i
+	@echo ... Client/chatclient.s
 	@echo ... Global.obj
 	@echo ... Global.i
 	@echo ... Global.s
@@ -564,6 +615,9 @@ help:
 	@echo ... about.obj
 	@echo ... about.i
 	@echo ... about.s
+	@echo ... chatroom.obj
+	@echo ... chatroom.i
+	@echo ... chatroom.s
 	@echo ... help.obj
 	@echo ... help.i
 	@echo ... help.s

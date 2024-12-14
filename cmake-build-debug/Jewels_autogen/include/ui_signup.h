@@ -47,17 +47,17 @@ public:
         Signup->setStyleSheet(QString::fromUtf8(""));
         pushButton_2 = new QPushButton(Signup);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(110, 600, 91, 40));
+        pushButton_2->setGeometry(QRect(300, 310, 91, 40));
         pushButton_2->setMinimumSize(QSize(0, 40));
         pushButton_2->setStyleSheet(QString::fromUtf8(""));
         btn_return = new QPushButton(Signup);
         btn_return->setObjectName("btn_return");
-        btn_return->setGeometry(QRect(350, 600, 91, 40));
+        btn_return->setGeometry(QRect(410, 620, 91, 40));
         btn_return->setMinimumSize(QSize(0, 40));
         btn_return->setStyleSheet(QString::fromUtf8(""));
         verificationFrame = new QFrame(Signup);
         verificationFrame->setObjectName("verificationFrame");
-        verificationFrame->setGeometry(QRect(170, 390, 201, 191));
+        verificationFrame->setGeometry(QRect(170, 430, 201, 191));
         verificationFrame->setFrameShape(QFrame::Box);
         verificationFrame->setFrameShadow(QFrame::Raised);
         gridLayoutWidget = new QWidget(Signup);
@@ -107,14 +107,14 @@ public:
 
         verificationMethodBox = new QComboBox(Signup);
         verificationMethodBox->setObjectName("verificationMethodBox");
-        verificationMethodBox->setGeometry(QRect(390, 340, 91, 31));
+        verificationMethodBox->setGeometry(QRect(350, 370, 91, 31));
         label_verification = new QLabel(Signup);
         label_verification->setObjectName("label_verification");
-        label_verification->setGeometry(QRect(140, 330, 65, 41));
+        label_verification->setGeometry(QRect(100, 360, 65, 41));
         label_verification->setMinimumSize(QSize(0, 41));
         lineEdit_verification = new QLineEdit(Signup);
         lineEdit_verification->setObjectName("lineEdit_verification");
-        lineEdit_verification->setGeometry(QRect(200, 330, 121, 41));
+        lineEdit_verification->setGeometry(QRect(160, 360, 121, 41));
         lineEdit_verification->setMinimumSize(QSize(0, 41));
 
         retranslateUi(Signup);
@@ -124,8 +124,8 @@ public:
 
     void retranslateUi(QWidget *Signup)
     {
-        Signup->setWindowTitle(QCoreApplication::translate("Signup", "Form", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Signup", "\346\263\250\345\206\214", nullptr));
+        Signup->setWindowTitle(QCoreApplication::translate("Signup", "\346\263\250\345\206\214", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("Signup", "\347\241\256\350\256\244or\351\252\214\350\257\201", nullptr));
         btn_return->setText(QCoreApplication::translate("Signup", "\350\277\224\345\233\236\347\231\273\345\275\225", nullptr));
         label_3->setText(QCoreApplication::translate("Signup", "\347\224\250 \346\210\267 \345\220\215\357\274\232", nullptr));
         label_5->setText(QCoreApplication::translate("Signup", "\347\241\256\350\256\244\345\257\206\347\240\201\357\274\232", nullptr));
