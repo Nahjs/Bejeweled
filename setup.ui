@@ -46,7 +46,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题2</string>
         </property>
        </widget>
       </item>
@@ -64,7 +64,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题3</string>
         </property>
        </widget>
       </item>
@@ -82,7 +82,7 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题4</string>
         </property>
        </widget>
       </item>
@@ -100,7 +100,7 @@
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题5</string>
         </property>
        </widget>
       </item>
@@ -118,7 +118,7 @@
       <item>
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>TextLabel</string>
+         <string>主题6</string>
         </property>
        </widget>
       </item>
