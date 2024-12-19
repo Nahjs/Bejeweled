@@ -11,11 +11,12 @@
 #include "mainwindow.h"
 
 #include <QMessageBox>
-
+#include <QThread>
 #include "Global.h"
 #include "login.h"
 #include "ui_mainwindow.h"
 #include "Rank.h" // Add this line to include the Rank header file
+#include"setup.h"
 
 Mainwindow::Mainwindow(QWidget *parent) :
     QMainWindow(parent),
@@ -53,8 +54,8 @@ Mainwindow::Mainwindow(QWidget *parent) :
             numMatrix->point[i][j]=-1;
         }
     }
-    QString path;
     int i;
+    QString path;
     for(i=0;i<8;i++)
     {
         path = ":/res/images/a"  + QString::number(i+1,10) + ".png";//宝石图片
@@ -413,7 +414,7 @@ void Mainwindow::do_btn_hint(){
         QMessageBox::warning(this, "提示", "本回合已经使用过提示功能！");
         return;
     }
-    
+
     hintUsedThisRound = true;
     numMatrix->hint();
     Rank::g_rank.nGrade -= 30;
@@ -537,14 +538,14 @@ void Mainwindow::Game_over(bool saveRank) {
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     label_image->show();
     numMatrix->setgamerunning(false);
-    
+
     // 只有非游客用户才保存分数到排行榜
     if(saveRank && !Login::isGuest && Rank::g_rank.nGrade > 0) {
         QSqlQuery query;
         query.prepare("INSERT INTO leaderboard (username, score) VALUES (?, ?)");
         query.addBindValue(Login::currentUsername);
         query.addBindValue(Rank::g_rank.nGrade);
-        
+
         if(query.exec()) {
             // 更新用户最高分
             query.prepare("UPDATE user SET highest_score = GREATEST(highest_score, ?) "
@@ -554,7 +555,7 @@ void Mainwindow::Game_over(bool saveRank) {
             query.exec();
         }
     }
-    
+
     ui->pushButton_stop->hide();
     ui->pushButton_stop->setEnabled(false);
     ui->pushButton_continue->hide();
@@ -729,4 +730,14 @@ void Mainwindow::closeFromRank()
     this->hide();
     Game_over(false);
     emit gameToStart();
+}
+
+void Mainwindow::updateGemTheme(QString path) {
+    for (int i = 0; i < 8; ++i) {
+        QString gemPath = path + QString::number(i + 1) + ".png";
+        if (!pixmap_gem[i].load(gemPath)) {
+            qDebug() << "Failed to load gem image:" << gemPath;
+        }
+    }
+    this->repaint(); // 重新绘制界面
 }

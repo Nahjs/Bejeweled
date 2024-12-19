@@ -36,6 +36,9 @@ private slots:
 
 signals:
     void startToGame();
+    void sendPath(QString Path);
+    public slots:
+        void getPath(QString path);
 
 private:
     Ui::Start *ui;

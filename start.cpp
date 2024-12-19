@@ -1,8 +1,8 @@
 #include "start.h"
 #include "ui_start.h"
-#include "themechange.h"
+#include "setup.h"
 #include "rank.h"
-#include "themechange.h"
+#include "setup.h"
 #include "rank.h"
 
 Start::Start(QWidget *parent)
@@ -21,6 +21,7 @@ Start::Start(QWidget *parent)
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
     connect(game, SIGNAL(gameToStart()), this, SLOT(doGameToStart()));
     connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
+    connect(this, &Start::sendPath, game, &Mainwindow::updateGemTheme);
 
     // 初始化时不显示欢迎信息
     ui->label_welcome->setText("");
@@ -64,9 +65,10 @@ void Start::on_btn_about_clicked()
 
 void Start::on_btn_themeChange_clicked()
 {
-    ThemeChange *themeChangeDlg = new ThemeChange;
+    Setup *themeChangeDlg = new Setup;
     themeChangeDlg->setAttribute(Qt::WA_DeleteOnClose);
     themeChangeDlg->show();
+    connect(themeChangeDlg, &Setup::themeChanged, this, &Start::getPath);
 }
 
 void Start::onRankClosed()
@@ -96,4 +98,8 @@ void Start::on_btn_chatRoom_clicked()
     }
     chatRoom->show();
     chatRoom->activateWindow();
+}
+
+void Start::getPath(QString path) {
+    emit sendPath(path);
 }

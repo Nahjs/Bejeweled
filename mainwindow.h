@@ -40,6 +40,7 @@ signals:
 
 public slots:
     void closeFromRank(); // 添加新的槽函数
+    void updateGemTheme(QString path);
 
 private slots:
     void on_btn_gameToStart_clicked();

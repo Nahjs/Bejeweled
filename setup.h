@@ -16,7 +16,8 @@ public:
     ~Setup() override;
 
     signals:
-        void themeChanged(const QString &themePath);
+    void themeChanged(QString path);
+
 
     private slots:
         void on_ToneButton_clicked();
