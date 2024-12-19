@@ -14,6 +14,7 @@ Setup::~Setup() {
 
 void Setup::on_ToneButton_clicked() {
     emit themeChanged(":/res/images/a");
+
     QMessageBox::information(this, "主题切换", "已切换至主题1");
     //图片路径：/res/images/a
 }
