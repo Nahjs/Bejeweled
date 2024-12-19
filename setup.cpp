@@ -19,7 +19,7 @@ void Setup::on_ToneButton_clicked() {
 }
 
 void Setup::on_TtwoButton_clicked() {
-    emit themeChanged(":/res/images/b");
+    emit themeChanged(":/res/images/gem");
     QMessageBox::information(this, "主题切换", "已切换至主题2");
     //图片路径：/res/images/b
 }
@@ -31,7 +31,7 @@ void Setup::on_TthreeButton_clicked() {
 }
 
 void Setup::on_TfourButton_clicked() {
-    emit themeChanged(":/res/images/d");
+    emit themeChanged(":/res/images/fruit");
     QMessageBox::information(this, "主题切换", "已切换至主题4");
     //图片路径：/res/images/d
 }

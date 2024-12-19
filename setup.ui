@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>693</height>
+    <width>736</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>310</y>
-     <width>494</width>
-     <height>80</height>
+     <x>110</x>
+     <y>190</y>
+     <width>491</width>
+     <height>111</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -28,7 +28,13 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>主题1</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/宝石迷阵/image/theme/a-theme/a1.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -46,7 +52,13 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>主题2</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/08ac3cf4-615c-4193-981c-8fb80c332b9e.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -64,7 +76,13 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>主题3</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/c111.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -82,7 +100,13 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>主题4</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/7c7e71b8-a1db-4d41-8d08-8782e39e1906.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -100,7 +124,13 @@
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>主题5</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/19a32a3d-41ef-4ccf-8e52-f8131e1bd18c.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -118,7 +148,13 @@
       <item>
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>主题6</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>C:/Users/17914/Desktop/130c80c2-fee5-4fc9-b76c-68541d3733f8.png</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -132,6 +168,32 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="musicSetButton">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>100</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>音量大小</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sizeSetButton">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>110</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>界面大小</string>
+   </property>
   </widget>
  </widget>
  <resources/>
