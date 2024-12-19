@@ -18,12 +18,12 @@ include_directories(${CMAKE_SOURCE_DIR})
 set(HEADERS
         mainwindow.h
         numMatrix.h
-        Global.h
+        prop.h
         about.h
         start.h
         help.h
         rank.h
-        themechange.h
+        setup.h
         login.h
         signup.h
         Verification.h
@@ -38,12 +38,12 @@ set(SOURCES
         mainwindow.cpp
         numMatrix.cpp
         main.cpp
-        Global.cpp
+        prop.cpp
         about.cpp
         start.cpp
         help.cpp
         rank.cpp
-        themechange.cpp
+        setup.cpp
         login.cpp
         signup.cpp
         Verification.cpp
@@ -61,7 +61,7 @@ set(UIS
         start.ui
         help.ui
         rank.ui
-        themechange.ui
+        setup.ui
         login.ui
         signup.ui
         chatroom.ui

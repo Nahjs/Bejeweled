@@ -58,8 +58,10 @@ void ChatRoom::setupChatConnections()
     connect(ui->sendButton, &QPushButton::clicked, this, &ChatRoom::onSendMessage);
     connect(ui->chatInput, &QLineEdit::returnPressed, this, &ChatRoom::onSendMessage);
     
+
+    //chatClient->connectToServer("127.0.0.1", 8888);
     // 连接到聊天服务器
-    chatClient->connectToServer("127.0.0.1", 8888);
+    chatClient->connectToServer("cn-hk-bgp-4.ofalias.net", 26493);
 }
 
 void ChatRoom::onChatConnected()

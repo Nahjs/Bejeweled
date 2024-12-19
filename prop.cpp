@@ -1,4 +1,4 @@
-#include "Global.h"
+#include "prop.h"
 
 int g_spc = 5;
 

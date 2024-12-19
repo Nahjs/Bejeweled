@@ -19,7 +19,7 @@ Start::Start(QWidget *parent)
     login = new Login();
 
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
-    connect(game, SIGNAL(gameToStart()), this, SLOT(doGameToStart()));
+    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);  // 使用新的连接语法
     connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
     connect(this, &Start::sendPath, game, &Mainwindow::updateGemTheme);
 
@@ -39,14 +39,20 @@ Start::~Start()
 
 void Start::on_btn_startToGame_clicked()
 {
+    // 在游戏开始前设置地图大小
+    int rows = 12;  // 默认值
+    int cols = 12;  // 默认值
+    
+    // 设置地图大小
+    if (game && game->getNumMatrix()) {
+        game->getNumMatrix()->setMapSize(rows, cols);
+    }
+    
     this->hide();
+    game->Game_start(); 
     emit startToGame();
 }
 
-void Start::doGameToStart()
-{
-    this->show();
-}
 
 void Start::on_btn_mainToRank_clicked()
 {
@@ -98,6 +104,10 @@ void Start::on_btn_chatRoom_clicked()
     }
     chatRoom->show();
     chatRoom->activateWindow();
+}
+
+void Start::doGameToStart() {
+    this->show();
 }
 
 void Start::getPath(QString path) {

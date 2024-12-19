@@ -1,5 +1,5 @@
-#ifndef GLOBAL_H
-#define GLOBAL_H
+#ifndef PROP_H
+#define PROP_H
 
 typedef struct Picelem
 {
@@ -19,4 +19,4 @@ extern int g_props_col ;
 extern int g_props_color;
 
 
-#endif // GLOBAL_H
+#endif // PROP_H

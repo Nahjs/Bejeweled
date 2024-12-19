@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="btn_startToGame">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>50</y>
+      <x>290</x>
+      <y>180</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="btn_mainToRank">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>200</y>
+      <x>130</x>
+      <y>250</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -88,8 +88,8 @@
    <widget class="QPushButton" name="btn_themeChange">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>60</y>
+      <x>430</x>
+      <y>280</y>
       <width>91</width>
       <height>51</height>
      </rect>

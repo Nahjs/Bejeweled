@@ -3,9 +3,6 @@
 
 #include <QMainWindow>
 #include "numMatrix.h"
-//#include "cmenudlg.h"
-//#include "cthemedlg.h"
-//#include "cmusicplayer.h"
 #include <string.h>
 #include <QDebug>
 #include <QTimer>
@@ -17,11 +14,17 @@
 #include <QMouseEvent>
 #include <QCloseEvent>
 #include "rank.h"
+#include "prop.h"
+
 
 namespace Ui {
 class Mainwindow;
 }
 
+/**
+ * @brief 主游戏窗口类
+ * 处理游戏界面显示、用户交互及游戏逻辑控制
+ */
 class Mainwindow : public QMainWindow
 {
     Q_OBJECT
@@ -30,98 +33,96 @@ public:
     explicit Mainwindow(QWidget *parent = nullptr);
     ~Mainwindow();
 
-    void Music();
-    void Game_over(bool saveRank = true); //时间耗尽时游戏结束，如果中途退出并保存记录，saverank则设置为false
+    void Music();                        // 音乐控制
+    void Game_over(bool saveRank = true);// 游戏结束处理
+    NumMatrix* getNumMatrix() { return numMatrix; } // 获取NumMatrix对象
+    void Game_start();                    // 游戏开始
 
 signals:
-    void gameToStart();
-    void gameToMenu();
-    //void clicked();//鼠标点击信号
+    void gameToStart();    // 返回开始界面信号
+    void gameToMenu();     // 返回菜单信号
 
 public slots:
-    void closeFromRank(); // 添加新的槽函数
+    void closeFromRank();  // 从排行榜返回处理
     void updateGemTheme(QString path);
 
 private slots:
-    void on_btn_gameToStart_clicked();
-    void doStartToGame();
-    void doMenuToGame();
-    void on_btn_gameToMenu_clicked();
-    void do_theme_background_change(QString);
- //   void do_theme_gem_change(QString);
-   // void do_music_background_change(QString);
-    void on_pushButton_stop_clicked();
-    void update_timebar(); //每隔一秒更新时间条的槽函数
-    void Game_start();
-    void on_pushButton_continue_clicked();
-    void on_pushButton_restart_clicked();
-    void do_btn_hint();//点击提示
-    void paintEvent(QPaintEvent *event);//自定义绘制操作
-    void closeEvent(QCloseEvent *event);//在窗口关闭时执行清理工作
+    void on_btn_gameToStart_clicked();    // 返回开始界面按钮点击
+    void doStartToGame();                 // 开始游戏处理
+    void doMenuToGame();                  // 返回游戏处理
+    void on_btn_gameToMenu_clicked();     // 返回菜单按钮点击
+    void do_theme_background_change(QString); // 主题背景更改
+    void on_pushButton_stop_clicked();    // 暂停按钮点击
+    void update_timebar();                // 时间条更新
+    void on_pushButton_continue_clicked();// 继续游戏
+    void on_pushButton_restart_clicked(); // 重新开始
+    void do_btn_hint();                   // 提示按钮处理
+    void paintEvent(QPaintEvent *event);  // 绘制事件
+    void closeEvent(QCloseEvent *event);  // 关闭事件
 
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+    // 音乐控制按钮
+    void on_pushButton_clicked();         // 音乐开
+    void on_pushButton_2_clicked();       // 音乐关
 
-    void on_pushButton_row_clicked();
-
-    void on_pushButton_col_clicked();
-
-    void on_pushButton_color_clicked();
-    void on_pushButton_boom_clicked();
+    // 道具按钮点击处理
+    void on_pushButton_row_clicked();     // 行消除道具
+    void on_pushButton_col_clicked();     // 列消除道具
+    void on_pushButton_color_clicked();   // 同色消除道具
+    void on_pushButton_boom_clicked();    // 爆炸道具
 
 private:
-    Ui::Mainwindow *ui;
-    QTimer *timer;//定时器
-    QImage *image_stop;
-    QImage *image_gameover ;
-    QLabel *label_image=new QLabel(this); //存放暂停图片的容器
-   // CMenuDlg *menu = new CMenuDlg(this);
-   // CThemeDlg *theme = new CThemeDlg();
-    NumMatrix *numMatrix = new NumMatrix();
-    QPoint point;//鼠标位置
-    QPoint point1;
-    QPoint point2;
-    QPixmap pixmap_gem[8];//存宝石图片
-    QPixmap pixmap_di;//储存被选中框
-    QPixmap number[10];//分数图片
-    QPixmap disappear1;
-    QPixmap disappear2;
-    QPixmap disappear3;//消除泡泡的过程
-    //QPixmap circle;//圆圈
-    QPixmap addscore;//加分
-    int mouseflag;
-    int focus;
-    int focus_x;
-    int focus_y;
-    int eliminateNumber = 0;
-    int isSelected[8][8];//是否选中（0/1）
-    int midSituation[8][8];//消除中间过程（1，2，3，对应三张图片）
-    std::string string_grade;//分数转成string类型
-    int addScoreSituation=-1;//加分情况的状态（0-9）
-    int totaltime=60; //时间
-    QString gemtype; //宝石类型，其值为"gem","fish","mine",默认值为"gem"
+    Ui::Mainwindow *ui;           // UI界面
+    QTimer *timer;                // 游戏计时器
+    QImage *image_stop;           // 暂停图片
+    QImage *image_gameover;       // 游戏结束图片
+    QLabel *label_image=new QLabel(this); // 图片显示标签
+    NumMatrix *numMatrix = new NumMatrix(); // 游戏核心逻辑对象
+    QPoint point;                 // 鼠标位置
+    QPoint point1;                // 第一次点击位置
+    QPoint point2;                // 第二次点击位置
+    QPixmap pixmap_gem[8];       // 宝石图片数组
+    QPixmap pixmap_di;           // 选中框图片
+    QPixmap number[10];          // 数字图片数组
+    QPixmap disappear1;          // 消除动画1
+    QPixmap disappear2;          // 消除动画2
+    QPixmap disappear3;          // 消除动画3
+
+    // 游戏状态变量
+    int mouseflag;               // 鼠标点击标志
+    int focus;                   // 焦点状态
+    int focus_x;                // 焦点x坐标
+    int focus_y;                // 焦点y坐标
+    int eliminateNumber = 0;    // 消除数量
+    int **isSelected;           // 是否选中（0/1）
+    int **midSituation;         // 消除中间过程（1，2，3，对应三张图片）
+    std::string string_grade;   // 分数转成string类型
+    int addScoreSituation=-1;   // 加分情况的状态（0-9）
+    int totaltime=60;           // 时间
+    QString gemtype;            // 宝石类型，其值为"gem","fish","mine",默认值为"gem"
     int music = 1;
     int eli_music=0;
-  //  CMusicPlayer *mus = new CMusicPlayer;
-    //CMusicPlayer *mus1 = new CMusicPlayer;
     Rank* rankInstance;
 
-    bool props=false,boom=false,color=false,row=false,col=false; //判断是否选择道具
+    bool props=false,boom=false,color=false,row=false,col=false; // 判断是否选择道具
 
-     int cellSize ;//每个单元格的大小
-     int offsetX ;
-     int offsetY ;//绘制时的偏移量
-     int scoreOffsetX ;
-     int scoreOffsetY ;//分数显示的偏移量。
-     int scoreStep ;//分数动画的步长
-    int t;//动画持续时间
+    int cellSize ;              // 每个单元格的大小
+    int offsetX ;
+    int offsetY ;               // 绘制时的偏移量
+    int scoreOffsetX ;
+    int scoreOffsetY ;          // 分数显示的偏移量。
+    int scoreStep ;             // 分数动画的步长
+    int t;                      // 动画持续时间
 
-    bool hintUsedThisRound = false;//追踪提示按钮的使用状态
+    bool hintUsedThisRound = false; // 追踪提示按钮的使用状态
+
+    void updatePropsUI();  // 添加一个统一的更新道具UI的函数
 
 protected:
     void mousePressEvent(QMouseEvent *event);
-    QPoint mousePos;//鼠标位置a
+    QPoint mousePos;            // 鼠标位置
 
+    void initArrays();     // 添加初始化数组的辅助方法
+    void cleanupArrays();  // 添加清理数组的辅助方法
 };
 
 #endif // MAINWINDOW_H
