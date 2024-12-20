@@ -109,10 +109,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     Game_start();
 */
     rankInstance = Rank::getInstance();
-    connect(numMatrix, &NumMatrix::propsChanged, this, [this]() {
-        updatePropsUI();
-    });
-    
+
     // 设置接受拖放
     setAcceptDrops(true);
     
@@ -689,7 +686,6 @@ void Mainwindow::Game_start(){
     color=false;
     row=false;
     col=false;
-    updatePropsUI();
     hintUsedThisRound = false; // 游戏开始时重置提示按钮使用状态
 
     // 连接道具变化信号

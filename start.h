@@ -9,6 +9,7 @@
 #include "mailform.h"
 #include "chatroom.h"
 #include <QMainWindow>
+#include <propshop.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Start; }
@@ -19,7 +20,7 @@ class Start : public QMainWindow
     Q_OBJECT
 
 public:
-    Start(QWidget *parent = nullptr);
+    explicit Start(QWidget *parent = nullptr);
     ~Start();
     Rank *rank;
 
@@ -40,7 +41,7 @@ signals:
     public slots:
         void getPath(QString path);
         void getSize(int row,int col);
-
+    void on_btn_propShop_clicked();
 private:
     Ui::Start *ui;
     Mainwindow *game;
@@ -49,6 +50,7 @@ private:
     Login *login;
   //  MailForm* mailForm;
     ChatRoom *chatRoom;
+    PropShop *propShop;      // 添加商城指针
     static int rows;
     static int cols;
 };

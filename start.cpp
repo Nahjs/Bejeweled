@@ -2,8 +2,7 @@
 #include "ui_start.h"
 #include "setup.h"
 #include "rank.h"
-#include "setup.h"
-#include "rank.h"
+#include "propshop.h"
 
 int Start::rows = 12; // 默认行数
 int Start::cols = 12; // 默认列数
@@ -20,9 +19,10 @@ Start::Start(QWidget *parent)
     help = new Help(this);
     about = new About(this);
     login = new Login();
+    propShop = new PropShop(this); // 初始化道具商城
 
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
-    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);  // 使用新的连接语法
+    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);
     connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
     connect(this, &Start::sendPath, game, &Mainwindow::updateGemTheme);
 
@@ -53,6 +53,14 @@ void Start::on_btn_startToGame_clicked()
     emit startToGame();
 }
 
+void Start::on_btn_propShop_clicked()
+{
+    if(!Login::isGuest) {
+        propShop->loadUserCoins(); // 刷新金币数据
+        propShop->updateDisplay(); // 更新界面显示
+        propShop->show();
+    }
+}
 
 void Start::on_btn_mainToRank_clicked()
 {
