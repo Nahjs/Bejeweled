@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PropShop</class>
+ <widget class="QDialog" name="PropShop">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>404</width>
+    <height>504</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>道具商城</string>
+  </property>
+  <widget class="QLabel" name="label_coins">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>当前金币: 0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_buyBoom">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>450</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>购买爆炸道具</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_boom_price">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>420</y>
+     <width>69</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>价格: 10金币</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_boom_count">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>290</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拥有数量: 0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_buyRow">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>200</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>购买行消除</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_row_price">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>180</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>价格: 8金币</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_row_count">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拥有数量: 0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_buyCol">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>200</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>购买列消除</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_col_price">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>180</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>价格: 8金币</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_col_count">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拥有数量: 0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_buyColor">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>450</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>购买同色消除</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_color_price">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>420</y>
+     <width>69</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>价格: 15金币</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_color_count">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>290</y>
+     <width>62</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拥有数量: 0</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
