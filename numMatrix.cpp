@@ -303,6 +303,7 @@ bool NumMatrix::eliminate(bool noChange) {
                             g_props_col++; // 四连奖励列消除道具
                         } else if(count >= 5) {
                             g_props_color++; // 五连奖励同色消除道具
+                            g_props_col--;
                         }
                     }
                     isChange = true;
@@ -332,6 +333,7 @@ bool NumMatrix::eliminate(bool noChange) {
                             g_props_row++; // 四连奖励行消除道具
                         } else if(count >= 5) {
                             g_props_color++; // 五连奖励同色消除道具
+                            g_props_row--;
                         }
                     }
                     isChange = true;

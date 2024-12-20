@@ -1,5 +1,0 @@
-D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/Jewels.dir
-D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen_timestamp_deps.dir
-D:/CLion/1/Bejeweled/cmake-build-debug/CMakeFiles/Jewels_autogen.dir
