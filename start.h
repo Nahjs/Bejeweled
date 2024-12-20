@@ -39,6 +39,7 @@ signals:
     void sendPath(QString Path);
     public slots:
         void getPath(QString path);
+        void getSize(int row,int col);
 
 private:
     Ui::Start *ui;

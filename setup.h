@@ -17,6 +17,7 @@ public:
 
     signals:
     void themeChanged(QString path);
+    void sizeChanged(int row,int size);
 
 
     private slots:

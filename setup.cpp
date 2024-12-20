@@ -64,5 +64,39 @@ void Setup::on_musicSetButton_clicked() {
 }
 
 void Setup::on_sizeSetButton_clicked() {
-    
+    // 获取用户输入的行和列值
+    QString rowText = ui->rowLineEdit->text(); // 假设输入行值的 QLineEdit 对象名为 rowLineEdit
+    QString colText = ui->colLineEdit->text(); // 假设输入列值的 QLineEdit 对象名为 colLineEdit
+
+    // 转换为整型
+    bool rowOk, colOk;
+    int row = rowText.toInt(&rowOk);
+    int col = colText.toInt(&colOk);
+
+    // 检查输入是否为有效的整数
+    if (!rowOk || !colOk) {
+        QMessageBox::warning(this, "输入错误", "请输入有效的整数值！");
+        return;
+    }
+
+    // 检查是否为正整数
+    if (row <= 0 || col <= 0) {
+        QMessageBox::warning(this, "输入错误", "行和列的值必须为正整数！");
+        return;
+    }
+
+    // 提示用户界面修改后将重启游戏
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::warning(this,
+                                  "注意",
+                                  "界面修改后将重启游戏，请确认是否继续！",
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::No) {
+        return; // 用户选择取消，不发送信号
+    }
+
+    // 输出行和列值，发送信号
+    QMessageBox::information(this, "成功", QString("行: %1, 列: %2").arg(row).arg(col));
+    qDebug() << "发送行列信号：" << row << col;
+    emit sizeChanged(row, col);
 }

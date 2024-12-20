@@ -75,6 +75,7 @@ void Start::on_btn_themeChange_clicked()
     themeChangeDlg->setAttribute(Qt::WA_DeleteOnClose);
     themeChangeDlg->show();
     connect(themeChangeDlg, &Setup::themeChanged, this, &Start::getPath);
+    connect(themeChangeDlg, &Setup::sizeChanged, this, &Start::getSize);
 }
 
 void Start::onRankClosed()
@@ -112,4 +113,16 @@ void Start::doGameToStart() {
 
 void Start::getPath(QString path) {
     emit sendPath(path);
+}
+
+void Start::getSize(int row,int col) {
+    qDebug() << "接收到行列值：" << row << col;
+    // 设置地图大小
+    if (game && game->getNumMatrix()) {
+        game->getNumMatrix()->setMapSize(row, col);
+    }
+
+    this->hide();
+    game->Game_start();
+    emit startToGame();
 }
