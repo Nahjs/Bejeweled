@@ -13,6 +13,8 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QCloseEvent>
+#include <QMediaPlayer>
+
 #include "rank.h"
 #include "prop.h"
 
@@ -70,6 +72,11 @@ private slots:
     void on_pushButton_color_clicked();   // 同色消除道具
     void on_pushButton_boom_clicked();    // 爆炸道具
 
+    void updateBackgroundMusic(float volume);
+    void updateMuteState(bool muted);
+    void on_bgmSlider_valueChanged(int value);
+    void on_effectSlider_valueChanged(int value);
+
 private:
     Ui::Mainwindow *ui;           // UI界面
     QTimer *timer;                // 游戏计时器
@@ -117,6 +124,19 @@ private:
     bool hintUsedThisRound = false; // 追踪提示按钮的使用状态
 
     void updatePropsUI();  // 添加一个统一的更新道具UI的函数
+
+    void setupAudioConnections();
+
+    // 添加音效播放器
+    QMediaPlayer* greatSound;
+    QMediaPlayer* excellentSound;
+    QMediaPlayer* amazingSound;
+    QMediaPlayer* unbelievableSound;
+    QAudioOutput* effectAudioOutput;  // 音效专用的音频输出
+    
+    void initSoundEffects();  // 初始化音效
+    void playSoundEffect(QMediaPlayer* effect);  // 播放音效的辅助函数
+    void initAudioSettings(); // 初始化音频设置
 
 protected:
     void mousePressEvent(QMouseEvent *event);

@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/res">
+        <file>audio/bgm.mp3</file>
+        <file>audio/great.mp3</file>
+        <file>audio/excellent.mp3</file>
+        <file>audio/amazing.mp3</file>
+        <file>audio/unbelievable.mp3</file>
         <file>images/a1.png</file>
         <file>images/a2.png</file>
         <file>images/a3.png</file>
@@ -41,7 +46,6 @@
         <file>images/d7.png</file>
         <file>images/d8.png</file>
         <file>images/d9.png</file>
-
         <file>images/exe_ico.ico</file>
         <file>images/fish1.png</file>
         <file>images/fish2.png</file>

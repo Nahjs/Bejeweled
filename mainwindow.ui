@@ -209,9 +209,9 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_row">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>720</x>
       <y>270</y>
-      <width>51</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -228,9 +228,9 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_boom">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>720</x>
       <y>120</y>
-      <width>41</width>
+      <width>61</width>
       <height>41</height>
      </rect>
     </property>
@@ -247,9 +247,9 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_color">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>720</x>
       <y>190</y>
-      <width>41</width>
+      <width>61</width>
       <height>41</height>
      </rect>
     </property>
@@ -266,7 +266,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_row">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>810</x>
       <y>280</y>
       <width>51</width>
       <height>21</height>
@@ -290,7 +290,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_color">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>810</x>
       <y>200</y>
       <width>51</width>
       <height>21</height>
@@ -314,7 +314,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_boom">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>810</x>
       <y>130</y>
       <width>51</width>
       <height>20</height>
@@ -338,9 +338,9 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_col">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>720</x>
       <y>340</y>
-      <width>51</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -357,7 +357,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_col">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>810</x>
       <y>350</y>
       <width>51</width>
       <height>21</height>
@@ -377,6 +377,54 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
     <property name="text">
      <string>0</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="audioWidget">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>470</y>
+      <width>291</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_audio">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_bgm">
+       <item>
+        <widget class="QLabel" name="label_bgm">
+         <property name="text">
+          <string>背景音乐：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="bgmSlider">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_effect">
+       <item>
+        <widget class="QLabel" name="label_effect">
+         <property name="text">
+          <string>   音 效 ： </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="effectSlider">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

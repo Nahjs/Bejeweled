@@ -3,6 +3,12 @@
 #include <mainwindow.h>
 #include <QThread>
 
+// 静态成员初始化
+QMediaPlayer* Setup::backgroundMusic = new QMediaPlayer;
+QAudioOutput* Setup::audioOutput = new QAudioOutput;
+float Setup::volume = 1.0f;
+bool Setup::isMuted = false;
+
 Setup::Setup(QWidget *parent) :
     QWidget(parent), ui(new Ui::ThemeChange) {
     ui->setupUi(this);
@@ -16,6 +22,8 @@ Setup::Setup(QWidget *parent) :
     ui->label_4->setPixmap(QPixmap(":/res/images/fruit1"));
     ui->label_5->setPixmap(QPixmap(":/res/images/fish1"));
     ui->label_6->setPixmap(QPixmap(":/res/images/mine1"));
+
+    initAudioControls();
 }
 
 Setup::~Setup() {
@@ -99,4 +107,25 @@ void Setup::on_sizeSetButton_clicked() {
     QMessageBox::information(this, "成功", QString("行: %1, 列: %2").arg(row).arg(col));
     qDebug() << "发送行列信号：" << row << col;
     emit sizeChanged(row, col);
+}
+
+void Setup::initAudioControls() {
+    // 只初始化UI控件,不初始化背景音乐
+    ui->volumeSlider->setRange(0, 100);
+    ui->volumeSlider->setValue(volume * 100);
+    ui->muteButton->setChecked(isMuted);
+    ui->muteButton->setText(isMuted ? "取消静音" : "静音");
+}
+
+void Setup::on_volumeSlider_valueChanged(int value) {
+    volume = value / 100.0f;
+    audioOutput->setVolume(volume);
+    emit volumeChanged(volume);
+}
+
+void Setup::on_muteButton_clicked() {
+    isMuted = !isMuted;
+    audioOutput->setMuted(isMuted);
+    ui->muteButton->setText(isMuted ? "取消静音" : "静音");
+    emit muteStateChanged(isMuted);
 }

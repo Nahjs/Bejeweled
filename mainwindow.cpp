@@ -17,6 +17,7 @@
 #include"setup.h"
 #include "Rank.h"
 #include <QDrag>
+#include <QFile>
 #include <QMimeData>
 // 主窗口构造函数
 Mainwindow::Mainwindow(QWidget *parent) :
@@ -99,11 +100,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     ui->pushButton->setFlat(true);
     ui->pushButton_2->setIconSize(QSize(50,50));
     ui->pushButton_2->setFlat(true);
-    if(music==1){
-       // mus->MusicOn();
-    }else{
-     //   mus->MusicOff();
-    }
+
 
     /*由开始界面发送信号给该游戏界面启动游戏，要不就加入下面这行代码，在main.cpp中直接创建game的实例进入游戏
     Game_start();
@@ -118,6 +115,15 @@ Mainwindow::Mainwindow(QWidget *parent) :
     ui->pushButton_row->setMouseTracking(true);
     ui->pushButton_col->setMouseTracking(true);
     ui->pushButton_color->setMouseTracking(true);
+
+    setupAudioConnections();
+    
+    // 开始播放背景音乐
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->play();
+    }
+    
+    initSoundEffects();//初始化音效
 }
 
 Mainwindow::~Mainwindow()
@@ -125,6 +131,11 @@ Mainwindow::~Mainwindow()
     cleanupArrays();
      delete numMatrix;  // 确保删除 numMatrix
     delete ui;
+    delete effectAudioOutput;
+    delete greatSound;
+    delete excellentSound;
+    delete amazingSound;
+    delete unbelievableSound;
 }
 
 // 主窗口的实现文件，包含游戏的核心逻辑和界面交互
@@ -470,17 +481,21 @@ void Mainwindow::mousePressEvent(QMouseEvent *event) {
 
         // 连消奖励
         if(eli_number == 5) {
-           // Rank::g_rank.nGrade += 50;  // 五连奖励
-        } else if(eli_number > 5 && eli_number <= 7) {
-           // Rank::g_rank.nGrade += 100;  // 六七连奖励
-        } else if(eli_number > 7 && eli_number <= 9) {
-           // Rank::g_rank.nGrade += 200;  // 八九连奖励
-        } else if(eli_number > 9) {
-          //  Rank::g_rank.nGrade += 500;  // 十连以上特别奖励
+            //Rank::g_rank.nGrade += 50;  // 五连奖励
+            playSoundEffect(greatSound);
+        } else if(eli_number > 5 && eli_number <= 8) {
+           // Rank::g_rank.nGrade += 100;  // 六七八连奖励
+            playSoundEffect(excellentSound);
+        } else if(eli_number > 8 && eli_number <= 11) {
+           // Rank::g_rank.nGrade += 200;  // 九十十一连奖励
+            playSoundEffect(amazingSound);
+        } else if(eli_number > 11) {
+           // Rank::g_rank.nGrade += 500;  // 十一连以上特别奖励
+            playSoundEffect(unbelievableSound);
             // 更新时间奖励
-            int time = ui->progressBar_time->value() ;//+ 5;
+            int time = ui->progressBar_time->value() + 5;
             if(time > 60) time = 60;
-           // ui->progressBar_time->setValue(time);
+            ui->progressBar_time->setValue(time);
         }
 
         // 更新分数显示
@@ -697,6 +712,22 @@ void Mainwindow::Game_start(){
 
     // 连接道具变化信号
     connect(numMatrix, &NumMatrix::propsChanged, this, &Mainwindow::updatePropsUI);
+    
+    // 确保游戏开始时背景音乐播放
+    if (Setup::backgroundMusic) {
+        qDebug() << "Starting background music in game...";
+        if (Setup::backgroundMusic->playbackState() != QMediaPlayer::PlayingState) {
+            Setup::backgroundMusic->play();
+            qDebug() << "Background music playback state:" << Setup::backgroundMusic->playbackState();
+        }
+    }
+    
+    // 初始化并开始播放背景音乐
+    initAudioSettings();
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->play();
+        qDebug() << "Background music started in Game_start()";
+    }
 }
 
 //时间耗尽，游戏结束
@@ -755,7 +786,12 @@ void Mainwindow::on_pushButton_stop_clicked()
     ui->pushButton_stop->setEnabled(false);
     ui->pushButton_continue->setEnabled(true);
     //mus->gameSound->setVolume(0);
-
+    
+    // 暂停时可以选择暂停音乐
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->pause();
+        qDebug() << "Background music paused";
+    }
 }
 
 void Mainwindow::on_pushButton_continue_clicked()
@@ -768,7 +804,12 @@ void Mainwindow::on_pushButton_continue_clicked()
     ui->pushButton_stop->setEnabled(true);
     ui->pushButton_continue->setEnabled(false);
     //mus->gameSound->setVolume(10);
-
+    
+    // 继续游戏时恢复音乐
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->play();
+        qDebug() << "Background music resumed";
+    }
 }
 
 void Mainwindow::on_pushButton_restart_clicked()
@@ -825,15 +866,23 @@ void Mainwindow::on_pushButton_restart_clicked()
 //音乐开
 void Mainwindow::on_pushButton_clicked()
 {
-    music = 1;
-    //mus->gameSound->setVolume(10);
+    if (Setup::audioOutput) {
+        Setup::volume = 1.0f;
+        Setup::audioOutput->setVolume(Setup::volume);
+        Setup::audioOutput->setMuted(false);
+        Setup::isMuted = false;
+        qDebug() << "Music unmuted - Volume:" << Setup::audioOutput->volume();
+    }
 }
 
 //音乐关
 void Mainwindow::on_pushButton_2_clicked()
 {
-    music = 0;
-    //mus->gameSound->setVolume(0);
+    if (Setup::audioOutput) {
+        Setup::audioOutput->setMuted(true);
+        Setup::isMuted = true;
+        qDebug() << "Music muted";
+    }
 }
 
 
@@ -860,6 +909,7 @@ void Mainwindow::on_pushButton_row_clicked()
         row=true;
     }
 }
+
 //消除地图中水平上的宝石
 void Mainwindow::on_pushButton_col_clicked()
 {
@@ -939,7 +989,6 @@ void Mainwindow::on_pushButton_boom_clicked()
     }
 }
 */
-
 
 void Mainwindow::initArrays() {
     // 分配动态数组空间
@@ -1026,4 +1075,199 @@ void Mainwindow::updateGemTheme(QString path) {
         }
     }
     this->repaint(); // 重新绘制界面
+}
+
+void Mainwindow::setupAudioConnections() {
+    if (Setup::backgroundMusic) {
+        // 监控播放器错误
+        connect(Setup::backgroundMusic, &QMediaPlayer::errorOccurred,
+                this, [](QMediaPlayer::Error error, const QString &errorString) {
+            qDebug() << "Background music error:" << error << errorString;
+        });
+        
+        // 监控播放状态变化
+        connect(Setup::backgroundMusic, &QMediaPlayer::playbackStateChanged,
+                this, [](QMediaPlayer::PlaybackState state) {
+            qDebug() << "Background music state changed to:" << state;
+        });
+        
+        // 监控媒体状态变化
+        connect(Setup::backgroundMusic, &QMediaPlayer::mediaStatusChanged,
+                this, [](QMediaPlayer::MediaStatus status) {
+            qDebug() << "Background music media status:" << status;
+        });
+    }
+}
+
+void Mainwindow::updateBackgroundMusic(float volume) {    if (Setup::audioOutput) {        Setup::audioOutput->setVolume(volume);    }
+}
+
+void Mainwindow::updateMuteState(bool muted) {
+    if (Setup::audioOutput) {
+        Setup::audioOutput->setMuted(muted);
+    }
+}
+
+void Mainwindow::initSoundEffects() {
+    qDebug() << "Initializing sound effects...";
+    
+    // 创建音效专用的音频输出
+    effectAudioOutput = new QAudioOutput(this);
+    effectAudioOutput->setVolume(0.5f);
+    qDebug() << "Effect audio output volume:" << effectAudioOutput->volume();
+    
+    // 初始化音效播放器
+    greatSound = new QMediaPlayer(this);
+    excellentSound = new QMediaPlayer(this);
+    amazingSound = new QMediaPlayer(this);
+    unbelievableSound = new QMediaPlayer(this);
+    
+    // 设置音频文件路径
+    QUrl greatUrl("qrc:/res/audio/great.mp3");
+    QUrl excellentUrl("qrc:/res/audio/excellent.mp3");
+    QUrl amazingUrl("qrc:/res/audio/amazing.mp3");
+    QUrl unbelievableUrl("qrc:/res/audio/unbelievable.mp3");
+    
+    // 检查URL是否有效
+    qDebug() << "Great sound URL is valid:" << greatUrl.isValid();
+    qDebug() << "Excellent sound URL is valid:" << excellentUrl.isValid();
+    qDebug() << "Amazing sound URL is valid:" << amazingUrl.isValid();
+    qDebug() << "Unbelievable sound URL is valid:" << unbelievableUrl.isValid();
+    
+    // 设置音频输出和音源
+    greatSound->setAudioOutput(new QAudioOutput(this));
+    excellentSound->setAudioOutput(new QAudioOutput(this));
+    amazingSound->setAudioOutput(new QAudioOutput(this));
+    unbelievableSound->setAudioOutput(new QAudioOutput(this));
+    
+    greatSound->setSource(greatUrl);
+    excellentSound->setSource(excellentUrl);
+    amazingSound->setSource(amazingUrl);
+    unbelievableSound->setSource(unbelievableUrl);
+    
+    // 添加错误处理
+    auto handleError = [](QMediaPlayer *player, const QString &name) {
+        connect(player, &QMediaPlayer::errorOccurred,
+                [name](QMediaPlayer::Error error, const QString &errorString) {
+            qDebug() << name << "error:" << error << errorString;
+        });
+    };
+    
+    handleError(greatSound, "Great sound");
+    handleError(excellentSound, "Excellent sound");
+    handleError(amazingSound, "Amazing sound");
+    handleError(unbelievableSound, "Unbelievable sound");
+}
+
+void Mainwindow::playSoundEffect(QMediaPlayer* effect) {
+    if (!effect) {
+        qDebug() << "Sound effect player is null!";
+        return;
+    }
+    
+    if (Setup::isMuted) {
+        qDebug() << "Sound effects are muted";
+        return;
+    }
+    
+    qDebug() << "Playing sound effect...";
+    qDebug() << "Current playback state:" << effect->playbackState();
+    qDebug() << "Current media status:" << effect->mediaStatus();
+    qDebug() << "Current source:" << effect->source().toString();
+    
+    if (effect->playbackState() == QMediaPlayer::PlayingState) {
+        qDebug() << "Resetting sound effect position";
+        effect->setPosition(0);
+    }
+    
+    effect->play();
+    qDebug() << "Play command sent to sound effect";
+    
+    // 监控播放状态
+    connect(effect, &QMediaPlayer::playbackStateChanged,
+            this, [](QMediaPlayer::PlaybackState state) {
+        qDebug() << "Sound effect playback state changed to:" << state;
+    });
+    
+    // 监控错误
+    connect(effect, &QMediaPlayer::errorOccurred,
+            this, [](QMediaPlayer::Error error, const QString &errorString) {
+        qDebug() << "Sound effect error:" << error << errorString;
+    });
+}
+
+void Mainwindow::initAudioSettings() {
+    qDebug() << "\n=== Audio System Reset ===";
+
+    // 强制重新初始化播放器
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->stop();
+        delete Setup::backgroundMusic;
+        delete Setup::audioOutput;
+    }
+
+    Setup::backgroundMusic = new QMediaPlayer(this);
+    Setup::audioOutput = new QAudioOutput(this);
+    Setup::backgroundMusic->setAudioOutput(Setup::audioOutput);
+
+    // 资源检查
+    QUrl musicUrl("qrc:/res/audio/bgm.mp3");
+    qDebug() << "Resource check:"
+             << "\nURL:" << musicUrl.toString()
+             << "\nValid:" << musicUrl.isValid()
+             << "\nFile exists:" << QFile::exists(":/res/audio/bgm.mp3");
+
+    Setup::backgroundMusic->setSource(musicUrl);
+    Setup::audioOutput->setVolume(Setup::volume);
+
+    // 媒体状态监控
+    connect(Setup::backgroundMusic, &QMediaPlayer::mediaStatusChanged,
+            this, [](QMediaPlayer::MediaStatus status) {
+        qDebug() << "Media status:" << status;
+        if (status == QMediaPlayer::LoadedMedia) {
+            Setup::backgroundMusic->play();
+        }
+    });
+
+    // 错误处理
+    connect(Setup::backgroundMusic, &QMediaPlayer::errorOccurred,
+            this, [](QMediaPlayer::Error error) {
+        qDebug() << "Media error:" << error
+                 << "\nDetails:" << Setup::backgroundMusic->errorString();
+    });
+
+    // 播放状态监控
+    connect(Setup::backgroundMusic, &QMediaPlayer::playbackStateChanged,
+            this, [](QMediaPlayer::PlaybackState state) {
+        qDebug() << "Playback state:" << state;
+        if (state == QMediaPlayer::StoppedState) {
+            Setup::backgroundMusic->play();
+        }
+    });
+
+    Setup::backgroundMusic->play();
+
+    // 滑块初始化
+    ui->bgmSlider->setRange(0, 100);
+    ui->bgmSlider->setValue(Setup::volume * 100);
+    ui->effectSlider->setRange(0, 100);
+    ui->effectSlider->setValue(effectAudioOutput->volume() * 100);
+
+    qDebug() << "=== Audio System Initialized ===\n";
+}
+
+void Mainwindow::on_bgmSlider_valueChanged(int value) {
+    if (Setup::audioOutput) {
+        Setup::volume = value / 100.0f;
+        Setup::audioOutput->setVolume(Setup::volume);
+        qDebug() << "Background music volume changed to:" << Setup::volume;
+    }
+}
+
+void Mainwindow::on_effectSlider_valueChanged(int value) {
+    if (effectAudioOutput) {
+        float volume = value / 100.0f;
+        effectAudioOutput->setVolume(volume);
+        qDebug() << "Sound effect volume changed to:" << volume;
+    }
 }
