@@ -89,7 +89,7 @@ void Setup::on_sizeSetButton_clicked() {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::warning(this,
                                   "注意",
-                                  "界面修改后将重启游戏，请确认是否继续！",
+                                  "界面的修改会改变游戏难度，请确认是否继续！",
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::No) {
         return; // 用户选择取消，不发送信号
