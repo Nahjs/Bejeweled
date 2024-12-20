@@ -26,6 +26,8 @@ public:
     void on_TfourButton_clicked();
     void on_TfiveButton_clicked();
     void on_TsixButton_clicked();
+    void on_musicSetButton_clicked();
+    void on_sizeSetButton_clicked();
 
 private:
     Ui::ThemeChange *ui;

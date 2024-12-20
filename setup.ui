@@ -26,7 +26,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label1">
         <property name="text">
          <string/>
         </property>
@@ -54,9 +54,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/17914/Desktop/08ac3cf4-615c-4193-981c-8fb80c332b9e.png</pixmap>
-        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -77,9 +74,6 @@
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/17914/Desktop/c111.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -102,9 +96,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/17914/Desktop/7c7e71b8-a1db-4d41-8d08-8782e39e1906.png</pixmap>
-        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -126,9 +117,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/17914/Desktop/19a32a3d-41ef-4ccf-8e52-f8131e1bd18c.png</pixmap>
-        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -149,9 +137,6 @@
        <widget class="QLabel" name="label_6">
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/17914/Desktop/130c80c2-fee5-4fc9-b76c-68541d3733f8.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
