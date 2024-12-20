@@ -1,6 +1,8 @@
 #ifndef START_H
 #define START_H
 
+#include <propshop.h>
+
 #include "about.h"
 #include "help.h"
 #include "mainwindow.h"
@@ -19,19 +21,19 @@ class Start : public QMainWindow
     Q_OBJECT
 
 public:
-    Start(QWidget *parent = nullptr);
+    explicit Start(QWidget *parent = nullptr);
     ~Start();
     Rank *rank;
 
 private slots:
     void on_btn_startToGame_clicked();
     void doGameToStart();
+    void onRankClosed();
+    void onLoginSuccess();
     void on_btn_mainToRank_clicked();
     void on_btn_help_clicked();
     void on_btn_about_clicked();
     void on_btn_themeChange_clicked();
-    void onRankClosed();
-    void onLoginSuccess();
     void on_btn_chatRoom_clicked();
 
 signals:
@@ -41,6 +43,8 @@ signals:
         void getPath(QString path);
         void getSize(int row,int col);
 
+    void on_btn_propShop_clicked();
+
 private:
     Ui::Start *ui;
     Mainwindow *game;
@@ -49,5 +53,6 @@ private:
     Login *login;
   //  MailForm* mailForm;
     ChatRoom *chatRoom;
+    PropShop *propShop;      // 添加商城指针
 };
 #endif // START_H

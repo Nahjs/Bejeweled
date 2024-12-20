@@ -4,6 +4,7 @@
 #include "rank.h"
 #include "setup.h"
 #include "rank.h"
+#include "propshop.h"
 
 Start::Start(QWidget *parent)
     : QMainWindow(parent)
@@ -17,9 +18,10 @@ Start::Start(QWidget *parent)
     help = new Help(this);
     about = new About(this);
     login = new Login();
+    propShop = new PropShop(this); // 初始化道具商城
 
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
-    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);  // 使用新的连接语法
+    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart); 
     connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
     connect(this, &Start::sendPath, game, &Mainwindow::updateGemTheme);
 
@@ -30,6 +32,9 @@ Start::Start(QWidget *parent)
     this->hide();
 
     chatRoom = nullptr;  // 初始化聊天室指针为空
+
+    // 移除禁用商城按钮的代码
+    // ui->btn_propShop->setEnabled(!Login::isGuest); 
 }
 
 Start::~Start()
@@ -88,8 +93,11 @@ void Start::onLoginSuccess()
     // 根据是否是游客显示不同的欢迎信息
     if(Login::isGuest) {
         ui->label_welcome->setText("欢迎您，游客！祝您游戏愉快！");
+        // 移除禁用商城按钮的代码
+        // ui->btn_propShop->setEnabled(false); 
     } else {
         ui->label_welcome->setText("欢迎回来，" + Login::currentUsername + "！");
+        // ui->btn_propShop->setEnabled(true);  
     }
 
     this->show();
@@ -125,4 +133,13 @@ void Start::getSize(int row,int col) {
     this->hide();
     game->Game_start();
     emit startToGame();
+}
+
+void Start::on_btn_propShop_clicked()
+{
+    if(!Login::isGuest) {
+        propShop->loadUserCoins(); // 刷新金币数据
+        propShop->updateDisplay(); // 更新界面显示
+        propShop->show();
+    }
 }
