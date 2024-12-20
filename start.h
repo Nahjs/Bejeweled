@@ -49,7 +49,5 @@ private:
     Login *login;
   //  MailForm* mailForm;
     ChatRoom *chatRoom;
-    static int rows;
-    static int cols;
 };
 #endif // START_H

@@ -63,14 +63,22 @@ void sqlite_Init()
     }
     
     QSqlQuery query;
-    QString createsql = QString("CREATE TABLE IF NOT EXISTS user ("
-                              "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                              "username TEXT UNIQUE NOT NULL, "
-                              "password TEXT NOT NULL, "
-                              "highest_score INTEGER DEFAULT 0)");
+    // 合并用户表创建语句，包含所有必需字段
+    QString createTableSQL = 
+        "CREATE TABLE IF NOT EXISTS user ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "username TEXT UNIQUE NOT NULL, "
+        "password TEXT NOT NULL, "
+        "highest_score INTEGER DEFAULT 0, "
+        "coins INTEGER DEFAULT 100, "
+        "props_boom INTEGER DEFAULT 0, "
+        "props_row INTEGER DEFAULT 0, "
+        "props_col INTEGER DEFAULT 0, "
+        "props_color INTEGER DEFAULT 0"
+        ")";
     
-    if(!query.exec(createsql)) {
-        qDebug() << "table create error:" << query.lastError().text();
+    if(!query.exec(createTableSQL)) {
+        qDebug() << "Failed to create user table:" << query.lastError().text();
     }
 
     // 修改排行榜表结构
@@ -84,6 +92,21 @@ void sqlite_Init()
     if(!query.exec(createLeaderboard)) {
         qDebug() << "leaderboard table create error:" << query.lastError().text();
     }
+}
+
+// 删除重复的initDatabase函数，因为功能已经合并到sqlite_Init中
+
+bool Login::registerUser(const QString &username, const QString &password)
+{
+    QSqlQuery query;
+    // 包含所有字段的插入语句
+    query.prepare("INSERT INTO user (username, password, highest_score, coins, "
+                 "props_boom, props_row, props_col, props_color) "
+                 "VALUES (?, ?, 0, 100, 0, 0, 0, 0)");
+    query.addBindValue(username);
+    query.addBindValue(password);
+    
+    return query.exec();
 }
 
 void Login::on_btn_signin_clicked()

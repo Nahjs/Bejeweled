@@ -71,7 +71,7 @@
    <widget class="QPushButton" name="btn_gameToStart">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>810</x>
       <y>50</y>
       <width>61</width>
       <height>31</height>
@@ -105,8 +105,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="btn_gameToMenu">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>50</y>
+      <x>930</x>
+      <y>130</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -149,7 +149,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
     <property name="geometry">
      <rect>
       <x>880</x>
-      <y>20</y>
+      <y>50</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -159,13 +159,13 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
 font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
-     <string>重新开始</string>
+     <string>再来一局</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_hint">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>740</x>
       <y>50</y>
       <width>61</width>
       <height>31</height>

@@ -16,6 +16,8 @@
 #include "ui_mainwindow.h"
 #include"setup.h"
 #include "Rank.h"
+#include <QDrag>
+#include <QMimeData>
 // 主窗口构造函数
 Mainwindow::Mainwindow(QWidget *parent) :
     QMainWindow(parent),
@@ -110,6 +112,15 @@ Mainwindow::Mainwindow(QWidget *parent) :
     connect(numMatrix, &NumMatrix::propsChanged, this, [this]() {
         updatePropsUI();
     });
+    
+    // 设置接受拖放
+    setAcceptDrops(true);
+    
+    // 为道具按钮启用拖放
+    ui->pushButton_boom->setMouseTracking(true);
+    ui->pushButton_row->setMouseTracking(true);
+    ui->pushButton_col->setMouseTracking(true);
+    ui->pushButton_color->setMouseTracking(true);
 }
 
 Mainwindow::~Mainwindow()
@@ -191,9 +202,24 @@ void Mainwindow::paintEvent(QPaintEvent *event) {
 
 void Mainwindow::closeEvent(QCloseEvent *event)
 {
-    Q_UNUSED(event);
-    emit gameToStart();
-    Game_over(false);
+    // 只在游戏进行中时显示提示
+    if (ui->progressBar_time->value() > 0) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "确认退出",
+            "现在退出游戏将不会保存任何记录和获得的道具，确定要退出吗？",
+            QMessageBox::Yes | QMessageBox::No);
+
+        if(reply == QMessageBox::Yes) {
+            emit gameToStart();
+            Game_over(false);
+            event->accept();
+        } else {
+            event->ignore();
+        }
+    } else {
+        emit gameToStart();
+        Game_over(false);
+        event->accept();
+    }
 }
 
 //鼠标点击事件
@@ -495,9 +521,22 @@ void Mainwindow::do_btn_hint(){
 
 void Mainwindow::on_btn_gameToStart_clicked()
 {
-    this->hide();
-    Game_over(false);      //当点击“返回”进入开始界面时，游戏结束，成绩无效？
-    emit gameToStart();
+    // 只在游戏进行中时显示提示
+    if (ui->progressBar_time->value() > 0) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "确认返回",
+            "返回主界面将不会保存任何记录和获得的道具，确定要返回吗？",
+            QMessageBox::Yes | QMessageBox::No);
+
+        if(reply == QMessageBox::Yes) {
+            this->hide();
+            Game_over(false);
+            emit gameToStart();
+        }
+    } else {
+        this->hide();
+        Game_over(false);
+        emit gameToStart();
+    }
 }
 
 void Mainwindow::doStartToGame()
@@ -509,7 +548,18 @@ void Mainwindow::doStartToGame()
 
 void Mainwindow::on_btn_gameToMenu_clicked()
 {
-    emit gameToMenu();
+    // 只在游戏进行中时显示提示
+    if (ui->progressBar_time->value() > 0) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "确认返回菜单",
+            "返回菜单将不会保存当前游戏进度，确定要返回吗？",
+            QMessageBox::Yes | QMessageBox::No);
+
+        if(reply == QMessageBox::Yes) {
+            emit gameToMenu();
+        }
+    } else {
+        emit gameToMenu();
+    }
 }
 
 void Mainwindow::doMenuToGame(){
@@ -592,10 +642,32 @@ void Mainwindow::Game_start(){
 
     numMatrix->setgamerunning(true); //初始设置游戏处于运行状态
     g_spc=5;
-    g_props_boom = 10;
-    g_props_color = 10;
-    g_props_row = 10;
-    g_props_col = 10;
+    
+    // 从数据库加载用户道具数量
+    if(!Login::isGuest) {
+        QSqlQuery query;
+        query.prepare("SELECT coins, props_boom, props_row, props_col, props_color FROM user WHERE username = ?");
+        query.addBindValue(Login::currentUsername);
+        
+        if(query.exec() && query.next()) {
+            g_coins = query.value(0).toInt();
+            g_props_boom = query.value(1).toInt();
+            g_props_row = query.value(2).toInt();
+            g_props_col = query.value(3).toInt();
+            g_props_color = query.value(4).toInt();
+        }
+    } else {
+        // 游客模式使用默认值
+        g_coins = 100;
+        g_props_boom = 2;
+        g_props_color = 2;
+        g_props_row = 2;
+        g_props_col = 2;
+    }
+
+    // 更新UI显示
+    updatePropsUI();
+    
     numMatrix->BuildMap(g_spc);  //初始化游戏地图
     Rank::g_rank.nGrade = 0;  // 修改这里
     string_grade="";
@@ -633,19 +705,29 @@ void Mainwindow::Game_over(bool saveRank) {
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     numMatrix->setgamerunning(false);
     
-    // 只有非游客用户才保存分数到排行榜
-    if(saveRank && !Login::isGuest && Rank::g_rank.nGrade > 0) {
-        QSqlQuery query;
-        query.prepare("INSERT INTO leaderboard (username, score) VALUES (?, ?)");
-        query.addBindValue(Login::currentUsername);
-        query.addBindValue(Rank::g_rank.nGrade);
+    if(!Login::isGuest) {
+        // 计算获得的金币数（每100分1个金币）
+        int coinsEarned = Rank::g_rank.nGrade / 100;
+        if(coinsEarned > 0) {
+            g_coins += coinsEarned;
+            
+            // 更新显示并保存数据
+            updatePropsUI();
+
+            // 显示获得金币的消息
+            QMessageBox::information(this, "游戏结束",
+                QString("游戏结束!\n你的分数: %1\n奖励金币: %2\n当前金币: %3")
+                .arg(Rank::g_rank.nGrade)
+                .arg(coinsEarned)
+                .arg(g_coins));
+        }
         
-        if(query.exec()) {
-            // 更新用户最高分
-            query.prepare("UPDATE user SET highest_score = GREATEST(highest_score, ?) "
-                        "WHERE username = ?");
-            query.addBindValue(Rank::g_rank.nGrade);
+        // 保存分数到排行榜
+        if(Rank::g_rank.nGrade > 0) {
+            QSqlQuery query;
+            query.prepare("INSERT INTO leaderboard (username, score) VALUES (?, ?)");
             query.addBindValue(Login::currentUsername);
+            query.addBindValue(Rank::g_rank.nGrade);
             query.exec();
         }
     }
@@ -695,16 +777,33 @@ void Mainwindow::on_pushButton_restart_clicked()
     ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(0, 255, 0) }");
     ui->progressBar_time->setAlignment(Qt::AlignCenter);
 
-    //重新生成地图，待完成
-    g_spc=5;
-    g_props_boom = 1;
-    g_props_color = 1;
-    g_props_row = 1;
-    g_props_col = 1;
+    // 重新生成地图
+    g_spc = 5;
+    
+    // 从数据库加载道具数量
+    if(!Login::isGuest) {
+        QSqlQuery query;
+        query.prepare("SELECT props_boom, props_row, props_col, props_color FROM user WHERE username = ?");
+        query.addBindValue(Login::currentUsername);
+        
+        if(query.exec() && query.next()) {
+            g_props_boom = query.value(0).toInt();
+            g_props_row = query.value(1).toInt();
+            g_props_col = query.value(2).toInt();
+            g_props_color = query.value(3).toInt();
+        }
+    } else {
+        // 游客模式使用默认值
+        g_props_boom = 2;
+        g_props_row = 2;
+        g_props_col = 2;
+        g_props_color = 2;
+    }
+
     numMatrix->BuildMap(g_spc);
     numMatrix->setgamerunning(true);
-    Rank::g_rank.nGrade=0;
-    string_grade="";
+    Rank::g_rank.nGrade = 0;
+    string_grade = "";
     this->repaint();
 
     ui->pushButton_restart->hide();
@@ -712,13 +811,12 @@ void Mainwindow::on_pushButton_restart_clicked()
     ui->pushButton_stop->show();
     ui->pushButton_stop->setEnabled(true);
 
-    props=false;
-    boom=false;
-    color=false;
-    row=false;
-    col=false;
+    props = false;
+    boom = false;
+    color = false;
+    row = false;
+    col = false;
     updatePropsUI();
-
 }
 
 //音乐开
@@ -740,7 +838,6 @@ void Mainwindow::on_pushButton_2_clicked()
 /*
 道具
 */
-
 
 //消除地图中竖直上的宝石
 void Mainwindow::on_pushButton_row_clicked()
@@ -818,12 +915,28 @@ void Mainwindow::on_pushButton_boom_clicked()
         this->ui->pushButton_boom->setChecked(true);
     }
 }
-void Mainwindow::closeFromRank()
+
+/*void Mainwindow::closeFromRank()
 {
-    this->hide();
-    Game_over(false);
-    emit gameToStart();
+    // 只在游戏进行中时显示提示
+    if (ui->progressBar_time->value() > 0) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "确认返回",
+            "返回将不会保存任何记录和获得的道具，确定要返回吗？",
+            QMessageBox::Yes | QMessageBox::No);
+
+        if(reply == QMessageBox::Yes) {
+            this->hide();
+            Game_over(false);
+            emit gameToStart();
+        }
+    } else {
+        this->hide();
+        Game_over(false);
+        emit gameToStart();
+    }
 }
+*/
+
 
 void Mainwindow::initArrays() {
     // 分配动态数组空间
@@ -856,7 +969,9 @@ void Mainwindow::cleanupArrays() {
 }
 
 void Mainwindow::updatePropsUI() {
-    ui->label_boom->setText(QString::number(g_props_boom));    ui->label_row->setText(QString::number(g_props_row));
+    // 更新UI显示
+    ui->label_boom->setText(QString::number(g_props_boom));
+    ui->label_row->setText(QString::number(g_props_row));
     ui->label_col->setText(QString::number(g_props_col));
     ui->label_color->setText(QString::number(g_props_color));
 
@@ -865,6 +980,39 @@ void Mainwindow::updatePropsUI() {
     ui->pushButton_col->setEnabled(g_props_col > 0);
     ui->pushButton_row->setEnabled(g_props_row > 0);
     ui->pushButton_color->setEnabled(g_props_color > 0);
+    
+    // 更新数据库，字段顺序要与表结构一致
+    if(!Login::isGuest && Login::currentUsername.length() > 0) {
+        QSqlQuery query;
+        query.prepare("UPDATE user SET highest_score = ?, "
+                     "coins = ?, "
+                     "props_boom = ?, "
+                     "props_row = ?, "
+                     "props_col = ?, "
+                     "props_color = ? "
+                     "WHERE username = ?");
+        
+        query.addBindValue(Rank::g_rank.nGrade);    // highest_score
+        query.addBindValue(g_coins);                // coins
+        query.addBindValue(g_props_boom);           // props_boom
+        query.addBindValue(g_props_row);            // props_row
+        query.addBindValue(g_props_col);            // props_col
+        query.addBindValue(g_props_color);          // props_color
+        query.addBindValue(Login::currentUsername); // username
+
+        if(!query.exec()) {
+            qDebug() << "Failed to update user data:" << query.lastError().text()
+                     << "\nSQL:" << query.lastQuery()
+                     << "\nBound values:" 
+                     << "\nhighest_score:" << Rank::g_rank.nGrade
+                     << "\ncoins:" << g_coins
+                     << "\nprops_boom:" << g_props_boom
+                     << "\nprops_row:" << g_props_row
+                     << "\nprops_col:" << g_props_col
+                     << "\nprops_color:" << g_props_color
+                     << "\nusername:" << Login::currentUsername;
+        }
+    }
 }
 
 void Mainwindow::updateGemTheme(QString path) {

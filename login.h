@@ -22,6 +22,10 @@ public:
     Login(QWidget *parent = nullptr);
     ~Login();
 
+    bool initDatabase();
+
+    bool registerUser(const QString &username, const QString &password);
+
     static bool isGuest;  // 是否为游客
     static QString currentUsername;  // 当前用户名
     static int guestCounter;  // 游客计数器

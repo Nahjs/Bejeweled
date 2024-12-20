@@ -5,9 +5,6 @@
 #include "setup.h"
 #include "rank.h"
 
-int Start::rows = 12; // 默认行数
-int Start::cols = 12; // 默认列数
-
 Start::Start(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Start)
@@ -42,7 +39,10 @@ Start::~Start()
 
 void Start::on_btn_startToGame_clicked()
 {
-
+    // 在游戏开始前设置地图大小
+    int rows = 12;  // 默认值
+    int cols = 12;  // 默认值
+    
     // 设置地图大小
     if (game && game->getNumMatrix()) {
         game->getNumMatrix()->setMapSize(rows, cols);
@@ -116,8 +116,13 @@ void Start::getPath(QString path) {
 }
 
 void Start::getSize(int row,int col) {
-    // 更新成员变量 rows 和 cols
-    qDebug() << "接收到用户设置的行列值：" << row << col;
-    rows = row;
-    cols = col;
+    qDebug() << "接收到行列值：" << row << col;
+    // 设置地图大小
+    if (game && game->getNumMatrix()) {
+        game->getNumMatrix()->setMapSize(row, col);
+    }
+
+    this->hide();
+    game->Game_start();
+    emit startToGame();
 }

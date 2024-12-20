@@ -31,6 +31,7 @@ set(HEADERS
         puzzlewidget.h
         chatroom.h
         Client/chatclient.h
+        propshop.h
 )
 
 # Add source files
@@ -52,6 +53,7 @@ set(SOURCES
         start.cpp
         chatroom.cpp
         Client/chatclient.cpp
+        propshop.cpp
 )
 
 # Add UI files
@@ -65,6 +67,7 @@ set(UIS
         login.ui
         signup.ui
         chatroom.ui
+        propshop.ui
 )
 
 # 添加资源文件
