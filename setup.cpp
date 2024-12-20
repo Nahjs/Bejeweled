@@ -9,7 +9,6 @@ Setup::Setup(QWidget *parent) :
     QPixmap pixmap1(":/res/images/a1");
     QPixmap scaledPixmap1 = pixmap1.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->label1->setPixmap(scaledPixmap1);
-
     ui->label_2->setPixmap(QPixmap(":/res/images/gem1"));
 
     QPixmap pixmap(":/res/images/c1");
