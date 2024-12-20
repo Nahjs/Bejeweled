@@ -2,9 +2,13 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QMessageBox>
+#include <QRandomGenerator>
 
 SliderPuzzleWidget::SliderPuzzleWidget(QWidget *parent)
-    : QWidget(parent), m_verified(false)
+    : QWidget(parent), 
+    m_verified(false),
+    currentPos(0),
+    targetPos(0)  // 初始化成员变量
 {
     initForm();
 }
@@ -67,5 +71,26 @@ void SliderPuzzleWidget::onSliderReleased()
 void SliderPuzzleWidget::reset()
 {
     m_verified = false;
+    horizontalSlider->setValue(0);  // 重置滑块位置
+    currentPos = 0;
+    targetPos = generateRandomPosition();  // 使用随机生成的位置
     update();  // 刷新界面
+}
+
+int SliderPuzzleWidget::generateRandomPosition() const
+{
+    // 设置合理的范围,避免太靠边
+    const int minPos = width() * 0.2;  // 左边界为20%宽度
+    const int maxPos = width() * 0.7;  // 右边界为70%宽度
+    
+    // 生成随机位置
+    return QRandomGenerator::global()->bounded(minPos, maxPos);
+}
+
+// 在验证逻辑中调整判定范围
+bool SliderPuzzleWidget::checkPosition() const
+{
+    // 允许有5像素的误差范围
+    const int errorMargin = 5;
+    return qAbs(currentPos - targetPos) <= errorMargin;
 }

@@ -4,10 +4,11 @@
 #include <QMainWindow>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QSqlError>  // 添加这个头文件
+#include <QSqlError>
 #include <QMessageBox>
 #include <QDebug>
 
+// 数据库初始化函数声明
 void sqlite_Init();
 
 QT_BEGIN_NAMESPACE
@@ -22,29 +23,29 @@ public:
     Login(QWidget *parent = nullptr);
     ~Login();
 
-    bool initDatabase();
+    // 数据库相关函数
+    bool initDatabase();  // 初始化数据库连接
+    bool registerUser(const QString &username, const QString &password);  // 注册新用户
 
-    bool registerUser(const QString &username, const QString &password);
-
-    static bool isGuest;  // 是否为游客
-    static QString currentUsername;  // 当前用户名
-    static int guestCounter;  // 游客计数器
+    // 静态成员变量，用于在整个应用程序中共享登录状态
+    static bool isGuest;          // 标记是否为游客模式
+    static QString currentUsername;  // 记录当前登录用户名
+    static int guestCounter;        // 游客计数器，用于区分不同游客
 
 public slots:
-    void showAndReset();  // 添加显示并重置输入的槽函数
+    void showAndReset();  // 显示登录窗口并重置输入框
 
-private:
-    QSqlDatabase db; // 添加数据库成员变量
-
-signals:  // 修改为正确的signals部分
-    void loginSuccess();
+signals:
+    void loginSuccess();  // 登录成功信号，用于通知其他组件
 
 private slots:
-    void on_btn_signin_clicked();
-    void on_btn_signup_clicked();
-    void on_btn_guest_clicked();  // 游客登录按钮槽函数
+    void on_btn_signin_clicked();   // 登录按钮点击处理
+    void on_btn_signup_clicked();   // 注册按钮点击处理
+    void on_btn_guest_clicked();    // 游客登录按钮点击处理
 
 private:
-    Ui::Login *ui;
+    QSqlDatabase db;    // 数据库连接对象
+    Ui::Login *ui;      // UI界面对象
 };
+
 #endif // LOGIN_H

@@ -43,7 +43,7 @@ signals:
     void gameToMenu();     // 返回菜单信号
 
 public slots:
-    void closeFromRank();  // 从排行榜返回处理
+  //  void closeFromRank();  // 从排行榜返回处理
     void updateGemTheme(QString path);
 
 private slots:

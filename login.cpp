@@ -5,18 +5,17 @@
 
 #include <QGraphicsDropShadowEffect>
 
+// 静态成员变量初始化
 bool Login::isGuest = false;
 QString Login::currentUsername = "";
 int Login::guestCounter = 0;
 
-Login::Login(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Login)
+Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login)
 {
     ui->setupUi(this);
     sqlite_Init(); // 确保数据库初始化
 
-    // 添加游客模式提示标签
+    // 设置游客模式提示信息
     QString guestTip = "游客模式提示：\n"
                       "• 游客模式下的游戏记录不会保存\n"
                       "• 无法查看历史最高分\n"
@@ -24,7 +23,7 @@ Login::Login(QWidget *parent)
     ui->label_guestTip->setText(guestTip);
     ui->label_guestTip->setStyleSheet("QLabel { color:rgb(234, 13, 13); }");
     
-    // 为游客登录按钮添加确认对话框
+    // 游客登录确认对话框设置
     connect(ui->btn_guest, &QPushButton::clicked, this, [this](){
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(this, "游客登录",
@@ -49,48 +48,55 @@ Login::~Login()
     QSqlDatabase::database().close();
 }
 
+// 数据库初始化函数
 void sqlite_Init()
 {
+    // 移除可能存在的旧连接
     if(QSqlDatabase::contains("qt_sql_default_connection")) {
         QSqlDatabase::removeDatabase("qt_sql_default_connection");
     }
     
+    // 创建新的数据库连接
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("user.db");
+    
+    // 打开数据库连接
     if(!db.open()) {
-        qDebug() << "open error:" << db.lastError().text();
+        qDebug() << "数据库连接失败:" << db.lastError().text();
         return;
     }
     
     QSqlQuery query;
-    // 合并用户表创建语句，包含所有必需字段
+    // 创建用户表，包含所有需要的字段
     QString createTableSQL = 
         "CREATE TABLE IF NOT EXISTS user ("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "username TEXT UNIQUE NOT NULL, "
-        "password TEXT NOT NULL, "
-        "highest_score INTEGER DEFAULT 0, "
-        "coins INTEGER DEFAULT 100, "
-        "props_boom INTEGER DEFAULT 0, "
-        "props_row INTEGER DEFAULT 0, "
-        "props_col INTEGER DEFAULT 0, "
-        "props_color INTEGER DEFAULT 0"
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "  // 自增主键
+        "username TEXT UNIQUE NOT NULL, "         // 用户名（唯一）
+        "password TEXT NOT NULL, "                // 密码
+        "highest_score INTEGER DEFAULT 0, "       // 最高分
+        "coins INTEGER DEFAULT 100, "             // 金币数量
+        "props_boom INTEGER DEFAULT 0, "          // 爆炸道具数量
+        "props_row INTEGER DEFAULT 0, "           // 行消除道具数量
+        "props_col INTEGER DEFAULT 0, "           // 列消除道具数量
+        "props_color INTEGER DEFAULT 0"           // 颜色道具数量
         ")";
     
-    if(!query.exec(createTableSQL)) {
-        qDebug() << "Failed to create user table:" << query.lastError().text();
-    }
-
-    // 修改排行榜表结构
-    QString createLeaderboard = QString("CREATE TABLE IF NOT EXISTS leaderboard ("
-                                      "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                                      "username TEXT NOT NULL, "
-                                      "score INTEGER NOT NULL, "
-                                      "game_time DATETIME DEFAULT CURRENT_TIMESTAMP, "
-                                      "FOREIGN KEY(username) REFERENCES user(username))");
+    // 创建排行榜表
+    QString createLeaderboard = 
+        "CREATE TABLE IF NOT EXISTS leaderboard ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "username TEXT NOT NULL, "
+        "score INTEGER NOT NULL, "
+        "game_time DATETIME DEFAULT CURRENT_TIMESTAMP, "
+        "FOREIGN KEY(username) REFERENCES user(username)"
+        ")";
     
+    // 执行表创建
+    if(!query.exec(createTableSQL)) {
+        qDebug() << "用户表创建失败:" << query.lastError().text();
+    }
     if(!query.exec(createLeaderboard)) {
-        qDebug() << "leaderboard table create error:" << query.lastError().text();
+        qDebug() << "排行榜表创建失败:" << query.lastError().text();
     }
 }
 
