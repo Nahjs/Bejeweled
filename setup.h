@@ -27,6 +27,7 @@ public:
     void on_TfiveButton_clicked();
     void on_TsixButton_clicked();
     void on_musicSetButton_clicked();
+
     void on_sizeSetButton_clicked();
 
 private:
