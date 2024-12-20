@@ -56,6 +56,20 @@ void Start::on_btn_startToGame_clicked()
 void Start::on_btn_propShop_clicked()
 {
     if(!Login::isGuest) {
+            // 先刷新当前游戏的道具数据到数据库
+            QSqlQuery updateQuery;
+            updateQuery.prepare("UPDATE user SET coins = ?, props_boom = ?, props_row = ?, "
+                              "props_col = ?, props_color = ? WHERE username = ?");
+            updateQuery.addBindValue(g_coins);
+            updateQuery.addBindValue(g_props_boom);
+            updateQuery.addBindValue(g_props_row);
+            updateQuery.addBindValue(g_props_col);
+            updateQuery.addBindValue(g_props_color);
+            updateQuery.addBindValue(Login::currentUsername);
+
+            if(!updateQuery.exec()) {
+                qDebug() << "Failed to update props before opening shop:" << updateQuery.lastError();
+            }
         propShop->loadUserCoins(); // 刷新金币数据
         propShop->updateDisplay(); // 更新界面显示
         propShop->show();
@@ -93,7 +107,7 @@ void Start::onRankClosed()
 
 void Start::onLoginSuccess()
 {
-    // 根据是否是游客显示不同的欢迎信息
+    // 登录成功后更新欢迎信息
     if(Login::isGuest) {
         ui->label_welcome->setText("欢迎您，游客！祝您游戏愉快！");
     } else {
@@ -124,7 +138,7 @@ void Start::getPath(QString path) {
 }
 
 void Start::getSize(int row,int col) {
-    // 更新成员变量 rows 和 cols
+    // 更新游戏地图的行列数设置
     qDebug() << "接收到用户设置的行列值：" << row << col;
     rows = row;
     cols = col;

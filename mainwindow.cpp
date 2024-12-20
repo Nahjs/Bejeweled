@@ -127,22 +127,26 @@ Mainwindow::~Mainwindow()
     delete ui;
 }
 
+// 主窗口的实现文件，包含游戏的核心逻辑和界面交互
 void Mainwindow::paintEvent(QPaintEvent *event) {
+    // 重写绘制事件，负责绘制游戏界面的所有元素
     QPainter painter(this);
     int num;
 
-    offsetX = 60;  // 固定左边距
-    offsetY = 100; // 固定上边距
+    // 设置固定的游戏区域偏移量
+    offsetX = 60;  // 左边距
+    offsetY = 100; // 上边距
 
-    // 绘制宝石和动画
+    // 遍历地图绘制所有宝石
     for (int i = 0; i < NumMatrix::MAPROWNUM; i++) {
         for (int j = 0; j < NumMatrix::MAPCOLNUM; j++) {
             num = numMatrix->m_aMap[i][j];
-            // 绘制宝石
+            
+            // 绘制基本宝石图像
             painter.drawPixmap(offsetX + j * cellSize, offsetY + i * cellSize,
                              cellSize, cellSize, pixmap_gem[num - 1]);
 
-            // 绘制选中框
+            // 绘制选中状态的特效
             if (isSelected[i][j] == 1) {
                 painter.drawPixmap(offsetX + j * cellSize, offsetY + i * cellSize,
                                  cellSize, cellSize, pixmap_di);
@@ -161,14 +165,17 @@ void Mainwindow::paintEvent(QPaintEvent *event) {
                 numMatrix->point[1][0] = numMatrix->point[1][1] = -1;
             }
 
-            // 绘制消除动画
+            // 绘制消除动画效果（三个阶段）
             if (midSituation[i][j] == 1) {
+                // 第一阶段动画
                 painter.drawPixmap(offsetX + j * cellSize, offsetY + i * cellSize,
                                  cellSize, cellSize, disappear1);
             } else if (midSituation[i][j] == 2) {
+                // 第二阶段动画
                 painter.drawPixmap(offsetX + j * cellSize, offsetY + i * cellSize,
                                  cellSize, cellSize, disappear2);
             } else if (midSituation[i][j] == 3) {
+                // 第三阶段动画及分数显示
                 painter.drawPixmap(offsetX + j * cellSize, offsetY + i * cellSize,
                                  cellSize, cellSize, disappear3);
 
@@ -701,7 +708,7 @@ void Mainwindow::Game_over(bool saveRank) {
     label_image->setPixmap(QPixmap::fromImage(*image_gameover));
     numMatrix->setgamerunning(false);
     
-    if(!Login::isGuest) {
+    if(ui->progressBar_time->value()==0&&!Login::isGuest) {
         // 计算获得的金币数（每100分1个金币）
         int coinsEarned = Rank::g_rank.nGrade / 100;
         if(coinsEarned > 0) {
@@ -717,7 +724,7 @@ void Mainwindow::Game_over(bool saveRank) {
                 .arg(coinsEarned)
                 .arg(g_coins));
         }
-        
+
         // 保存分数到排行榜
         if(Rank::g_rank.nGrade > 0) {
             QSqlQuery query;
@@ -978,16 +985,16 @@ void Mainwindow::updatePropsUI() {
     ui->pushButton_color->setEnabled(g_props_color > 0);
     
     // 更新数据库，字段顺序要与表结构一致
-    if(!Login::isGuest && Login::currentUsername.length() > 0) {
+    if(ui->progressBar_time->value()==0&&!Login::isGuest && Login::currentUsername.length() > 0) {
         QSqlQuery query;
-        query.prepare("UPDATE user SET highest_score = ?, "
-                     "coins = ?, "
+        query.prepare("UPDATE user SET highest_score = GREATEST(highest_score, ?) "
+                     "coins = ?,"
                      "props_boom = ?, "
                      "props_row = ?, "
                      "props_col = ?, "
                      "props_color = ? "
                      "WHERE username = ?");
-        
+
         query.addBindValue(Rank::g_rank.nGrade);    // highest_score
         query.addBindValue(g_coins);                // coins
         query.addBindValue(g_props_boom);           // props_boom

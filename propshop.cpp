@@ -24,11 +24,12 @@ PropShop::~PropShop()
     delete ui;
 }
 
+// 道具商店的实现文件，包含购买道具和界面更新的具体逻辑
 void PropShop::loadUserCoins()
 {
     if(!Login::isGuest) {
+        // 从数据库加载用户的金币和道具数量
         QSqlQuery query;
-        // 修改查询以同时获取所有道具数量
         query.prepare("SELECT coins, props_boom, props_row, props_col, props_color FROM user WHERE username = ?");
         query.addBindValue(Login::currentUsername);
         
@@ -40,7 +41,7 @@ void PropShop::loadUserCoins()
             g_props_color = query.value(4).toInt();
         }
     } else {
-        // 游客模式使用内存中的值
+        // 游客模式使用内存中的默认值
         // g_coins和道具数量保持当前值
     }
 }
@@ -63,6 +64,7 @@ void PropShop::updateDisplay()
     ui->label_color_price->setText(QString("价格: %1金币").arg(PRICE_COLOR));
 }
 
+// 通用的道具购买逻辑
 bool PropShop::buyProp(int price, int& propCount, const QString& propName)
 {
     if(g_coins < price) {
@@ -70,6 +72,7 @@ bool PropShop::buyProp(int price, int& propCount, const QString& propName)
         return false;
     }
     
+    // 扣除金币并增加道具数量
     g_coins -= price;
     propCount++;
     updateDatabase();

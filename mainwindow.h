@@ -112,6 +112,7 @@ private:
     int scoreOffsetY ;          // 分数显示的偏移量。
     int scoreStep ;             // 分数动画的步长
     int t;                      // 动画持续时间
+    bool coinsAdded = false;
 
     bool hintUsedThisRound = false; // 追踪提示按钮的使用状态
 
