@@ -4,7 +4,9 @@
 #include "rank.h"
 #include "setup.h"
 #include "rank.h"
-#include "propshop.h"
+
+int Start::rows = 12; // 默认行数
+int Start::cols = 12; // 默认列数
 
 Start::Start(QWidget *parent)
     : QMainWindow(parent)
@@ -18,10 +20,9 @@ Start::Start(QWidget *parent)
     help = new Help(this);
     about = new About(this);
     login = new Login();
-    propShop = new PropShop(this); // 初始化道具商城
 
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
-    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart); 
+    connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);  // 使用新的连接语法
     connect(rank, SIGNAL(rankClosed()), this, SLOT(onRankClosed()));
     connect(this, &Start::sendPath, game, &Mainwindow::updateGemTheme);
 
@@ -32,9 +33,6 @@ Start::Start(QWidget *parent)
     this->hide();
 
     chatRoom = nullptr;  // 初始化聊天室指针为空
-
-    // 移除禁用商城按钮的代码
-    // ui->btn_propShop->setEnabled(!Login::isGuest); 
 }
 
 Start::~Start()
@@ -44,10 +42,7 @@ Start::~Start()
 
 void Start::on_btn_startToGame_clicked()
 {
-    // 在游戏开始前设置地图大小
-    int rows = 12;  // 默认值
-    int cols = 12;  // 默认值
-    
+
     // 设置地图大小
     if (game && game->getNumMatrix()) {
         game->getNumMatrix()->setMapSize(rows, cols);
@@ -93,11 +88,8 @@ void Start::onLoginSuccess()
     // 根据是否是游客显示不同的欢迎信息
     if(Login::isGuest) {
         ui->label_welcome->setText("欢迎您，游客！祝您游戏愉快！");
-        // 移除禁用商城按钮的代码
-        // ui->btn_propShop->setEnabled(false); 
     } else {
         ui->label_welcome->setText("欢迎回来，" + Login::currentUsername + "！");
-        // ui->btn_propShop->setEnabled(true);  
     }
 
     this->show();
@@ -124,22 +116,8 @@ void Start::getPath(QString path) {
 }
 
 void Start::getSize(int row,int col) {
-    qDebug() << "接收到行列值：" << row << col;
-    // 设置地图大小
-    if (game && game->getNumMatrix()) {
-        game->getNumMatrix()->setMapSize(row, col);
-    }
-
-    this->hide();
-    game->Game_start();
-    emit startToGame();
-}
-
-void Start::on_btn_propShop_clicked()
-{
-    if(!Login::isGuest) {
-        propShop->loadUserCoins(); // 刷新金币数据
-        propShop->updateDisplay(); // 更新界面显示
-        propShop->show();
-    }
+    // 更新成员变量 rows 和 cols
+    qDebug() << "接收到用户设置的行列值：" << row << col;
+    rows = row;
+    cols = col;
 }
