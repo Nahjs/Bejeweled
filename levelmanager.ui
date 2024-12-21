@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LevelManager</class>
+ <widget class="QDialog" name="LevelManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>选择关卡</string>
+  </property>
+  <widget class="QLabel" name="label_title">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>10</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 24px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>闯关模式</string>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>260</y>
+     <width>341</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>18</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout"/>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="levelGroup_1" native="true">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>100</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="bottomInfo" native="true">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>160</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_back">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>20</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_reset">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>50</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>重置进度</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_star_desc">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>90</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>★ - 达到目标分数
+★★ - 超过目标分数20%
+★★★ - 完成特殊任务</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_total_progress">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>60</y>
+     <width>99</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>已完成关卡：0/10</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_total_stars">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>80</y>
+     <width>99</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>总星数：0/30</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_progress_1">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>56</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>最高分：0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_rules_1">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>60</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>规则说明</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_1">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>90</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第1关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>170</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第2关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_3">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>270</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第3关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_4">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>390</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第4关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_5">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>510</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第5关</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_lock_icon">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>540</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="pixmap">
+    <pixmap>:/images/lock.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_completed_icon">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>530</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="pixmap">
+    <pixmap>:/images/completed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_hint">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>完成后自动解锁下一关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_6">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>540</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第6关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_7">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>500</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第7关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_8">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>420</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第8关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_9">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>270</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第9关</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_level_10">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>170</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第10关</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
