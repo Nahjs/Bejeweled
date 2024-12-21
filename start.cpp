@@ -3,6 +3,7 @@
 #include "setup.h"
 #include "rank.h"
 #include "propshop.h"
+#include "levelmanager.h"
 
 int Start::rows = 12; // 默认行数
 int Start::cols = 12; // 默认列数
@@ -20,6 +21,8 @@ Start::Start(QWidget *parent)
     about = new About(this);
     login = new Login();
     propShop = new PropShop(this); // 初始化道具商城
+    levelManager = new LevelManager(this); // 初始化关卡管理器
+    connect(levelManager, &LevelManager::backToStart, this, &Start::show);
 
     connect(login, &Login::loginSuccess, this, &Start::onLoginSuccess);
     connect(game, &Mainwindow::gameToStart, this, &Start::doGameToStart);
@@ -142,4 +145,20 @@ void Start::getSize(int row,int col) {
     qDebug() << "接收到用户设置的行列值：" << row << col;
     rows = row;
     cols = col;
+}
+
+// 添加关卡按钮点击处理函数
+void Start::on_btn_level_clicked()
+{
+    if(!Login::isGuest) {
+        this->hide();
+        levelManager->show();
+    } else {
+        QMessageBox::warning(this, "游客模式限制",
+            "游客模式下只能体验第一关\n"
+            "请注册账号以解锁所有关卡！");
+        // 游客模式也可以进入，但会在levelManager中限制只能玩第一关
+        this->hide();
+        levelManager->show();
+    }
 }

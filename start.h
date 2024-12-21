@@ -1,6 +1,8 @@
 #ifndef START_H
 #define START_H
 
+#include <levelmanager.h>
+
 #include "about.h"
 #include "help.h"
 #include "mainwindow.h"
@@ -34,6 +36,7 @@ private slots:
     void onRankClosed();
     void onLoginSuccess();
     void on_btn_chatRoom_clicked();
+    void on_btn_level_clicked();  // 添加关卡模式按钮槽函数
 
 signals:
     void startToGame();
@@ -51,6 +54,7 @@ private:
   //  MailForm* mailForm;
     ChatRoom *chatRoom;
     PropShop *propShop;      // 添加商城指针
+    LevelManager *levelManager;  // 添加关卡管理器指针
     static int rows;
     static int cols;
 };

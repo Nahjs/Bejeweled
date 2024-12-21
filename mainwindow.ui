@@ -71,10 +71,10 @@
    <widget class="QPushButton" name="btn_gameToStart">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>50</y>
-      <width>61</width>
-      <height>31</height>
+      <x>890</x>
+      <y>360</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -88,10 +88,10 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_stop">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>20</y>
-      <width>61</width>
-      <height>31</height>
+      <x>890</x>
+      <y>240</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -106,7 +106,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
     <property name="geometry">
      <rect>
       <x>930</x>
-      <y>130</y>
+      <y>440</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -122,10 +122,10 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_continue">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>20</y>
-      <width>61</width>
-      <height>31</height>
+      <x>890</x>
+      <y>240</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -148,10 +148,10 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_restart">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>50</y>
-      <width>61</width>
-      <height>31</height>
+      <x>890</x>
+      <y>240</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -165,10 +165,10 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_hint">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>50</y>
-      <width>61</width>
-      <height>31</height>
+      <x>890</x>
+      <y>300</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -183,11 +183,15 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>960</x>
-      <y>50</y>
-      <width>31</width>
-      <height>31</height>
+      <x>950</x>
+      <y>490</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
+font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
      <string/>
@@ -196,11 +200,15 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>960</x>
-      <y>20</y>
-      <width>31</width>
-      <height>31</height>
+      <x>890</x>
+      <y>490</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/res/images/pushbotton_background.png);
+font: 75 9pt &quot;微软雅黑&quot;;</string>
     </property>
     <property name="text">
      <string/>
@@ -209,8 +217,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_row">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>270</y>
+      <x>700</x>
+      <y>380</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -228,8 +236,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_boom">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>120</y>
+      <x>700</x>
+      <y>230</y>
       <width>61</width>
       <height>41</height>
      </rect>
@@ -247,8 +255,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_color">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>190</y>
+      <x>700</x>
+      <y>300</y>
       <width>61</width>
       <height>41</height>
      </rect>
@@ -266,8 +274,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_row">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>280</y>
+      <x>790</x>
+      <y>390</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -290,8 +298,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_color">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>200</y>
+      <x>790</x>
+      <y>310</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -314,8 +322,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_boom">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>130</y>
+      <x>790</x>
+      <y>240</y>
       <width>51</width>
       <height>20</height>
      </rect>
@@ -338,8 +346,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QPushButton" name="pushButton_col">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>340</y>
+      <x>700</x>
+      <y>450</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -357,8 +365,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_col">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>350</y>
+      <x>790</x>
+      <y>460</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -381,8 +389,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    <widget class="QWidget" name="audioWidget">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>470</y>
+      <x>710</x>
+      <y>540</y>
       <width>291</width>
       <height>120</height>
      </rect>
@@ -423,6 +431,83 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
         </widget>
        </item>
       </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="levelInfoWidget">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>10</y>
+      <width>200</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_level">
+     <item>
+      <widget class="QLabel" name="label_level_info">
+       <property name="styleSheet">
+        <string>font: bold 16px; color: #4A90E2;</string>
+       </property>
+       <property name="text">
+        <string>第1关</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_target">
+       <property name="styleSheet">
+        <string>font: 14px; color: #50E3C2;</string>
+       </property>
+       <property name="text">
+        <string>目标分数：0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="starProgress">
+       <property name="styleSheet">
+        <string>QProgressBar {
+          border: 2px solid grey;
+          border-radius: 5px;
+          text-align: center;
+         }
+         QProgressBar::chunk {
+          background-color: #FFD700;
+          width: 10px;
+          margin: 0.5px;
+         }</string>
+       </property>
+       <property name="maximum">
+        <number>3</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="format">
+        <string>★ %v/%m</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLCDNumber" name="lcdSteps">
+       <property name="styleSheet">
+        <string>color: #F5A623;</string>
+       </property>
+       <property name="digitCount">
+        <number>2</number>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Flat</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_special_task">
+       <property name="styleSheet">
+        <string>font: 12px; color: #D0021B;</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

@@ -14,6 +14,9 @@
 #include <QMouseEvent>
 #include <QCloseEvent>
 #include <QMediaPlayer>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QSequentialAnimationGroup>
 
 #include "rank.h"
 #include "prop.h"
@@ -39,6 +42,8 @@ public:
     void Game_over(bool saveRank = true);// 游戏结束处理
     NumMatrix* getNumMatrix() { return numMatrix; } // 获取NumMatrix对象
     void Game_start();                    // 游戏开始
+    void setLevelMode(bool isLevel);
+    void setLevelConfig(int levelId, int targetScore, int time, int mapSize, int gemTypes, int steps);
 
 signals:
     void gameToStart();    // 返回开始界面信号
@@ -105,7 +110,7 @@ private:
     std::string string_grade;   // 分数转成string类型
     int addScoreSituation=-1;   // 加分情况的状态（0-9）
     int totaltime=60;           // 时间
-    QString gemtype;            // 宝石类型，其值为"gem","fish","mine",默认值为"gem"
+    QString gemtype;            // 宝石类型，默认值为"a"
     int music = 1;
     int eli_music=0;
     Rank* rankInstance;
@@ -137,6 +142,27 @@ private:
     void initSoundEffects();  // 初始化音效
     void playSoundEffect(QMediaPlayer* effect);  // 播放音效的辅助函数
     void initAudioSettings(); // 初始化音频设置
+
+    bool isLevelMode;
+    int currentLevelId;
+    int levelTargetScore;
+
+    int currentSteps;     // 当前已用步数
+    int maxSteps;         // 最大步数限制
+    int currentStars;     // 当前获得的星星数
+
+    void checkLevelComplete(); // 检查关卡完成情况
+
+    QPropertyAnimation* stepsAnimation;  // 步数动画
+    QParallelAnimationGroup* starAnimations;  // 星星动画组
+    QSequentialAnimationGroup* scoreAnimations;  // 分数动画序列
+    
+    void setupAnimations();  // 设置动画
+    void updateStarProgress(int score);  // 更新星级进度
+    void playStarAnimation(int starCount);  // 播放获星动画
+
+    // 添加关卡时间变量
+    int levelTime;
 
 protected:
     void mousePressEvent(QMouseEvent *event);

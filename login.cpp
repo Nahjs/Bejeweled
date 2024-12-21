@@ -5,6 +5,8 @@
 
 #include <QGraphicsDropShadowEffect>
 
+#include "levelmanager.h"
+
 // 静态成员变量初始化
 bool Login::isGuest = false;
 QString Login::currentUsername = "";
@@ -67,6 +69,59 @@ void sqlite_Init()
     }
     
     QSqlQuery query;
+    
+    // 1. 先创建关卡配置表
+    if(!query.exec("CREATE TABLE IF NOT EXISTS level_config ("
+              "level_id INTEGER PRIMARY KEY, "
+              "target_score INTEGER, "
+              "time_limit INTEGER, "
+              "map_size INTEGER, "
+              "gem_types INTEGER, "
+              "special_rules TEXT, "
+              "step_limit INTEGER)")) {
+        qDebug() << "创建关卡配置表失败:" << query.lastError().text();
+        return;
+    }
+    
+    // 检查并填充关卡数据
+    query.exec("SELECT COUNT(*) FROM level_config");
+    if(query.next() && query.value(0).toInt() == 0) {
+        // 插入关卡配置数据
+        const struct {
+            int id, score, time, size, gems, steps;
+            QString rules;
+        } levels[] = {
+            {1, 800, 120, 6, 5, 15, "新手教程：\n- 达到800分\n- 完成一次三消\n- 使用一次道具"},
+            {2, 1500, 100, 6, 6, 12, "进阶挑战：\n- 完成一次四连消除\n- 使用直线道具\n- 达到1500分"},
+            {3, 2000, 90, 7, 6, 20, "限时挑战：\n- 90秒内达到2000分\n- 完成3次连击"},
+            {4, 2500, 120, 7, 6, 15, "特殊任务：\n- 消除25个红宝石\n- 使用2次道具"},
+            {5, 3000, 120, 7, 6, 18, "道具大师：\n- 使用3种道具\n- 完成五连消除"},
+            {6, 3500, 150, 8, 6, 20, "连击达人：\n- 完成一次六连消除\n- 达到3500分"},
+            {7, 4000, 60, 7, 6, 25, "极限挑战：\n- 60秒内达到4000分\n- 连击8次"},
+            {8, 5000, 180, 9, 7, 30, "终极试炼：\n- 完成七连消除\n- 达到5000分"},
+            {9, 6000, 150, 8, 7, 25, "宝石大师：\n- 各种宝石消除20个\n- 达到6000分"},
+            {10, 8000, 180, 9, 8, 35, "最终关卡：\n- 完成所有任务\n- 达到8000分"}
+        };
+
+        for(const auto& level : levels) {
+            query.prepare("INSERT INTO level_config VALUES (?,?,?,?,?,?,?)");
+            query.addBindValue(level.id);
+            query.addBindValue(level.score);
+            query.addBindValue(level.time);
+            query.addBindValue(level.size);
+            query.addBindValue(level.gems);
+            query.addBindValue(level.rules);
+            query.addBindValue(level.steps);
+            
+            if(!query.exec()) {
+                qDebug() << "插入关卡" << level.id << "配置失败:" 
+                         << query.lastError().text();
+            }
+        }
+    }
+    
+    // 2. 再创建其他表
+    
     // 创建用户表，包含所有需要的字段
     QString createTableSQL = 
         "CREATE TABLE IF NOT EXISTS user ("
@@ -90,6 +145,22 @@ void sqlite_Init()
         "game_time DATETIME DEFAULT CURRENT_TIMESTAMP, "
         "FOREIGN KEY(username) REFERENCES user(username)"
         ")";
+    
+    // 创建关卡进度表
+    QString createProgressTable = 
+        "CREATE TABLE IF NOT EXISTS user_progress ("
+        "username TEXT, "
+        "level_id INTEGER, "
+        "highest_score INTEGER DEFAULT 0, "
+        "stars INTEGER DEFAULT 0, "
+        "completed BOOLEAN DEFAULT 0, "
+        "FOREIGN KEY(username) REFERENCES user(username), "
+        "FOREIGN KEY(level_id) REFERENCES level_config(level_id), "
+        "PRIMARY KEY(username, level_id))";
+        
+    if(!query.exec(createProgressTable)) {
+        qDebug() << "关卡进度表创建失败:" << query.lastError().text();
+    }
     
     // 执行表创建
     if(!query.exec(createTableSQL)) {
@@ -134,6 +205,17 @@ void Login::on_btn_signin_clicked()
         if(query.next()) {
             currentUsername = username;
             isGuest = false;
+            
+            // 确保关卡配置和进度表都已创建
+            QSqlQuery checkQuery;
+            checkQuery.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='level_config'");
+            if(!checkQuery.next()) {
+                sqlite_Init(); // 如果表不存在，重新初始化数据库
+            }
+            
+            // 初始化用户的关卡进度
+            LevelManager::initUserProgress(username);
+            
             QMessageBox::information(this, "登录成功", "欢迎回来！");
             emit loginSuccess();
             this->hide();
@@ -172,6 +254,10 @@ void Login::on_btn_guest_clicked()
     guestCounter++;
     currentUsername = QString("Guest_%1").arg(guestCounter);
     isGuest = true;
+    
+    // 为游客创建临时关卡进度
+    LevelManager::initUserProgress(currentUsername);
+    
     emit loginSuccess();
     this->hide();
 }

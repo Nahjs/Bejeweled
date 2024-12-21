@@ -32,6 +32,7 @@ set(HEADERS
         chatroom.h
         Client/chatclient.h
         propshop.h
+        levelmanager.h
 )
 
 # Add source files
@@ -54,6 +55,7 @@ set(SOURCES
         chatroom.cpp
         Client/chatclient.cpp
         propshop.cpp
+        levelmanager.cpp
 )
 
 # Add UI files
@@ -68,6 +70,7 @@ set(UIS
         signup.ui
         chatroom.ui
         propshop.ui
+        levelmanager.ui
 )
 
 # 添加资源文件

@@ -19,10 +19,13 @@
 #include <QDrag>
 #include <QFile>
 #include <QMimeData>
+
+#include "levelmanager.h"
 // 主窗口构造函数
 Mainwindow::Mainwindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Mainwindow)
+    ui(new Ui::Mainwindow),
+    levelTime(60)  // 默认60秒
 {
     ui->setupUi(this);
 
@@ -33,8 +36,13 @@ Mainwindow::Mainwindow(QWidget *parent) :
     // 初始化定时器
     timer = new QTimer(this);
 
-    // 信号槽连接
-    connect(parent, SIGNAL(startToGame()), this, SLOT(doStartToGame()));  // 开始游戏信号
+    // 修改这里的信号连接
+    if(qobject_cast<LevelManager*>(parent)) {
+        connect(parent, SIGNAL(levelGameStart()), this, SLOT(doStartToGame()));
+    } else {
+        connect(parent, SIGNAL(startToGame()), this, SLOT(doStartToGame()));
+    }
+    
     connect(timer, SIGNAL(timeout()), this, SLOT(update_timebar()));  // 定时器更新进度条
     connect(this,SIGNAL(gameToMenu()),this,SLOT(on_pushButton_stop_clicked())); // 进入菜单时暂停游戏
     connect(ui->pushButton_hint,SIGNAL(clicked()),this,SLOT(do_btn_hint())); // 提示按钮
@@ -78,11 +86,6 @@ Mainwindow::Mainwindow(QWidget *parent) :
     disappear3.load(":/res/images/tx3.png");//三消的动画过程
 
     //道具按钮
-   /* this->ui->pushButton_boom->setCheckable(true);
-    this->ui->pushButton_col->setCheckable(true);
-    this->ui->pushButton_row->setCheckable(true);
-    this->ui->pushButton_color->setCheckable(true);
-*/
     ui->pushButton_boom->setEnabled(g_props_boom > 0);
     ui->pushButton_col->setEnabled(g_props_col > 0);
     ui->pushButton_row->setEnabled(g_props_row > 0);
@@ -96,9 +99,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     QIcon icoOff(":/res/images/musicOff.png");
     ui->pushButton->setIcon(icoOn);
     ui->pushButton_2->setIcon(icoOff);
-    ui->pushButton->setIconSize(QSize(50,50));
     ui->pushButton->setFlat(true);
-    ui->pushButton_2->setIconSize(QSize(50,50));
     ui->pushButton_2->setFlat(true);
 
 
@@ -124,6 +125,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
     }
     
     initSoundEffects();//初始化音效
+    setupAnimations(); // 初始化动画
 }
 
 Mainwindow::~Mainwindow()
@@ -231,14 +233,16 @@ void Mainwindow::closeEvent(QCloseEvent *event)
             event->ignore();
         }
     } else {
+}
         emit gameToStart();
         Game_over(false);
         event->accept();
     }
-}
+
 
 //鼠标点击事件
-void Mainwindow::mousePressEvent(QMouseEvent *event) {
+void Mainwindow::mousePressEvent(QMouseEvent *event) 
+{
     int eli_number = 0;  // 累计消除的宝石数量
     mouseflag = 1;
 
@@ -468,6 +472,17 @@ void Mainwindow::mousePressEvent(QMouseEvent *event) {
             }
 
             hintUsedThisRound = false;
+            
+            // 在关卡模式下更新步数
+            if(isLevelMode) {
+                currentSteps++;
+                ui->lcdSteps->display(maxSteps - currentSteps);  // 使用LCD显示器显示剩余步数
+                
+                // 检查步数是否用完
+                if(currentSteps >= maxSteps) {
+                    checkLevelComplete();
+                }
+            }
         } else {
             point.setX(focus_x);
             point.setY(focus_y);
@@ -585,49 +600,61 @@ void Mainwindow::doMenuToGame(){
     this->show();
 }
 
-void Mainwindow::Music(){
-   // QMediaPlayer *music = new QMediaPlayer();
-    //music=new QMediaPlayer;
-   // connect(music,SIGNAL(positionChanged(qint64)),this,SLOT(postitionChanged(qint64)));
-   // music->setMedia(QUrl::fromLocalFile("bgm.mp3"));
-    //music->setVolume(20);
-  //  music->play();
-}
 
 void Mainwindow::do_theme_background_change(QString path){
     // 保留为空实现，以后可以扩展
 }
 
-/*
-void CGameDlg::do_music_background_change(QString path)
-{
-    mus->Music_switch(path);
-}
-*/
 
-void Mainwindow::update_timebar(){
-    int CurrentValue=ui->progressBar_time->value();
-    CurrentValue--;
-    if(CurrentValue>(totaltime/2)&&CurrentValue<=totaltime){
-        ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(0, 255, 0) }");
-        ui->progressBar_time->setAlignment(Qt::AlignCenter);
+void Mainwindow::update_timebar()
+{
+    if(isLevelMode) {
+        int currentTime = ui->progressBar_time->value();
+        currentTime--;
+        
+        if(currentTime > (levelTime/2)) {
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(0, 255, 0) }");
+        } else if(currentTime > (levelTime/6)) {
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 255, 0) }");
+        } else {
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 0, 0) }");
+        }
+        
+        ui->progressBar_time->setValue(currentTime);
+        
+        // 修改这里：使用正确的组件显示剩余步数
+        ui->lcdSteps->display(maxSteps - currentSteps);
+        ui->progressBar_time->setFormat(QString("剩余时间：%1"));
+        
+        if(currentTime <= 0||(maxSteps - currentSteps)==0) {
+            checkLevelComplete();
+            return;
+        }
+    } else {
+        // 原有的冒险模式逻辑
+        int CurrentValue = ui->progressBar_time->value();
+        CurrentValue--;
+        if(CurrentValue>(totaltime/2)&&CurrentValue<=totaltime){
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(0, 255, 0) }");
+            ui->progressBar_time->setAlignment(Qt::AlignCenter);
+        }
+        if(CurrentValue>(totaltime/6)&&CurrentValue<=(totaltime/2)){
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 255, 0) }");
+            ui->progressBar_time->setAlignment(Qt::AlignCenter);
+        }
+        if(CurrentValue<=(totaltime/6)){
+            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 0, 0) }");
+            ui->progressBar_time->setAlignment(Qt::AlignCenter);
+        }
+      /*  if(CurrentValue>4)
+          //  mus->Music_last_4sOFF();
+       // if(CurrentValue==4)
+            //mus->Music_last_4sON();*/
+        if (CurrentValue==0){
+            Game_over(true);
+        }
+        ui->progressBar_time->setValue(CurrentValue);
     }
-    if(CurrentValue>(totaltime/6)&&CurrentValue<=(totaltime/2)){
-        ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 255, 0) }");
-        ui->progressBar_time->setAlignment(Qt::AlignCenter);
-    }
-    if(CurrentValue<=(totaltime/6)){
-        ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 0, 0) }");
-        ui->progressBar_time->setAlignment(Qt::AlignCenter);
-    }
-  /*  if(CurrentValue>4)
-      //  mus->Music_last_4sOFF();
-   // if(CurrentValue==4)
-        //mus->Music_last_4sON();*/
-    if (CurrentValue<=0){
-        Game_over(true);
-    }
-    ui->progressBar_time->setValue(CurrentValue);
 }
 
 //游戏开始
@@ -692,8 +719,21 @@ void Mainwindow::Game_start(){
     string_grade="";
     this->repaint();
 
-    ui->progressBar_time->setMaximum(totaltime);
-    ui->progressBar_time->setValue(totaltime);
+    // 根据游戏模式设置界面
+    if(isLevelMode) {
+        // 修改这里：分别设置时间和步数显示
+        ui->progressBar_time->setMaximum(levelTime);
+        ui->progressBar_time->setValue(levelTime);
+        ui->progressBar_time->setFormat(QString("剩余时间：%1"));
+        ui->lcdSteps->display(maxSteps);  // 使用LCD显示步数
+        timer->start(1000); // 启动计时器
+    } else {
+        // 冒险模式：显示时间
+        ui->progressBar_time->setMaximum(totaltime);
+        ui->progressBar_time->setValue(totaltime);
+        ui->progressBar_time->setFormat(" %v秒");
+        timer->start(1000);
+    }
 
     ui->pushButton_continue->hide(); //初始时"继续游戏"按钮不可见
     ui->pushButton_restart->hide();  //初始时"重新开始"按钮不可见
@@ -787,7 +827,7 @@ void Mainwindow::on_pushButton_stop_clicked()
     ui->pushButton_continue->setEnabled(true);
     //mus->gameSound->setVolume(0);
     
-    // 暂停时可以选择暂停音乐
+    // 暂停时选择暂停音乐
     if (Setup::backgroundMusic) {
         Setup::backgroundMusic->pause();
         qDebug() << "Background music paused";
@@ -984,6 +1024,9 @@ void Mainwindow::on_pushButton_boom_clicked()
         }
     } else {
         this->hide();
+        }
+    } else {
+        this->hide();
         Game_over(false);
         emit gameToStart();
     }
@@ -1007,17 +1050,11 @@ void Mainwindow::cleanupArrays() {
     if(isSelected) {
         for(int i = 0; i < NumMatrix::MAX_MAP_SIZE; i++) {
             delete[] isSelected[i];
-        }
-        delete[] isSelected;
-    }
 
-    if(midSituation) {
-        for(int i = 0; i < NumMatrix::MAX_MAP_SIZE; i++) {
-            delete[] midSituation[i];
-        }
-        delete[] midSituation;
-    }
 
+        }
+
+    }
 }
 
 void Mainwindow::updatePropsUI() {
@@ -1032,7 +1069,7 @@ void Mainwindow::updatePropsUI() {
     ui->pushButton_col->setEnabled(g_props_col > 0);
     ui->pushButton_row->setEnabled(g_props_row > 0);
     ui->pushButton_color->setEnabled(g_props_color > 0);
-    
+
     // 更新数据库，字段顺序要与表结构一致
     if(ui->progressBar_time->value()==0&&!Login::isGuest && Login::currentUsername.length() > 0) {
         QSqlQuery query;
@@ -1055,7 +1092,7 @@ void Mainwindow::updatePropsUI() {
         if(!query.exec()) {
             qDebug() << "Failed to update user data:" << query.lastError().text()
                      << "\nSQL:" << query.lastQuery()
-                     << "\nBound values:" 
+                     << "\nBound values:"
                      << "\nhighest_score:" << Rank::g_rank.nGrade
                      << "\ncoins:" << g_coins
                      << "\nprops_boom:" << g_props_boom
@@ -1066,7 +1103,6 @@ void Mainwindow::updatePropsUI() {
         }
     }
 }
-
 void Mainwindow::updateGemTheme(QString path) {
     for (int i = 0; i < 8; ++i) {
         QString gemPath = path + QString::number(i + 1) + ".png";
@@ -1082,19 +1118,19 @@ void Mainwindow::setupAudioConnections() {
         // 监控播放器错误
         connect(Setup::backgroundMusic, &QMediaPlayer::errorOccurred,
                 this, [](QMediaPlayer::Error error, const QString &errorString) {
-            qDebug() << "Background music error:" << error << errorString;
+           // qDebug() << "Background music error:" << error << errorString;
         });
         
         // 监控播放状态变化
         connect(Setup::backgroundMusic, &QMediaPlayer::playbackStateChanged,
                 this, [](QMediaPlayer::PlaybackState state) {
-            qDebug() << "Background music state changed to:" << state;
+           // qDebug() << "Background music state changed to:" << state;
         });
         
         // 监控媒体状态变化
         connect(Setup::backgroundMusic, &QMediaPlayer::mediaStatusChanged,
                 this, [](QMediaPlayer::MediaStatus status) {
-            qDebug() << "Background music media status:" << status;
+           // qDebug() << "Background music media status:" << status;
         });
     }
 }
@@ -1109,12 +1145,12 @@ void Mainwindow::updateMuteState(bool muted) {
 }
 
 void Mainwindow::initSoundEffects() {
-    qDebug() << "Initializing sound effects...";
+    // qDebug() << "Initializing sound effects...";
     
     // 创建音效专用的音频输出
     effectAudioOutput = new QAudioOutput(this);
     effectAudioOutput->setVolume(0.5f);
-    qDebug() << "Effect audio output volume:" << effectAudioOutput->volume();
+    //qDebug() << "Effect audio output volume:" << effectAudioOutput->volume();
     
     // 初始化音效播放器
     greatSound = new QMediaPlayer(this);
@@ -1129,10 +1165,10 @@ void Mainwindow::initSoundEffects() {
     QUrl unbelievableUrl("qrc:/res/audio/unbelievable.mp3");
     
     // 检查URL是否有效
-    qDebug() << "Great sound URL is valid:" << greatUrl.isValid();
-    qDebug() << "Excellent sound URL is valid:" << excellentUrl.isValid();
-    qDebug() << "Amazing sound URL is valid:" << amazingUrl.isValid();
-    qDebug() << "Unbelievable sound URL is valid:" << unbelievableUrl.isValid();
+    // qDebug() << "Great sound URL is valid:" << greatUrl.isValid();
+    // qDebug() << "Excellent sound URL is valid:" << excellentUrl.isValid();
+    // qDebug() << "Amazing sound URL is valid:" << amazingUrl.isValid();
+    // qDebug() << "Unbelievable sound URL is valid:" << unbelievableUrl.isValid();
     
     // 设置音频输出和音源
     greatSound->setAudioOutput(new QAudioOutput(this));
@@ -1149,7 +1185,7 @@ void Mainwindow::initSoundEffects() {
     auto handleError = [](QMediaPlayer *player, const QString &name) {
         connect(player, &QMediaPlayer::errorOccurred,
                 [name](QMediaPlayer::Error error, const QString &errorString) {
-            qDebug() << name << "error:" << error << errorString;
+           // qDebug() << name << "error:" << error << errorString;
         });
     };
     
@@ -1158,7 +1194,6 @@ void Mainwindow::initSoundEffects() {
     handleError(amazingSound, "Amazing sound");
     handleError(unbelievableSound, "Unbelievable sound");
 }
-
 void Mainwindow::playSoundEffect(QMediaPlayer* effect) {
     if (!effect) {
         qDebug() << "Sound effect player is null!";
@@ -1170,34 +1205,34 @@ void Mainwindow::playSoundEffect(QMediaPlayer* effect) {
         return;
     }
     
-    qDebug() << "Playing sound effect...";
+   /* qDebug() << "Playing sound effect...";
     qDebug() << "Current playback state:" << effect->playbackState();
     qDebug() << "Current media status:" << effect->mediaStatus();
     qDebug() << "Current source:" << effect->source().toString();
-    
+    */
     if (effect->playbackState() == QMediaPlayer::PlayingState) {
-        qDebug() << "Resetting sound effect position";
+      //  qDebug() << "Resetting sound effect position";
         effect->setPosition(0);
     }
     
     effect->play();
-    qDebug() << "Play command sent to sound effect";
+   // qDebug() << "Play command sent to sound effect";
     
     // 监控播放状态
     connect(effect, &QMediaPlayer::playbackStateChanged,
             this, [](QMediaPlayer::PlaybackState state) {
-        qDebug() << "Sound effect playback state changed to:" << state;
+       // qDebug() << "Sound effect playback state changed to:" << state;
     });
     
     // 监控错误
     connect(effect, &QMediaPlayer::errorOccurred,
             this, [](QMediaPlayer::Error error, const QString &errorString) {
-        qDebug() << "Sound effect error:" << error << errorString;
+       // qDebug() << "Sound effect error:" << error << errorString;
     });
 }
 
 void Mainwindow::initAudioSettings() {
-    qDebug() << "\n=== Audio System Reset ===";
+   // qDebug() << "\n=== Audio System Reset ===";
 
     // 强制重新初始化播放器
     if (Setup::backgroundMusic) {
@@ -1212,34 +1247,33 @@ void Mainwindow::initAudioSettings() {
 
     // 资源检查
     QUrl musicUrl("qrc:/res/audio/bgm.mp3");
-    qDebug() << "Resource check:"
+  /*  qDebug() << "Resource check:"
              << "\nURL:" << musicUrl.toString()
              << "\nValid:" << musicUrl.isValid()
              << "\nFile exists:" << QFile::exists(":/res/audio/bgm.mp3");
-
+*/
     Setup::backgroundMusic->setSource(musicUrl);
     Setup::audioOutput->setVolume(Setup::volume);
 
     // 媒体状态监控
     connect(Setup::backgroundMusic, &QMediaPlayer::mediaStatusChanged,
             this, [](QMediaPlayer::MediaStatus status) {
-        qDebug() << "Media status:" << status;
+      //  qDebug() << "Media status:" << status;
         if (status == QMediaPlayer::LoadedMedia) {
             Setup::backgroundMusic->play();
         }
     });
 
     // 错误处理
-    connect(Setup::backgroundMusic, &QMediaPlayer::errorOccurred,
+   /* connect(Setup::backgroundMusic, &QMediaPlayer::errorOccurred,
             this, [](QMediaPlayer::Error error) {
-        qDebug() << "Media error:" << error
-                 << "\nDetails:" << Setup::backgroundMusic->errorString();
+        qDebug() << "Media error:" << error<< "\nDetails:" << Setup::backgroundMusic->errorString();
     });
-
+*/
     // 播放状态监控
     connect(Setup::backgroundMusic, &QMediaPlayer::playbackStateChanged,
             this, [](QMediaPlayer::PlaybackState state) {
-        qDebug() << "Playback state:" << state;
+     //   qDebug() << "Playback state:" << state;
         if (state == QMediaPlayer::StoppedState) {
             Setup::backgroundMusic->play();
         }
@@ -1253,14 +1287,13 @@ void Mainwindow::initAudioSettings() {
     ui->effectSlider->setRange(0, 100);
     ui->effectSlider->setValue(effectAudioOutput->volume() * 100);
 
-    qDebug() << "=== Audio System Initialized ===\n";
+   // qDebug() << "=== Audio System Initialized ===\n";
 }
 
 void Mainwindow::on_bgmSlider_valueChanged(int value) {
     if (Setup::audioOutput) {
         Setup::volume = value / 100.0f;
         Setup::audioOutput->setVolume(Setup::volume);
-        qDebug() << "Background music volume changed to:" << Setup::volume;
     }
 }
 
@@ -1268,6 +1301,135 @@ void Mainwindow::on_effectSlider_valueChanged(int value) {
     if (effectAudioOutput) {
         float volume = value / 100.0f;
         effectAudioOutput->setVolume(volume);
-        qDebug() << "Sound effect volume changed to:" << volume;
+     //   qDebug() << "Sound effect volume changed to:" << volume;
     }
+}
+
+void Mainwindow::setLevelMode(bool isLevel)
+{
+    isLevelMode = isLevel;
+}
+
+void Mainwindow::setLevelConfig(int levelId, int targetScore, int time, int mapSize, int gemTypes, int steps)
+{
+    currentLevelId = levelId;
+    levelTargetScore = targetScore;
+    maxSteps = steps;
+    levelTime = time; // 设置关卡时间限制
+    currentSteps = 0;
+    NumMatrix::MAPROWNUM = mapSize;
+    NumMatrix::MAPCOLNUM = mapSize;
+    g_spc = gemTypes;
+    currentStars = 0;
+    
+    // 更新UI显示时间
+    if(isLevelMode) {
+        ui->progressBar_time->setMaximum(levelTime);
+        ui->progressBar_time->setValue(levelTime);
+        ui->progressBar_time->setFormat(QString("剩余时间：%1"));
+        timer->start(1000); // 启动计时器
+    }
+}
+
+void Mainwindow::checkLevelComplete()
+{
+    if(!isLevelMode || Login::isGuest) {
+        return;
+    }
+
+    int score = Rank::g_rank.nGrade;
+    int remainingTime = ui->progressBar_time->value();
+    int remainingSteps = maxSteps - currentSteps;
+    int stars = 0;
+    
+    // 更新星级计算逻辑
+    if(score >= levelTargetScore) {
+        stars = 1;  // 基本达标
+        if(remainingTime > levelTime * 0.3 || remainingSteps > maxSteps * 0.3) {
+            stars = 2;  // 较好表现
+        }
+        if(remainingTime > levelTime * 0.5 || remainingSteps > maxSteps * 0.5) {
+            stars = 3;  // 出色表现
+        }
+    }
+
+    // 更新数据库中的进度
+    QSqlQuery query;
+    query.prepare("UPDATE user_progress SET "
+                 "highest_score = GREATEST(highest_score, ?), "
+                 "stars = GREATEST(stars, ?), "
+                 "completed = 1 "
+                 "WHERE username = ? AND level_id = ?");
+    query.addBindValue(score);
+    query.addBindValue(stars);
+    query.addBindValue(Login::currentUsername);
+    query.addBindValue(currentLevelId);
+    
+    if(query.exec()) {
+        QString message;
+        if(stars > 0) {
+            message = QString("恭喜通关！\n获得 %1 颗星！\n得分：%2\n目标分数：%3")
+                     .arg(stars).arg(score).arg(levelTargetScore);
+        } else {
+            message = QString("未达到目标分数！\n得分：%1\n目标分数：%2")
+                     .arg(score).arg(levelTargetScore);
+        }
+        
+        QMessageBox::information(this, "关卡结算", message);
+    }
+    
+    Game_over(true);
+}
+
+void Mainwindow::setupAnimations()
+{
+    // 设置步数动画
+    stepsAnimation = new QPropertyAnimation(ui->lcdSteps, "value");
+    stepsAnimation->setDuration(50);
+    stepsAnimation->setEasingCurve(QEasingCurve::OutBounce);
+    
+    // 设置星星动画组
+    starAnimations = new QParallelAnimationGroup(this);
+    for(int i = 0; i < 3; i++) {
+        QPropertyAnimation* starAnim = new QPropertyAnimation(ui->starProgress, "value");
+        starAnim->setDuration(800);
+        starAnim->setEasingCurve(QEasingCurve::OutBack);
+        starAnimations->addAnimation(starAnim);
+    }
+}
+
+void Mainwindow::updateStarProgress(int score)
+{
+    int stars = 0;
+    if(score >= levelTargetScore * 1.5) {
+        stars = 3;
+        ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: gold; }");
+    } else if(score >= levelTargetScore * 1.2) {
+        stars = 2;
+        ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: silver; }");
+    } else if(score >= levelTargetScore) {
+        stars = 1;
+        ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: bronze; }");
+    }
+    
+    if(stars > ui->starProgress->value()) {
+        playStarAnimation(stars);
+    }
+}
+
+void Mainwindow::playStarAnimation(int starCount)
+{
+    // 播放获星动画
+    QPropertyAnimation* anim = new QPropertyAnimation(ui->starProgress, "value");
+    anim->setStartValue(ui->starProgress->value());
+    anim->setEndValue(starCount);
+    anim->setDuration(1000);
+    anim->setEasingCurve(QEasingCurve::OutBounce);
+        // 同时播放声音效果
+        switch(starCount) {
+            case 1: playSoundEffect(greatSound); break;
+            case 2: playSoundEffect(excellentSound); break;
+            case 3: playSoundEffect(amazingSound); break;
+        }
+    anim->start(QAbstractAnimation::DeleteWhenStopped);
 }
