@@ -9,7 +9,8 @@
 
 LevelManager::LevelManager(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LevelManager)
+    ui(new Ui::LevelManager),
+updateTimer(new QTimer(this))
 {
     ui->setupUi(this);
     setWindowTitle("选择关卡");
@@ -22,10 +23,18 @@ LevelManager::LevelManager(QWidget *parent) :
         this->hide();
         emit backToStart();
     });
-    
+
+    //步数用完回到关卡选择界面
+    connect(gameWindow, &Mainwindow::gameToLevel, this, &LevelManager::show);
+    // Connect the timer to the updateLevelButtonStates slot
+    connect(updateTimer, &QTimer::timeout, this, &LevelManager::updateLevelButtonStates);
+
+    // Start the timer with a 1-second interval
+    updateTimer->start(1000);
+
     // 连接所有关卡按钮的信号
-    connect(ui->btn_level_1, &QPushButton::clicked, this, [this](){ loadLevelConfig(1); });
-    connect(ui->btn_level_2, &QPushButton::clicked, this, [this](){ loadLevelConfig(2); });
+    connect(ui->btn_level_1, &QPushButton::clicked, this, [this]() { loadLevelConfig(1); });
+    connect(ui->btn_level_2, &QPushButton::clicked, this, [this]() { loadLevelConfig(2); });
     connect(ui->btn_level_3, &QPushButton::clicked, this, [this](){ loadLevelConfig(3); });
     connect(ui->btn_level_4, &QPushButton::clicked, this, [this](){ loadLevelConfig(4); });
     connect(ui->btn_level_5, &QPushButton::clicked, this, [this](){ loadLevelConfig(5); });
@@ -56,7 +65,7 @@ void LevelManager::addTestAccount()
 
     // 添加测试账户
     query.prepare("INSERT OR IGNORE INTO user (username, password) VALUES (?, ?)");
-    query.addBindValue("t");
+    query.addBindValue("1");
     query.addBindValue("1");
     if (!query.exec()) {
         qDebug() << "添加测试账户失败:" << query.lastError().text();
@@ -67,14 +76,14 @@ void LevelManager::addTestAccount()
     for (int levelId = 1; levelId <= 10; levelId++) {
         query.prepare("INSERT OR IGNORE INTO user_progress (username, level_id, highest_score, stars, completed) "
                       "VALUES (?, ?, 0, 0, 1)");
-        query.addBindValue("t");
+        query.addBindValue("1");
         query.addBindValue(levelId);
         if (!query.exec()) {
             qDebug() << "初始化测试账户关卡" << levelId << "失败:" << query.lastError().text();
         }
     }
 
-    qDebug() << "测试账户:t，密码为1，\n闯关模式测试完成后请在LevelManager::updateLevelButtonStates取消对关卡按钮的禁用注释";
+    qDebug() << "测试账户:1，密码为1";
 }
 
 void LevelManager::initDatabase()
@@ -188,10 +197,9 @@ void LevelManager::initUserProgress(const QString& username)
     for(int levelId = 1; levelId <= 10; levelId++) {
         query.prepare("INSERT INTO user_progress "
                      "(username, level_id, highest_score, stars, completed) "
-                     "VALUES (?, ?, 0, 0, ?)");
+                     "VALUES (?, ?, 0, 0, 0)");
         query.addBindValue(username);
         query.addBindValue(levelId);
-        query.addBindValue(levelId == 1 ? 1 : 0); // 第一关默认解锁
         
         if(!query.exec()) {
             qDebug() << "初始化关卡" << levelId << "失败："
@@ -237,12 +245,10 @@ void LevelManager::updateLevelButtonStates()
         ui->btn_level_6, ui->btn_level_7, ui->btn_level_8, ui->btn_level_9, ui->btn_level_10
     };
 
-    //待取消禁用
-    /*for (auto btn : levelButtons) {
+    //禁用所有关卡
+    for (auto btn : levelButtons) {
         btn->setEnabled(false);
     }
-    
-*/
 
     // 第一关始终开放
     ui->btn_level_1->setEnabled(true);
@@ -349,5 +355,4 @@ void LevelManager::startLevel(int levelId)
     }
 }
 
-// ... 其余方法的实现 ...
 

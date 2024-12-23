@@ -46,8 +46,9 @@ public:
     void setLevelConfig(int levelId, int targetScore, int time, int mapSize, int gemTypes, int steps);
 
 signals:
-    void gameToStart();    // 返回开始界面信号
-    void gameToMenu();     // 返回菜单信号
+    void gameToStart();
+    void gameToMenu();
+    void gameToLevel();  // 添加新的信号
 
 public slots:
   //  void closeFromRank();  // 从排行榜返回处理
@@ -60,7 +61,7 @@ private slots:
     void on_btn_gameToMenu_clicked();     // 返回菜单按钮点击
     void do_theme_background_change(QString); // 主题背景更改
     void on_pushButton_stop_clicked();    // 暂停按钮点击
-    void update_timebar();                // 时间条更新
+    void update();                // 时间条更新
     void on_pushButton_continue_clicked();// 继续游戏
     void on_pushButton_restart_clicked(); // 重新开始
     void do_btn_hint();                   // 提示按钮处理

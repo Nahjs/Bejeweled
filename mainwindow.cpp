@@ -43,7 +43,7 @@ Mainwindow::Mainwindow(QWidget *parent) :
         connect(parent, SIGNAL(startToGame()), this, SLOT(doStartToGame()));
     }
     
-    connect(timer, SIGNAL(timeout()), this, SLOT(update_timebar()));  // 定时器更新进度条
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));  // 定时器更新进度条
     connect(this,SIGNAL(gameToMenu()),this,SLOT(on_pushButton_stop_clicked())); // 进入菜单时暂停游戏
     connect(ui->pushButton_hint,SIGNAL(clicked()),this,SLOT(do_btn_hint())); // 提示按钮
 
@@ -109,13 +109,13 @@ Mainwindow::Mainwindow(QWidget *parent) :
     rankInstance = Rank::getInstance();
 
     // 设置接受拖放
-    setAcceptDrops(true);
+  //  setAcceptDrops(true);
     
     // 为道具按钮启用拖放
-    ui->pushButton_boom->setMouseTracking(true);
-    ui->pushButton_row->setMouseTracking(true);
-    ui->pushButton_col->setMouseTracking(true);
-    ui->pushButton_color->setMouseTracking(true);
+   // ui->pushButton_boom->setMouseTracking(true);
+   // ui->pushButton_row->setMouseTracking(true);
+    //ui->pushButton_col->setMouseTracking(true);
+    //ui->pushButton_color->setMouseTracking(true);
 
     setupAudioConnections();
     
@@ -476,10 +476,13 @@ void Mainwindow::mousePressEvent(QMouseEvent *event)
             // 在关卡模式下更新步数
             if(isLevelMode) {
                 currentSteps++;
-                ui->lcdSteps->display(maxSteps - currentSteps);  // 使用LCD显示器显示剩余步数
+                int leftSteps=maxSteps - currentSteps;
+                ui->lcdSteps->display( leftSteps);  // 使用LCD显示器显示剩余步数
+                //星级
+                updateStarProgress( Rank::g_rank.nGrade);
                 
                 // 检查步数是否用完
-                if(currentSteps >= maxSteps) {
+                if( leftSteps==0) {
                     checkLevelComplete();
                 }
             }
@@ -606,30 +609,11 @@ void Mainwindow::do_theme_background_change(QString path){
 }
 
 
-void Mainwindow::update_timebar()
+void Mainwindow::update()
 {
+    //闯关模式
     if(isLevelMode) {
-        int currentTime = ui->progressBar_time->value();
-        currentTime--;
-        
-        if(currentTime > (levelTime/2)) {
-            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(0, 255, 0) }");
-        } else if(currentTime > (levelTime/6)) {
-            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 255, 0) }");
-        } else {
-            ui->progressBar_time->setStyleSheet("QProgressBar::chunk { background-color: rgb(255, 0, 0) }");
-        }
-        
-        ui->progressBar_time->setValue(currentTime);
-        
-        // 修改这里：使用正确的组件显示剩余步数
-        ui->lcdSteps->display(maxSteps - currentSteps);
-        ui->progressBar_time->setFormat(QString("剩余时间：%1"));
-        
-        if(currentTime <= 0||(maxSteps - currentSteps)==0) {
-            checkLevelComplete();
-            return;
-        }
+        ui->progressBar_time->hide();
     } else {
         // 原有的冒险模式逻辑
         int CurrentValue = ui->progressBar_time->value();
@@ -722,13 +706,18 @@ void Mainwindow::Game_start(){
     // 根据游戏模式设置界面
     if(isLevelMode) {
         // 修改这里：分别设置时间和步数显示
-        ui->progressBar_time->setMaximum(levelTime);
-        ui->progressBar_time->setValue(levelTime);
-        ui->progressBar_time->setFormat(QString("剩余时间：%1"));
-        ui->lcdSteps->display(maxSteps);  // 使用LCD显示步数
-        timer->start(1000); // 启动计时器
+        ui->progressBar_time->hide();
+        ui->label_level_info->setText(QString("第 %1 关").arg( currentLevelId));
+        ui->label_target->setText(QString("目标分数：%1").arg(levelTargetScore));
+        timer->start(1000);
     } else {
         // 冒险模式：显示时间
+        ui->label_level_info->hide();
+        ui->label_target->hide();
+        ui->starProgress->hide();
+        ui->lcdSteps->hide();
+
+        ui->progressBar_time->show();
         ui->progressBar_time->setMaximum(totaltime);
         ui->progressBar_time->setValue(totaltime);
         ui->progressBar_time->setFormat(" %v秒");
@@ -1323,62 +1312,89 @@ void Mainwindow::setLevelConfig(int levelId, int targetScore, int time, int mapS
     currentStars = 0;
     
     // 更新UI显示时间
-    if(isLevelMode) {
+   /* if(isLevelMode) {
         ui->progressBar_time->setMaximum(levelTime);
         ui->progressBar_time->setValue(levelTime);
         ui->progressBar_time->setFormat(QString("剩余时间：%1"));
-        timer->start(1000); // 启动计时器
-    }
+    }*/
 }
 
 void Mainwindow::checkLevelComplete()
 {
-    if(!isLevelMode || Login::isGuest) {
-        return;
-    }
-
     int score = Rank::g_rank.nGrade;
-    int remainingTime = ui->progressBar_time->value();
-    int remainingSteps = maxSteps - currentSteps;
     int stars = 0;
     
-    // 更新星级计算逻辑
+    // 更新星级
     if(score >= levelTargetScore) {
         stars = 1;  // 基本达标
-        if(remainingTime > levelTime * 0.3 || remainingSteps > maxSteps * 0.3) {
+        if(score >= levelTargetScore * 1.2) {
             stars = 2;  // 较好表现
         }
-        if(remainingTime > levelTime * 0.5 || remainingSteps > maxSteps * 0.5) {
+        if(score >= levelTargetScore * 1.5) {
             stars = 3;  // 出色表现
         }
     }
 
-    // 更新数据库中的进度
+     // 添加调试输出
+    qDebug() << "Debug values:"
+             << "score:" << score
+             << "stars:" << stars
+             << "username:" << Login::currentUsername
+             << "levelId:" << currentLevelId;
+    
     QSqlQuery query;
     query.prepare("UPDATE user_progress SET "
-                 "highest_score = GREATEST(highest_score, ?), "
-                 "stars = GREATEST(stars, ?), "
+                 "highest_score = CASE WHEN ? > highest_score THEN ? ELSE highest_score END, "
+                 "stars = CASE WHEN ? > stars THEN ? ELSE stars END, "
                  "completed = 1 "
                  "WHERE username = ? AND level_id = ?");
+
+    // 绑定参数
     query.addBindValue(score);
+    query.addBindValue(score);
+    query.addBindValue(stars);
     query.addBindValue(stars);
     query.addBindValue(Login::currentUsername);
     query.addBindValue(currentLevelId);
+
+    qDebug() << "绑定参数数量:" << query.boundValues().count();
     
-    if(query.exec()) {
-        QString message;
-        if(stars > 0) {
-            message = QString("恭喜通关！\n获得 %1 颗星！\n得分：%2\n目标分数：%3")
-                     .arg(stars).arg(score).arg(levelTargetScore);
-        } else {
-            message = QString("未达到目标分数！\n得分：%1\n目标分数：%2")
-                     .arg(score).arg(levelTargetScore);
-        }
-        
-        QMessageBox::information(this, "关卡结算", message);
+    if(!query.exec()) {
+        qDebug() << "SQL错误:" << query.lastError().text();
+        qDebug() << "执行的SQL:" << query.lastQuery();
+        return;
     }
     
-    Game_over(true);
+    
+    qDebug() << "更新成功,受影响行数:" << query.numRowsAffected();
+
+
+
+
+    // 显示结算信息
+    QString message;
+    if(stars > 0) {
+        message = QString("恭喜通关！\n获得 %1 颗星！\n得分：%2\n目标分数：%3")
+                 .arg(stars).arg(score).arg(levelTargetScore);
+    } else {
+        message = QString("未达到目标分数！\n得分：%1\n目标分数：%2")
+                 .arg(score).arg(levelTargetScore);
+    }
+    
+    QMessageBox::information(this, "关卡结算", message);
+    
+    // 停止游戏计时和音乐
+    timer->stop();
+    if (Setup::backgroundMusic) {
+        Setup::backgroundMusic->stop();
+    }
+
+    // 重置游戏状态
+    numMatrix->setgamerunning(false);
+    
+    // 隐藏游戏窗口并发送信号返回关卡选择界面
+    this->hide();
+    emit gameToLevel();
 }
 
 void Mainwindow::setupAnimations()
@@ -1401,15 +1417,15 @@ void Mainwindow::setupAnimations()
 void Mainwindow::updateStarProgress(int score)
 {
     int stars = 0;
-    if(score >= levelTargetScore * 1.5) {
+    if(score >= levelTargetScore * 1.2) {
         stars = 3;
         ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: gold; }");
-    } else if(score >= levelTargetScore * 1.2) {
+    } else if(score >= levelTargetScore * 1) {
         stars = 2;
         ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: silver; }");
-    } else if(score >= levelTargetScore) {
+    } else if(score >= levelTargetScore*0.8) {
         stars = 1;
-        ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: bronze; }");
+        ui->starProgress->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
     }
     
     if(stars > ui->starProgress->value()) {

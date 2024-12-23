@@ -105,7 +105,7 @@ void Setup::on_sizeSetButton_clicked() {
 
     // 输出行和列值，发送信号
     QMessageBox::information(this, "成功", QString("行: %1, 列: %2").arg(row).arg(col));
-    qDebug() << "发送行列信号：" << row << col;
+   // qDebug() << "发送行列信号：" << row << col;
     emit sizeChanged(row, col);
 }
 

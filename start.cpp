@@ -5,8 +5,8 @@
 #include "propshop.h"
 #include "levelmanager.h"
 
-int Start::rows = 12; // 默认行数
-int Start::cols = 12; // 默认列数
+int Start::rows = 8; // 默认行数
+int Start::cols = 8; // 默认列数
 
 Start::Start(QWidget *parent)
     : QMainWindow(parent)

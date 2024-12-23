@@ -38,8 +38,8 @@ public:
     };
 
 signals:
-    void levelGameStart();    // 确保只有这一个游戏开始信号
     void backToStart();       // 返回主界面信号
+    void levelGameStart();    // 确保只有这一个游戏开始信号
 
 private slots:
     void onLevelButtonClicked();
@@ -60,6 +60,8 @@ private:
     Ui::LevelManager *ui;
     QList<QPushButton*> levelButtons;
     Mainwindow* gameWindow;
+
+    QTimer *updateTimer;
 };
 
 #endif // LEVELMANAGER_H

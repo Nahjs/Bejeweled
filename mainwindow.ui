@@ -439,8 +439,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      <rect>
       <x>740</x>
       <y>10</y>
-      <width>200</width>
-      <height>200</height>
+      <width>221</width>
+      <height>191</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_level">
@@ -499,13 +499,6 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
        </property>
        <property name="segmentStyle">
         <enum>QLCDNumber::Flat</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_special_task">
-       <property name="styleSheet">
-        <string>font: 12px; color: #D0021B;</string>
        </property>
       </widget>
      </item>
