@@ -4,6 +4,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QMap>
+#include "messagetypes.h"  // 确保包含消息类型定义
 
 /*
  * 聊天服务器类
@@ -35,18 +36,29 @@ private slots:
     void handleDisconnected();
 
 private:
-    // 存储所有已连接的客户端, key是套接字指针, value是用户名
-    QMap<QTcpSocket*, QString> clients;
-
-    /* 向所有客户端广播消息
+    /* 广播消息给所有客户端
      * @param type: 消息类型
      * @param message: 消息内容
      * @param exclude: 不需要发送消息的客户端（可选）
      */
-    void broadcastMessage(const QString& type, const QString& message, QTcpSocket* exclude = nullptr);
+    void broadcastMessage(MessageType type, const QString& message, QTcpSocket* exclude = nullptr);
 
     // 向所有客户端发送在线用户列表
     void sendUserList();
+
+    // 存储所有已连接的客户端
+    QList<QTcpSocket*> clients;
+    // 存储所有已连接客户端的用户名
+    QMap<QTcpSocket*, QString> usernames;
+
+    void handleBattleRequest(QTcpSocket* client, const QString& data);
+    void handleBattleJoin(QTcpSocket* client, const QString& data);
+    void handlePropUse(QTcpSocket* client, const QString& data);
+
+    // 存储对战配对信息
+    QMap<QString, QString> battlePairs;  // playerId -> opponentId
+    // 存储客户端ID映射
+    QMap<QTcpSocket*, QString> playerIds;
 };
 
 #endif // CHATSERVER_H

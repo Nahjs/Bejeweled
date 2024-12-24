@@ -51,7 +51,6 @@ private:
     Help *help;
     About *about;
     Login *login;
-  //  MailForm* mailForm;
     ChatRoom *chatRoom;
     PropShop *propShop;      // 添加商城指针
     LevelManager *levelManager;  // 添加关卡管理器指针

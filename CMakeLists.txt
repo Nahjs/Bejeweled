@@ -13,6 +13,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Multimedia MultimediaWidge
 
 # Add include directories
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/common/include)
 
 # Add header files
 set(HEADERS
@@ -56,6 +57,7 @@ set(SOURCES
         Client/chatclient.cpp
         propshop.cpp
         levelmanager.cpp
+        common/src/textmessage.cpp
 )
 
 # Add UI files
@@ -78,16 +80,20 @@ set(QRC
         res/res.qrc
 )
 
-# Add executable
-add_executable(Jewels ${HEADERS} ${SOURCES} ${UIS} ${QRC})
+# Add subdirectories
+add_subdirectory(Server)
+add_subdirectory(test)  # 添加这一行
+
+# Add executable for client
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${UIS} ${QRC})
 
 # Link Qt6 libraries
-target_link_libraries(Jewels PRIVATE
-        Qt6::Core
-        Qt6::Gui
-        Qt6::Widgets
-        Qt6::Multimedia
-        Qt6::MultimediaWidgets
-        Qt6::Network
-        Qt6::Sql
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::Multimedia
+    Qt6::MultimediaWidgets
+    Qt6::Network
+    Qt6::Sql
 )

@@ -177,51 +177,34 @@ bool NumMatrix::checkmap(){
  * 4. 如果没有形成可消除组合则恢复位置
  */
 bool NumMatrix::swap(int a, int b, int m, int n) {
-    if (!game_running) return false;
+    qDebug() << "Attempting swap:" << a << b << m << n;
+    
+    if (!game_running) {
+        qDebug() << "Game not running, swap cancelled";
+        return false;
+    }
     
     // 检查是否相邻
     bool isAdjacent = (a == m && std::abs(b - n) == 1) || 
                       (b == n && std::abs(a - m) == 1);
-    if (!isAdjacent) return false;
+    if (!isAdjacent) {
+        qDebug() << "Positions not adjacent, swap cancelled";
+        return false;
+    }
 
     // 交换位置
     int temp = m_aMap[a][b];
     m_aMap[a][b] = m_aMap[m][n];
     m_aMap[m][n] = temp;
 
+    qDebug() << "Checking for valid combinations after swap";
+    
     // 检查是否可以消除
-    bool canEliminate = false;
+    bool canEliminate = checkmap();
     
-    // 检查横向是否有三连
-    for(int i = 0; i < MAPROWNUM; i++) {
-        for(int j = 0; j < MAPCOLNUM-2; j++) {
-            if(m_aMap[i][j] != 0 && 
-               m_aMap[i][j] == m_aMap[i][j+1] && 
-               m_aMap[i][j] == m_aMap[i][j+2]) {
-                canEliminate = true;
-                break;
-            }
-        }
-        if(canEliminate) break;
-    }
-    
-    // 检查纵向是否有三连
-    if(!canEliminate) {
-        for(int j = 0; j < MAPCOLNUM; j++) {
-            for(int i = 0; i < MAPROWNUM-2; i++) {
-                if(m_aMap[i][j] != 0 && 
-                   m_aMap[i][j] == m_aMap[i+1][j] && 
-                   m_aMap[i][j] == m_aMap[i+2][j]) {
-                    canEliminate = true;
-                    break;
-                }
-            }
-            if(canEliminate) break;
-        }
-    }
-    
-    // 如果不能消除，换回来
     if (!canEliminate) {
+        qDebug() << "No valid combinations, reverting swap";
+        // 换回来
         m_aMap[a][b] = m_aMap[m][n];
         m_aMap[m][n] = temp;
     }
@@ -396,19 +379,23 @@ bool NumMatrix::down()
 
     // 遍历每一列
     for(int i = 0; i < MAPCOLNUM; i++) {
-        // 从下往上遍历当前列
-        for(int j = MAPROWNUM - 1; j >= 0; j--) {
-            if(m_aMap[j][i] == 0) {
-                // 移动宝石
-                for(int k = j; k > 0; k--) {
-                    m_aMap[k][i] = m_aMap[k - 1][i];
+        bool columnChanged = false;
+        do {
+            columnChanged = false;
+            // 从下往上遍历当前列
+            for(int j = MAPROWNUM - 1; j >= 0; j--) {
+                if(m_aMap[j][i] == 0) {
+                    // 移动宝石
+                    for(int k = j; k > 0; k--) {
+                        m_aMap[k][i] = m_aMap[k - 1][i];
+                    }
+                    // 在顶部生成新宝石
+                    m_aMap[0][i] = rand() % g_spc + 1;
+                    columnChanged = true;
+                    isChanged = true;
                 }
-                // 在顶部生成新宝石
-                m_aMap[0][i] = rand() % g_spc + 1;
-                isChanged = true;
-                break;
             }
-        }
+        } while(columnChanged); // 持续处理直到该列没有空位
     }
     return isChanged;
 }

@@ -109,6 +109,31 @@ public:
      */
     int hint();
 
+    /**
+     * @brief 获取指定位置的数字
+     * @param row 行坐标
+     * @param col 列坐标
+     * @return 返回该位置的数字
+     */
+    int GetNum(int row, int col) const {
+        if (row >= 0 && row < MAPROWNUM && col >= 0 && col < MAPCOLNUM) {
+            return m_aMap[row][col];
+        }
+        return 0;
+    }
+
+    /**
+     * @brief 设置指定位置的数字
+     * @param row 行坐标
+     * @param col 列坐标
+     * @param value 要设置的数字
+     */
+    void SetNum(int row, int col, int value) {
+        if (row >= 0 && row < MAPROWNUM && col >= 0 && col < MAPCOLNUM) {
+            m_aMap[row][col] = value;
+        }
+    }
+
 signals:
     void propsChanged();  // 添加信号用于通知道具数量变化
 };

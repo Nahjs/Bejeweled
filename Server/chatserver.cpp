@@ -1,5 +1,9 @@
 #include "chatserver.h"
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include "textmessage.h"
 
 // 构造函数：初始化聊天服务器
 ChatServer::ChatServer(QObject *parent) : QTcpServer(parent)
@@ -27,15 +31,28 @@ bool ChatServer::startServer(quint16 port)
  */
 void ChatServer::incomingConnection(qintptr socketDescriptor)
 {
-    // 为新客户端创建套接字对象
     QTcpSocket *clientSocket = new QTcpSocket(this);
-    if (clientSocket->setSocketDescriptor(socketDescriptor)) {
-        // 连接成功，设置信号槽
+    
+    if(clientSocket->setSocketDescriptor(socketDescriptor)) {
+        // 设置保持连接选项
+        clientSocket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+        
         connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::handleReadyRead);
         connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::handleDisconnected);
-        qDebug() << "新客户端连接，IP地址:" << clientSocket->peerAddress().toString();
+        connect(clientSocket, &QTcpSocket::errorOccurred, this, [this](QAbstractSocket::SocketError error) {
+            QTcpSocket *socket = qobject_cast<QTcpSocket*>(sender());
+            qDebug() << "客户端连接错误:" << error << (socket ? socket->errorString() : "");
+        });
+
+        clients.append(clientSocket);  // 使用 clients 而不是 m_clients
+        
+        qDebug() << "\n=== 新客户端连接 ===";
+        qDebug() << "IP地址:" << clientSocket->peerAddress().toString();
+        qDebug() << "当前连接数:" << clients.size();
+        qDebug() << "===================\n";
     } else {
-        delete clientSocket;  // 连接失败，清理资源
+        qDebug() << "客户端连接失败:" << clientSocket->errorString();
+        delete clientSocket;
     }
 }
 
@@ -44,36 +61,23 @@ void ChatServer::incomingConnection(qintptr socketDescriptor)
  */
 void ChatServer::handleReadyRead()
 {
-    // 获取发送消息的客户端套接字
     QTcpSocket *clientSocket = qobject_cast<QTcpSocket*>(sender());
     if(!clientSocket) return;
 
-    // 持续读取消息直到没有完整的行
-    while(clientSocket->canReadLine()) {
-        // 读取消息类型和内容
-        QString type = QString::fromUtf8(clientSocket->readLine()).trimmed();
-        QString message = QString::fromUtf8(clientSocket->readLine()).trimmed();
-        
-        qDebug() << "收到消息 - 类型:" << type << "内容:" << message;
+    QByteArray data = clientSocket->readAll();
+    QString message = QString::fromUtf8(data);
+    qDebug() << "收到客户端数据:" << data.size() << "字节";
+    qDebug() << "原始数据:" << message;
 
-        // 根据消息类型处理
-        if(type == "LGIN") {  // 登录消息
-            QStringList parts = message.split("\r");
-            if(parts.size() >= 1) {
-                QString username = parts[0];
-                clients[clientSocket] = username;
-                qDebug() << "User logged in:" << username;
-                broadcastMessage("MSGA", username + " 加入了聊天室");
-                sendUserList();
-            }
-        }
-        else if(type == "MSGA") {  // 聊天消息
-            QString username = clients.value(clientSocket);
-            if(!username.isEmpty()) {
-                qDebug() << "Broadcasting message from" << username << ":" << message;
-                broadcastMessage("MSGA", username + ": " + message);
-            }
-        }
+    TextMessage textMsg;
+    if(textMsg.unserialize(message)) {
+        qDebug() << "解析消息成功 - 类型:" << static_cast<int>(textMsg.type()) 
+                << "内容:" << textMsg.data();
+        
+        // 广播消息给其他客户端
+        broadcastMessage(textMsg.type(), textMsg.data(), clientSocket);
+    } else {
+        qDebug() << "消息解析失败，无效的消息格式";
     }
 }
 
@@ -82,20 +86,18 @@ void ChatServer::handleReadyRead()
  */
 void ChatServer::handleDisconnected()
 {
-    // 获取断开连接的客户端套接字
     QTcpSocket *clientSocket = qobject_cast<QTcpSocket*>(sender());
     if(!clientSocket) return;
 
-    // 获取客户端用户名
-    QString username = clients.value(clientSocket);
+    QString username = usernames.value(clientSocket);
     if(!username.isEmpty()) {
-        // 广播用户离开消息
-        broadcastMessage("MSGA", username + " 离开了聊天室", clientSocket);
+        broadcastMessage(MessageType::CHAT_ALL, username + " 离开了游戏");
     }
 
-    // 从客户端列表中移除该客户端
-    clients.remove(clientSocket);
+    clients.removeOne(clientSocket);
+    usernames.remove(clientSocket);
     clientSocket->deleteLater();
+    
     sendUserList();
 }
 
@@ -104,16 +106,20 @@ void ChatServer::handleDisconnected()
  * @param message: 消息内容
  * @param exclude: 要排除的客户端（可选）
  */
-void ChatServer::broadcastMessage(const QString& type, const QString& message, QTcpSocket* exclude)
+void ChatServer::broadcastMessage(MessageType type, const QString& data, QTcpSocket* exclude)
 {
-    QByteArray data = (type + "\n" + message + "\n").toUtf8();
-    qDebug() << "Broadcasting:" << type << message;
+    TextMessage message(type, data);
+    QByteArray serialized = message.serialize().toUtf8();
     
-    // 向所有连接的客户端发送消息，排除指定的客户端
-    for(QTcpSocket* socket : clients.keys()) {
-        if(socket != exclude && socket->state() == QAbstractSocket::ConnectedState) {
-            socket->write(data);
-            socket->flush();
+    qDebug() << "广播消息 - 类型:" << static_cast<int>(type) 
+             << "大小:" << serialized.size() << "字节";
+
+    for(QTcpSocket* client : clients) {
+        if(client != exclude && client->state() == QAbstractSocket::ConnectedState) {
+            qint64 written = client->write(serialized);
+            client->flush();
+            qDebug() << "发送给客户端" << client->peerAddress().toString() 
+                    << "写入字节数:" << written;
         }
     }
 }
@@ -123,6 +129,54 @@ void ChatServer::broadcastMessage(const QString& type, const QString& message, Q
  */
 void ChatServer::sendUserList()
 {
-    QString userList = clients.values().join("\r");
-    broadcastMessage("USER", userList);
+    QString userList = usernames.values().join("\r");
+    broadcastMessage(MessageType::USER_LIST, userList);
 }
+
+// 添加新的处理函数
+void ChatServer::handleBattleRequest(QTcpSocket* client, const QString& data)
+{
+    // 解析对战请求数据
+    QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+    QJsonObject obj = doc.object();
+    
+    QString playerId = obj["playerId"].toString();
+    int score = obj["score"].toInt();
+    
+    // 广播对战请求给其他客户端
+    broadcastMessage(MessageType::BATTLE_REQ, data, client);
+    qDebug() << "玩家" << playerId << "请求对战";
+}
+
+void ChatServer::handleBattleJoin(QTcpSocket* client, const QString& data)
+{
+    // 解析加入对战数据
+    QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+    QJsonObject obj = doc.object();
+    
+    QString playerId = obj["playerId"].toString();
+    QString targetId = obj["targetId"].toString();
+    
+    // 发送对战开始消息给双方
+    broadcastMessage(MessageType::BATTLE_START, data);
+    qDebug() << "玩家" << playerId << "加入了与" << targetId << "的对战";
+}
+
+void ChatServer::handlePropUse(QTcpSocket* client, const QString& data)
+{
+    // 解析道具使用数据
+    QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+    QJsonObject obj = doc.object();
+    
+    int propType = obj["propType"].toInt();
+    int targetX = obj["x"].toInt();
+    int targetY = obj["y"].toInt();
+    
+    // 转发道具使用消息给其他客户端
+    broadcastMessage(MessageType::PROP_USE, data, client);
+    // 修改枚举输出方式
+    qDebug() << "玩家使用道具:" << propType 
+             << "位置:" << targetX << "," << targetY;
+}
+
+// 删除重复的 broadcastMessage 函数，只保留 MessageType 版本
