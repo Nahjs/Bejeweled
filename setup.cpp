@@ -1,6 +1,7 @@
 #include "setup.h"
 #include "ui_setup.h"
 #include <mainwindow.h>
+#include <QRegularExpression>
 #include <QThread>
 
 // 静态成员初始化
@@ -72,22 +73,22 @@ void Setup::on_musicSetButton_clicked() {
 }
 
 void Setup::on_sizeSetButton_clicked() {
-    // 获取用户输入的行和列值
-    QString rowText = ui->rowLineEdit->text(); // 假设输入行值的 QLineEdit 对象名为 rowLineEdit
-    QString colText = ui->colLineEdit->text(); // 假设输入列值的 QLineEdit 对象名为 colLineEdit
+    // 获取用户选择的预设值
+    QString selectedText = ui->sizeComboBox->currentText(); // 获取当前选中的下拉框值，例如 "5*5"
 
-    // 转换为整型
-    bool rowOk, colOk;
-    int row = rowText.toInt(&rowOk);
-    int col = colText.toInt(&colOk);
-
-    // 检查输入是否为有效的整数
-    if (!rowOk || !colOk) {
-        QMessageBox::warning(this, "输入错误", "请输入有效的整数值！");
+    // 验证格式，确保为 "数字*数字"
+    QRegularExpression regex(R"((\d+)\*(\d+))");
+    QRegularExpressionMatch match = regex.match(selectedText);
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "输入错误", "请选择有效的行列值！");
         return;
     }
 
-    // 检查是否为正整数
+    // 提取行和列值
+    int row = match.captured(1).toInt();
+    int col = match.captured(2).toInt();
+
+    // 检查是否为正整数（虽然下拉框已经限制了输入，但保险起见再校验）
     if (row <= 0 || col <= 0) {
         QMessageBox::warning(this, "输入错误", "行和列的值必须为正整数！");
         return;
@@ -97,17 +98,20 @@ void Setup::on_sizeSetButton_clicked() {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::warning(this,
                                   "注意",
-                                  "界面大小的修改会改变游戏难度，请确认是否继续！",
+                                  QString("你选择的界面大小为 %1 x %2。修改会改变游戏难度，是否继续？")
+                                      .arg(row)
+                                      .arg(col),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::No) {
         return; // 用户选择取消，不发送信号
     }
 
-    // 输出行和列值，发送信号
+    // 确认后发送信号
     QMessageBox::information(this, "成功", QString("行: %1, 列: %2").arg(row).arg(col));
-   // qDebug() << "发送行列信号：" << row << col;
     emit sizeChanged(row, col);
 }
+
+
 
 void Setup::initAudioControls() {
     // 只初始化UI控件,不初始化背景音乐
