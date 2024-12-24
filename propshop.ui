@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>505</width>
-    <height>504</height>
+    <width>438</width>
+    <height>361</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,8 +34,8 @@
   <widget class="QPushButton" name="btn_buyBoom">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>450</y>
+     <x>60</x>
+     <y>310</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -47,8 +47,8 @@
   <widget class="QLabel" name="label_boom_price">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>420</y>
+     <x>120</x>
+     <y>280</y>
      <width>69</width>
      <height>16</height>
     </rect>
@@ -61,7 +61,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>420</y>
+     <y>280</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -74,7 +74,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>220</y>
+     <y>140</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -86,8 +86,8 @@
   <widget class="QLabel" name="label_row_price">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>190</y>
+     <x>120</x>
+     <y>110</y>
      <width>62</width>
      <height>16</height>
     </rect>
@@ -99,8 +99,8 @@
   <widget class="QLabel" name="label_row_count">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>190</y>
+     <x>20</x>
+     <y>110</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -112,8 +112,8 @@
   <widget class="QPushButton" name="btn_buyCol">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>220</y>
+     <x>270</x>
+     <y>140</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -125,8 +125,8 @@
   <widget class="QLabel" name="label_col_price">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>190</y>
+     <x>330</x>
+     <y>110</y>
      <width>62</width>
      <height>16</height>
     </rect>
@@ -138,8 +138,8 @@
   <widget class="QLabel" name="label_col_count">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>190</y>
+     <x>220</x>
+     <y>110</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -151,8 +151,8 @@
   <widget class="QPushButton" name="btn_buyColor">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>450</y>
+     <x>280</x>
+     <y>310</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -164,8 +164,8 @@
   <widget class="QLabel" name="label_color_price">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>420</y>
+     <x>330</x>
+     <y>280</y>
      <width>69</width>
      <height>16</height>
     </rect>
@@ -177,8 +177,8 @@
   <widget class="QLabel" name="label_color_count">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>420</y>
+     <x>230</x>
+     <y>280</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -188,6 +188,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

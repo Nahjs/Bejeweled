@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>542</height>
+    <width>336</width>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="btn_startToGame">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>130</y>
+      <x>80</x>
+      <y>50</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="btn_mainToRank">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>170</y>
+      <x>80</x>
+      <y>260</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QLabel" name="label_welcome">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>60</y>
+      <x>0</x>
+      <y>0</y>
       <width>350</width>
       <height>41</height>
      </rect>
@@ -62,8 +62,8 @@
    <widget class="QPushButton" name="btn_help">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>450</y>
+      <x>170</x>
+      <y>360</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -75,8 +75,8 @@
    <widget class="QPushButton" name="btn_about">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>450</y>
+      <x>120</x>
+      <y>360</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -88,21 +88,21 @@
    <widget class="QPushButton" name="btn_themeChange">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>350</y>
+      <x>170</x>
+      <y>310</y>
       <width>91</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>设置主题</string>
+     <string>设置</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_chatRoom">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>230</y>
+      <x>80</x>
+      <y>310</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -114,8 +114,8 @@
    <widget class="QPushButton" name="btn_propShop">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>290</y>
+      <x>170</x>
+      <y>260</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -127,8 +127,8 @@
    <widget class="QPushButton" name="btn_level">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>250</y>
+      <x>80</x>
+      <y>120</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -140,8 +140,8 @@
    <widget class="QPushButton" name="btn_battleMode">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>370</y>
+      <x>80</x>
+      <y>190</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -153,14 +153,77 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>450</y>
-      <width>101</width>
-      <height>41</height>
+      <x>0</x>
+      <y>80</y>
+      <width>71</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>显示玩家金币数</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res/res.qrc">:/res/images/a1.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>240</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res/res.qrc">:/res/images/a9.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>80</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res/res.qrc">:/res/images/a3.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>250</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res/res.qrc">:/res/images/a6.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -169,13 +232,15 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>770</width>
+     <width>336</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>
