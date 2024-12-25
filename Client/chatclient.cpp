@@ -1,5 +1,8 @@
 #include "chatclient.h"
+
+#include <QDateTime>
 #include <QDebug>
+#include <QTimer>
 
 // 构造函数：初始化网络通信组件
 ChatClient::ChatClient(QObject *parent) : QObject(parent)
@@ -27,6 +30,18 @@ ChatClient::~ChatClient()
 
 void ChatClient::connectToServer(const QString &host, int port)
 {
+    // 添加连接超时处理
+    QTimer::singleShot(5000, this, [this]() {
+        if(m_socket->state() != QAbstractSocket::ConnectedState) {
+            emit error("连接超时");
+            m_socket->abort();
+        }
+    });
+
+    // 设置保持连接选项
+    m_socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+    
+    qDebug() << "正在连接到服务器:" << host << "端口:" << port;
     m_socket->connectToHost(host, port);
 }
 
@@ -35,21 +50,57 @@ void ChatClient::disconnectFromServer()
     m_socket->disconnectFromHost();
 }
 
-void ChatClient::sendMessage(const QString &type, const QString &message)
+void ChatClient::sendMessage(const QString& type, const QString& message)
 {
-    // 检查是否已连接到服务器
-    if(m_socket->state() == QAbstractSocket::ConnectedState) {
-        // 构造消息格式：类型和消息内容之间用换行符分隔
-        QByteArray data = (type + "\n" + message + "\n").toUtf8();
-        // 输出调试信息
-        qDebug() << "正在发送消息 - 类型:" << type << "内容:" << message;
-        // 发送数据
-        m_socket->write(data);
-        // 确保数据立即发送
-        m_socket->flush();
-    } else {
-        qDebug() << "无法发送消息 - 未连接到服务器";
+    if(m_socket->state() != QAbstractSocket::ConnectedState) {
+        qDebug() << "未连接到服务器，无法发送消息";
+        return;
     }
+
+    static QMap<QString, qint64> lastSendTime;
+    qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+
+    // 对于矩阵同步消息，限制发送频率
+    if (type == "MATRIX_SYNC") {
+        if (lastSendTime.contains("MATRIX_SYNC")) {
+            qint64 timeDiff = currentTime - lastSendTime["MATRIX_SYNC"];
+            if (timeDiff < 100) { // 限制100ms内只能发送一次
+                return;
+            }
+        }
+        lastSendTime["MATRIX_SYNC"] = currentTime;
+    }
+
+    TextMessage textMsg;
+    // 将字符串消息类型转换为枚举
+    if (type == "MATRIX_SYNC") textMsg.setType(MessageType::MATRIX_SYNC);
+    else if (type == "SWAP") textMsg.setType(MessageType::MATRIX_SWAP);
+    else if (type == "SCORE_SYNC") textMsg.setType(MessageType::SCORE_SYNC);
+    else if (type == "MATRIX_ELIM") textMsg.setType(MessageType::MATRIX_ELIM);
+    else if (type == "MATRIX_DROP") textMsg.setType(MessageType::MATRIX_DROP);
+    else if (type == "PROP_USE") textMsg.setType(MessageType::PROP_USE);
+    else if (type == "PROP_SYNC") textMsg.setType(MessageType::PROP_SYNC);
+    else if (type == "GAME") textMsg.setType(MessageType::GAME_REQ);
+    else textMsg.setType(MessageType::MSGA);
+    
+    textMsg.setData(message);
+    QString serialized = textMsg.serialize() + "\n";  // 添加换行符确保消息分割
+
+    qDebug() << "发送消息 - 类型:" << type << "序列化数据:" << serialized;
+    
+    m_socket->write(serialized.toUtf8());
+    m_socket->flush();
+}
+
+void ChatClient::processMessage()
+{
+    QByteArray data = m_socket->readAll();
+    QDataStream stream(data);
+    QString type, message;
+    stream >> type >> message;
+    
+    // 发出信号通知界面更新
+    emit messageReceived(type, message);
 }
 
 bool ChatClient::isConnected() const
@@ -61,21 +112,36 @@ bool ChatClient::isConnected() const
 
 void ChatClient::onReadyRead()
 {
-    // 只要还有完整的行可以读取就继续处理
-    while(m_socket->canReadLine()) {
-        // 读取消息类型（第一行）
-        QString type = QString::fromUtf8(m_socket->readLine()).trimmed();
-        QString message;
+    while (m_socket->canReadLine()) {  // 使用 canReadLine() 确保数据完整
+        QByteArray data = m_socket->readLine();
+        QString message = QString::fromUtf8(data).trimmed();  // 移除可能的换行符
         
-        // 读取消息内容（第二行）
-        if(m_socket->canReadLine()) {
-            message = QString::fromUtf8(m_socket->readLine()).trimmed();
+        TextMessage textMsg;
+        if(textMsg.unserialize(message)) {
+            qDebug() << "收到消息 - 类型:" << static_cast<int>(textMsg.type()) 
+                    << "内容:" << textMsg.data();
+                    
+            // 消息类型转换为字符串
+            QString typeStr;
+            switch(textMsg.type()) {
+                case MessageType::MATRIX_SYNC:
+                    typeStr = "MATRIX_SYNC";
+                    break;
+                case MessageType::SCORE_SYNC:
+                    typeStr = "SCORE_SYNC";
+                    break;
+                case MessageType::MATRIX_SWAP:
+                    typeStr = "SWAP";
+                    break;
+                // ... 其他类型转换
+                default:
+                    typeStr = QString::number(static_cast<int>(textMsg.type()));
+            }
+            
+            emit messageReceived(typeStr, textMsg.data());
+        } else {
+            qDebug() << "消息解析失败:" << message;
         }
-        
-        // 输出调试信息
-        qDebug() << "收到消息 - 类型:" << type << "内容:" << message;
-        // 发出消息接收信号
-        emit messageReceived(type, message);
     }
 }
 

@@ -59,16 +59,17 @@ void ChatRoom::setupChatConnections()
     connect(ui->chatInput, &QLineEdit::returnPressed, this, &ChatRoom::onSendMessage);
     
 
-    //chatClient->connectToServer("127.0.0.1", 8888);
+    chatClient->connectToServer("127.0.0.1", 5371);
     // 连接到聊天服务器
-    chatClient->connectToServer("cn-hk-bgp-4.ofalias.net", 26493);
+   // chatClient->connectToServer("cn-hk-bgp-4.ofalias.net", 26493);
 }
 
 void ChatRoom::onChatConnected()
 {
     ui->chatDisplay->append("已连接到聊天服务器");
     if(!Login::isGuest) {
-        chatClient->sendMessage("LGIN", Login::currentUsername + "\r" + "password");
+        // 修改：只发送用户名，不发送密码
+        chatClient->sendMessage("LGIN", Login::currentUsername);
     }
 }
 
@@ -84,7 +85,7 @@ void ChatRoom::onChatError(const QString& error)
 
 void ChatRoom::handleChatMessage(const QString& type, const QString& message)
 {
-    if(type == "MSGA") {
+    if(type == "MSGA" || type == "CHAT") {
         appendChatMessage(message);
     }
     else if(type == "USER") {

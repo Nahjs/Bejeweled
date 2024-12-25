@@ -12,6 +12,8 @@
 #include "chatroom.h"
 #include <QMainWindow>
 #include <propshop.h>
+#include "battle.h"
+#include "Client/chatclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Start; }
@@ -37,6 +39,7 @@ private slots:
     void onLoginSuccess();
     void on_btn_chatRoom_clicked();
     void on_btn_level_clicked();  // 添加关卡模式按钮槽函数
+    void on_btn_battle_clicked();  // 新增对战按钮槽函数
 
 signals:
     void startToGame();
@@ -51,10 +54,11 @@ private:
     Help *help;
     About *about;
     Login *login;
-  //  MailForm* mailForm;
     ChatRoom *chatRoom;
     PropShop *propShop;      // 添加商城指针
     LevelManager *levelManager;  // 添加关卡管理器指针
+    Battle* battle;            // 对战模式界面
+    ChatClient* m_client;      // 游戏客户端
     static int rows;
     static int cols;
 };

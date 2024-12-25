@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTcpSocket>
-#include "textmessage.h"
+#include "../common/include/textmessage.h"  // 使用相对路径包含头文件
 
 /*
  * ChatClient类实现了客户端与服务器之间的网络通信功能
@@ -44,6 +44,8 @@ public:
      * @param message: 要发送的消息内容
      */
     void sendMessage(const QString &type, const QString &message);
+
+    void processMessage();
 
     /* 检查当前是否已连接到服务器
      * @return 如果已连接返回true，否则返回false

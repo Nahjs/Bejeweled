@@ -36,11 +36,26 @@ Start::Start(QWidget *parent)
     this->hide();
 
     chatRoom = nullptr;  // 初始化聊天室指针为空
+
+    // 初始化ChatClient
+    m_client = new ChatClient(this);
+    connect(m_client, &ChatClient::connected, this, [this]() {
+        qDebug() << "成功连接到服务器";
+    });
+    connect(m_client, &ChatClient::error, this, [](const QString& error) {
+        qDebug() << "连接错误:" << error;
+    });
+    
+    battle = nullptr;  // 初始化为nullptr
 }
 
 Start::~Start()
 {
     delete ui;
+    if (battle) {
+        delete battle;
+    }
+    delete m_client;
 }
 
 void Start::on_btn_startToGame_clicked()
@@ -161,4 +176,28 @@ void Start::on_btn_level_clicked()
         this->hide();
         levelManager->show();
     }
+}
+
+void Start::on_btn_battle_clicked()
+{
+    if (!m_client->isConnected()) {
+        // 尝试连接服务器
+        m_client->connectToServer("localhost", 5371);
+        // m_client->connectToServer("cn-hk-bgp-4.ofalias.net", 26493); // 线上服务器
+    }
+
+    if (!battle) {
+        battle = new Battle(m_client, this);
+        connect(battle, &Battle::battleToStart, this, &Start::show);
+    }
+
+    if (Login::isGuest) {
+        QMessageBox::warning(this, "游客模式限制",
+            "游客模式下无法使用对战功能\n"
+            "请注册账号后体验完整功能！");
+        return;
+    }
+
+    this->hide();
+    battle->show();
 }
