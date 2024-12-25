@@ -1,4 +1,6 @@
 #include "chatclient.h"
+
+#include <QDateTime>
 #include <QDebug>
 #include <QTimer>
 
@@ -53,6 +55,20 @@ void ChatClient::sendMessage(const QString& type, const QString& message)
     if(m_socket->state() != QAbstractSocket::ConnectedState) {
         qDebug() << "未连接到服务器，无法发送消息";
         return;
+    }
+
+    static QMap<QString, qint64> lastSendTime;
+    qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+
+    // 对于矩阵同步消息，限制发送频率
+    if (type == "MATRIX_SYNC") {
+        if (lastSendTime.contains("MATRIX_SYNC")) {
+            qint64 timeDiff = currentTime - lastSendTime["MATRIX_SYNC"];
+            if (timeDiff < 100) { // 限制100ms内只能发送一次
+                return;
+            }
+        }
+        lastSendTime["MATRIX_SYNC"] = currentTime;
     }
 
     TextMessage textMsg;

@@ -137,7 +137,7 @@
      <string>闯关模式</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_battleMode">
+   <widget class="QPushButton" name="btn_battle">
     <property name="geometry">
      <rect>
       <x>80</x>

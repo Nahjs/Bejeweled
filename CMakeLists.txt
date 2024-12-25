@@ -34,6 +34,8 @@ set(HEADERS
         Client/chatclient.h
         propshop.h
         levelmanager.h
+        battle.h
+        battlegame.h
 )
 
 # Add source files
@@ -58,6 +60,8 @@ set(SOURCES
         propshop.cpp
         levelmanager.cpp
         common/src/textmessage.cpp
+        battle.cpp
+        battlegame.cpp
 )
 
 # Add UI files
@@ -73,6 +77,7 @@ set(UIS
         chatroom.ui
         propshop.ui
         levelmanager.ui
+        battle.ui
 )
 
 # 添加资源文件

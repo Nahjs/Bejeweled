@@ -66,16 +66,32 @@ void ChatServer::handleReadyRead()
 
     QByteArray data = clientSocket->readAll();
     QString message = QString::fromUtf8(data);
-    qDebug() << "收到客户端数据:" << data.size() << "字节";
-    qDebug() << "原始数据:" << message;
 
     TextMessage textMsg;
     if(textMsg.unserialize(message)) {
-        qDebug() << "解析消息成功 - 类型:" << static_cast<int>(textMsg.type()) 
+        qDebug() << "收到消息 - 类型:" << static_cast<int>(textMsg.type()) 
                 << "内容:" << textMsg.data();
         
-        // 广播消息给其他客户端
-        broadcastMessage(textMsg.type(), textMsg.data(), clientSocket);
+        // MATRIX_SYNC消息使用专门的处理方式，不再重复广播
+        if (textMsg.type() == MessageType::MATRIX_SYNC) {
+            // 直接转发给其他客户端，不重复广播
+            for(QTcpSocket* client : clients) {
+                if(client != clientSocket && 
+                   client->state() == QAbstractSocket::ConnectedState) {
+                    client->write(data);
+                    client->flush();
+                }
+            }
+            qDebug() << "转发矩阵同步消息";
+        }
+        else if (textMsg.type() == MessageType::GAME_REQ) {
+            // 游戏相关消息只需要简单转发，不需要额外处理
+            qDebug() << "转发游戏消息";
+        }
+        else {
+            // 其他类型的消息使用常规广播
+            broadcastMessage(textMsg.type(), textMsg.data(), clientSocket);
+        }
     } else {
         qDebug() << "消息解析失败，无效的消息格式";
     }
@@ -108,18 +124,20 @@ void ChatServer::handleDisconnected()
  */
 void ChatServer::broadcastMessage(MessageType type, const QString& data, QTcpSocket* exclude)
 {
+    // 避免对MATRIX_SYNC消息进行额外的广播
+    if (type == MessageType::MATRIX_SYNC) {
+        return;
+    }
+
     TextMessage message(type, data);
     QByteArray serialized = message.serialize().toUtf8();
     
-    qDebug() << "广播消息 - 类型:" << static_cast<int>(type) 
-             << "大小:" << serialized.size() << "字节";
+    qDebug() << "广播消息 - 类型:" << static_cast<int>(type);
 
     for(QTcpSocket* client : clients) {
         if(client != exclude && client->state() == QAbstractSocket::ConnectedState) {
-            qint64 written = client->write(serialized);
+            client->write(serialized);
             client->flush();
-            qDebug() << "发送给客户端" << client->peerAddress().toString() 
-                    << "写入字节数:" << written;
         }
     }
 }
@@ -179,4 +197,3 @@ void ChatServer::handlePropUse(QTcpSocket* client, const QString& data)
              << "位置:" << targetX << "," << targetY;
 }
 
-// 删除重复的 broadcastMessage 函数，只保留 MessageType 版本

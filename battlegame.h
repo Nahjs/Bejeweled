@@ -2,80 +2,87 @@
 #define BATTLEGAME_H
 
 #include <QWidget>
-#include <QPushButton>
 #include <QLabel>
 #include <QTimer>
-#include "numMatrix.h"
-#include "Client/chatclient.h"
 #include <QPropertyAnimation>
+#include <QMap>
+#include "nummatrix.h"
+#include "Client/chatclient.h"
 
-class BattleGame : public QWidget {
+class BattleGame : public QWidget
+{
     Q_OBJECT
-
 public:
-    explicit BattleGame(ChatClient* client, QWidget *parent = nullptr);
+    explicit BattleGame(ChatClient* client, QString playerName = "", QWidget *parent = nullptr);
     ~BattleGame();
 
+    void sendMatrixUpdate();
+    void setIsOpponent(bool isOpponent, const QString& opponentName = "");
+    void updateOpponentMatrix(const QJsonObject& data);
+    QString getPlayerName() const { return m_playerName; }
+
 private:
-    static const int CELL_SIZE = 40;  // 每个宝石的大小
-    static const int BOARD_SPACING = 100;  // 两个矩阵之间的间距
+    static const int CELL_SIZE = 40;
+    static const int BOARD_SPACING = 20;
+    static const int ANIMATION_DURATION = 300;
+    static const int MATRIX_SIZE = 7;  // 添加矩阵大小常量
     
+    enum class PropType {
+        BOOM,
+        ROW,
+        COLUMN,
+        COLOR
+    };
+
     ChatClient* m_client;
-    NumMatrix* m_playerMatrix;    // 玩家的数字矩阵
-    NumMatrix* m_opponentMatrix;  // 对手的数字矩阵
-    QString m_playerId;  // 添加玩家ID
-    QTimer* m_refreshTimer;      // 刷新定时器
-    
-    int m_playerScore;
-    int m_opponentScore;
+    NumMatrix* m_playerMatrix;
+    QString m_playerId;
+    bool m_hasSelected;
+    int m_selectedX;
+    int m_selectedY;
+    QTimer* m_refreshTimer;
     bool m_gameStarted;
-    bool m_isMyTurn;
-    
-    // UI元素
+    int m_playerScore;
+    QList<QPropertyAnimation*> m_activeAnimations;
     QLabel* m_playerScoreLabel;
     QLabel* m_opponentScoreLabel;
     QLabel* m_statusLabel;
-    
-    // 选中的宝石位置
-    int m_selectedX;
-    int m_selectedY;
-    bool m_hasSelected;
+    bool m_isOpponent = false;  // 添加此成员变量
+    QTimer* m_updateTimer = nullptr;
 
-    QList<QPropertyAnimation*> m_activeAnimations;
-    
-    void executeSwapAnimation(int fromX, int fromY, int toX, int toY);
-    void executePropAnimation(int propType, int targetX, int targetY, bool isOpponent = false);  // 添加 isOpponent 参数
-
-    void handleMessage(const QString &type, const QString &data);
-
-    void updateOpponentMatrix(const QJsonObject &data);
-
-    void sendGameState();
-
-    void createExplosionEffect(int x, int y);
-    void createRowClearEffect(int row);
-    void updateAnimations();
-    
-    // 动画相关的属性
-    const int ANIMATION_DURATION = 300;  // 动画持续时间(ms)
-    const int REFRESH_INTERVAL = 16;     // 刷新间隔(约60fps)
+    // 新增成员变量
+    QString m_playerName;  // 当前玩家名称或对手名称
+    QMap<QString, NumMatrix*> m_opponentMatrices;  // 对手名称到矩阵的映射
+    QMap<QString, int> m_opponentScores;          // 对手名称到分数的映射
+    QMap<QString, QLabel*> m_scoreLabels;         // 对手名称到分数标签的映射
 
     void initUI();
     void paintEvent(QPaintEvent*) override;
     void mousePressEvent(QMouseEvent*) override;
-    void processGameState(const QString& data);
-    void sendMove(int fromX, int fromY, int toX, int toY);
-    void sendMatrixUpdate();  // 发送矩阵更新到服务器
-    QPoint boardToScreen(int x, int y, bool isOpponentBoard);
-    QPoint screenToBoard(int x, int y, bool& isOpponentBoard);
-    void drawGem(QPainter& painter, int x, int y, int type, bool isOpponent);
-    void drawBoard(QPainter& painter, const NumMatrix* board, bool isOpponent);
-    void drawNumber(QPainter& painter, int x, int y, int number, bool isOpponent);
     void drawMatrix(QPainter& painter, const NumMatrix* matrix, bool isOpponent);
+    void drawNumber(QPainter& painter, int x, int y, int number, bool isOpponent);
+    QPoint boardToScreen(int x, int y, bool isOpponentBoard);
+
+    void handleEliminationAndDrop();
+
+    QPoint screenToBoard(int x, int y, bool& isOpponentBoard);
+    void executeSwapAnimation(int fromX, int fromY, int toX, int toY);
+   // void executePropAnimation(int propType, int targetX, int targetY, bool isOpponent = false);
+    void sendMove(int fromX, int fromY, int toX, int toY);
+    void sendGameState();
+    void processGameState(const QString& data);
+    void drawGems(QPainter& painter);
+
+    // 辅助函数声明
+    QJsonArray MatrixToJson(NumMatrix* matrix);
 
 private slots:
-    void onGameMessage(const QString& type, const QString& data);
+    void updateScore();
+    void updateScoreDisplay(const QString& playerName, int score);
+
     void onRefreshTimeout();
+    void handleMessage(const QString& type, const QString& data);
+    void onGameMessage(const QString& type, const QString& data);
 };
 
 #endif // BATTLEGAME_H
