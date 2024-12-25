@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>290</width>
-    <height>325</height>
+    <height>365</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,7 +52,7 @@ font: 10pt &quot;Candara&quot;;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>90</y>
       <width>231</width>
       <height>45</height>
      </rect>
@@ -80,7 +80,7 @@ font: 10pt &quot;Candara&quot;;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>160</y>
       <width>231</width>
       <height>41</height>
      </rect>
@@ -103,7 +103,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>190</y>
+      <y>220</y>
       <width>111</width>
       <height>40</height>
      </rect>
@@ -126,7 +126,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>240</y>
+      <y>280</y>
       <width>231</width>
       <height>71</height>
      </rect>
@@ -139,7 +139,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>190</y>
+      <y>220</y>
       <width>111</width>
       <height>41</height>
      </rect>
