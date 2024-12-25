@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>498</width>
-    <height>582</height>
+    <width>462</width>
+    <height>541</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>300</x>
      <y>360</y>
-     <width>91</width>
+     <width>111</width>
      <height>40</height>
     </rect>
    </property>
@@ -29,9 +29,9 @@
   <widget class="QPushButton" name="btn_return">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>300</x>
      <y>440</y>
-     <width>91</width>
+     <width>111</width>
      <height>40</height>
     </rect>
    </property>
@@ -92,10 +92,10 @@
   <widget class="QComboBox" name="verificationMethodBox">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>280</y>
-     <width>91</width>
-     <height>31</height>
+     <x>300</x>
+     <y>270</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
   </widget>
@@ -103,7 +103,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>280</y>
+     <y>270</y>
      <width>65</width>
      <height>41</height>
     </rect>
@@ -116,7 +116,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>280</y>
+     <y>270</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -154,8 +154,8 @@
   <widget class="QFrame" name="verificationFrame">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>350</y>
+     <x>50</x>
+     <y>330</y>
      <width>201</width>
      <height>191</height>
     </rect>

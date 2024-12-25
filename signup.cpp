@@ -42,7 +42,7 @@ Signup::Signup(QWidget *parent) :
     
     // 创建滑块验证控件
     sliderWidget = new SliderPuzzleWidget(this);
-    sliderWidget->setGeometry(150, 390, 201, 191);  // 使用verificationFrame的位置和大小
+    sliderWidget->setGeometry(65, 350, 201, 191);  // 使用verificationFrame的位置和大小
     sliderWidget->hide();
     
     // 设置验证码框架
