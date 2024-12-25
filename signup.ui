@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>582</width>
-    <height>633</height>
+    <width>498</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>440</y>
+     <x>350</x>
+     <y>360</y>
      <width>91</width>
      <height>40</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="btn_return">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>520</y>
+     <x>350</x>
+     <y>440</y>
      <width>91</width>
      <height>40</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>70</y>
+     <x>30</x>
+     <y>30</y>
      <width>251</width>
      <height>221</height>
     </rect>
@@ -92,8 +92,8 @@
   <widget class="QComboBox" name="verificationMethodBox">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>360</y>
+     <x>350</x>
+     <y>280</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -102,8 +102,8 @@
   <widget class="QLabel" name="label_verification">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>320</y>
+     <x>60</x>
+     <y>280</y>
      <width>65</width>
      <height>41</height>
     </rect>
@@ -115,8 +115,8 @@
   <widget class="QLineEdit" name="lineEdit_verification">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>320</y>
+     <x>130</x>
+     <y>280</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -125,8 +125,8 @@
   <widget class="QLabel" name="strengthLabel">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>160</y>
+     <x>300</x>
+     <y>120</y>
      <width>60</width>
      <height>41</height>
     </rect>
@@ -138,8 +138,8 @@
   <widget class="QProgressBar" name="strengthBar">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>170</y>
+     <x>360</x>
+     <y>130</y>
      <width>80</width>
      <height>15</height>
     </rect>
@@ -154,8 +154,8 @@
   <widget class="QFrame" name="verificationFrame">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>390</y>
+     <x>60</x>
+     <y>350</y>
      <width>201</width>
      <height>191</height>
     </rect>
