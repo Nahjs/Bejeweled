@@ -5,12 +5,16 @@
 #include <thread>
 #include <chrono>
 #include <QApplication>
+#include <QAudioOutput>
+#include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QThread>
 #include <QUuid>  // 用于生成唯一ID
 
 #include "login.h"
+#include "setup.h"
 
 BattleGame::BattleGame(ChatClient* client, QString playerName, QWidget *parent) 
     : QWidget(parent), m_client(client), m_hasSelected(false), m_playerName(playerName)
@@ -59,16 +63,53 @@ BattleGame::BattleGame(ChatClient* client, QString playerName, QWidget *parent)
   /*  m_updateTimer = new QTimer(this);
     connect(m_updateTimer, &QTimer::timeout, this, &BattleGame::sendMatrixUpdate);
     m_updateTimer->start(200);*/
+
+    // 初始化图片资源
+    updateGemTheme(":/res/images/a");
+    pixmap_di.load(":/res/images/select.png");
+    disappear1.load(":/res/images/tx1.png");
+    disappear2.load(":/res/images/tx2.png");
+    disappear3.load(":/res/images/tx3.png");
+
+    for(int i = 0; i < 10; i++) {
+        QString path = ":/res/images/number" + QString::number(i) + ".png";
+        number[i].load(path);
+    }
+
+    // 初始化动画状态数组
+    memset(midSituation, 0, sizeof(midSituation));
+    memset(isSelected, 0, sizeof(isSelected));
+    addScoreSituation = 0;
+
+    // 初始化音效系统
+    setupAudioSystem();
+    initSoundEffects();
+
+    // 设置固定大小
+    setMinimumWidth(GAME_AREA_WIDTH + 2 * OFFSET_X);
+    setMinimumHeight(GAME_AREA_HEIGHT + OFFSET_Y + SCORE_OFFSET_Y);
+    
+    // 计算初始单元格大小
+    m_cellSize = GAME_AREA_WIDTH / m_playerMatrix->MAPCOLNUM;
 }
 
+// 修改析构函数确保清理所有动画
 BattleGame::~BattleGame() {
+    // 停止并删除所有活跃的动画
+    while (!m_activeAnimations.isEmpty()) {
+        QPropertyAnimation* animation = m_activeAnimations.takeFirst();
+        animation->stop();
+        delete animation;
+    }
+
+    // ...existing cleanup code...
     // 清理动态分配的资源
     delete m_playerMatrix;
     // 清理所有对手矩阵
     qDeleteAll(m_opponentMatrices);
     m_opponentMatrices.clear();
     delete m_refreshTimer;
-    
+
     // 清理所有活跃的动画
     for(QPropertyAnimation* animation : m_activeAnimations) {
         animation->stop();
@@ -80,33 +121,132 @@ BattleGame::~BattleGame() {
 void BattleGame::initUI() {
     setMinimumSize(800, 400);
     
-    m_playerScoreLabel = new QLabel("Your Score: 0", this);
-    m_playerScoreLabel->move(50, 10);
-    
-    m_opponentScoreLabel = new QLabel("Opponent Score: 0", this);
-    m_opponentScoreLabel->move(450, 10);
-    
-    m_statusLabel = new QLabel("Waiting for opponent...", this);
-    m_statusLabel->move(350, 350);
+    // 只保留状态标签用于显示对手名字
+    m_statusLabel = new QLabel(this);
+    m_statusLabel->setStyleSheet("QLabel { color: black; font-size: 14px; }");
+    m_statusLabel->setAlignment(Qt::AlignCenter);
+    m_statusLabel->move(350, 10);
 }
 
 void BattleGame::paintEvent(QPaintEvent* event) {
-    QWidget::paintEvent(event);
+    if (!m_resourcesLoaded) {
+        checkAndLoadResources();
+        if (!m_resourcesLoaded) {
+            QPainter painter(this);
+            painter.fillRect(rect(), Qt::lightGray);
+            painter.drawText(rect(), Qt::AlignCenter, "加载资源中...");
+            return;
+        }
+    }
+
+    static bool painting = false;
+    if (painting) return;
+    
+    painting = true;
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    
-    // 绘制背景
-    painter.fillRect(rect(), Qt::white);
-    
-    // 绘制宝石
-    drawGems(painter);
-    
-    // 绘制选中框
-    if (m_hasSelected) {
-        QPoint pos = boardToScreen(m_selectedX, m_selectedY, false);
-        painter.setPen(QPen(Qt::red, 2));
-        painter.drawRect(pos.x(), pos.y(), CELL_SIZE, CELL_SIZE);
+
+    // 使用新的布局参数
+    NumMatrix* matrix = m_isOpponent ? m_opponentMatrices[m_playerName] : m_playerMatrix;
+    if (!matrix) {
+        painting = false;
+        return;
     }
+
+    // 计算实际绘制位置
+    int offsetX = OFFSET_X;
+    int offsetY = OFFSET_Y;
+    
+    if (m_isOpponent) {
+        // 对手的矩阵使用较小的显示尺寸
+        m_cellSize = std::min(200 / matrix->MAPCOLNUM, 200 / matrix->MAPROWNUM);
+        offsetX = (width() - matrix->MAPCOLNUM * m_cellSize) / 2;
+        offsetY = (height() - matrix->MAPROWNUM * m_cellSize) / 2;
+    }
+
+    // 绘制底色背景
+  /*  painter.fillRect(offsetX, offsetY,
+                    matrix->MAPCOLNUM * m_cellSize,
+                    matrix->MAPROWNUM * m_cellSize,
+                    QColor(200, 200, 200));
+*/
+    // 修改宝石绘制逻辑
+    for (int i = 0; i < matrix->MAPROWNUM; i++) {
+        for (int j = 0; j < matrix->MAPCOLNUM; j++) {
+            int num = matrix->GetNum(i, j);
+            if (num <= 0 || num > 8) continue;
+            
+            QRect destRect(
+                offsetX + j * m_cellSize,
+                offsetY + i * m_cellSize,
+                m_cellSize - 2,
+                m_cellSize - 2
+            );
+            
+            // 直接绘制原始图片
+            if (!pixmap_gem[num - 1].isNull()) {
+                painter.drawPixmap(destRect, pixmap_gem[num - 1]);
+            }
+
+            // 绘制选中框
+            if (isSelected[i][j] && !pixmap_di.isNull()) {
+                painter.drawPixmap(destRect, pixmap_di);
+            }
+
+            // 绘制消除动画效果
+            if (midSituation[i][j] > 0) {
+                const QPixmap* effectPixmap = nullptr;
+                switch(midSituation[i][j]) {
+                    case 1: effectPixmap = &disappear1; break;
+                    case 2: effectPixmap = &disappear2; break;
+                    case 3: effectPixmap = &disappear3; break;
+                }
+                
+                if (effectPixmap && !effectPixmap->isNull()) {
+                    painter.drawPixmap(destRect, *effectPixmap);
+                    
+                    if (midSituation[i][j] == 3) {
+                        // 加分动画
+                        if (addScoreSituation >= 0 && addScoreSituation <= 9) {
+                            int x = scoreOffsetX + j * m_cellSize + (addScoreSituation + 1) * scoreStep;
+                            int y = scoreOffsetY + i * m_cellSize - (addScoreSituation + 1) * scoreStep;
+                            // 只在确认数字图片存在时绘制
+                            if (!number[1].isNull()) {
+                                painter.drawPixmap(x, y, 10, 20, number[1]);
+                                if (!number[0].isNull()) {
+                                    painter.drawPixmap(x + 20, y, 10, 20, number[0]);
+                                }
+                            }
+                        }
+                        midSituation[i][j] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // 绘制计分板
+    QString scoreStr = m_isOpponent ? 
+        QString::number(m_opponentScores[m_playerName]) : 
+        QString::number(m_playerScore);
+
+    // 绘制分数时检查图片有效性
+    for (int i = 0; i < scoreStr.length(); i++) {
+        int digit = scoreStr[i].digitValue();
+        if (digit >= 0 && digit < 10 && !number[digit].isNull()) {
+            painter.drawPixmap(200 + i * 25, 0, 25, 50, number[digit]);
+        }
+    }
+
+    // 如果是对手实例，绘制玩家名称
+    if (m_isOpponent) {
+        painter.setPen(Qt::black);
+        painter.setFont(QFont("Arial", 14, QFont::Bold));
+        painter.drawText(rect(), Qt::AlignTop | Qt::AlignHCenter, m_playerName);
+    }
+    
+    painting = false;
 }
 
 void BattleGame::drawMatrix(QPainter& painter, const NumMatrix* matrix, bool) {
@@ -152,62 +292,91 @@ void BattleGame::drawNumber(QPainter& painter, int x, int y, int number, bool is
 }
 
 QPoint BattleGame::screenToBoard(int x, int y, bool& isOpponentBoard) {
-    // 计算棋盘区域的起始位置
-    int offsetX = (width() - m_playerMatrix->MAPCOLNUM * CELL_SIZE) / 2;
-    int offsetY = (height() - m_playerMatrix->MAPROWNUM * CELL_SIZE) / 2;
+    int offsetX = m_isOpponent ? (width() - m_playerMatrix->MAPCOLNUM * m_cellSize) / 2 : OFFSET_X;
+    int offsetY = m_isOpponent ? (height() - m_playerMatrix->MAPROWNUM * m_cellSize) / 2 : OFFSET_Y;
     
-    // 转换为相对于棋盘左上角的坐标
     int relX = x - offsetX;
     int relY = y - offsetY;
     
-    // 验证点击是否在棋盘范围内
     if (relX < 0 || relY < 0 || 
-        relX >= m_playerMatrix->MAPCOLNUM * CELL_SIZE || 
-        relY >= m_playerMatrix->MAPROWNUM * CELL_SIZE) {
+        relX >= m_playerMatrix->MAPCOLNUM * m_cellSize || 
+        relY >= m_playerMatrix->MAPROWNUM * m_cellSize) {
         return QPoint(-1, -1);
     }
     
-    // 计算对应的棋盘格子位置
-    int boardX = relX / CELL_SIZE;
-    int boardY = relY / CELL_SIZE;
-    
-    isOpponentBoard = false;  // 当前版本不考虑对手棋盘
-    return QPoint(boardX, boardY);
+    return QPoint(relX / m_cellSize, relY / m_cellSize);
 }
 
 void BattleGame::mousePressEvent(QMouseEvent* event) {
-    if (!m_gameStarted) {
-        qDebug() << "Game not started, ignoring click";
+    if (!m_gameStarted || m_animationInProgress.loadAcquire()) {
         return;
     }
 
-    bool isOpponentBoard;
-    QPoint boardPos = screenToBoard(event->pos().x(), event->pos().y(), isOpponentBoard);
+    // 计算点击位置（使用新的布局参数）
+    int xx = event->pos().x() - OFFSET_X;
+    int yy = event->pos().y() - OFFSET_Y;
+
+    // 修改坐标计算方式
+    int focus_y = xx / m_cellSize;
+    int focus_x = yy / m_cellSize;
+
+    qDebug() << "Raw coordinates:" << xx << "," << yy;
+    qDebug() << "Cell size:" << m_cellSize;
+    qDebug() << "Matrix size:" << m_playerMatrix->MAPROWNUM << "x" << m_playerMatrix->MAPCOLNUM;
+
+    // 检查边界
+    if(focus_x < 0 || focus_x >= m_playerMatrix->MAPROWNUM ||
+       focus_y < 0 || focus_y >= m_playerMatrix->MAPCOLNUM) {
+        qDebug() << "Out of bounds click";
+        return;
+    }
+
+    qDebug() << "Click at matrix position:" << focus_x << "," << focus_y;
+
+    // 处理第一次点击
+    if(focus == 0) {
+        memset(isSelected, 0, sizeof(isSelected));
+        point.setX(focus_x);
+        point.setY(focus_y);
+        isSelected[focus_x][focus_y] = true;
+        qDebug() << "First click - Selected position:" << focus_x << "," << focus_y;
+        focus = 1;
+        update();
+        return;
+    }
+
+    // 处理第二次点击
+    int x = point.x();
+    int y = point.y();
     
-    if (boardPos.x() < 0 || boardPos.y() < 0) {
-        qDebug() << "Invalid click position";
-        return;
-    }
-
-    qDebug() << "Mouse click at board position:" << boardPos.x() << "," << boardPos.y();
-
-    if (!m_hasSelected) {
-        m_selectedX = boardPos.x();
-        m_selectedY = boardPos.y();
-        m_hasSelected = true;
-        qDebug() << "First selection at:" << m_selectedX << "," << m_selectedY;
-    } else {
-        // 确保交换的是相邻的宝石
-        if ((std::abs(boardPos.x() - m_selectedX) == 1 && boardPos.y() == m_selectedY) ||
-            (std::abs(boardPos.y() - m_selectedY) == 1 && boardPos.x() == m_selectedX)) {
-            
-            // 注意：swap函数参数顺序是(row1, col1, row2, col2)
-            if (m_playerMatrix->swap(m_selectedY, m_selectedX, boardPos.y(), boardPos.x())) {
-                handleEliminationAndDrop();
-            }
+    // 检查是否相邻
+    if ((focus_x == x && abs(focus_y - y) == 1) ||
+        (focus_y == y && abs(focus_x - x) == 1)) {
+        
+        qDebug() << "Attempting swap between (" << x << "," << y << ") and ("
+                 << focus_x << "," << focus_y << ")";
+        
+        // 尝试交换
+        if (m_playerMatrix->swap(x, y, focus_x, focus_y)) {
+            qDebug() << "Swap successful, handling elimination";
+            handleEliminationAndDrop();
+        } else {
+            qDebug() << "Swap failed - no valid elimination possible";
         }
-        m_hasSelected = false;
+        
+        focus = 0;  // 重置选中状态
+    } else {
+        // 不相邻，更新选中位置
+        memset(isSelected, 0, sizeof(isSelected));
+        point.setX(focus_x);
+        point.setY(focus_y);
+        isSelected[focus_x][focus_y] = true;
+        focus = 1;
+        qDebug() << "Not adjacent - new selection at:" << focus_x << "," << focus_y;
     }
+
+    // 发送更新到服务器
+    sendMatrixUpdate();
     update();
 }
 
@@ -368,64 +537,288 @@ void BattleGame::sendMatrixUpdate()
     m_client->sendMessage("MATRIX_SYNC", jsonStr);
 }
 
-QPoint BattleGame::boardToScreen(int x, int y, bool) {
-    // 计算棋盘区域的起始位置
-    int offsetX = (width() - m_playerMatrix->MAPCOLNUM * CELL_SIZE) / 2;
-    int offsetY = (height() - m_playerMatrix->MAPROWNUM * CELL_SIZE) / 2;
+QPoint BattleGame::boardToScreen(int x, int y, bool isOpponentBoard) {
+    int offsetX = isOpponentBoard ? 
+        (width() - m_playerMatrix->MAPCOLNUM * m_cellSize) / 2 : OFFSET_X;
+    int offsetY = isOpponentBoard ? 
+        (height() - m_playerMatrix->MAPROWNUM * m_cellSize) / 2 : OFFSET_Y;
     
-    // 转换为屏幕坐标
     return QPoint(
-        offsetX + x * CELL_SIZE,
-        offsetY + y * CELL_SIZE
+        offsetX + x * m_cellSize,
+        offsetY + y * m_cellSize
     );
 }
-
+/*
 void BattleGame::handleEliminationAndDrop() {
-    bool continueChecking = true;
-    while (continueChecking) {
-        continueChecking = false;
-        if (m_playerMatrix->eliminate()) {
-            m_playerScore += 10;
-            updateScore();
-            
-            // 执行下落
-            while (m_playerMatrix->down()) {
-                update();
-                QApplication::processEvents();  // 允许界面更新
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    static QMutex animationMutex;
+    QMutexLocker locker(&animationMutex);
+
+    // 检查状态
+    if (!m_resourcesLoaded || !m_playerMatrix || m_animationInProgress.loadAcquire()) {
+        return;
+    }
+
+    m_animationInProgress.storeRelease(true);
+    m_totalEliminateCount = 0;
+
+    try {
+        bool hasMoreEliminations;
+        do {
+            hasMoreEliminations = false;
+
+            // 执行一次消除循环
+            if (m_playerMatrix->eliminate(false)) {
+                int eliminateNumber = 0;
+                QVector<QPair<int, int>> eliminatedCells;
+
+                {
+                    QMutexLocker matrixLocker(&m_resourceMutex);
+                    memset(midSituation, 0, sizeof(midSituation));
+
+                    // 收集需要消除的位置
+                    for (int i = 0; i < m_playerMatrix->MAPROWNUM; i++) {
+                        for (int j = 0; j < m_playerMatrix->MAPCOLNUM; j++) {
+                            if (m_playerMatrix->GetNum(i, j) == 0) {
+                                eliminateNumber++;
+                                eliminatedCells.append({i, j});
+                                midSituation[i][j] = 1;
+                            }
+                        }
+                    }
+                }
+
+                if (eliminateNumber > 0) {
+                    m_totalEliminateCount += eliminateNumber;
+                    m_playerScore += eliminateNumber * 10;
+
+                    // 执行消除动画
+                    for (int stage = 1; stage <= 3 && !eliminatedCells.isEmpty(); stage++) {
+                        handleAnimationStage(stage, eliminatedCells);
+                        QThread::msleep(ANIMATION_DELAY);  // 延迟以实现平滑动画效果
+                    }
+
+                    // 执行下落
+                    bool hasDropped;
+                    do {
+                        {
+                            QMutexLocker matrixLocker(&m_resourceMutex);
+                            hasDropped = m_playerMatrix->down();
+                        }
+
+                        if (hasDropped) {
+                            safeUpdate();
+                            QThread::msleep(ANIMATION_DELAY);  // 延迟以实现平滑动画效果
+                        }
+                    } while (hasDropped);
+
+                    hasMoreEliminations = m_playerMatrix->checkmap();
+                }
             }
-            
-            // 继续检查是否还有可以消除的
-            continueChecking = true;
+        } while (hasMoreEliminations);
+
+        // 所有消除完成后处理连消奖励
+        if (m_totalEliminateCount >= 5) {
+            handleComboBonus();
+        }
+
+        // 所有操作完成后才发送一次更新
+        QTimer::singleShot(100, this, [this]() {
+            sendMatrixUpdate();
+        });
+
+    } catch (const std::exception& e) {
+        qDebug() << "Exception in handleEliminationAndDrop:" << e.what();
+    }
+
+    m_animationInProgress.storeRelease(false);
+}
+*/
+
+void BattleGame::handleEliminationAndDrop()
+{
+    const int ANIMATION_DELAY = 50;
+    bool hasMoreEliminations;
+    int eliminateNumber = 0;
+    do {
+        hasMoreEliminations = false;
+
+
+        // 第一步：检查并标记需要消除的宝石
+        {
+            QMutexLocker locker(&m_resourceMutex);
+            if (m_playerMatrix->eliminate(false)) {
+                for (int i = 0; i < m_playerMatrix->MAPROWNUM; i++) {
+                    for (int j = 0; j < m_playerMatrix->MAPCOLNUM; j++) {
+                        if (m_playerMatrix->GetNum(i, j) == 0) {
+                            eliminateNumber++;
+                            midSituation[i][j] = 1;
+                        }
+                    }
+                }
+                hasMoreEliminations = true;
+            }
+        }
+
+        if (eliminateNumber > 0) {
+            m_playerScore += eliminateNumber * 1;//对战模式一个一分
+
+            // 三阶段消除动画
+            for (int stage = 1; stage <= 3; stage++) {
+                {
+                    for (int i = 0; i < m_playerMatrix->MAPROWNUM; i++) {
+                        for (int j = 0; j < m_playerMatrix->MAPCOLNUM; j++) {
+                            if (m_playerMatrix->GetNum(i, j) == 0) {
+                                midSituation[i][j] = stage;
+                            }
+                        }
+                    }
+                }
+                update();
+                this->repaint();
+                QThread::msleep(ANIMATION_DELAY);
+            }
+
+            // 处理下落效果
+            bool hasDropped;
+            do {
+                hasDropped = false;
+                {
+                    hasDropped = m_playerMatrix->down();
+                }
+                if (hasDropped) {
+                    update();
+                    this->repaint();
+                    QThread::msleep(ANIMATION_DELAY);
+                }
+            } while (hasDropped);
+        }
+    } while (hasMoreEliminations);
+
+    // 下落动画
+    while (m_playerMatrix->down()) {
+        this->repaint();
+        std::this_thread::sleep_for(std::chrono::milliseconds(40));
+    }
+
+    m_hasSelected = false;
+    update();  // 重绘以清除选中效果
+
+    //音效
+    if (eliminateNumber >= 5) {
+        if (eliminateNumber == 5) {
+          //  m_playerScore += 50;
+            playSoundEffect(greatSound);
+        }
+        else if (eliminateNumber <= 8) {
+           // m_playerScore += 100;
+            playSoundEffect(excellentSound);
+        }
+        else if (eliminateNumber <= 11) {
+           // m_playerScore += 200;
+            playSoundEffect(amazingSound);
+        }
+        else {
+           // m_playerScore += 500;
+            playSoundEffect(unbelievableSound);
+        }
+    }
+    // 发送更新
+    QTimer::singleShot(100, this, [this]() {
+        sendMatrixUpdate();
+    });
+}
+
+void BattleGame::handleAnimationStage(int stage, QVector<QPair<int, int>>& eliminatedCells) {
+    QMutexLocker matrixLocker(&m_resourceMutex);
+    
+    for (const auto& cell : eliminatedCells) {
+        if (m_playerMatrix->GetNum(cell.first, cell.second) == 0) {
+            midSituation[cell.first][cell.second] = stage;
         }
     }
     
-    // 发送更新到服务器
-    sendMatrixUpdate();
+    safeUpdate();
+    QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+    QThread::msleep(ANIMATION_DELAY);
+}
+
+void BattleGame::handleComboBonus() {
+    QMutexLocker locker(&m_resourceMutex);
+    
+    int bonusScore = 0;
+    QMediaPlayer* soundEffect = nullptr;
+
+    if (m_totalEliminateCount == 5) {
+        bonusScore = 50;
+        soundEffect = greatSound;
+    } else if (m_totalEliminateCount <= 8) {
+        bonusScore = 100;
+        soundEffect = excellentSound;
+    } else if (m_totalEliminateCount <= 11) {
+        bonusScore = 200;
+        soundEffect = amazingSound;
+    } else {
+        bonusScore = 500;
+        soundEffect = unbelievableSound;
+    }
+
+    if (bonusScore > 0) {
+        m_playerScore += bonusScore;
+        addScoreSituation = 9;
+        
+        // 使用定时器延迟播放音效
+        if (soundEffect) {
+            QTimer::singleShot(0, this, [this, soundEffect]() {
+                playSoundEffect(soundEffect);
+            });
+        }
+        
+        // 使用定时器延迟更新分数显示
+        QTimer::singleShot(0, this, [this]() {
+            updateScore();
+        });
+    }
+}
+
+// 修改update方法，添加更多的状态检查
+void BattleGame::safeUpdate() {
+    if (!m_resourcesLoaded || m_animationInProgress.loadAcquire()) {
+        return;
+    }
+    
+    QMutexLocker locker(&m_updateMutex);
+    update();
 }
 
 void BattleGame::updateScore() {
+    // 更新UI上的分数标签
     m_playerScoreLabel->setText(QString("Your Score: %1").arg(m_playerScore));
+    
+    // 触发重绘,确保分数动画显示
+    addScoreSituation = 0;  // 重置分数动画状态
     
     // 发送分数更新
     QJsonObject scoreData;
     scoreData["score"] = m_playerScore;
     QJsonDocument scoreDoc(scoreData);
     m_client->sendMessage("SCORE_SYNC", QString::fromUtf8(scoreDoc.toJson()));
+    
+    update();  // 触发重绘
 }
 
 void BattleGame::onRefreshTimeout() {
     if (m_gameStarted) {
-        // 更新动画状态
- //       updateAnimations();
-        update();  // 触发重绘
+        if (addScoreSituation > 0) {
+            addScoreSituation--;
+            update();  // 更新分数动画
+        }
+        update();
     }
 }
 
 void BattleGame::executeSwapAnimation(int fromX, int fromY, int toX, int toY) {
-    // 创建动画效果
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "geometry");
-    animation->setDuration(300); // 300ms的动画时长
+    auto* animation = new QPropertyAnimation(this, "geometry");
+    animation->setDuration(40);
     animation->setStartValue(boardToScreen(fromX, fromY, false));
     animation->setEndValue(boardToScreen(toX, toY, false));
     
@@ -434,8 +827,18 @@ void BattleGame::executeSwapAnimation(int fromX, int fromY, int toX, int toY) {
     m_playerMatrix->SetNum(fromY, fromX, m_playerMatrix->GetNum(toY, toX));
     m_playerMatrix->SetNum(toY, toX, temp);
     
-    animation->start(QAbstractAnimation::DeleteWhenStopped);
+    // 将动画添加到活跃动画列表中
+    m_activeAnimations.append(animation);
+    
+    // 连接动画完成信号，在完成时清理
+    connect(animation, &QPropertyAnimation::finished, this, [this, animation]() {
+        m_activeAnimations.removeOne(animation);
+        animation->deleteLater();
+    });
+    
+    animation->start();
 }
+
 
 
 void BattleGame::handleMessage(const QString& type, const QString& data) 
@@ -483,60 +886,114 @@ void BattleGame::updateOpponentMatrix(const QJsonObject& data)
     if (!m_isOpponent) return;
 
     QString username = data["username"].toString();
-    int score = data["score"].toInt();
-    
+    if (username.isEmpty()) {
+        qDebug() << "Invalid username in matrix update";
+        return;
+    }
+
     // 确保对手矩阵存在
+    NumMatrix* matrix = nullptr;
     if (!m_opponentMatrices.contains(username)) {
-        setIsOpponent(true, username);
+        // 创建新的矩阵
+        matrix = new NumMatrix();
+        matrix->setMapSize(7, 7);
+        m_opponentMatrices[username] = matrix;
+        m_opponentScores[username] = 0;
+        qDebug() << "Created new matrix for opponent:" << username;
+    } else {
+        matrix = m_opponentMatrices[username];
     }
-    
-    // 更新对手矩阵数据
-    NumMatrix* matrix = m_opponentMatrices[username];
+
+    // 安全检查
+    if (!matrix) {
+        qDebug() << "Matrix is null for opponent:" << username;
+        return;
+    }
+
+    // 获取分数
+    int newScore = data["score"].toInt();
+    m_opponentScores[username] = newScore;
+
+    // 更新矩阵数据
     QJsonArray jsonMatrix = data["matrix"].toArray();
-    for (int i = 0; i < matrix->MAPROWNUM; ++i) {
-        QJsonArray row = jsonMatrix[i].toArray();
-        for (int j = 0; j < matrix->MAPCOLNUM; ++j) {
-            matrix->SetNum(i, j, row[j].toInt());
+    if (jsonMatrix.size() != matrix->MAPROWNUM) {
+        qDebug() << "Matrix size mismatch. Expected:" << matrix->MAPROWNUM 
+                 << "Got:" << jsonMatrix.size();
+        return;
+    }
+
+    try {
+        for (int i = 0; i < matrix->MAPROWNUM; ++i) {
+            QJsonArray row = jsonMatrix[i].toArray();
+            if (row.size() != matrix->MAPCOLNUM) {
+                qDebug() << "Row size mismatch at row" << i;
+                continue;
+            }
+            for (int j = 0; j < matrix->MAPCOLNUM; ++j) {
+                matrix->SetNum(i, j, row[j].toInt());
+            }
         }
+    } catch (const std::exception& e) {
+        qDebug() << "Exception during matrix update:" << e.what();
+        return;
     }
     
-    // 更新分数
-    m_opponentScores[username] = score;
-    updateScoreDisplay(username, score);
-    
+    // 更新显示
+    updateScoreDisplay(username, newScore);
     update();
+    qDebug() << "Successfully updated matrix for:" << username;
 }
 
-void BattleGame::updateScoreDisplay(const QString& playerName, int score)
-{
-    if (m_scoreLabels.contains(playerName)) {
-        m_scoreLabels[playerName]->setText(
-            tr("%1的分数: %2").arg(playerName).arg(score)
-        );
+void BattleGame::updateScoreDisplay(const QString& playerName, int score) {
+    if (playerName.isEmpty()) return;
+    
+    if (m_isOpponent) {
+        if (m_statusLabel) {
+            QString displayText = tr("%1: %2").arg(playerName).arg(score);
+            m_statusLabel->setText(displayText);
+        }
     }
+    update();
 }
 
 void BattleGame::setIsOpponent(bool isOpponent, const QString& opponentName) 
 { 
+    if (opponentName.isEmpty()) {
+        qDebug() << "Empty opponent name!";
+        return;
+    }
+
     m_isOpponent = isOpponent;
+    m_playerName = opponentName;
+
     if (m_isOpponent) {
-        m_playerName = opponentName;
-        // 为新对手创建矩阵
-        if (!m_opponentMatrices.contains(opponentName)) {
-            NumMatrix* matrix = new NumMatrix();
-            matrix->setMapSize(7, 7);
-            m_opponentMatrices[opponentName] = matrix;
-            
-            // 创建分数标签
-            QLabel* scoreLabel = new QLabel(this);
-            scoreLabel->setStyleSheet("QLabel { color: black; font-size: 12px; }");
-            m_scoreLabels[opponentName] = scoreLabel;
-            m_opponentScores[opponentName] = 0;
-            updateScoreDisplay(opponentName, 0);
+        try {
+            // 为新对手创建矩阵
+            if (!m_opponentMatrices.contains(opponentName)) {
+                NumMatrix* matrix = new NumMatrix();
+                if (!matrix->setMapSize(7, 7)) {
+                    qDebug() << "Failed to set matrix size for:" << opponentName;
+                    delete matrix;
+                    return;
+                }
+                m_opponentMatrices[opponentName] = matrix;
+                m_opponentScores[opponentName] = 0;
+            }
+
+            // 更新状态标签
+            if (m_statusLabel) {
+                m_statusLabel->setText(opponentName);
+            }
+
+            qDebug() << "Successfully set up opponent:" << opponentName;
+        } catch (const std::exception& e) {
+            qDebug() << "Exception in setIsOpponent:" << e.what();
+            return;
         }
     }
+
     update();
-    qDebug() << "设置对手模式:" << m_isOpponent << "对手名称:" << opponentName;
+    qDebug() << "Set opponent mode:" << m_isOpponent << "Name:" << opponentName;
 }
 
 void BattleGame::drawGems(QPainter& painter)
@@ -593,3 +1050,171 @@ void BattleGame::drawGems(QPainter& painter)
             tr("%1的分数: %2").arg(m_playerName).arg(m_opponentScores[m_playerName]));
     }
 }
+
+void BattleGame::updateGemTheme(QString path) {
+    QMutexLocker locker(&m_resourceMutex);
+    QString actualPrefix = ":/res/images/";
+
+    // 清理现有资源
+    for (int i = 0; i < 8; ++i) {
+        pixmap_gem[i] = QPixmap();
+    }
+    pixmap_di = QPixmap();
+    disappear1 = QPixmap();
+    disappear2 = QPixmap();
+    disappear3 = QPixmap();
+    for (int i = 0; i < 10; ++i) {
+        number[i] = QPixmap();
+    }
+
+    bool loadSuccess = true;
+    
+    // 加载所有资源
+    for (int i = 0; i < 8; ++i) {
+        QString gemPath = actualPrefix + "a" + QString::number(i + 1) + ".png";
+        if (!pixmap_gem[i].load(gemPath)) {
+            qDebug() << "Failed to load gem:" << gemPath;
+            loadSuccess = false;
+        }
+    }
+
+    if (!pixmap_di.load(actualPrefix + "select.png")) {
+        qDebug() << "Failed to load select frame";
+        loadSuccess = false;
+    }
+
+    if (!disappear1.load(actualPrefix + "tx1.png") ||
+        !disappear2.load(actualPrefix + "tx2.png") ||
+        !disappear3.load(actualPrefix + "tx3.png")) {
+        qDebug() << "Failed to load effect images";
+        loadSuccess = false;
+    }
+
+    for (int i = 0; i < 10; ++i) {
+        QString numPath = actualPrefix + "number" + QString::number(i) + ".png";
+        if (!number[i].load(numPath)) {
+            qDebug() << "Failed to load number:" << numPath;
+            loadSuccess = false;
+        }
+    }
+
+    m_resourcesLoaded = loadSuccess;
+    if (!loadSuccess) {
+        QMessageBox::critical(this, "错误", "部分资源加载失败，请检查资源文件！");
+    }
+}
+
+void BattleGame::drawGemWithEffects(QPainter& painter, int i, int j, int num) {
+    if (!m_resourcesLoaded) return;
+    
+    QPoint pos = boardToScreen(j, i, false);
+    
+    // 防御性检查
+    if (num <= 0 || num > 8 || pixmap_gem[num - 1].isNull()) {
+        qDebug() << "无效的宝石编号或空图片:" << num << "在位置" << i << "," << j;
+        // 绘制占位符
+        painter.fillRect(QRect(pos.x(), pos.y(), m_cellSize, m_cellSize), Qt::gray);
+        painter.setPen(Qt::black);
+        painter.drawText(QRect(pos.x(), pos.y(), m_cellSize, m_cellSize), 
+                        Qt::AlignCenter, QString::number(num));
+        return;
+    }
+
+    // 绘制宝石
+    painter.drawPixmap(pos.x(), pos.y(), m_cellSize, m_cellSize, pixmap_gem[num - 1]);
+
+    // 绘制选择框
+    if (isSelected[i][j] && !pixmap_di.isNull()) {
+        painter.drawPixmap(pos.x(), pos.y(), m_cellSize, m_cellSize, pixmap_di);
+    }
+
+    // 绘制特效
+    if (midSituation[i][j] > 0) {
+        const QPixmap* effect = nullptr;
+        switch(midSituation[i][j]) {
+            case 1: effect = &disappear1; break;
+            case 2: effect = &disappear2; break;
+            case 3: effect = &disappear3; break;
+        }
+        
+        if (effect && !effect->isNull()) {
+            painter.drawPixmap(pos.x(), pos.y(), m_cellSize, m_cellSize, *effect);
+        }
+    }
+}
+
+void BattleGame::setupAudioSystem() {
+    effectAudioOutput = new QAudioOutput(this);
+    effectAudioOutput->setVolume(0.5f);
+}
+
+void BattleGame::initSoundEffects() {
+    // 初始化音效播放器
+    greatSound = new QMediaPlayer(this);
+    excellentSound = new QMediaPlayer(this);
+    amazingSound = new QMediaPlayer(this);
+    unbelievableSound = new QMediaPlayer(this);
+    
+    // 设置音频输出
+    greatSound->setAudioOutput(new QAudioOutput(this));
+    excellentSound->setAudioOutput(new QAudioOutput(this));
+    amazingSound->setAudioOutput(new QAudioOutput(this));
+    unbelievableSound->setAudioOutput(new QAudioOutput(this));
+    
+    // 设置音源
+    greatSound->setSource(QUrl("qrc:/res/audio/great.mp3"));
+    excellentSound->setSource(QUrl("qrc:/res/audio/excellent.mp3"));
+    amazingSound->setSource(QUrl("qrc:/res/audio/amazing.mp3"));
+    unbelievableSound->setSource(QUrl("qrc:/res/audio/unbelievable.mp3"));
+}
+
+void BattleGame::playSoundEffect(QMediaPlayer* effect) {
+    if (!effect || !effectAudioOutput) return;
+    
+    if (effect->playbackState() == QMediaPlayer::PlayingState) {
+        effect->setPosition(0);
+    }
+    effect->play();
+}
+
+void BattleGame::updateBackgroundMusic(float volume) {
+    // 如果使用了Setup类中的静态音频输出
+    if (Setup::audioOutput) {
+        Setup::audioOutput->setVolume(volume);
+    }
+    
+    // 同时更新特效音量
+    if (effectAudioOutput) {
+        effectAudioOutput->setVolume(volume);
+    }
+}
+
+void BattleGame::updateMuteState(bool muted) {
+    // 如果使用了Setup类中的静态音频输出
+    if (Setup::audioOutput) {
+        Setup::audioOutput->setMuted(muted);
+    }
+
+    
+    // 同时更新特效静音状态
+    if (effectAudioOutput) {
+        effectAudioOutput->setMuted(muted);
+    }
+    
+    // 更新所有音效播放器的静音状态
+    if (greatSound) greatSound->audioOutput()->setMuted(muted);
+    if (excellentSound) excellentSound->audioOutput()->setMuted(muted);
+    if (amazingSound) amazingSound->audioOutput()->setMuted(muted);
+    if (unbelievableSound) unbelievableSound->audioOutput()->setMuted(muted);
+}
+
+void BattleGame::updateMapSize(int rows, int cols) {
+    if (m_playerMatrix && m_playerMatrix->setMapSize(rows, cols)) {
+        // 重新计算单元格大小
+        m_cellSize = GAME_AREA_WIDTH / cols;
+        m_playerMatrix->BuildMap(5);  // 重新生成地图
+        update();
+    }
+}
+
+

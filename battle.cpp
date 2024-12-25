@@ -66,6 +66,55 @@ void Battle::setupUI()
     ui->opponentsContainer->setLayout(opponentsLayout);
     m_opponentsLayout = opponentsLayout;
     
+    // 设置音频控制组件
+    audioWidget = new QWidget(this);
+    audioWidget->setObjectName("audioWidget");
+    audioWidget->setGeometry(QRect(250, 20, 291, 120));
+    
+    verticalLayout_audio = new QVBoxLayout(audioWidget);
+    verticalLayout_audio->setObjectName("verticalLayout_audio");
+    verticalLayout_audio->setContentsMargins(0, 0, 0, 0);
+    
+    // 背景音乐控制
+    horizontalLayout_bgm = new QHBoxLayout();
+    horizontalLayout_bgm->setObjectName("horizontalLayout_bgm");
+    
+    label_bgm = new QLabel(audioWidget);
+    label_bgm->setObjectName("label_bgm");
+    label_bgm->setText(tr("背景音乐"));
+    horizontalLayout_bgm->addWidget(label_bgm);
+    
+    bgmSlider = new QSlider(audioWidget);
+    bgmSlider->setObjectName("bgmSlider");
+    bgmSlider->setOrientation(Qt::Horizontal);
+    bgmSlider->setRange(0, 100);
+    bgmSlider->setValue(50);  // 默认音量50%
+    horizontalLayout_bgm->addWidget(bgmSlider);
+    
+    verticalLayout_audio->addLayout(horizontalLayout_bgm);
+    
+    // 音效控制
+    horizontalLayout_effect = new QHBoxLayout();
+    horizontalLayout_effect->setObjectName("horizontalLayout_effect");
+    
+    label_effect = new QLabel(audioWidget);
+    label_effect->setObjectName("label_effect");
+    label_effect->setText(tr("音效"));
+    horizontalLayout_effect->addWidget(label_effect);
+    
+    effectSlider = new QSlider(audioWidget);
+    effectSlider->setObjectName("effectSlider");
+    effectSlider->setOrientation(Qt::Horizontal);
+    effectSlider->setRange(0, 100);
+    effectSlider->setValue(50);  // 默认音量50%
+    horizontalLayout_effect->addWidget(effectSlider);
+    
+    verticalLayout_audio->addLayout(horizontalLayout_effect);
+
+    // 连接信号槽
+    connect(bgmSlider, &QSlider::valueChanged, this, &Battle::on_bgmSlider_valueChanged);
+    connect(effectSlider, &QSlider::valueChanged, this, &Battle::on_effectSlider_valueChanged);
+    
     qDebug() << "战斗界面初始化完成";
 }
 
@@ -259,4 +308,20 @@ void Battle::handleMessage(const QString& type, const QString& data)
         }
     }
     // ...existing code...
+}
+
+void Battle::on_bgmSlider_valueChanged(int value)
+{
+    float volume = value / 100.0f;
+    if (m_playerGame) {
+        m_playerGame->updateBackgroundMusic(volume);
+    }
+}
+
+void Battle::on_effectSlider_valueChanged(int value)
+{
+    float volume = value / 100.0f;
+    if (m_playerGame) {
+        m_playerGame->updateMuteState(value == 0);  // 当音量为0时静音
+    }
 }
