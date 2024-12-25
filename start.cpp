@@ -182,8 +182,8 @@ void Start::on_btn_battle_clicked()
 {
     if (!m_client->isConnected()) {
         // 尝试连接服务器
-        m_client->connectToServer("localhost", 5371);
-        // m_client->connectToServer("cn-hk-bgp-4.ofalias.net", 26493); // 线上服务器
+        //m_client->connectToServer("localhost", 5371);
+         m_client->connectToServer("cn-hk-bgp-4.ofalias.net", 49548); // 线上服务器
     }
 
     if (!battle) {

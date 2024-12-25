@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>687</width>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,52 +33,11 @@ color: rgb(85, 85, 255);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QScrollArea" name="scrollArea">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>250</y>
-     <width>341</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>18</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout"/>
-   </widget>
-  </widget>
-  <widget class="QWidget" name="levelGroup_1" native="true">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>80</y>
-     <width>151</width>
-     <height>51</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QWidget" name="bottomInfo" native="true">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>160</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_back">
    <property name="geometry">
     <rect>
-     <x>504</x>
-     <y>40</y>
+     <x>404</x>
+     <y>20</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -90,8 +49,8 @@ color: rgb(85, 85, 255);</string>
   <widget class="QPushButton" name="btn_reset">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>40</y>
+     <x>540</x>
+     <y>20</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -186,7 +145,7 @@ color: rgb(255, 0, 0);</string>
   <widget class="QPushButton" name="btn_level_1">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>350</x>
      <y>100</y>
      <width>75</width>
      <height>24</height>
@@ -199,8 +158,8 @@ color: rgb(255, 0, 0);</string>
   <widget class="QPushButton" name="btn_level_2">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>150</y>
+     <x>220</x>
+     <y>160</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -212,7 +171,7 @@ color: rgb(255, 0, 0);</string>
   <widget class="QPushButton" name="btn_level_3">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>140</x>
      <y>250</y>
      <width>75</width>
      <height>24</height>
@@ -225,8 +184,8 @@ color: rgb(255, 0, 0);</string>
   <widget class="QPushButton" name="btn_level_4">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>370</y>
+     <x>130</x>
+     <y>340</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -239,39 +198,13 @@ color: rgb(255, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>490</y>
+     <y>430</y>
      <width>75</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
     <string>第5关</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_lock_icon">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>280</y>
-     <width>30</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="pixmap">
-    <pixmap>:/images/lock.png</pixmap>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_completed_icon">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>370</y>
-     <width>30</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="pixmap">
-    <pixmap>:/images/completed.png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="label_hint">
@@ -294,8 +227,8 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <widget class="QPushButton" name="btn_level_6">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>520</y>
+     <x>360</x>
+     <y>500</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -307,8 +240,8 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <widget class="QPushButton" name="btn_level_7">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>490</y>
+     <x>510</x>
+     <y>430</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -320,8 +253,8 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <widget class="QPushButton" name="btn_level_8">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>380</y>
+     <x>590</x>
+     <y>340</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -333,7 +266,7 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <widget class="QPushButton" name="btn_level_9">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>570</x>
      <y>250</y>
      <width>75</width>
      <height>24</height>
@@ -346,8 +279,8 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <widget class="QPushButton" name="btn_level_10">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>150</y>
+     <x>490</x>
+     <y>160</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -357,6 +290,8 @@ font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>
