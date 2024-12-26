@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>293</width>
-    <height>365</height>
+    <width>500</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,10 +26,10 @@
    <widget class="QLineEdit" name="lineEdit_username">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>231</width>
-      <height>45</height>
+      <x>90</x>
+      <y>50</y>
+      <width>321</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -51,10 +51,10 @@ font: 10pt &quot;Candara&quot;;</string>
    <widget class="QLineEdit" name="lineEdit_password">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>90</y>
-      <width>231</width>
-      <height>45</height>
+      <x>90</x>
+      <y>160</y>
+      <width>321</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -79,10 +79,10 @@ font: 10pt &quot;Candara&quot;;</string>
    <widget class="QPushButton" name="btn_signin">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>160</y>
-      <width>231</width>
-      <height>41</height>
+      <x>90</x>
+      <y>270</y>
+      <width>321</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -92,8 +92,25 @@ font: 10pt &quot;Candara&quot;;</string>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 85, 255);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
     </property>
     <property name="text">
      <string>登录</string>
@@ -102,10 +119,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_signup">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>220</y>
-      <width>111</width>
-      <height>40</height>
+      <x>260</x>
+      <y>360</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -115,8 +132,25 @@ color: rgb(255, 255, 255);</string>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 85, 255);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
     </property>
     <property name="text">
      <string>注册</string>
@@ -125,11 +159,14 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_guestTip">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>280</y>
-      <width>231</width>
-      <height>71</height>
+      <x>90</x>
+      <y>460</y>
+      <width>321</width>
+      <height>101</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt &quot;Microsoft YaHei UI&quot;;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -138,15 +175,32 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_guest">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>220</y>
-      <width>111</width>
-      <height>41</height>
+      <x>90</x>
+      <y>360</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 85, 255);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
     </property>
     <property name="text">
      <string>游客登录</string>
