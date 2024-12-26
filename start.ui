@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>326</width>
-    <height>512</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QPushButton" name="btn_startToGame">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>170</y>
-      <width>181</width>
-      <height>71</height>
+      <x>270</x>
+      <y>140</y>
+      <width>261</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -32,7 +32,7 @@
     border: none;
     border-radius: 10px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 20px;
     font-weight: bold;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
@@ -54,18 +54,32 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_mainToRank">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>440</y>
-      <width>51</width>
+      <x>190</x>
+      <y>500</y>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-font: 700 9pt &quot;Microsoft YaHei UI&quot;;
-color: rgb(255, 255, 255);
- border: none;
-    border-radius: 10px;</string>
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
     </property>
     <property name="text">
      <string>排行榜</string>
@@ -76,7 +90,7 @@ color: rgb(255, 255, 255);
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>350</width>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
@@ -99,108 +113,10 @@ color: rgb(232, 5, 21);</string>
    <widget class="QPushButton" name="btn_help">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>50</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-color: rgb(255, 255, 255);
- border: none;
-    border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>帮助</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_about">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>20</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-color: rgb(255, 255, 255);
- border: none;
-    border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>关于</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_themeChange">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>440</y>
-      <width>51</width>
+      <x>650</x>
+      <y>90</y>
+      <width>71</width>
       <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-color: rgb(255, 255, 255);
-font: 700 9pt &quot;Microsoft YaHei UI&quot;;
- border: none;
-    border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>设置</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_chatRoom">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>440</y>
-      <width>51</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-color: rgb(255, 255, 255);
-font: 700 9pt &quot;Microsoft YaHei UI&quot;;
- border: none;
-    border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>聊天室</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_propShop">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>440</y>
-      <width>51</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(30, 144, 255);
-color: rgb(255, 255, 255);
-font: 700 9pt &quot;Microsoft YaHei UI&quot;;
- border: none;
-    border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>商城</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_level">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>260</y>
-      <width>181</width>
-      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -209,7 +125,177 @@ font: 700 9pt &quot;Microsoft YaHei UI&quot;;
     border: none;
     border-radius: 10px;
     color: white;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>帮助</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_about">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>40</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>关于</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_themeChange">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>500</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>设置</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_chatRoom">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>500</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>聊天室</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_propShop">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>500</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
+}
+
+QPushButton:hover {
+    background-color: #4682b4;
+}
+
+QPushButton:pressed {
+    background-color: #5f9ea0;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>商城</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_level">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>260</y>
+      <width>261</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #1e90ff; /* 按钮背景色 */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
     padding: 10px 20px;
     font-weight: bold;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
@@ -231,10 +317,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_battle">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>350</y>
-      <width>181</width>
-      <height>71</height>
+      <x>270</x>
+      <y>370</y>
+      <width>261</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -243,7 +329,7 @@ QPushButton:pressed {
     border: none;
     border-radius: 10px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 20px;
     font-weight: bold;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 模拟阴影 */
@@ -265,8 +351,8 @@ QPushButton:pressed {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>60</y>
+      <x>350</x>
+      <y>20</y>
       <width>101</width>
       <height>81</height>
      </rect>
@@ -290,8 +376,8 @@ QPushButton:pressed {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>120</y>
+      <x>290</x>
+      <y>80</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -313,7 +399,7 @@ color: rgb(255, 85, 127);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>326</width>
+     <width>800</width>
      <height>22</height>
     </rect>
    </property>

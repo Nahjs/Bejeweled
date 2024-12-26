@@ -167,6 +167,8 @@ private:
 
 protected:
     void mousePressEvent(QMouseEvent *event);
+    bool checkFourInRow(int eliminateNumber);
+    bool hasUsedProps();
     QPoint mousePos;            // 鼠标位置
 
     void initArrays();     // 添加初始化数组的辅助方法

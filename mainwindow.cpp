@@ -399,6 +399,12 @@ void Mainwindow::mousePressEvent(QMouseEvent *event)
                     }
                 }
                 eli_number += eliminateNumber;
+                if (checkFourInRow(eliminateNumber)) {
+                    // 触发四连消除的逻辑，比如提示用户或者增加分数
+                    qDebug() << "四连消除完成！";
+                    // 此处可以添加相应的奖励机制，比如给玩家加分、显示动画等
+                }
+
                 // 添加分数：普通消除每个宝石10分
                 Rank::g_rank.nGrade += eliminateNumber * 10;
                 string_grade = std::to_string(Rank::g_rank.nGrade);
@@ -541,6 +547,16 @@ void Mainwindow::mousePressEvent(QMouseEvent *event)
         numMatrix->point[1][0] = -1;
         numMatrix->point[1][1] = -1;
     }
+}
+
+bool Mainwindow::checkFourInRow(int eliminateNumber) {
+    // 判断是否存在四个及以上的连续消除
+    return eliminateNumber == 4;  // 假设`eliminateNumber`是每轮消除的宝石数
+}
+
+bool Mainwindow::hasUsedProps() {
+    // 检查是否有使用过道具
+    return props; // 如果props为true，说明有使用道具
 }
 
 void Mainwindow::do_btn_hint(){
@@ -1319,35 +1335,28 @@ void Mainwindow::setLevelConfig(int levelId, int targetScore, int time, int mapS
     }*/
 }
 
+
 void Mainwindow::checkLevelComplete()
 {
     int score = Rank::g_rank.nGrade;
     int stars = 0;
-    
-    // 更新星级
-    if(score >= levelTargetScore) {
-        stars = 1;  // 基本达标
-        if(score >= levelTargetScore * 1.2) {
-            stars = 2;  // 较好表现
-        }
-        if(score >= levelTargetScore * 1.5) {
-            stars = 3;  // 出色表现
-        }
-    }
+    bool specialConditionsMet = false; // 设置特殊条件是否满足
+    int levelId = currentLevelId; // 假设你已经有currentLevelId作为当前关卡ID
 
-     // 添加调试输出
+    // 调试输出
     qDebug() << "Debug values:"
              << "score:" << score
              << "stars:" << stars
              << "username:" << Login::currentUsername
-             << "levelId:" << currentLevelId;
-    
+             << "levelId:" << levelId;
+
+    // 创建查询对象
     QSqlQuery query;
     query.prepare("UPDATE user_progress SET "
-                 "highest_score = CASE WHEN ? > highest_score THEN ? ELSE highest_score END, "
-                 "stars = CASE WHEN ? > stars THEN ? ELSE stars END, "
-                 "completed = 1 "
-                 "WHERE username = ? AND level_id = ?");
+                  "highest_score = CASE WHEN ? > highest_score THEN ? ELSE highest_score END, "
+                  "stars = CASE WHEN ? > stars THEN ? ELSE stars END, "
+                  "completed = 1 "
+                  "WHERE username = ? AND level_id = ?");
 
     // 绑定参数
     query.addBindValue(score);
@@ -1355,34 +1364,60 @@ void Mainwindow::checkLevelComplete()
     query.addBindValue(stars);
     query.addBindValue(stars);
     query.addBindValue(Login::currentUsername);
-    query.addBindValue(currentLevelId);
+    query.addBindValue(levelId);
 
-    qDebug() << "绑定参数数量:" << query.boundValues().count();
-    
-    if(!query.exec()) {
+    // 执行查询
+    if (!query.exec()) {
         qDebug() << "SQL错误:" << query.lastError().text();
         qDebug() << "执行的SQL:" << query.lastQuery();
         return;
     }
-    
-    
+
     qDebug() << "更新成功,受影响行数:" << query.numRowsAffected();
 
 
 
+    // 判断每一关的通关条件，根据关卡ID设置不同的逻辑
+    if (currentLevelId == 1) {
+        // 第一关的特殊条件
+        specialConditionsMet = (score >= 250);  // 250分三颗星
+    }
+    else if (currentLevelId == 2) {
+        if (checkFourInRow(eliminateNumber)&&score>=500) {
+           specialConditionsMet=true;
+        }
+    }
+    else if (currentLevelId == 3) {
+        if (checkFourInRow(eliminateNumber)&&score>=800) {
+            specialConditionsMet=true;
+        }
+    }
+    // 继续添加其他关卡的特殊条件判断...
+
+    // 判断星级：分数条件
+    if (score >= levelTargetScore * 1.5 && specialConditionsMet) {
+        stars = 3;  // 达到得分条件且特殊条件满足，给予3星
+    }
+    else if (score >= levelTargetScore * 1.2) {
+        stars = 2;  // 达到得分条件的120%，给予2星
+    }
+    else if (score >= levelTargetScore) {
+        stars = 1;  // 达到得分条件，给予1星
+    }
 
     // 显示结算信息
     QString message;
-    if(stars > 0) {
+    if (stars > 0) {
         message = QString("恭喜通关！\n获得 %1 颗星！\n得分：%2\n目标分数：%3")
                  .arg(stars).arg(score).arg(levelTargetScore);
-    } else {
+    }
+    else {
         message = QString("未达到目标分数！\n得分：%1\n目标分数：%2")
                  .arg(score).arg(levelTargetScore);
     }
-    
+
     QMessageBox::information(this, "关卡结算", message);
-    
+
     // 停止游戏计时和音乐
     timer->stop();
     if (Setup::backgroundMusic) {
@@ -1391,7 +1426,7 @@ void Mainwindow::checkLevelComplete()
 
     // 重置游戏状态
     numMatrix->setgamerunning(false);
-    
+
     // 隐藏游戏窗口并发送信号返回关卡选择界面
     this->hide();
     emit gameToLevel();
