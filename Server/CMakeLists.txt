@@ -9,20 +9,16 @@ find_package(Qt6 REQUIRED COMPONENTS Core Network)
 # 添加源文件
 set(SOURCES
     main.cpp
-    chatserver.cpp
-    chatserver.h
-    gamemanager.cpp     # 添加游戏管理器
-    gamemanager.h
-    serverhandler.cpp   # 添加服务器处理器
-    serverhandler.h
+    server.cpp
+    server.h
     ../common/src/textmessage.cpp
     ../common/include/textmessage.h
     ../common/include/messagetypes.h
     ../common/include/messagedata.h
-    ../numMatrix.cpp    # 添加 NumMatrix 源文件
-    ../numMatrix.h      # 添加 NumMatrix 头文件
-    ../prop.cpp         # 添加道具源文件
-    ../prop.h           # 添加道具头文件
+    ../numMatrix.cpp
+    ../numMatrix.h
+    ../prop.cpp
+    ../prop.h
 )
 
 # 添加包含目录

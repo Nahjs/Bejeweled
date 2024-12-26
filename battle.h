@@ -9,7 +9,7 @@
 #include <QSlider>
 
 #include "battlegame.h"
-#include "Client/chatclient.h"
+#include "Client/client.h"
 #include "login.h"  // 添加 login.h 头文件
 
 namespace Ui {
@@ -21,7 +21,7 @@ class Battle : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Battle(ChatClient* client, QWidget *parent = nullptr);
+    explicit Battle(Client* client, QWidget *parent = nullptr);
     ~Battle();
 
 private slots:
@@ -31,7 +31,10 @@ private slots:
     void handleMessage(const QString &type, const QString &data);
 
     void handleNewPlayer(const QString& playerId, const QString& playerName);
-    void handlePlayerLeft(const QString& playerId);
+
+    void handlePlayerLeft(const QString &playerId);
+
+    // void handlePlayerLeft(const QString& playerId);
 
     // 添加音频控制槽函数
     void on_bgmSlider_valueChanged(int value);
@@ -42,7 +45,7 @@ signals:
 
 private:
     Ui::Battle *ui;
-    ChatClient* m_client;
+    Client* m_client;
     BattleGame* m_playerGame;
     QMap<QString, BattleGame*> m_opponentGames;  // 键改为用户名而不是UUID
     QMap<QString, QString> m_opponentIds;        // 用户名到UUID的映射
@@ -59,6 +62,11 @@ private:
     QSlider* effectSlider;
 
     void setupUI();
+
+    void createPlayerGame();
+
+    void initGameConnections();
+
     void resizeOpponentDisplays();
     void clearOpponentDisplays();
     int calculateOptimalcolumns();

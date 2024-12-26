@@ -10,13 +10,23 @@
 #include <QMutex>
 
 #include "nummatrix.h"
-#include "Client/chatclient.h"
+#include "Client/client.h"
+
+// 添加前向声明
+class QLabel;
+class QMediaPlayer;
+class QAudioOutput;
 
 class BattleGame : public QWidget
 {
     Q_OBJECT
 public:
-    explicit BattleGame(ChatClient* client, QString playerName = "", QWidget *parent = nullptr);
+    explicit BattleGame(Client* client, QString playerName = "", QWidget *parent = nullptr);
+
+    void initializeGame();
+
+    bool loadResources();
+
     ~BattleGame();
 
     void sendMatrixUpdate();
@@ -38,7 +48,7 @@ private:
         COLOR
     };
 
-    ChatClient* m_client;
+    Client* m_client;
     NumMatrix* m_playerMatrix;
     QString m_playerId;
     bool m_hasSelected;
@@ -46,12 +56,12 @@ private:
     int m_selectedY;
     QTimer* m_refreshTimer;
     bool m_gameStarted;
-    int m_playerScore;
+    int m_playerScore = 0;  // 添加必要的默认值初始化
     QList<QPropertyAnimation*> m_activeAnimations;
-    QLabel* m_playerScoreLabel;
+    QLabel* m_playerScoreLabel = nullptr;  // 添加必要的默认值初始化
     QLabel* m_opponentScoreLabel;
-    QLabel* m_statusLabel;  // 仅保留状态标签用于显示对手名字
-    bool m_isOpponent = false;  // 添加此成员变量
+    QLabel* m_statusLabel = nullptr;  // 添加必要的默认值初始化
+    bool m_isOpponent = false;  // 添加此成员变量和必要的默认值初始化
     QTimer* m_updateTimer = nullptr;
 
     // 新增成员变量
@@ -63,11 +73,11 @@ private:
     QPixmap pixmap_di;              // 选中框图片
     QPixmap disappear1, disappear2, disappear3;  // 消除动画
     QPixmap number[10];             // 数字图片
-    QMediaPlayer* greatSound;
-    QMediaPlayer* excellentSound;
-    QMediaPlayer* amazingSound;
-    QMediaPlayer* unbelievableSound;
-    QAudioOutput* effectAudioOutput;
+    QMediaPlayer* greatSound = nullptr;  // 添加必要的默认值初始化
+    QMediaPlayer* excellentSound = nullptr;  // 添加必要的默认值初始化
+    QMediaPlayer* amazingSound = nullptr;  // 添加必要的默认值初始化
+    QMediaPlayer* unbelievableSound = nullptr;  // 添加必要的默认值初始化
+    QAudioOutput* effectAudioOutput = nullptr;  // 添加必要的默认值初始化
 
     void initSoundEffects();
     void playSoundEffect(QMediaPlayer* effect);
@@ -126,7 +136,7 @@ private:
     static constexpr int SCORE_OFFSET_X = 0;    // 分数显示X偏移
     static constexpr int SCORE_OFFSET_Y = 0;    // 分数显示Y偏移
 
-    int m_cellSize;  // 动态计算的单元格大小
+    int m_cellSize = 40;  // 动态计算的单元格大小
 
     QPoint point;         // 存储第一次点击的位置
     int focus = 0;        // 点击状态标志
@@ -140,6 +150,7 @@ private:
     QMutex m_updateMutex;              // 更新互斥锁
     QAtomicInt m_animationInProgress;  // 动画状态标志
     bool m_resourcesLoaded = false;     // 资源加载状态标志
+    bool m_uiInitialized;
 
     // 添加辅助方法
     bool beginAnimation() {
@@ -160,10 +171,19 @@ private:
             updateGemTheme(":/res/images/a");
         }
     }
-
     // 添加handleComboBonus声明
     void handleComboBonus();
     void handleAnimationStage(int stage, QVector<QPair<int, int>>& eliminatedCells);
+
+    // 添加音频初始化状态标志
+    bool m_audioInitialized = false;
+    
+    // 延迟加载音频资源的方法
+    void initAudioResources();
+
+    void sendInitialMatrix();
+
+    bool m_soundEffectsEnabled = false;  // 控制音效开关
 };
 
 #endif // BATTLEGAME_H

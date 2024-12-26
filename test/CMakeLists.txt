@@ -19,16 +19,14 @@ set(TEST_SOURCES
     ../battlegame.cpp
     ../numMatrix.cpp
     ../prop.cpp
-    ../Client/chatclient.cpp
-    ../common/src/textmessage.cpp
+        ../common/src/textmessage.cpp
 )
 
 # Add header files
 set(TEST_HEADERS
     ../battlegame.h
     ../numMatrix.h
-    ../Client/chatclient.h
-    ../common/include/textmessage.h
+        ../common/include/textmessage.h
     ../common/include/messagetypes.h
 )
 

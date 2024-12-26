@@ -30,12 +30,12 @@ set(HEADERS
         Verification.h
         sliderpuzzlewidget.h
         puzzlewidget.h
-        chatroom.h
-        Client/chatclient.h
         propshop.h
         levelmanager.h
         battle.h
         battlegame.h
+        Client/chatroom.h
+        Client/client.h
 )
 
 # Add source files
@@ -50,13 +50,13 @@ set(SOURCES
         rank.cpp
         setup.cpp
         login.cpp
+        Client/client.cpp
         signup.cpp
         Verification.cpp
         sliderpuzzlewidget.cpp
         puzzlewidget.cpp
         start.cpp
-        chatroom.cpp
-        Client/chatclient.cpp
+        Client/chatroom.cpp
         propshop.cpp
         levelmanager.cpp
         common/src/textmessage.cpp
@@ -74,7 +74,7 @@ set(UIS
         setup.ui
         login.ui
         signup.ui
-        chatroom.ui
+        Client/chatroom.ui
         propshop.ui
         levelmanager.ui
         battle.ui

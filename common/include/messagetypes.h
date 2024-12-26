@@ -3,6 +3,7 @@
 #include <QString>
 #include <QVector>
 #include <QList>
+#include <QMap>  // 添加这行以支持QMap
 
 enum class MessageType {
     MSGA,
@@ -37,11 +38,6 @@ enum class MessageType {
     SWAP = 40,      // 交换方块
     MOVE = 41,      // 移动确认/结果
     PROP_USE = 42,  // 使用道具
-    MATCH = 43,     // 消除结果
-    REFILL = 44,    // 填充新方块
-    DROP = 45,      // 方块下落
-    CHAIN = 46,     // 连锁反应
-    FAIL = 47,      // 无效移动
     
     // 游戏状态消息 (50-59)
     SYNC = 50,      // 状态同步
@@ -66,10 +62,22 @@ enum class MessageType {
     MATRIX_DROP = 82,  // 矩阵下落
     PROP_TRIGGER = 83, // 道具触发
     
-    // 对战结果消息 (90-99)
-    BATTLE_WIN = 90,   // 对战胜利
-    BATTLE_LOSE = 91,  // 对战失败
-    BATTLE_DRAW = 92   // 对战平局
+    MATCH_REQUEST,   // 请求匹配
+    MATCH_CANCEL,    // 取消匹配
+    MATCH_STATUS,    // 匹配状态
+
+    GAME_END,        // 游戏结束
+    SURRENDER,       // 认输
+
+    // 房间相关消息 (90-99)
+    ROOM_CREATE = 90,    // 创建房间
+    ROOM_JOIN = 91,      // 加入房间
+    ROOM_LEAVE = 92,     // 离开房间
+    ROOM_LIST = 93,      // 房间列表
+    ROOM_INFO = 94,      // 房间信息
+    ROOM_START = 95,     // 房主开始游戏
+    ROOM_READY = 96,     // 玩家准备
+    ROOM_UPDATE = 97,    // 房间状态更新
 };
 
 // 定义道具类型
@@ -85,4 +93,14 @@ struct BattleData {
     QString playerId;     // 玩家ID
     int score;           // 当前分数
     QVector<QVector<int>> matrix;  // 矩阵数据
+};
+
+// 添加房间数据结构
+struct RoomInfo {
+    QString roomId;
+    QString hostName;
+    QStringList players;
+    QMap<QString, bool> readyStatus;
+    int maxPlayers;
+    bool isPlaying;
 };

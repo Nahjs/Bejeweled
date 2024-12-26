@@ -38,13 +38,7 @@ Start::Start(QWidget *parent)
     chatRoom = nullptr;  // 初始化聊天室指针为空
 
     // 初始化ChatClient
-    m_client = new ChatClient(this);
-    connect(m_client, &ChatClient::connected, this, [this]() {
-        qDebug() << "成功连接到服务器";
-    });
-    connect(m_client, &ChatClient::error, this, [](const QString& error) {
-        qDebug() << "连接错误:" << error;
-    });
+    m_client = new Client(this);
     
     battle = nullptr;  // 初始化为nullptr
 }
@@ -182,8 +176,8 @@ void Start::on_btn_battle_clicked()
 {
     if (!m_client->isConnected()) {
         // 尝试连接服务器
-        //m_client->connectToServer("localhost", 5371);
-         m_client->connectToServer("cn-hk-bgp-4.ofalias.net", 49548); // 线上服务器
+        m_client->connectToServer("localhost", 5371);
+        //m_client->connectToServer("cn-hk-bgp-4.ofalias.net", 49548); // 线上服务器
     }
 
     if (!battle) {

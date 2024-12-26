@@ -1,8 +1,6 @@
-#ifndef CHATROOM_H
-#define CHATROOM_H
-
+#pragma once
 #include <QWidget>
-#include "Client/chatclient.h"
+#include "client.h"
 #include <QMessageBox>
 #include "login.h"
 
@@ -10,16 +8,16 @@ namespace Ui {
 class ChatRoom;
 }
 
-class ChatRoom : public QWidget
-{
+class ChatRoom : public QWidget {
     Q_OBJECT
 
 public:
     explicit ChatRoom(QWidget *parent = nullptr);
     ~ChatRoom();
+    void setClient(Client *client);  // 添加设置客户端的方法
 
 protected:
-    void closeEvent(QCloseEvent *event) override;  // 添加这一行
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void onChatConnected();
@@ -27,15 +25,13 @@ private slots:
     void onChatError(const QString& error);
     void onSendMessage();
     void handleChatMessage(const QString& type, const QString& message);
-    void on_registerButton_clicked();  // 添加注册按钮槽函数
-    void onRegisterSuccess();  // 添加注册成功处理函数
+    void on_registerButton_clicked();
+    void onRegisterSuccess();
 
 private:
     Ui::ChatRoom *ui;
-    ChatClient *chatClient;
-    
+    Client *client;
+
     void setupChatConnections();
     void appendChatMessage(const QString& message);
 };
-
-#endif // CHATROOM_H

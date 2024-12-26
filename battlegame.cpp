@@ -16,43 +16,43 @@
 #include "login.h"
 #include "setup.h"
 
-BattleGame::BattleGame(ChatClient* client, QString playerName, QWidget *parent) 
+BattleGame::BattleGame(Client* client, QString playerName, QWidget *parent)
     : QWidget(parent), m_client(client), m_hasSelected(false), m_playerName(playerName)
 {
     // 生成唯一的玩家ID
     m_playerId = QUuid::createUuid().toString();
-    
+
     m_playerMatrix = new NumMatrix();
     // 移除 m_opponentMatrix 的初始化
-    
+
     // 设置矩阵大小并初始化
     m_playerMatrix->setMapSize(7, 7);  // 设置7x7的大小
     m_playerMatrix->BuildMap(5);  // 初始化玩家矩阵
- 
-    
+
+
     // 设置游戏运行状态为true
     m_playerMatrix->setgamerunning(true);
     m_gameStarted = true;  // 测试时直接设置为开始状态？匹配机制？
-    
+
     m_refreshTimer = new QTimer(this);
     m_playerScore = 0;
     // 移除 m_opponentScore = 0; 不再需要
-    
+
     // 设置定时器，50ms刷新一次
     connect(m_refreshTimer, &QTimer::timeout, this, &BattleGame::onRefreshTimeout);
     m_refreshTimer->start(50);
-    
+
     // 连接游戏消息处理
-    connect(m_client, &ChatClient::messageReceived, this, &BattleGame::handleMessage);
-    connect(m_client, &ChatClient::connected, this, [this]() {
+    connect(m_client, &Client::messageReceived, this, &BattleGame::handleMessage);
+    connect(m_client, &Client::connected, this, [this]() {
         // 连接成功后立即发送初始矩阵状态
         QTimer::singleShot(100, this, [this]() {
             sendMatrixUpdate();
         });
     });
-    
+
     initUI();
-    
+
     // 发送开始游戏请求和初始矩阵状态
     m_client->sendMessage("GAME", "");
     sendMatrixUpdate();  // 发送初始矩阵状态
@@ -88,9 +88,20 @@ BattleGame::BattleGame(ChatClient* client, QString playerName, QWidget *parent)
     // 设置固定大小
     setMinimumWidth(GAME_AREA_WIDTH + 2 * OFFSET_X);
     setMinimumHeight(GAME_AREA_HEIGHT + OFFSET_Y + SCORE_OFFSET_Y);
-    
+
     // 计算初始单元格大小
     m_cellSize = GAME_AREA_WIDTH / m_playerMatrix->MAPCOLNUM;
+}
+
+
+void BattleGame::initUI() {
+    setMinimumSize(800, 400);
+
+    // 只保留状态标签用于显示对手名字
+    m_statusLabel = new QLabel(this);
+    m_statusLabel->setStyleSheet("QLabel { color: black; font-size: 14px; }");
+    m_statusLabel->setAlignment(Qt::AlignCenter);
+    m_statusLabel->move(350, 10);
 }
 
 // 修改析构函数确保清理所有动画
@@ -116,16 +127,6 @@ BattleGame::~BattleGame() {
         delete animation;
     }
     m_activeAnimations.clear();
-}
-
-void BattleGame::initUI() {
-    setMinimumSize(800, 400);
-    
-    // 只保留状态标签用于显示对手名字
-    m_statusLabel = new QLabel(this);
-    m_statusLabel->setStyleSheet("QLabel { color: black; font-size: 14px; }");
-    m_statusLabel->setAlignment(Qt::AlignCenter);
-    m_statusLabel->move(350, 10);
 }
 
 void BattleGame::paintEvent(QPaintEvent* event) {
@@ -294,16 +295,16 @@ void BattleGame::drawNumber(QPainter& painter, int x, int y, int number, bool is
 QPoint BattleGame::screenToBoard(int x, int y, bool& isOpponentBoard) {
     int offsetX = m_isOpponent ? (width() - m_playerMatrix->MAPCOLNUM * m_cellSize) / 2 : OFFSET_X;
     int offsetY = m_isOpponent ? (height() - m_playerMatrix->MAPROWNUM * m_cellSize) / 2 : OFFSET_Y;
-    
+
     int relX = x - offsetX;
     int relY = y - offsetY;
-    
-    if (relX < 0 || relY < 0 || 
-        relX >= m_playerMatrix->MAPCOLNUM * m_cellSize || 
+
+    if (relX < 0 || relY < 0 ||
+        relX >= m_playerMatrix->MAPCOLNUM * m_cellSize ||
         relY >= m_playerMatrix->MAPROWNUM * m_cellSize) {
         return QPoint(-1, -1);
     }
-    
+
     return QPoint(relX / m_cellSize, relY / m_cellSize);
 }
 
@@ -521,7 +522,36 @@ QJsonArray BattleGame::MatrixToJson(NumMatrix* matrix)
     return jsonMatrix;
 }
 
-void BattleGame::sendMatrixUpdate() 
+void BattleGame::sendMatrixUpdate() {
+    if (m_isOpponent) return;  // 对手实例不发送更新
+
+    QJsonObject data;
+    data["matrix"] = MatrixToJson(m_playerMatrix);
+    data["username"] = Login::currentUsername;
+    data["playerId"] = m_playerId;
+    data["score"] = m_playerScore;
+    data["timestamp"] = QDateTime::currentMSecsSinceEpoch();
+
+ /*   QJsonObject data;
+    data["matrix"] = MatrixToJson(m_playerMatrix);  // 使用玩家矩阵
+    data["username"] = Login::currentUsername;
+    data["playerId"] = m_playerId;
+    data["score"] = m_playerScore;  // 使用现有的分数变量
+    data["timestamp"] = QDateTime::currentMSecsSinceEpoch();
+*/
+    
+    QJsonDocument doc(data);
+    QString jsonStr = doc.toJson(QJsonDocument::Compact);
+
+    // 使用新的消息格式发送
+    QJsonObject message;
+    message["type"] = "MATRIX_SYNC";
+    message["message"] = jsonStr;
+    QJsonDocument messageDoc(message);
+    m_client->sendMessage("MATRIX_SYNC", jsonStr);
+}
+/*
+void BattleGame::sendMatrixUpdate()
 {
     if (m_isOpponent) return;  // 对手实例不发送更新
 
@@ -536,103 +566,56 @@ void BattleGame::sendMatrixUpdate()
     QString jsonStr = doc.toJson(QJsonDocument::Compact);
     m_client->sendMessage("MATRIX_SYNC", jsonStr);
 }
+*/
 
-QPoint BattleGame::boardToScreen(int x, int y, bool isOpponentBoard) {
-    int offsetX = isOpponentBoard ? 
-        (width() - m_playerMatrix->MAPCOLNUM * m_cellSize) / 2 : OFFSET_X;
-    int offsetY = isOpponentBoard ? 
-        (height() - m_playerMatrix->MAPROWNUM * m_cellSize) / 2 : OFFSET_Y;
-    
-    return QPoint(
-        offsetX + x * m_cellSize,
-        offsetY + y * m_cellSize
-    );
-}
-/*
-void BattleGame::handleEliminationAndDrop() {
-    static QMutex animationMutex;
-    QMutexLocker locker(&animationMutex);
+void BattleGame::handleMessage(const QString& type, const QString& data)
+{
+    qDebug() << "收到服务器消息 - 类型:" << type << "内容:" << data;
 
-    // 检查状态
-    if (!m_resourcesLoaded || !m_playerMatrix || m_animationInProgress.loadAcquire()) {
-        return;
-    }
-
-    m_animationInProgress.storeRelease(true);
-    m_totalEliminateCount = 0;
-
-    try {
-        bool hasMoreEliminations;
-        do {
-            hasMoreEliminations = false;
-
-            // 执行一次消除循环
-            if (m_playerMatrix->eliminate(false)) {
-                int eliminateNumber = 0;
-                QVector<QPair<int, int>> eliminatedCells;
-
-                {
-                    QMutexLocker matrixLocker(&m_resourceMutex);
-                    memset(midSituation, 0, sizeof(midSituation));
-
-                    // 收集需要消除的位置
-                    for (int i = 0; i < m_playerMatrix->MAPROWNUM; i++) {
-                        for (int j = 0; j < m_playerMatrix->MAPCOLNUM; j++) {
-                            if (m_playerMatrix->GetNum(i, j) == 0) {
-                                eliminateNumber++;
-                                eliminatedCells.append({i, j});
-                                midSituation[i][j] = 1;
-                            }
-                        }
+    // 尝试解析JSON格式
+    QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+    if (!doc.isNull()) {
+        if (type == "SCORE_SYNC") {
+            if (doc.isObject()) {
+                QJsonObject obj = doc.object();
+                if (obj.contains("score") && obj.contains("username")) {
+                    QString username = obj["username"].toString();
+                    if (m_opponentMatrices.contains(username)) {
+                        m_opponentScores[username] = obj["score"].toInt();
+                        updateScoreDisplay(username, m_opponentScores[username]);
+                        update();
                     }
-                }
-
-                if (eliminateNumber > 0) {
-                    m_totalEliminateCount += eliminateNumber;
-                    m_playerScore += eliminateNumber * 10;
-
-                    // 执行消除动画
-                    for (int stage = 1; stage <= 3 && !eliminatedCells.isEmpty(); stage++) {
-                        handleAnimationStage(stage, eliminatedCells);
-                        QThread::msleep(ANIMATION_DELAY);  // 延迟以实现平滑动画效果
-                    }
-
-                    // 执行下落
-                    bool hasDropped;
-                    do {
-                        {
-                            QMutexLocker matrixLocker(&m_resourceMutex);
-                            hasDropped = m_playerMatrix->down();
-                        }
-
-                        if (hasDropped) {
-                            safeUpdate();
-                            QThread::msleep(ANIMATION_DELAY);  // 延迟以实现平滑动画效果
-                        }
-                    } while (hasDropped);
-
-                    hasMoreEliminations = m_playerMatrix->checkmap();
                 }
             }
-        } while (hasMoreEliminations);
-
-        // 所有消除完成后处理连消奖励
-        if (m_totalEliminateCount >= 5) {
-            handleComboBonus();
         }
-
-        // 所有操作完成后才发送一次更新
-        QTimer::singleShot(100, this, [this]() {
-            sendMatrixUpdate();
-        });
-
-    } catch (const std::exception& e) {
-        qDebug() << "Exception in handleEliminationAndDrop:" << e.what();
+        else if (type == "MATRIX_SYNC") {
+            if (doc.isObject()) {
+                QJsonObject obj = doc.object();
+                QString senderId = obj["playerId"].toString();
+                if (senderId != m_playerId) {
+                    updateOpponentMatrix(obj);
+                }
+            }
+        }
+        else if (type == "PLAYER_JOIN" || type == "PLAYER_LEFT") {
+            if (doc.isObject()) {
+                QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+                if (doc.isObject()) {
+                    QJsonObject obj = doc.object();
+                    QString username = obj["username"].toString();
+                    if (username != Login::currentUsername) {
+                        // 新玩家加入时发送当前矩阵状态
+                        QTimer::singleShot(200, this, [this]() {
+                            sendInitialMatrix();
+                        });
+                    }
+                }
+            }
+        }
+    } else {
+        qDebug() << "无效的JSON数据:" << data;
     }
-
-    m_animationInProgress.storeRelease(false);
 }
-*/
 
 void BattleGame::handleEliminationAndDrop()
 {
@@ -821,64 +804,22 @@ void BattleGame::executeSwapAnimation(int fromX, int fromY, int toX, int toY) {
     animation->setDuration(40);
     animation->setStartValue(boardToScreen(fromX, fromY, false));
     animation->setEndValue(boardToScreen(toX, toY, false));
-    
+
     // 实际执行交换
     int temp = m_playerMatrix->GetNum(fromY, fromX);
     m_playerMatrix->SetNum(fromY, fromX, m_playerMatrix->GetNum(toY, toX));
     m_playerMatrix->SetNum(toY, toX, temp);
-    
+
     // 将动画添加到活跃动画列表中
     m_activeAnimations.append(animation);
-    
+
     // 连接动画完成信号，在完成时清理
     connect(animation, &QPropertyAnimation::finished, this, [this, animation]() {
         m_activeAnimations.removeOne(animation);
         animation->deleteLater();
     });
-    
+
     animation->start();
-}
-
-
-
-void BattleGame::handleMessage(const QString& type, const QString& data) 
-{
-    qDebug() << "收到服务器消息 - 类型:" << type << "内容:" << data;
-
-    // 尝试解析JSON格式
-    QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
-    if (!doc.isNull()) {
-        if (type == "SCORE_SYNC") {
-            if (doc.isObject()) {
-                QJsonObject obj = doc.object();
-                if (obj.contains("score") && obj.contains("username")) {
-                    QString username = obj["username"].toString();
-                    if (m_opponentMatrices.contains(username)) {
-                        m_opponentScores[username] = obj["score"].toInt();
-                        updateScoreDisplay(username, m_opponentScores[username]);
-                        update();
-                    }
-                }
-            }
-        }
-        else if (type == "MATRIX_SYNC") {
-            if (doc.isObject()) {
-                QJsonObject obj = doc.object();
-                QString senderId = obj["playerId"].toString();
-                if (senderId != m_playerId) {
-                    updateOpponentMatrix(obj);
-                }
-            }
-        }
-        else if (type == "PLAYER_JOIN" || type == "PLAYER_LEFT") {
-            if (doc.isObject()) {
-                QJsonObject obj = doc.object();
-                // 处理玩家加入/离开的逻辑...
-            }
-        }
-    } else {
-        qDebug() << "无效的JSON数据:" << data;
-    }
 }
 
 void BattleGame::updateOpponentMatrix(const QJsonObject& data)
@@ -917,7 +858,7 @@ void BattleGame::updateOpponentMatrix(const QJsonObject& data)
     // 更新矩阵数据
     QJsonArray jsonMatrix = data["matrix"].toArray();
     if (jsonMatrix.size() != matrix->MAPROWNUM) {
-        qDebug() << "Matrix size mismatch. Expected:" << matrix->MAPROWNUM 
+        qDebug() << "Matrix size mismatch. Expected:" << matrix->MAPROWNUM
                  << "Got:" << jsonMatrix.size();
         return;
     }
@@ -937,7 +878,7 @@ void BattleGame::updateOpponentMatrix(const QJsonObject& data)
         qDebug() << "Exception during matrix update:" << e.what();
         return;
     }
-    
+
     // 更新显示
     updateScoreDisplay(username, newScore);
     update();
@@ -1170,7 +1111,7 @@ void BattleGame::initSoundEffects() {
 
 void BattleGame::playSoundEffect(QMediaPlayer* effect) {
     if (!effect || !effectAudioOutput) return;
-    
+
     if (effect->playbackState() == QMediaPlayer::PlayingState) {
         effect->setPosition(0);
     }
@@ -1182,7 +1123,7 @@ void BattleGame::updateBackgroundMusic(float volume) {
     if (Setup::audioOutput) {
         Setup::audioOutput->setVolume(volume);
     }
-    
+
     // 同时更新特效音量
     if (effectAudioOutput) {
         effectAudioOutput->setVolume(volume);
@@ -1195,12 +1136,12 @@ void BattleGame::updateMuteState(bool muted) {
         Setup::audioOutput->setMuted(muted);
     }
 
-    
+
     // 同时更新特效静音状态
     if (effectAudioOutput) {
         effectAudioOutput->setMuted(muted);
     }
-    
+
     // 更新所有音效播放器的静音状态
     if (greatSound) greatSound->audioOutput()->setMuted(muted);
     if (excellentSound) excellentSound->audioOutput()->setMuted(muted);
@@ -1215,6 +1156,70 @@ void BattleGame::updateMapSize(int rows, int cols) {
         m_playerMatrix->BuildMap(5);  // 重新生成地图
         update();
     }
+}
+
+QPoint BattleGame::boardToScreen(int x, int y, bool isOpponentBoard) {
+    int offsetX = isOpponentBoard ?
+        (width() - m_playerMatrix->MAPCOLNUM * m_cellSize) / 2 : OFFSET_X;
+    int offsetY = isOpponentBoard ?
+        (height() - m_playerMatrix->MAPROWNUM * m_cellSize) / 2 : OFFSET_Y;
+
+    return QPoint(
+        offsetX + x * m_cellSize,
+        offsetY + y * m_cellSize
+    );
+}
+
+void BattleGame::initAudioResources() {
+    if (m_audioInitialized) return;
+    
+    try {
+        effectAudioOutput = new QAudioOutput(this);
+        if (effectAudioOutput) {
+            effectAudioOutput->setVolume(0.5f);
+        }
+
+        // 初始化音效播放器
+        greatSound = new QMediaPlayer(this);
+        excellentSound = new QMediaPlayer(this);
+        amazingSound = new QMediaPlayer(this);
+        unbelievableSound = new QMediaPlayer(this);
+
+        // 设置音频输出
+        if (greatSound) greatSound->setAudioOutput(new QAudioOutput(this));
+        if (excellentSound) excellentSound->setAudioOutput(new QAudioOutput(this));
+        if (amazingSound) amazingSound->setAudioOutput(new QAudioOutput(this));
+        if (unbelievableSound) unbelievableSound->setAudioOutput(new QAudioOutput(this));
+
+        // 设置音源
+        if (greatSound) greatSound->setSource(QUrl("qrc:/res/audio/great.mp3"));
+        if (excellentSound) excellentSound->setSource(QUrl("qrc:/res/audio/excellent.mp3"));
+        if (amazingSound) excellentSound->setSource(QUrl("qrc:/res/audio/amazing.mp3"));
+        if (unbelievableSound) unbelievableSound->setSource(QUrl("qrc:/res/audio/unbelievable.mp3"));
+
+        m_audioInitialized = true;
+        m_soundEffectsEnabled = true;  // 初始化成功后启用音效
+        
+        qDebug() << "音频系统初始化成功";
+    }
+    catch (const std::exception& e) {
+        qDebug() << "音频系统初始化失败:" << e.what();
+        m_audioInitialized = false;
+        m_soundEffectsEnabled = false;
+    }
+}
+
+void BattleGame::sendInitialMatrix()
+{
+    QJsonObject data;
+    data["matrix"] = MatrixToJson(m_playerMatrix);
+    data["username"] = Login::currentUsername;
+    data["playerId"] = m_playerId;
+    data["score"] = m_playerScore;
+    data["timestamp"] = QDateTime::currentMSecsSinceEpoch();
+    
+    QJsonDocument doc(data);
+    m_client->sendMessage("MATRIX_SYNC", doc.toJson(QJsonDocument::Compact));
 }
 
 

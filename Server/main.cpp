@@ -1,14 +1,13 @@
 #include <QCoreApplication>
-#include "chatserver.h"
+#include "server.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
-    
-    ChatServer server;
-    if(!server.startServer(5371)) {
+
+    Server server;
+    if (!server.startServer(5371)) {
+        qCritical() << "服务器启动失败";
         return -1;
     }
-    
     return a.exec();
 }

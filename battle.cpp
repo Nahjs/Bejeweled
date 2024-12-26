@@ -6,7 +6,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-Battle::Battle(ChatClient* client, QWidget *parent)
+Battle::Battle(Client* client, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Battle)
     , m_client(client)
@@ -15,7 +15,7 @@ Battle::Battle(ChatClient* client, QWidget *parent)
     setupUI();
 
     // 连接服务器消息处理
-    connect(m_client, &ChatClient::messageReceived, this, [this](const QString& type, const QString& data) {
+    connect(m_client, &Client::messageReceived, this, [this](const QString& type, const QString& data) {
         if (type == "PLAYER_JOIN") {
             QStringList parts = data.split(",");
             if (parts.size() >= 2) {
@@ -44,15 +44,14 @@ Battle::~Battle()
     clearOpponentDisplays();
     delete ui;
 }
-
 void Battle::setupUI()
 {
     // 使用登录用户名
     ui->playerInfoLabel->setText(tr("当前玩家: %1").arg(Login::currentUsername));
-    
+
     // 设置左侧玩家界面的固定大小
     ui->leftPanel->setFixedWidth(580);
-    
+
     // 创建玩家游戏界面时传入当前用户名
     m_playerGame = new BattleGame(m_client, Login::currentUsername, this);
     m_playerGame->setFixedSize(550, 550);
@@ -65,56 +64,56 @@ void Battle::setupUI()
     opponentsLayout->setAlignment(Qt::AlignCenter);
     ui->opponentsContainer->setLayout(opponentsLayout);
     m_opponentsLayout = opponentsLayout;
-    
+
     // 设置音频控制组件
     audioWidget = new QWidget(this);
     audioWidget->setObjectName("audioWidget");
     audioWidget->setGeometry(QRect(250, 20, 291, 120));
-    
+
     verticalLayout_audio = new QVBoxLayout(audioWidget);
     verticalLayout_audio->setObjectName("verticalLayout_audio");
     verticalLayout_audio->setContentsMargins(0, 0, 0, 0);
-    
+
     // 背景音乐控制
     horizontalLayout_bgm = new QHBoxLayout();
     horizontalLayout_bgm->setObjectName("horizontalLayout_bgm");
-    
+
     label_bgm = new QLabel(audioWidget);
     label_bgm->setObjectName("label_bgm");
     label_bgm->setText(tr("背景音乐"));
     horizontalLayout_bgm->addWidget(label_bgm);
-    
+
     bgmSlider = new QSlider(audioWidget);
     bgmSlider->setObjectName("bgmSlider");
     bgmSlider->setOrientation(Qt::Horizontal);
     bgmSlider->setRange(0, 100);
     bgmSlider->setValue(50);  // 默认音量50%
     horizontalLayout_bgm->addWidget(bgmSlider);
-    
+
     verticalLayout_audio->addLayout(horizontalLayout_bgm);
-    
+
     // 音效控制
     horizontalLayout_effect = new QHBoxLayout();
     horizontalLayout_effect->setObjectName("horizontalLayout_effect");
-    
+
     label_effect = new QLabel(audioWidget);
     label_effect->setObjectName("label_effect");
     label_effect->setText(tr("音效"));
     horizontalLayout_effect->addWidget(label_effect);
-    
+
     effectSlider = new QSlider(audioWidget);
     effectSlider->setObjectName("effectSlider");
     effectSlider->setOrientation(Qt::Horizontal);
     effectSlider->setRange(0, 100);
     effectSlider->setValue(50);  // 默认音量50%
     horizontalLayout_effect->addWidget(effectSlider);
-    
+
     verticalLayout_audio->addLayout(horizontalLayout_effect);
 
     // 连接信号槽
     connect(bgmSlider, &QSlider::valueChanged, this, &Battle::on_bgmSlider_valueChanged);
     connect(effectSlider, &QSlider::valueChanged, this, &Battle::on_effectSlider_valueChanged);
-    
+
     qDebug() << "战斗界面初始化完成";
 }
 
@@ -138,7 +137,7 @@ void Battle::handleNewPlayer(const QString& playerId, const QString& playerName)
     opponentGame->setIsOpponent(true, playerName);
     opponentGame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     opponentGame->setMinimumSize(200, 200);
-    
+
     // 使用用户名作为key存储游戏实例
     m_opponentGames[playerName] = opponentGame;
     m_opponentIds[playerName] = playerId;  // 保存ID映射以便需要时查询
@@ -155,7 +154,7 @@ void Battle::handleNewPlayer(const QString& playerId, const QString& playerName)
 
     // 更新对手信息显示
     ui->opponentsInfoLabel->setText(tr("当前对手数: %1").arg(m_opponentGames.size()));
-    
+
     qDebug() << "当前对手总数:" << m_opponentGames.size();
 }
 
@@ -175,7 +174,7 @@ void Battle::handlePlayerLeft(const QString& playerId)
         m_opponentGames.remove(username);
         m_opponentIds.remove(username);
         resizeOpponentDisplays();
-        
+
         qDebug() << "玩家离开:" << username << "(" << playerId << ")";
     }
 }
@@ -216,15 +215,15 @@ void Battle::resizeOpponentDisplays()
         int row = index / cols;
         int col = index % cols;
         BattleGame* game = it.value();
-        
+
         game->setFixedSize(cellWidth, cellHeight);
         gridLayout->addWidget(game, row, col);
         game->show();  // 显示widget
-        
-        qDebug() << "放置对手" << index + 1 
+
+        qDebug() << "放置对手" << index + 1
                  << "在位置(" << row << "," << col << ")"
                  << "大小:" << cellWidth << "x" << cellHeight;
-        
+
         index++;
     }
 
@@ -273,38 +272,57 @@ void Battle::updateOpponentDisplays(const QStringList& players)
     }
 }
 
-void Battle::handleMessage(const QString& type, const QString& data)
+void Battle::handleMessage(const QString &type, const QString &data) 
 {
-    if (type == "MATRIX_SYNC") {
+    qDebug() << "对战界面收到消息:" << type << data;
+
+    if (type == "CONN") {
+        // 连接成功后发送初始化消息
+        QTimer::singleShot(100, this, [this]() {
+            if (m_playerGame) {
+                m_playerGame->sendMatrixUpdate();
+            }
+        });
+    }
+    if (type == "BATTLE_START") {
+        QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
+        if (doc.isObject()) {
+            QJsonObject obj = doc.object();
+            QString opponentName = obj["username"].toString();
+            if (!m_opponentGames.contains(opponentName)) {
+                handleNewPlayer(obj["playerId"].toString(), opponentName);
+            }
+        }
+    } else if (type == "MATRIX_SYNC") {
         QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
         if (doc.isObject()) {
             QJsonObject obj = doc.object();
             QString username = obj["username"].toString();
             QString playerId = obj["playerId"].toString();
             qint64 timestamp = obj["timestamp"].toVariant().toLongLong();
-            
+
             if (username == Login::currentUsername) {
                 return;  // 忽略自己的消息
             }
 
             static QMap<QString, qint64> lastUpdateTimes;
-            
+
             // 使用用户名作为key检查更新
-            if (!lastUpdateTimes.contains(username) || 
+            if (!lastUpdateTimes.contains(username) ||
                 timestamp > lastUpdateTimes[username]) {
-                
+
                 // 如果是新玩家，创建实例
                 if (!m_opponentGames.contains(username)) {
                     handleNewPlayer(playerId, username);
                 }
-                
+
                 // 使用用户名获取对应的游戏实例
                 if (m_opponentGames.contains(username)) {
                     m_opponentGames[username]->updateOpponentMatrix(obj);
                     lastUpdateTimes[username] = timestamp;
                     qDebug() << "更新玩家" << username << "的矩阵 时间戳:" << timestamp;
                 }
-            }
+                }
         }
     }
     // ...existing code...

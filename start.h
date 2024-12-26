@@ -8,12 +8,11 @@
 #include "mainwindow.h"
 #include "rank.h"
 #include "login.h"
-#include "mailform.h"
-#include "chatroom.h"
+#include "Client/chatroom.h"
 #include <QMainWindow>
 #include <propshop.h>
 #include "battle.h"
-#include "Client/chatclient.h"
+#include "Client/client.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Start; }
@@ -58,7 +57,7 @@ private:
     PropShop *propShop;      // 添加商城指针
     LevelManager *levelManager;  // 添加关卡管理器指针
     Battle* battle;            // 对战模式界面
-    ChatClient* m_client;      // 游戏客户端
+    Client* m_client;      // 游戏客户端
     static int rows;
     static int cols;
 };
