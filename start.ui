@@ -114,7 +114,7 @@ color: rgb(232, 5, 21);</string>
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>100</y>
+      <y>90</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -148,7 +148,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>50</y>
+      <y>40</y>
       <width>71</width>
       <height>41</height>
      </rect>
