@@ -224,7 +224,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/res/images/row.png);</string>
+     <string notr="true">image: url(:/res/images/hammer.png);</string>
     </property>
     <property name="text">
      <string>row</string>
@@ -353,7 +353,7 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/res/images/col.png);</string>
+     <string notr="true">image: url(:/res/images/cross.png);</string>
     </property>
     <property name="text">
      <string>col</string>
@@ -533,6 +533,8 @@ font: 75 9pt &quot;微软雅黑&quot;;</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>
