@@ -207,48 +207,48 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QComboBox" name="sizeComboBox">
    <property name="geometry">
     <rect>
      <x>500</x>
-     <y>20</y>
-     <width>77</width>
-     <height>61</height>
+     <y>60</y>
+     <width>75</width>
+     <height>21</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_7">
-    <item>
-     <widget class="QPushButton" name="sizeSetButton">
-      <property name="text">
-       <string>界面设置</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="sizeComboBox">
-      <item>
-       <property name="text">
-        <string>6*6</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>8*8</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>10*10</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>12*12</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-   </layout>
+   <item>
+    <property name="text">
+     <string>6*6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>8*8</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10*10</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>12*12</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="sizeSetButton">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>30</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>界面设置</string>
+   </property>
   </widget>
  </widget>
  <resources/>
