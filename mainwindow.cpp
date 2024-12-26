@@ -1323,7 +1323,7 @@ void Mainwindow::checkLevelComplete()
 {
     int score = Rank::g_rank.nGrade;
     int stars = 0;
-    
+
     // 更新星级
     if(score >= levelTargetScore) {
         stars = 1;  // 基本达标

@@ -119,7 +119,7 @@ void Signup::on_btn_return_clicked()
 void Signup::onVerificationMethodChanged(int index)
 {
     useSliderVerification = (index == 0);
-    
+
     // 根据选择的验证方式更新界面
     if (useSliderVerification) {
         // 切换到滑块验证
@@ -129,6 +129,9 @@ void Signup::onVerificationMethodChanged(int index)
         sliderWidget->show();
         sliderWidget->raise();
         sliderWidget->reset();
+
+        // 隐藏“双击图片可刷新验证码”提示
+        ui->label_verificationHint->hide();
     } else {
         // 切换到图形验证码
         sliderWidget->hide();
@@ -136,8 +139,13 @@ void Signup::onVerificationMethodChanged(int index)
         ui->lineEdit_verification->show();
         ui->label_verification->show();
         verificationWidget->refreshCode();
+
+        // 显示“双击图片可刷新验证码”提示
+        ui->label_verificationHint->setText("双击图片可刷新验证码");
+        ui->label_verificationHint->show();
     }
 }
+
 
 void Signup::updateVerificationWidget()
 {
@@ -148,7 +156,7 @@ void Signup::updateVerificationWidget()
     sliderWidget->hide();
 
     qDebug() << "更新验证组件显示";  // 添加调试输出
-    
+
     if (useSliderVerification) {
         qDebug() << "显示滑块验证";  // 添加调试输出
         sliderWidget->show();
